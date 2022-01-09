@@ -34,7 +34,7 @@ public class PacketEncoder extends MessageToByteEncoder<Packet> {
         PacketType type = packet.getType();
         final int size = packet.getSize();
 
-//        System.err.println("{PacketEncoder} Send opcode: " + packet.getOpcode() + " \t  size: " + size + " \t encOp: " + opcode);
+        System.err.println("{PacketEncoder} Send opcode: " + packet.getOpcode() + " \t  size: " + size + " \t encOp: " + opcode);
 
         // Used for finding incorrect client pkt sizes
         if (type == PacketType.FIXED) {

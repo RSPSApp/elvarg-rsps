@@ -277,11 +277,12 @@ public final class IsaacRandom {
      * @return The next random value.
      */
     public int nextInt() {
-        if (0 == count--) {
-            isaac();
-            count = SIZE - 1;
-        }
-        return results[count];
+        return 0;
+//        if (0 == count--) {
+//            isaac();
+//            count = SIZE - 1;
+//        }
+//        return results[count];
     }
 
 }
