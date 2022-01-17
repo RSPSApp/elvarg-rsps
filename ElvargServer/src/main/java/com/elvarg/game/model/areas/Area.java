@@ -35,6 +35,8 @@ public abstract class Area {
 
     public abstract boolean canDrink(Player player, int itemId);
 
+    public abstract boolean useTemporarySkills() { return false; }
+
     public abstract boolean dropItemsOnDeath(Player player, Optional<Player> killer);
 
     public abstract boolean handleDeath(Player player, Optional<Player> killer);

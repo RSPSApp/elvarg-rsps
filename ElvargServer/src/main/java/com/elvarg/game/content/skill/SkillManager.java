@@ -57,7 +57,31 @@ public class SkillManager {
 	 * The player associated with this Skills instance.
 	 */
 	private Player player;
+
+	/**
+	 * The player's regular Skills instance.
+	 */
 	private Skills skills;
+
+	/**
+	 * The player's temporary Skills instance.
+	 *
+	 * This is used for temporary levels for example Maxing within particular minigames
+	 */
+	private Skills tempSkills;
+
+	/**
+	 * The player's current relevant Skills instance.
+	 *
+	 * This is dependant on location.
+	 */
+	private getSkills() {
+		if(this.player.getArea().useTemporarySkills()) {
+			return this.tempSkills;
+		}
+
+		return this.skills;
+	}
 
 	/**
 	 * The skillmanager's constructor
@@ -68,9 +92,16 @@ public class SkillManager {
 	public SkillManager(Player player) {
 		this.player = player;
 		this.skills = new Skills();
+		this.tempSkills = new Skills();
+
 		for (int i = 0; i < AMOUNT_OF_SKILLS; i++) {
-			skills.level[i] = skills.maxLevel[i] = 1;
-			skills.experience[i] = 0;
+			// Instanciate all regular skills at 1 with 0 XP
+			this.skills.level[i] = skills.maxLevel[i] = 1;
+			this.skills.experience[i] = 0;
+
+			// Max temporary skills by default
+			this.tempSkills.level[i] = tempSkills.maxLevel[i] = 99;
+			this.tempSkills.experience[i] = EXPERIENCE_FOR_99;
 		}
 		skills.level[Skill.HITPOINTS.ordinal()] = skills.maxLevel[Skill.HITPOINTS.ordinal()] = 10;
 		skills.experience[Skill.HITPOINTS.ordinal()] = 1184;
@@ -177,27 +208,27 @@ public class SkillManager {
 			return this;
 
 		// If we already have max exp, don't add any more.
-		if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE)
+		if (this.getSkills().experience[skill.ordinal()] >= MAX_EXPERIENCE)
 			return this;
 
 		// The skill's level before any experience is added
-		final int startingLevel = skills.maxLevel[skill.ordinal()];
+		final int startingLevel = this.getSkills().maxLevel[skill.ordinal()];
 
 		// Add experience to the selected skill..
-		this.skills.experience[skill.ordinal()] = this.skills.experience[skill.ordinal()] + experience > MAX_EXPERIENCE
+		this.getSkills().experience[skill.ordinal()] = this.getSkills().experience[skill.ordinal()] + experience > MAX_EXPERIENCE
 				? MAX_EXPERIENCE
-				: this.skills.experience[skill.ordinal()] + experience;
+				: this.getSkills().experience[skill.ordinal()] + experience;
 
 		// Get the skill's new level after experience has been added..
-		int newLevel = getLevelForExperience(this.skills.experience[skill.ordinal()]);
+		int newLevel = getLevelForExperience(this.getSkills().experience[skill.ordinal()]);
 
 		// Handle level up..
 		if (newLevel > startingLevel) {
 			int level = newLevel - startingLevel;
 			String skillName = Misc.ucFirst(skill.toString().toLowerCase());
-			skills.maxLevel[skill.ordinal()] += level;
+			this.getSkills().maxLevel[skill.ordinal()] += level;
 			stopSkillable(); // Stop skilling on level up like osrs
-			setCurrentLevel(skill, skills.maxLevel[skill.ordinal()]);
+			setCurrentLevel(skill, this.getSkills().maxLevel[skill.ordinal()]);
 			player.getPacketSender().sendInterfaceRemoval();
 			player.getPacketSender().sendString(4268, "Congratulations! You have achieved a " + skillName + " level!");
 			player.getPacketSender().sendString(4269, "Well done. You are now level " + newLevel + ".");
@@ -206,7 +237,7 @@ public class SkillManager {
 			player.performGraphic(LEVEL_UP_GRAPHIC);
 			player.getPacketSender()
 					.sendMessage("You've just advanced " + skillName + " level! You have reached level " + newLevel);
-			if (skills.maxLevel[skill.ordinal()] == getMaxAchievingLevel(skill)) {
+			if (this.getSkills().maxLevel[skill.ordinal()] == getMaxAchievingLevel(skill)) {
 				player.getPacketSender()
 						.sendMessage("Well done! You've achieved the highest possible level in this skill!");
 				World.sendMessage("<shad=15536940>News: " + player.getUsername()
@@ -351,13 +382,13 @@ public class SkillManager {
 	 * @return The average of the player's combat skills.
 	 */
 	public int getCombatLevel() {
-		final int attack = skills.maxLevel[Skill.ATTACK.ordinal()];
-		final int defence = skills.maxLevel[Skill.DEFENCE.ordinal()];
-		final int strength = skills.maxLevel[Skill.STRENGTH.ordinal()];
-		final int hp = (int) (skills.maxLevel[Skill.HITPOINTS.ordinal()]);
-		final int prayer = (int) (skills.maxLevel[Skill.PRAYER.ordinal()]);
-		final int ranged = skills.maxLevel[Skill.RANGED.ordinal()];
-		final int magic = skills.maxLevel[Skill.MAGIC.ordinal()];
+		final int attack = this.getSkills().maxLevel[Skill.ATTACK.ordinal()];
+		final int defence = this.getSkills().maxLevel[Skill.DEFENCE.ordinal()];
+		final int strength = this.getSkills().maxLevel[Skill.STRENGTH.ordinal()];
+		final int hp = (int) (this.getSkills().maxLevel[Skill.HITPOINTS.ordinal()]);
+		final int prayer = (int) (this.getSkills().maxLevel[Skill.PRAYER.ordinal()]);
+		final int ranged = this.getSkills().maxLevel[Skill.RANGED.ordinal()];
+		final int magic = this.getSkills().maxLevel[Skill.MAGIC.ordinal()];
 		int combatLevel = 3;
 		combatLevel = (int) ((defence + hp + Math.floor(prayer / 2)) * 0.2535) + 1;
 		final double melee = (attack + strength) * 0.325;
@@ -387,7 +418,7 @@ public class SkillManager {
 	public int getTotalLevel() {
 		int total = 0;
 		for (Skill skill : Skill.values()) {
-			total += skills.maxLevel[skill.ordinal()];
+			total += this.getSkills().maxLevel[skill.ordinal()];
 		}
 		return total;
 	}
@@ -412,7 +443,7 @@ public class SkillManager {
 	 * @return The skill's level.
 	 */
 	public int getCurrentLevel(Skill skill) {
-		return skills.level[skill.ordinal()];
+		return this.getSkills().level[skill.ordinal()];
 	}
 
 	/**
@@ -423,7 +454,7 @@ public class SkillManager {
 	 * @return The skill's maximum level.
 	 */
 	public int getMaxLevel(Skill skill) {
-		return skills.maxLevel[skill.ordinal()];
+		return this.getSkills().maxLevel[skill.ordinal()];
 	}
 
 	/**
@@ -434,7 +465,7 @@ public class SkillManager {
 	 * @return The skill's maximum level.
 	 */
 	public int getMaxLevel(int skill) {
-		return skills.maxLevel[skill];
+		return this.getSkills().maxLevel[skill];
 	}
 
 	/**
@@ -445,7 +476,7 @@ public class SkillManager {
 	 * @return The experience in said skill.
 	 */
 	public int getExperience(Skill skill) {
-		return skills.experience[skill.ordinal()];
+		return this.getSkills().experience[skill.ordinal()];
 	}
 
 	/**
@@ -460,7 +491,7 @@ public class SkillManager {
 	 * @return The Skills instance.
 	 */
 	public SkillManager setCurrentLevel(Skill skill, int level, boolean refresh) {
-		this.skills.level[skill.ordinal()] = level < 0 ? 0 : level;
+		this.getSkills().level[skill.ordinal()] = level < 0 ? 0 : level;
 		if (refresh)
 			updateSkill(skill);
 		return this;
@@ -478,7 +509,7 @@ public class SkillManager {
 	 * @return The Skills instance.
 	 */
 	public SkillManager setMaxLevel(Skill skill, int level, boolean refresh) {
-		skills.maxLevel[skill.ordinal()] = level;
+		this.getSkills().maxLevel[skill.ordinal()] = level;
 		if (refresh)
 			updateSkill(skill);
 		return this;
@@ -496,7 +527,7 @@ public class SkillManager {
 	 * @return The Skills instance.
 	 */
 	public SkillManager setExperience(Skill skill, int experience, boolean refresh) {
-		this.skills.experience[skill.ordinal()] = experience < 0 ? 0 : experience;
+		this.getSkills().experience[skill.ordinal()] = experience < 0 ? 0 : experience;
 		if (refresh)
 			updateSkill(skill);
 		return this;
