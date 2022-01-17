@@ -17,7 +17,9 @@ import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.Location;
 import com.elvarg.game.model.MagicSpellbook;
 import com.elvarg.game.model.Skill;
+import com.elvarg.game.model.areas.impl.CombatRingArea;
 import com.elvarg.game.model.areas.impl.PrivateArea;
+import com.elvarg.game.model.areas.impl.WildernessArea;
 import com.elvarg.game.model.movement.WalkToAction;
 import com.elvarg.game.model.rights.PlayerRights;
 import com.elvarg.game.model.teleportation.TeleportHandler;
@@ -52,6 +54,9 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         }
 
         switch (object.getId()) {
+            case COMBAT_RING:
+                CombatRingArea.handleRingFirstClick(player);
+                break;
         case KBD_LADDER_DOWN:
             TeleportHandler.teleport(player, new Location(3069, 10255), TeleportType.LADDER_DOWN, false);
             break;
@@ -234,7 +239,8 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         
         final GameObject object = MapObjects.get(player, id, location);
         if (object == null) {
-            return;
+            // TODO: Re-add when mapdata is packed server side
+            //return;
         }
 
         // Get object definition
