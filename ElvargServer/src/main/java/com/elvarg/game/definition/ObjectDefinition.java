@@ -101,6 +101,11 @@ public final class ObjectDefinition extends ObjectIdentifiers {
             }
         }
 
+        if(objectDef.id == 13137) {
+            objectDef.objectSizeX = 2;
+            objectDef.objectSizeY = 2;
+        }
+
         for (int obelisk : OBELISK_IDS) {
             if (id == obelisk) {
                 objectDef.interactions = new String[]{"Activate", null, null, null, null};

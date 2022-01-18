@@ -36,12 +36,12 @@ public class MapObjects {
      */
     public static GameObject get(Player player, int id, Location location) {
         GameObject object = get(id, location, player.getPrivateArea());
-        /*
+
         if (object == null && player.getRights() == PlayerRights.DEVELOPER) {
             player.getPacketSender().sendMessage("@red@Object with id " + id + " does not exist.");
             object = new GameObject(id, location, 10, 0, player.getPrivateArea());
         }
-        */
+
         
         return object;
     }

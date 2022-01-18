@@ -44,7 +44,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
 	 *
 	 * @param player
 	 *            The player that clicked on the object.
-	 * @param packet
+	 * @param object
 	 *            The packet containing the object's information.
 	 */
     private static void firstClick(Player player, GameObject object) {
@@ -54,9 +54,9 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         }
 
         switch (object.getId()) {
-            case COMBAT_RING:
-                CombatRingArea.handleRingFirstClick(player);
-                break;
+        case COMBAT_RING:
+            CombatRingArea.handleRingFirstClick(player);
+            break;
         case KBD_LADDER_DOWN:
             TeleportHandler.teleport(player, new Location(3069, 10255), TeleportType.LADDER_DOWN, false);
             break;
@@ -156,7 +156,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
      *
      * @param player
      *            The player that clicked on the object.
-     * @param packet
+     * @param object
      *            The packet containing the object's information.
      */
     private static void secondClick(Player player, GameObject object) {
@@ -195,7 +195,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
 	 *
 	 * @param player
 	 *            The player that clicked on the object.
-	 * @param packet
+	 * @param object
 	 *            The packet containing the object's information.
 	 */
 	private static void thirdClick(Player player, GameObject object) {
@@ -215,7 +215,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
 	 *
 	 * @param player
 	 *            The player that clicked on the object.
-	 * @param packet
+	 * @param object
 	 *            The packet containing the object's information.
 	 */
 	private static void fourthClick(Player player, GameObject object) {
@@ -300,9 +300,9 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
                     return atObject(location.getY(), location.getX(), player.getLocation().getX(), height, rotation,
                             width, player.getLocation().getY(), player.getPrivateArea());
                 }
-                
+
                 return atObject(location.getY(), location.getX(), player.getLocation().getX(), 0, 0,
-                            width, player.getLocation().getY(), player.getPrivateArea());
+                        width, player.getLocation().getY(), player.getPrivateArea());
             }
         });
     }
@@ -321,7 +321,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         return y == finalY - 1 && x >= finalX && x <= maxX && (RegionManager.getClipping(x, y, height, privateArea) & 2) == 0
                 && (rotation & 4) == 0
                 || y == maxY + 1 && x >= finalX && x <= maxX && (RegionManager.getClipping(x, y, height, privateArea) & 0x20) == 0
-                        && (rotation & 1) == 0;
+                && (rotation & 1) == 0;
     }
 
 	@Override

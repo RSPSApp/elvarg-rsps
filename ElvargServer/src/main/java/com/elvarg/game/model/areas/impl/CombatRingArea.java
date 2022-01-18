@@ -7,7 +7,6 @@ import com.elvarg.game.model.Location;
 import com.elvarg.game.model.areas.Area;
 import com.elvarg.game.task.TaskManager;
 import com.elvarg.game.task.impl.ForceMovementTask;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +16,7 @@ public class CombatRingArea extends Area {
 
     public static final Boundary BOUNDARY = new Boundary(3793, 3799, 2841, 2847);
 
-    public CombatRingArea(List<Boundary> boundaries) {
+    public CombatRingArea() {
         super(Arrays.asList(BOUNDARY));
     }
 
