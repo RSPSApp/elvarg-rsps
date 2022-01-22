@@ -1754,11 +1754,11 @@ public enum CombatSpells {
 				}
 
 				final int seconds = player.getPrayerActive()[PrayerHandler.PROTECT_FROM_MAGIC] ? 300 : 600;
-				
+
 				player.getCombat().getTeleBlockTimer().start(seconds);
 				player.getPacketSender().sendEffectTimer(seconds, EffectTimer.TELE_BLOCK)
 				.sendMessage("You have just been teleblocked!");
-				
+
 			} else if (castOn.isNpc()) {
 				if (cast.isPlayer()) {
 					((Player) cast).getPacketSender().sendMessage(
@@ -1798,7 +1798,7 @@ public enum CombatSpells {
         }
     }),
     SMOKE_RUSH(new CombatAncientSpell() {
-    	
+
         @Override
         public void spellEffect(Mobile cast, Mobile castOn, int damage) {
             CombatFactory.poisonEntity(castOn, PoisonType.MILD);
@@ -2871,7 +2871,7 @@ public enum CombatSpells {
     public static Optional<CombatSpells> getCombatSpells(int id) {
         return Arrays.stream(CombatSpells.values()).filter(s -> s != null && s.getSpell().spellId() == id).findFirst();
     }
-    
+
 	public static CombatSpell getCombatSpell(int spellId) {
 		Optional<CombatSpells> spell = getCombatSpells(spellId);
 		if(spell.isPresent()) {
