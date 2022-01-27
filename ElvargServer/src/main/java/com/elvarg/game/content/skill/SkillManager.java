@@ -20,6 +20,7 @@ import com.elvarg.game.model.Flag;
 import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.Item;
 import com.elvarg.game.model.Skill;
+import com.elvarg.game.model.areas.impl.CombatRingArea;
 import com.elvarg.game.model.areas.impl.WildernessArea;
 import com.elvarg.game.model.equipment.BonusManager;
 import com.elvarg.game.model.rights.PlayerRights;
@@ -52,7 +53,7 @@ public class SkillManager {
 			3597792, 3972294, 4385776, 4842295, 5346332, 5902831, 6517253, 7195629, 7944614, 8771558, 9684577, 10692629,
 			11805606, 13034431 };
 	private static final Graphic LEVEL_UP_GRAPHIC = new Graphic(199);
-	
+
 	/**
 	 * The player associated with this Skills instance.
 	 */
@@ -74,6 +75,33 @@ public class SkillManager {
 		}
 		skills.level[Skill.HITPOINTS.ordinal()] = skills.maxLevel[Skill.HITPOINTS.ordinal()] = 10;
 		skills.experience[Skill.HITPOINTS.ordinal()] = 1184;
+	}
+
+	/**
+	 * Refresh all the players skills including combat and prayer
+	 *
+	 * @param player
+	 *            The player's who skill set is being represented.
+	 */
+	public void refreshSkills() {
+		// Update skills
+		for (int i = 0; i < AMOUNT_OF_SKILLS; i++) {
+			Skill skill = Skill.values()[i];
+			this.updateSkill(skill);
+		}
+
+		// Update prayer tab with prayer info
+		player.getPacketSender().sendString(687, this.getCurrentLevel(Skill.PRAYER) + "/"
+				+ this.getMaxLevel(Skill.PRAYER));
+
+		// Send total level
+		player.getPacketSender().sendString(31200, "" + this.getTotalLevel());
+
+		// Send combat level
+		final int newCbLevel = this.getCombatLevel();
+		final String combatLevel = "Combat level: " + newCbLevel;
+		player.getPacketSender().sendString(19000, combatLevel).sendString(5858, combatLevel);
+
 	}
 
 	/**
@@ -140,7 +168,7 @@ public class SkillManager {
 
 	/**
 	 * Adds experience to {@code skill} by the {@code experience} amount.
-	 * 
+	 *
 	 * @param skill
 	 * @param experience
 	 * @return
@@ -228,33 +256,39 @@ public class SkillManager {
 	 */
 	public boolean pressedSkill(int button) {
 		Skill skill = Skill.forButton(button);
-		if (skill != null) {
-			if (!skill.canSetLevel()) {
-				if (player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.DEVELOPER
-						&& player.getRights() != PlayerRights.OWNER) {
-					player.getPacketSender().sendMessage("You can currently not set that level.");
-					return true;
-				}
-			}
-			player.getPacketSender().sendInterfaceRemoval();
-			player.setEnteredAmountAction((amount) -> {
-		        int max = 99;
-		        if (player.getRights() == PlayerRights.OWNER
-		                || player.getRights() == PlayerRights.DEVELOPER) {
-		            max = 9999;
-		        }
-		        if (amount <= 0 || amount > max) {
-		            player.getPacketSender().sendMessage("Invalid syntax. Please enter a level in the range of 1-99.");
-		            return;
-		        }
-		        player.getSkillManager().setLevel(skill, amount);
-			});
-			player.getPacketSender()
-					.sendEnterAmountPrompt("Please enter your desired " + skill.getName() + " level below.");
+		if (skill == null) {
+			return false;
+		}
 
+		if (!(player.getArea() instanceof CombatRingArea)) {
+			player.getPacketSender().sendMessage("You can only set levels inside the Combat Ring.");
 			return true;
 		}
-		return false;
+
+		if (!skill.canSetLevel()) {
+			if (player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.DEVELOPER
+					&& player.getRights() != PlayerRights.OWNER) {
+				player.getPacketSender().sendMessage("You can currently not set that level.");
+				return true;
+			}
+		}
+		player.getPacketSender().sendInterfaceRemoval();
+		player.setEnteredAmountAction((amount) -> {
+			int max = 99;
+			if (player.getRights() == PlayerRights.OWNER
+					|| player.getRights() == PlayerRights.DEVELOPER) {
+				max = 9999;
+			}
+			if (amount <= 0 || amount > max) {
+				player.getPacketSender().sendMessage("Invalid syntax. Please enter a level in the range of 1-99.");
+				return;
+			}
+			player.getTempSkillManager().setLevel(skill, amount);
+		});
+		player.getPacketSender()
+				.sendEnterAmountPrompt("Please enter your desired " + skill.getName() + " level below.");
+
+		return true;
 	}
 
 	/**

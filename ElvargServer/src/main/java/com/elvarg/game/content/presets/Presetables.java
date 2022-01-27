@@ -265,6 +265,9 @@ public class Presetables {
 	private static void load(Player player, final Presetable preset) {
 		final int oldCbLevel = player.getSkillManager().getCombatLevel();
 
+		// Always use the temporary skill manager for presets
+		SkillManager tempSkillManager = player.getTempSkillManager();
+
 		// Close!
 		player.getPacketSender().sendInterfaceRemoval();
 
@@ -372,19 +375,19 @@ public class Presetables {
 			Skill skill = Skill.values()[i];
 			int level = preset.getStats()[i];
 			int exp = SkillManager.getExperienceForLevel(level);
-			player.getSkillManager().setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill, exp);
+			tempSkillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill, exp);
 			totalExp += exp;
 		}
 
 		// Update prayer tab with prayer info
-		player.getPacketSender().sendString(687, player.getSkillManager().getCurrentLevel(Skill.PRAYER) + "/"
-				+ player.getSkillManager().getMaxLevel(Skill.PRAYER));
+		player.getPacketSender().sendString(687, tempSkillManager.getCurrentLevel(Skill.PRAYER) + "/"
+				+ tempSkillManager.getMaxLevel(Skill.PRAYER));
 
 		// Send total level
-		player.getPacketSender().sendString(31200, "" + player.getSkillManager().getTotalLevel());
+		player.getPacketSender().sendString(31200, "" + tempSkillManager.getTotalLevel());
 
 		// Send combat level
-		final int newCbLevel = player.getSkillManager().getCombatLevel();
+		final int newCbLevel = tempSkillManager.getCombatLevel();
 		final String combatLevel = "Combat level: " + newCbLevel;
 		player.getPacketSender().sendString(19000, combatLevel).sendString(5858, combatLevel);
 

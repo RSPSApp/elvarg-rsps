@@ -27,6 +27,8 @@ public abstract class WalkToAction {
             reset();
             return;
         }
+
+        // TODO : Check if player has stayed static for 5+ cycles and cancel movement
         
         if (inDistance()) {
             execute();
