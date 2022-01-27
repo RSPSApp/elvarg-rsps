@@ -267,14 +267,6 @@ public class Combat {
 		this.autoCastSpell = autoCastSpell;
 	}
 
-	public CombatSpell getSelectedSpell() {
-		CombatSpell spell = getCastSpell();
-		if (spell != null) {
-			return spell;
-		}
-		return getAutocastSpell();
-	}
-
 	public CombatSpell getPreviousCast() {
 		return previousCast;
 	}
