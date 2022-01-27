@@ -280,19 +280,22 @@ public class Presetables {
 			return;
 		}
 
+		// Check if real stats allow to load this preset
+		for (int i = 0; i < preset.getStats().length; i++) {
+			Skill skill = Skill.values()[i];
+			if (player.getSkillManager().getRealMaxLevel(skill) < preset.getStats()[i]) {
+				player.getPacketSender().sendMessage("You don't have required " + skill.getName() + " level " + preset.getStats()[i] + " to use this preset!");
+				return;
+			}
+		}
+
 		// Send valuable items in inventory/equipment to bank
 		boolean sent = false;
 		for (Item item : Misc.concat(player.getInventory().getCopiedItems(), player.getEquipment().getCopiedItems())) {
 			if (!item.isValid()) {
 				continue;
 			}
-			boolean spawnable = false;
-			for (int i : GameConstants.ALLOWED_SPAWNS) {
-				if (item.getId() == i) {
-					spawnable = true;
-					break;
-				}
-			}
+			boolean spawnable = GameConstants.ALLOWED_SPAWNS.contains(item.getId());
 			if (!spawnable) {
 				player.getBank(Bank.getTabForItem(player, item.getId())).add(item, false);
 				sent = true;
@@ -314,13 +317,7 @@ public class Presetables {
 				if (item == null)
 					continue;
 
-				boolean spawnable = false;
-				for (int i : GameConstants.ALLOWED_SPAWNS) {
-					if (item.getId() == i) {
-						spawnable = true;
-						break;
-					}
-				}
+				boolean spawnable = GameConstants.ALLOWED_SPAWNS.contains(item.getId());
 
 				if (!spawnable) {
 					nonSpawnables.add(item);

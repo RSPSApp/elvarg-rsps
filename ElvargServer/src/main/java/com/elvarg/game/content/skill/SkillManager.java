@@ -25,6 +25,8 @@ import com.elvarg.game.model.equipment.BonusManager;
 import com.elvarg.game.model.rights.PlayerRights;
 import com.elvarg.util.Misc;
 
+import static com.elvarg.game.GameConstants.START_LEVEL;
+
 /**
  * Acts as a manager for all of the skills ingame.
  *
@@ -69,10 +71,10 @@ public class SkillManager {
 		this.player = player;
 		this.skills = new Skills();
 		for (int i = 0; i < AMOUNT_OF_SKILLS; i++) {
-			skills.level[i] = skills.maxLevel[i] = 1;
-			skills.experience[i] = 0;
+			skills.level[i] = skills.maxLevel[i]  = skills.realMaxLevel[i] = START_LEVEL;
+			skills.experience[i] = EXP_ARRAY[START_LEVEL - 1];
 		}
-		skills.level[Skill.HITPOINTS.ordinal()] = skills.maxLevel[Skill.HITPOINTS.ordinal()] = 10;
+		skills.level[Skill.HITPOINTS.ordinal()] = skills.maxLevel[Skill.HITPOINTS.ordinal()] = skills.realMaxLevel[Skill.HITPOINTS.ordinal()] = Math.max(10, START_LEVEL);
 		skills.experience[Skill.HITPOINTS.ordinal()] = 1184;
 	}
 
@@ -191,6 +193,12 @@ public class SkillManager {
 		// Get the skill's new level after experience has been added..
 		int newLevel = getLevelForExperience(this.skills.experience[skill.ordinal()]);
 
+		// Keep track of real level
+		int currentRealMaxLevel = skills.realMaxLevel[skill.ordinal()];
+		if (newLevel > currentRealMaxLevel) {
+			skills.maxLevel[skill.ordinal()] = newLevel;
+		}
+
 		// Handle level up..
 		if (newLevel > startingLevel) {
 			int level = newLevel - startingLevel;
@@ -238,13 +246,13 @@ public class SkillManager {
 			}
 			player.getPacketSender().sendInterfaceRemoval();
 			player.setEnteredAmountAction((amount) -> {
-		        int max = 99;
+		        int max = player.getSkillManager().skills.realMaxLevel[skill.ordinal()];
 		        if (player.getRights() == PlayerRights.OWNER
 		                || player.getRights() == PlayerRights.DEVELOPER) {
 		            max = 9999;
 		        }
 		        if (amount <= 0 || amount > max) {
-		            player.getPacketSender().sendMessage("Invalid syntax. Please enter a level in the range of 1-99.");
+		            player.getPacketSender().sendMessage("Invalid syntax. Please enter a level in the range of 1-" + max +".");
 		            return;
 		        }
 		        player.getSkillManager().setLevel(skill, amount);
@@ -264,7 +272,6 @@ public class SkillManager {
 	 * @param level
 	 */
 	public void setLevel(Skill skill, int level) {
-
 		// Make sure they aren't in wild
 		if (player.getArea() instanceof WildernessArea) {
 			if (player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.DEVELOPER
@@ -424,6 +431,17 @@ public class SkillManager {
 	 */
 	public int getMaxLevel(Skill skill) {
 		return skills.maxLevel[skill.ordinal()];
+	}
+
+	/**
+	 * Gets the real max level for said skill.
+	 *
+	 * @param skill
+	 *            The skill to get max level for.
+	 * @return The skill's maximum level.
+	 */
+	public int getRealMaxLevel(Skill skill) {
+		return skills.realMaxLevel[skill.ordinal()];
 	}
 
 	/**
@@ -672,12 +690,13 @@ public class SkillManager {
 
 	public class Skills {
 
-		private int[] level, maxLevel, experience;
+		private int[] level, maxLevel, experience, realMaxLevel;
 
 		public Skills() {
 			level = new int[AMOUNT_OF_SKILLS];
 			maxLevel = new int[AMOUNT_OF_SKILLS];
 			experience = new int[AMOUNT_OF_SKILLS];
+			realMaxLevel = new int[AMOUNT_OF_SKILLS];
 		}
 
 		public int[] getLevels() {
@@ -694,6 +713,10 @@ public class SkillManager {
 
 		public void setMaxLevels(int[] maxLevels) {
 			maxLevel = maxLevels;
+		}
+
+		public int[] getRealMaxLevels() {
+			return maxLevel;
 		}
 
 		public int[] getExperiences() {
