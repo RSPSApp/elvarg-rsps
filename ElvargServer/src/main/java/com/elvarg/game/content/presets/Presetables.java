@@ -291,13 +291,17 @@ public class Presetables {
 
 		// Send valuable items in inventory/equipment to bank
 		boolean sent = false;
+
 		for (Item item : Misc.concat(player.getInventory().getCopiedItems(), player.getEquipment().getCopiedItems())) {
 			if (!item.isValid()) {
 				continue;
 			}
 			boolean spawnable = GameConstants.ALLOWED_SPAWNS.contains(item.getId());
 			if (!spawnable) {
-				player.getBank(Bank.getTabForItem(player, item.getId())).add(item, false);
+				if (!player.getBank(Bank.getTabForItem(player, item.getId())).add(item, false)) {
+					player.getPacketSender().sendMessage("Not enough space in bank!");
+					return;
+				}
 				sent = true;
 			}
 		}
