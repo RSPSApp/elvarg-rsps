@@ -392,6 +392,12 @@ public class CombatFactory {
 			return false;
 		}
 
+		if(target.isNpc() && target.getAsNpc().getId() == NpcIdentifiers.ZOMBIE_85){
+			if(method == CombatFactory.MELEE_COMBAT){
+				return false;
+			}
+		}
+
 		// Here we check if we are already in combat with another entity.
 		// Only check if we aren't in multi.
 		if (!(AreaManager.inMulti(attacker) && AreaManager.inMulti(target))) {

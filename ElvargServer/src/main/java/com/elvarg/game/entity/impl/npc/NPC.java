@@ -12,11 +12,13 @@ import com.elvarg.game.content.combat.method.CombatMethod;
 import com.elvarg.game.definition.NpcDefinition;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.npc.NPCMovementCoordinator.CoordinateState;
+import com.elvarg.game.entity.impl.npc.impl.Caged;
 import com.elvarg.game.entity.impl.npc.impl.GodwarsFollower;
 import com.elvarg.game.entity.impl.npc.impl.Vetion;
 import com.elvarg.game.entity.impl.npc.impl.VetionHellhound;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.FacingDirection;
+import com.elvarg.game.model.Flag;
 import com.elvarg.game.model.God;
 import com.elvarg.game.model.Location;
 import com.elvarg.game.model.areas.AreaManager;
@@ -144,6 +146,8 @@ public class NPC extends Mobile {
 		case NpcIdentifiers.SPIRITUAL_RANGER_2:
 		case NpcIdentifiers.SPIRITUAL_MAGE_2:
 			return new GodwarsFollower(id, location, God.BANDOS);
+		case NpcIdentifiers.ZOMBIE_85:
+			return new Caged(id, location);
 		}
 		return new NPC(id, location);
 	}
@@ -411,7 +415,7 @@ public class NPC extends Mobile {
 
 	public void setHeadIcon(int headIcon) {
 		this.headIcon = headIcon;
-		// getUpdateFlag().flag(Flag.NPC_APPEARANCE);
+		//getUpdateFlag().flag(Flag.APPEARANCE);
 	}
 
 	public CombatMethod getCombatMethod() {

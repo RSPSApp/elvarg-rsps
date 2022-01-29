@@ -2949,5 +2949,14 @@
 		},
 		"facing": "NORTH",
 		"radius": 3
+	},
+	{
+		"id": 7485,
+		"position": {
+			"x": 3814,
+			"y": 2835
+		},
+		"facing": "SOUTH",
+		"radius": 2
 	}
 ]
