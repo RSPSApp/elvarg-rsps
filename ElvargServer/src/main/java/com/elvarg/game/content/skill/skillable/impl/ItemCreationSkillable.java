@@ -88,7 +88,7 @@ public class ItemCreationSkillable extends DefaultSkillable {
     }
 
     @Override
-    public void onCycle(Player player) {
+    public void onCycle(Player player, int cycle) {
         PetHandler.onSkill(player, skill);
     }
 
