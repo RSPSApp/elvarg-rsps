@@ -153802,7 +153802,7 @@
   {
     "id": 6620,
     "name": "Miniature chaotic clouds",
-    "examine": "How the... ?",
+    "examine": "How the...ï¿½?",
     "size": 1,
     "walkRadius": 0,
     "attackable": false
@@ -170981,12 +170981,12 @@
     "size": 1,
     "walkRadius": 0,
     "attackable": true,
-    "retreats": true,
+    "retreats": false,
     "aggressive": false,
     "poisonous": false,
     "respawn": 25,
     "maxHit": 0,
-    "hitpoints": 1,
+    "hitpoints": 250,
     "attackSpeed": 0,
     "attackAnim": 5571,
     "defenceAnim": 5573,
