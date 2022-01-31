@@ -15,7 +15,9 @@ import com.elvarg.game.content.combat.ranged.RangedData.Ammunition;
 import com.elvarg.game.content.combat.ranged.RangedData.RangedWeapon;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
+import com.elvarg.game.model.ChatMessage;
 import com.elvarg.game.model.SecondsTimer;
+import com.elvarg.util.NpcIdentifiers;
 import com.elvarg.util.Stopwatch;
 import com.elvarg.util.timers.TimerKey;
 
@@ -69,6 +71,17 @@ public class Combat {
 
 		// Handle attacking
 		performNewAttack(false);
+
+		// Reset attacker if we haven't been attacked in 6 seconds.
+		if (lastAttack.elapsed(6000)) {
+			setUnderAttack(null);
+		}
+	}
+
+	public void processNoAttack(){
+
+		// Process the hit queue
+		hitQueue.process(character);
 
 		// Reset attacker if we haven't been attacked in 6 seconds.
 		if (lastAttack.elapsed(6000)) {

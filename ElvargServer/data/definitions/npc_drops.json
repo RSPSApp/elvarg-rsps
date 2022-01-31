@@ -33372,26 +33372,21 @@
     "rdtChance": -1,
     "alwaysDrops": [
       {
-        "itemId": 8851,
-        "minAmount": 5,
-        "maxAmount": 5
+        "itemId": 436,
+        "minAmount": 1,
+        "maxAmount": 2
+      },
+      {
+        "itemId": 440,
+        "minAmount": 1,
+        "maxAmount": 2
       }
     ],
     "commonDrops": [
       {
-        "itemId": 1155,
+        "itemId": 453,
         "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1117,
-        "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1075,
-        "minAmount": 1,
-        "maxAmount": 1
+        "maxAmount": 3
       }
     ]
   },
@@ -33402,26 +33397,21 @@
     "rdtChance": -1,
     "alwaysDrops": [
       {
-        "itemId": 8851,
-        "minAmount": 10,
-        "maxAmount": 10
+        "itemId": 436,
+        "minAmount": 1,
+        "maxAmount": 2
+      },
+      {
+        "itemId": 440,
+        "minAmount": 1,
+        "maxAmount": 2
       }
     ],
     "commonDrops": [
       {
-        "itemId": 1153,
+        "itemId": 453,
         "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1115,
-        "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1067,
-        "minAmount": 1,
-        "maxAmount": 1
+        "maxAmount": 3
       }
     ]
   },
@@ -33432,26 +33422,16 @@
     "rdtChance": -1,
     "alwaysDrops": [
       {
-        "itemId": 8851,
-        "minAmount": 15,
-        "maxAmount": 15
+        "itemId": 440,
+        "minAmount": 1,
+        "maxAmount": 2
       }
     ],
     "commonDrops": [
       {
-        "itemId": 1157,
+        "itemId": 453,
         "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1119,
-        "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1069,
-        "minAmount": 1,
-        "maxAmount": 1
+        "maxAmount": 3
       }
     ]
   },
@@ -33462,24 +33442,16 @@
     "rdtChance": -1,
     "alwaysDrops": [
       {
-        "itemId": 8851,
-        "minAmount": 20,
-        "maxAmount": 20
-      },
-      {
-        "itemId": 1165,
+        "itemId": 440,
         "minAmount": 1,
-        "maxAmount": 1
-      },
+        "maxAmount": 2
+      }
+    ],
+    "commonDrops": [
       {
-        "itemId": 1125,
+        "itemId": 453,
         "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1077,
-        "minAmount": 1,
-        "maxAmount": 1
+        "maxAmount": 3
       }
     ]
   },
@@ -33490,24 +33462,16 @@
     "rdtChance": -1,
     "alwaysDrops": [
       {
-        "itemId": 8851,
-        "minAmount": 25,
-        "maxAmount": 25
-      },
-      {
-        "itemId": 1159,
+        "itemId": 447,
         "minAmount": 1,
-        "maxAmount": 1
-      },
+        "maxAmount": 2
+      }
+    ],
+    "commonDrops": [
       {
-        "itemId": 1121,
+        "itemId": 453,
         "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1071,
-        "minAmount": 1,
-        "maxAmount": 1
+        "maxAmount": 3
       }
     ]
   },
@@ -33518,24 +33482,16 @@
     "rdtChance": -1,
     "alwaysDrops": [
       {
-        "itemId": 8851,
-        "minAmount": 30,
-        "maxAmount": 30
-      },
-      {
-        "itemId": 1161,
+        "itemId": 449,
         "minAmount": 1,
-        "maxAmount": 1
-      },
+        "maxAmount": 2
+      }
+    ],
+    "commonDrops": [
       {
-        "itemId": 1123,
+        "itemId": 453,
         "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1073,
-        "minAmount": 1,
-        "maxAmount": 1
+        "maxAmount": 3
       }
     ]
   },
@@ -33546,24 +33502,21 @@
     "rdtChance": -1,
     "alwaysDrops": [
       {
-        "itemId": 8851,
-        "minAmount": 40,
-        "maxAmount": 40
+        "itemId": 453,
+        "minAmount": 1,
+        "maxAmount": 3
+      }
+    ],
+    "commonDrops": [
+      {
+        "itemId": 449,
+        "minAmount": 1,
+        "maxAmount": 2
       },
       {
-        "itemId": 1163,
+        "itemId": 447,
         "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1127,
-        "minAmount": 1,
-        "maxAmount": 1
-      },
-      {
-        "itemId": 1079,
-        "minAmount": 1,
-        "maxAmount": 1
+        "maxAmount": 2
       }
     ]
   },

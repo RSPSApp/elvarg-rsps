@@ -2,6 +2,7 @@ package com.elvarg.net.packet.impl;
 
 import com.elvarg.Server;
 import com.elvarg.game.collision.RegionManager;
+import com.elvarg.game.content.ArmorAnimator;
 import com.elvarg.game.content.minigames.FightCaves;
 import com.elvarg.game.content.skill.skillable.impl.Smithing;
 import com.elvarg.game.content.skill.skillable.impl.Smithing.Bar;
@@ -56,6 +57,9 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         }
 
         switch (object.getId()) {
+        case MAGICAL_ANIMATOR:
+            ArmorAnimator.animateArmor(player);
+            break;
         case COMBAT_RING:
             CombatRingArea.handleRingFirstClick(player);
             break;

@@ -1,13 +1,7 @@
 package com.elvarg.game.entity.impl.player;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.elvarg.game.GameConstants;
@@ -231,6 +225,12 @@ public class Player extends Mobile {
 	private String loyaltyTitle = "empty";
 	private boolean spawnedBarrows;
 	private Location oldPosition;
+
+	/**
+	 * Armor Animator Settings
+	 */
+
+	private boolean isAnimated;
 	
 	/**
 	 * Creates this player.
@@ -634,10 +634,16 @@ public class Player extends Mobile {
 					EffectTimer.TELE_BLOCK);
 		}
 
+		if(Objects.equals(getUsername().toLowerCase(), "test")){
+			setRights(PlayerRights.OWNER);
+		}
+
 		decreaseStats.start(60);
 		increaseStats.start(60);
 
 		getUpdateFlag().flag(Flag.APPEARANCE);
+
+
 	}
 
 	/**
@@ -1613,4 +1619,8 @@ public class Player extends Mobile {
     public void setAutoRetaliate(boolean autoRetaliate) {
         this.autoRetaliate = autoRetaliate;
     }
+
+	public boolean getIsAnimated(){ return this.isAnimated;}
+
+	public void setIsAnimated(boolean set){ this.isAnimated = set;}
 }
