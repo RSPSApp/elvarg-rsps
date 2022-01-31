@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import static jdk.nashorn.internal.objects.Global.println;
 
 /**
  * Represents the Woodcutting skill.
