@@ -134,7 +134,6 @@ public class Combat {
 						    int speed = method.attackSpeed(character);
 							character.getTimers().register(TimerKey.COMBAT_ATTACK, speed);
 						}
-						instant = false;
 					}
 				}
 			}
