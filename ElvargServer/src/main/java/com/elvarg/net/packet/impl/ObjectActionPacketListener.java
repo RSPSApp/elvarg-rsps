@@ -8,10 +8,13 @@ import com.elvarg.game.content.skill.skillable.impl.Smithing;
 import com.elvarg.game.content.skill.skillable.impl.Smithing.Bar;
 import com.elvarg.game.content.skill.skillable.impl.Smithing.EquipmentMaking;
 import com.elvarg.game.content.skill.skillable.impl.Thieving.StallThieving;
+import com.elvarg.game.content.skill.skillable.impl.Woodcutting;
 import com.elvarg.game.definition.ObjectDefinition;
 import com.elvarg.game.definition.ObjectDefinition.ObjectFace;
 import com.elvarg.game.definition.ObjectDefinition.ObjectType;
 import com.elvarg.game.entity.impl.object.GameObject;
+import com.elvarg.game.entity.impl.object.LadderHandler;
+import com.elvarg.game.entity.impl.object.LadderHandler.Ladders;
 import com.elvarg.game.entity.impl.object.MapObjects;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
@@ -33,6 +36,7 @@ import com.elvarg.net.packet.Packet;
 import com.elvarg.net.packet.PacketConstants;
 import com.elvarg.net.packet.PacketExecutor;
 import com.elvarg.util.ObjectIdentifiers;
+
 
 /**
  * This packet listener is called when a player clicked on a game object.
@@ -269,20 +273,26 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
                         return;
                     }
                 }
-                
+
+                // Ladders
+                if (def.getName().contains("Ladder")) {
+                   if (Ladders.forObjectLoc(object.getLocation()).isPresent()) {
+
+                       new LadderHandler(player, def, location, clickType-1,  Ladders.forObjectLoc(
+                               object.getLocation()
+                       ).get());
+                   } else {
+                       new LadderHandler(player, def, location, clickType-1 , (Ladders) null);
+                   }
+
+                    return;
+                }
+
                 switch (clickType) {
-                case 1:
-                    firstClick(player, object);
-                    break;
-                case 2:
-                    secondClick(player, object);
-                    break;
-                case 3:
-                    thirdClick(player, object);
-                    break;
-                case 4:
-                    fourthClick(player, object);
-                    break;
+                    case 1 -> firstClick(player, object);
+                    case 2 -> secondClick(player, object);
+                    case 3 -> thirdClick(player, object);
+                    case 4 -> fourthClick(player, object);
                 }
             }
             
