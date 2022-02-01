@@ -283,26 +283,20 @@ public class Presetables {
 			return;
 		}
 
-		// Send valuable items in inventory/equipment to bank
 		boolean sent = false;
-		for (Item item : Misc.concat(player.getInventory().getCopiedItems(), player.getEquipment().getCopiedItems())) {
-			if (!item.isValid()) {
-				continue;
-			}
-			boolean spawnable = false;
-			for (int i : GameConstants.ALLOWED_SPAWNS) {
-				if (item.getId() == i) {
-					spawnable = true;
-					break;
+		if (!player.hasUsedPreset) {
+			// Player is loading preset for first time, bank all their items
+			for (Item item : Misc.concat(player.getInventory().getCopiedItems(), player.getEquipment().getCopiedItems())) {
+				if (!item.isValid()) {
+					continue;
 				}
-			}
-			if (!spawnable) {
+
 				player.getBank(Bank.getTabForItem(player, item.getId())).add(item, false);
 				sent = true;
 			}
-		}
-		if (sent) {
-			player.getPacketSender().sendMessage("The non-spawnable items you had on you have been sent to your bank.");
+			if (sent) {
+				player.getPacketSender().sendMessage("The items/equipment you had on you have been sent to your bank.");
+			}
 		}
 
 		player.getInventory().resetItems().refreshItems();
@@ -401,6 +395,7 @@ public class Presetables {
 		player.getPacketSender().sendConfig(711, PrayerHandler.canUse(player, PrayerData.RIGOUR, false) ? 1 : 0);
 		player.getPacketSender().sendConfig(713, PrayerHandler.canUse(player, PrayerData.AUGURY, false) ? 1 : 0);
 		player.resetAttributes();
+		player.hasUsedPreset = true;
 		player.getPacketSender().sendMessage("Preset loaded!");
 		player.getPacketSender().sendTotalExp(totalExp);
 

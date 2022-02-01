@@ -123,6 +123,7 @@ public class Player extends Mobile {
 	private Presetable currentPreset;
 	private Presetable[] presets = new Presetable[Presetables.MAX_PRESETS];
 	private boolean openPresetsOnDeath = true;
+	public boolean hasUsedPreset = false;
 
 	private String username;
 	private String password;

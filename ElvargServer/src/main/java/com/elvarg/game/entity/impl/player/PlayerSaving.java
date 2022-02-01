@@ -50,6 +50,7 @@ public class PlayerSaving {
 			object.addProperty("rigour", player.isRigourUnlocked());
 			object.addProperty("augury", player.isAuguryUnlocked());
 			object.addProperty("has-veng", player.hasVengeance());
+			object.addProperty("has-used-preset", player.hasUsedPreset);
 			object.addProperty("last-veng", player.getVengeanceTimer().secondsRemaining());
 			object.addProperty("running", player.isRunning());
 			object.addProperty("run-energy", player.getRunEnergy());
@@ -91,7 +92,7 @@ public class PlayerSaving {
 			object.add("inventory", builder.toJsonTree(player.getInventory().getItems()));
 			object.add("equipment", builder.toJsonTree(player.getEquipment().getItems()));
 			object.add("appearance", builder.toJsonTree(player.getAppearance().getLook()));
-			object.add("skills", builder.toJsonTree(player.getSkillManager().getSkills()));
+			object.add("skills", builder.toJsonTree(player.getRealSkillManager().getSkills()));
 			object.add("quick-prayers", builder.toJsonTree(player.getQuickPrayers().getPrayers()));
 
 			object.add("friends", builder.toJsonTree(player.getRelations().getFriendList().toArray()));
