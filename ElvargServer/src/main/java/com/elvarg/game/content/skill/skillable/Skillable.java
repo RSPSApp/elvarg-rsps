@@ -49,7 +49,7 @@ public interface Skillable {
     /**
      * This method is called on every cycle.
      */
-    public abstract void onCycle(Player player);
+    public abstract void onCycle(Player player, int cycle);
 
     /**
      * Once the amount of cycles has hit {@code cyclesRequired}, this method will be

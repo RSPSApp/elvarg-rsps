@@ -119,9 +119,9 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         case WILDERNESS_DITCH:
             player.getMovementQueue().reset();
             if (player.getForceMovement() == null && player.getClickDelay().elapsed(2000)) {
-                final Location crossDitch = new Location(0, player.getLocation().getY() < 3522 ? 3 : -3);
+                final Location crossDitch = new Location(player.getLocation().getX() < 3835 ? 3 : -3, 0);
                 TaskManager.submit(new ForceMovementTask(player, 3, new ForceMovement(player.getLocation().clone(),
-                        crossDitch, 0, 70, crossDitch.getY() == 3 ? 0 : 2, 6132)));
+                        crossDitch, 0, 70, crossDitch.getX() == 3 ? 1 : 4, 6132)));
                 player.getClickDelay().reset();
             }
             break;

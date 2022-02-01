@@ -46,7 +46,7 @@ public abstract class DefaultSkillable implements Skillable {
                 }
 
                 // Every cycle, call the abstract method..
-                onCycle(player);
+                onCycle(player, cycle);
 
                 // Sequence the skill, reward players
                 // with items once the right amount
@@ -98,7 +98,7 @@ public abstract class DefaultSkillable implements Skillable {
     }
 
     @Override
-    public void onCycle(Player player) {
+    public void onCycle(Player player, int cycle) {
     }
 
     public List<Task> getTasks() {
