@@ -36,6 +36,7 @@ import com.elvarg.net.packet.Packet;
 import com.elvarg.net.packet.PacketConstants;
 import com.elvarg.net.packet.PacketExecutor;
 import com.elvarg.util.ObjectIdentifiers;
+import org.apache.commons.lang.ArrayUtils;
 
 
 /**
@@ -275,7 +276,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
                 }
 
                 // Ladders
-                if (def.getName().contains("Ladder")) {
+                if ((def.getName() != null && def.getName().contains("Ladder")) || ArrayUtils.contains(Ladders.LADDER_IDS, id)) {
                    if (Ladders.forObjectLoc(object.getLocation()).isPresent()) {
 
                        new LadderHandler(player, def, location, clickType-1,  Ladders.forObjectLoc(
