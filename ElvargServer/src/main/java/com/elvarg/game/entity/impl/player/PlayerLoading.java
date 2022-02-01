@@ -114,7 +114,7 @@ public class PlayerLoading {
             }
 
             if (reader.has("has-used-preset")) {
-                player.hasUsedPreset = reader.get("has-sued-preset").getAsBoolean();
+                player.hasUsedPreset = reader.get("has-used-preset").getAsBoolean();
             }
 
             if (reader.has("last-veng")) {
