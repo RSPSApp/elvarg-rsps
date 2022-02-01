@@ -37,6 +37,10 @@ public class LadderHandler {
     }
 
     public void start(Player player, int clickType) {
+        if (ladderData.interactions == null) {
+            return;
+        }
+
         String direction = (ladderData.interactions[clickType].equals("Climb-up")) ? "up" : "down";
         int currHeight = player.getLocation().getZ();
         int newHeight = (direction.equals("up")) ? (currHeight + 1) : (currHeight - 1);
@@ -90,11 +94,11 @@ public class LadderHandler {
 
 
     /**
-     * Holds data related to the trees
-     * which can be used to train this skill.
+     * Holds data related to the ladders
      */
     public enum Ladders {
-        MILL_DOWN(new Location(3786,2829,0), new Location(3789,2826,0) );
+        MILL_DOWN(new Location(2208,4839,0), new Location(3789,2825,0) ),
+        ZOMBIES_UP(new Location(3788,2825,0), new Location(2208,4840,0) );
 
 
         private static final Map<Location, Ladders> ladders = new HashMap<>();
@@ -116,6 +120,8 @@ public class LadderHandler {
 
         }
 
+        // Put the object ID in here if the object definition does not have "Ladder as its name"
+        public static int[] LADDER_IDS = { 22173 };
 
         public static Optional<Ladders> forObjectLoc(Location loc) {
             return Optional.ofNullable(ladders.get(loc));
