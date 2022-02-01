@@ -25,8 +25,13 @@ public class SpawnItemPacketListener implements PacketExecutor {
         }
 
         // Check if player busy..
-        if (player.busy() || player.getArea() instanceof WildernessArea) {
-            player.getPacketSender().sendMessage("You cannot do that right now.");
+        if (player.busy() || player.getArea().canSpawn()) {
+            player.getPacketSender().sendMessage("You cannot spawn items right now.");
+            return;
+        }
+
+        if (!player.hasUsedPreset) {
+            player.getPacketSender().sendMessage("You must load a preset before you can spawn items.");
             return;
         }
 

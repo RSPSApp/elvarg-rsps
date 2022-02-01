@@ -113,6 +113,10 @@ public class PlayerLoading {
                 player.setHasVengeance(reader.get("has-veng").getAsBoolean());
             }
 
+            if (reader.has("has-used-preset")) {
+                player.hasUsedPreset = reader.get("has-sued-preset").getAsBoolean();
+            }
+
             if (reader.has("last-veng")) {
                 player.getVengeanceTimer().start(reader.get("last-veng").getAsInt());
             }

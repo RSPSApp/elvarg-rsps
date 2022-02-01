@@ -2,6 +2,7 @@ package com.elvarg.game.model.areas.impl;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Boundary;
+import com.elvarg.game.model.Flag;
 import com.elvarg.game.model.ForceMovement;
 import com.elvarg.game.model.Location;
 import com.elvarg.game.model.areas.Area;
@@ -23,7 +24,7 @@ public class CombatRingArea extends Area {
     public static void handleRingFirstClick(Player player) {
         int destX = 0, destY = 0, direction = 0;
 
-        if (player.getArea() instanceof CombatRingArea) {
+            if (player.getArea() instanceof CombatRingArea) {
 
             // Player is standing inside the Combat Ring
 
@@ -97,6 +98,13 @@ public class CombatRingArea extends Area {
                 .sendMessage("You leave the combat ring. You feel your skills restore to normal.");
 
         player.getRealSkillManager().refreshSkills();
+
+        if (player.hasUsedPreset) {
+            // If the player has used a preset, reset their items
+            player.getInventory().resetItems().refreshItems();
+            player.getEquipment().resetItems().refreshItems();
+            player.getUpdateFlag().flag(Flag.APPEARANCE);
+        }
     }
 
     @Override
@@ -153,6 +161,10 @@ public class CombatRingArea extends Area {
     @Override
     public void onPlayerRightClick(Player player, Player rightClicked, int option) {
 
+    }
+
+    public boolean canSpawn() {
+        return true;
     }
 
     public boolean useTemporarySkills() {
