@@ -4,11 +4,9 @@ import com.elvarg.game.content.PetHandler;
 import com.elvarg.game.definition.ItemDefinition;
 import com.elvarg.game.entity.impl.grounditem.ItemOnGroundManager;
 import com.elvarg.game.entity.impl.npc.NPC;
+import com.elvarg.game.entity.impl.object.GameObject;
 import com.elvarg.game.entity.impl.player.Player;
-import com.elvarg.game.model.Animation;
-import com.elvarg.game.model.Item;
-import com.elvarg.game.model.Projectile;
-import com.elvarg.game.model.Skill;
+import com.elvarg.game.model.*;
 import com.elvarg.game.task.Task;
 import com.elvarg.game.task.TaskManager;
 import com.elvarg.util.Chance;
@@ -18,6 +16,8 @@ import javax.tools.Tool;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import static com.elvarg.util.Chance.*;
 
 /**
  * Represents the Fishing skill.
@@ -95,25 +95,7 @@ public class Fishing extends DefaultSkillable {
         getTasks().add(animLoop);
     }
 
-    @Override
-    public void onCycle(Player player, int cycle) {
-        PetHandler.onSkill(player, Skill.FISHING);
-
-        //Handle random event..
-        if (Misc.getRandom(1400) == 1) {
-            AttackToolRandomEvent attackTool = new AttackToolRandomEvent(player, tool, fishSpot);
-            TaskManager.submit(attackTool);
-            cancel(player);
-        }
-    }
-
-    @Override
-    public void finishedCycle(Player player) {
-        /** Random stop for that 'old school' rs feel :) */
-        if (Misc.getRandom(90) == 0) {
-            cancel(player);
-        }
-
+    private void catchFish(Player player, Fish caught){
         /** Catch multiple fish with a big net. */
         if (tool == FishingTool.BIG_NET) {
             int amount = Misc.getRandom(4) + 1;
@@ -125,9 +107,6 @@ public class Fishing extends DefaultSkillable {
 
             for (int i = 0; i < amount; i++) {
 
-                /** Get a random fish for us. */
-                Fish caught = determineFish(player, tool);
-
                 /** Catch the fish. */
                 player.getPacketSender().sendMessage("You catch a " + caught.name().toLowerCase().replace("_", " ") + ".");
                 player.getInventory().add(new Item(caught.getId()));
@@ -136,19 +115,61 @@ public class Fishing extends DefaultSkillable {
 
             /** Catch fish normally. */
         } else {
-            /** Get a random fish for us. */
-            Fish caught = determineFish(player, tool);
 
             /** Catch the fish. */
             player.getPacketSender().sendMessage("You catch a " + caught.name().toLowerCase().replace("_", " ") + ".");
             player.getInventory().add(new Item(caught.getId()));
             player.getSkillManager().addExperience(Skill.FISHING, caught.getExperience());
 
-            /** Delete the item needed for the tools. */
-            if (tool.getNeeded() > 0) {
-                player.getInventory().delete(new Item(tool.getNeeded()));
+
+        }
+    }
+
+    @Override
+    public void onCycle(Player player, int cycle) {
+        /** Random stop for that 'old school' rs feel :) */
+        if (Misc.getRandom(90) == 0) {
+            cancel(player);
+        }
+        PetHandler.onSkill(player, Skill.FISHING);
+
+        //Handle random event..
+        if (Misc.getRandom(1400) == 1) {
+            AttackToolRandomEvent attackTool = new AttackToolRandomEvent(player, tool, fishSpot);
+            TaskManager.submit(attackTool);
+            cancel(player);
+        }
+
+        /** Delete the item needed for the tools. */
+        if (tool.getNeeded() > 0) {
+            player.getInventory().delete(new Item(tool.getNeeded()));
+        }
+
+        /** Get a random fish for us. */
+        Fish randomFish = determineFish(player, tool);
+        if (player.getSkillManager().getMaxLevel(Skill.FISHING) < (randomFish.getLevel() + 5)){
+            if (UNCOMMON.success()){
+                catchFish(player, randomFish);
+            }
+        } else if (player.getSkillManager().getMaxLevel(Skill.FISHING) < randomFish.getLevel() + 15){
+            if (SOMETIMES.success()){
+                catchFish(player, randomFish);
+            }
+        } else if (player.getSkillManager().getMaxLevel(Skill.FISHING) < randomFish.getLevel() + 25){
+            if (COMMON.success()){
+                catchFish(player, randomFish);
+            }
+        } else if (player.getSkillManager().getMaxLevel(Skill.FISHING) >= randomFish.getLevel() + 25){
+            if (VERY_COMMON.success()){
+                catchFish(player, randomFish);
             }
         }
+
+    }
+
+    @Override
+    public void finishedCycle(Player player) {
+       //todo: make fishing spot disappear or move
     }
 
     @Override
@@ -160,6 +181,11 @@ public class Fishing extends DefaultSkillable {
     public boolean allowFullInventory() {
         return false;
     }
+
+    public GameObject getSkillObject() {
+        return null;
+    }
+
 
     @Override
     public int cyclesRequired(Player player) {
@@ -173,13 +199,15 @@ public class Fishing extends DefaultSkillable {
      * @param player the player that needs a fish.
      * @param tool   the tool this player is fishing with.
      */
+
     private Fish determineFish(Player player, FishingTool tool) {
         List<Fish> fishList = new ArrayList<Fish>();
 
         /** Determine which fish are able to be caught. */
         for (Fish fish : tool.getFish()) {
             if (fish.getLevel() <= player.getSkillManager().getCurrentLevel(Skill.FISHING)) {
-                fishList.add(fish);
+
+                    fishList.add(fish);
             }
         }
 
@@ -189,8 +217,9 @@ public class Fishing extends DefaultSkillable {
 
             if (fishList.size() == 1) {
                 /** Return this fish if it's the only one left in the list. */
-                return fish;
-            }
+                    return fish;
+                }
+
 
             if (!fish.getChance().success()) {
                 iterator.remove();
@@ -328,7 +357,7 @@ public class Fishing extends DefaultSkillable {
         SHRIMP(317, 1, Chance.VERY_COMMON, 10),
         SARDINE(327, 5, Chance.VERY_COMMON, 20),
         HERRING(345, 10, Chance.VERY_COMMON, 30),
-        ANCHOVY(321, 15, Chance.SOMETIMES, 40),
+        ANCHOVY(321, 15, SOMETIMES, 40),
         MACKEREL(353, 16, Chance.VERY_COMMON, 20),
         CASKET(405, 16, Chance.ALMOST_IMPOSSIBLE, 100),
         OYSTER(407, 16, Chance.EXTREMELY_RARE, 80),
@@ -338,12 +367,12 @@ public class Fishing extends DefaultSkillable {
         SLIMY_EEL(3379, 28, Chance.EXTREMELY_RARE, 65),
         SALMON(331, 30, Chance.VERY_COMMON, 70),
         TUNA(359, 35, Chance.VERY_COMMON, 80),
-        CAVE_EEL(5001, 38, Chance.SOMETIMES, 80),
+        CAVE_EEL(5001, 38, SOMETIMES, 80),
         LOBSTER(377, 40, Chance.VERY_COMMON, 90),
-        BASS(363, 46, Chance.SOMETIMES, 100),
-        SWORDFISH(371, 50, Chance.COMMON, 100),
+        BASS(363, 46, SOMETIMES, 100),
+        SWORDFISH(371, 50, COMMON, 100),
         LAVA_EEL(2148, 53, Chance.VERY_COMMON, 60),
-        SHARK(383, 76, Chance.COMMON, 110);
+        SHARK(383, 76, COMMON, 110);
 
         /**
          * The item id of the fish.
@@ -364,6 +393,7 @@ public class Fishing extends DefaultSkillable {
          * The experience gained from catching this fish.
          */
         private int experience;
+
 
         /**
          * Creates a new {@link Fish}.
@@ -398,6 +428,12 @@ public class Fishing extends DefaultSkillable {
         public int getLevel() {
             return level;
         }
+
+        /**
+         * Gets the fishing spot needed to be able to catch the fish.
+         *
+         * @return the location.
+         */
 
         /**
          * Gets the chance of catching this fish (when grouped with other
@@ -476,7 +512,7 @@ public class Fishing extends DefaultSkillable {
          *
          * @param player
          * @param tool
-         * @param spot
+         * @param fishSpot
          */
         public AttackToolRandomEvent(Player player, FishingTool tool, NPC fishSpot) {
             super(1, player, true);
@@ -490,6 +526,7 @@ public class Fishing extends DefaultSkillable {
             switch (tick) {
                 case 0:
                     //Fire projectile at player.
+                    System.out.println(tick);
                     new Projectile(fishSpot, player, PROJECTILE_ID, 40, 70, 31, 33).sendProjectile();
                     break;
                 case 2:

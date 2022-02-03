@@ -143,6 +143,10 @@ public final class NpcDefinition {
 			definition.modelId[6] = 3704; // boots climbing
 			definition.modelId[9] = 290; // amulet glory
 			break;
+			case 1500:
+				definition.name = "Fishing spot";
+				definition.actions = new String[] {"Harpoon", null, null, null, null, null, null };
+				break;
 		case 1200:
 			definition.copy(lookup(1158));
 			definition.modelId[7] = 539; // weapon dds

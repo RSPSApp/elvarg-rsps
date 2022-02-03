@@ -78,6 +78,18 @@ public class NPCOptionPacketListener extends NpcIdentifiers implements PacketExe
 				}
 
 				switch (npc.getId()) {
+					case FISHING_SPOT_10: // cage and harpoon
+						player.getSkillManager().startSkillable(new Fishing(npc, FishingTool.LOBSTER_POT));
+						break;
+					case FISHING_SPOT_3: // Net and bait
+						player.getSkillManager().startSkillable(new Fishing(npc, FishingTool.NET));
+						break;
+					case FISHING_SPOT_7: // Lure
+						player.getSkillManager().startSkillable(new Fishing(npc, FishingTool.FLY_FISHING_ROD));
+						break;
+					case FISHING_SPOT_5: // Lure
+						player.getSkillManager().startSkillable(new Fishing(npc, FishingTool.SHARK_HARPOON));
+						break;
 				case SHOP_KEEPER_4:
 					ShopManager.open(player, ShopIdentifiers.GENERAL_STORE);
 					break;
@@ -273,8 +285,11 @@ public class NPCOptionPacketListener extends NpcIdentifiers implements PacketExe
 				case TZHAAR_KET_ZUH:
 					player.getBank(player.getCurrentBankTab()).open();
 					break;
-				case 1497: // Net and bait
+					case FISHING_SPOT_10: // cage and harpoon
+						player.getSkillManager().startSkillable(new Fishing(npc, FishingTool.HARPOON));
+						break;
 				case 1498: // Net and bait
+				case FISHING_SPOT_7: // Lure and bait
 					player.getSkillManager().startSkillable(new Fishing(npc, FishingTool.FISHING_ROD));
 					break;
 				case RICHARD_2:
