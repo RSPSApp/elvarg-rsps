@@ -141,33 +141,52 @@ public class TeleportHandler {
 		return true;
 	}
 
+	private static void teleportPlayer(Player player, Location location) {
+		if (TeleportHandler.checkReqs(player, location)) {
+						TeleportHandler.teleport(player, location,
+								player.getSpellbook().getTeleportType(), false);
+					}
+	}
+
 	public static boolean handleButton(Player player, int buttonId, int menuId) {
 		TeleportButton teleportButton = TeleportButton.get(buttonId);
+
 		if (teleportButton != null) {
-			switch (menuId) {
-			case 0: // Click to teleport
-				if (teleportButton == TeleportButton.HOME) {
-					if (TeleportHandler.checkReqs(player, GameConstants.DEFAULT_LOCATION)) {
-						TeleportHandler.teleport(player, GameConstants.DEFAULT_LOCATION,
-								player.getSpellbook().getTeleportType(), false);
-						player.getPreviousTeleports().put(teleportButton, GameConstants.DEFAULT_LOCATION);
-					}
+			switch(teleportButton.name()){
+				case "HOME":
+					teleportPlayer(player,GameConstants.DEFAULT_LOCATION);
 					return true;
-				}
-				player.getPacketSender().sendTeleportInterface(teleportButton.menu);
-				return true;
-			case 1: // Previous option on teleport
-				if (player.getPreviousTeleports().containsKey(teleportButton)) {
-					Location tele = player.getPreviousTeleports().get(teleportButton);
-					if (TeleportHandler.checkReqs(player, tele)) {
-						TeleportHandler.teleport(player, tele, player.getSpellbook().getTeleportType(), true);
-					}
-				} else {
-					player.getPacketSender().sendMessage("Unable to find a previous teleport.");
-				}
-				player.getPacketSender().sendInterfaceRemoval();
-				return true;
+				case "ANAPOS":
+					teleportPlayer(player,new Location(3836, 2779));
+					return true;
+				default:
+					player.getPacketSender().sendTeleportInterface(teleportButton.menu);
+					return true;
 			}
+//			switch (menuId) {
+//			case 0: // Click to teleport
+//				if (teleportButton == TeleportButton.HOME) {
+//					if (TeleportHandler.checkReqs(player, GameConstants.DEFAULT_LOCATION)) {
+//						TeleportHandler.teleport(player, GameConstants.DEFAULT_LOCATION,
+//								player.getSpellbook().getTeleportType(), false);
+//						player.getPreviousTeleports().put(teleportButton, GameConstants.DEFAULT_LOCATION);
+//					}
+//					return true;
+//				}
+//				player.getPacketSender().sendTeleportInterface(teleportButton.menu);
+//				return true;
+//			case 1: // Previous option on teleport
+//				if (player.getPreviousTeleports().containsKey(teleportButton)) {
+//					Location tele = player.getPreviousTeleports().get(teleportButton);
+//					if (TeleportHandler.checkReqs(player, tele)) {
+//						TeleportHandler.teleport(player, tele, player.getSpellbook().getTeleportType(), true);
+//					}
+//				} else {
+//					player.getPacketSender().sendMessage("Unable to find a previous teleport.");
+//				}
+//				player.getPacketSender().sendInterfaceRemoval();
+//				return true;
+//			}
 		}
 		return false;
 	}
