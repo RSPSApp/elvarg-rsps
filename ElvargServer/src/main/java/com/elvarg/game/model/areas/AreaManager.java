@@ -13,6 +13,8 @@ public class AreaManager {
 
     public static List<Area> areas = new ArrayList<>();
 
+    private static final Area safeZone = new ResourceArea();
+
     static {
         areas.add(new BarrowsArea());
         areas.add(new DuelArenaArea());
@@ -29,8 +31,16 @@ public class AreaManager {
      */
     public static void process(Mobile c) {
         Location position = c.getLocation();
+
         Area area = c.getArea();
         Area exitedArea = null;
+
+        if (inside(position,safeZone)){
+            c.setArea(null);
+            if (area != null)
+                area.leave(c, false);
+            return;
+        }
 
         if (area != null) {
             if (!inside(position, area)) {
@@ -38,6 +48,7 @@ public class AreaManager {
                 area = null;
             }
         }
+
 
         if (area == null) {
             area = get(position);
@@ -67,7 +78,7 @@ public class AreaManager {
         }
 
         // Update area..
-        c.setArea(area);
+            c.setArea(area);
 
         if (exitedArea != null) {
             // Now that the player's area has been fully updated, call leave on the previous one
