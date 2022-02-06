@@ -83,6 +83,10 @@ public class CombatRingArea extends Area {
 
     @Override
     public void enter(Mobile character) {
+        if (!(character instanceof Player)) {
+            return;
+        }
+
         character.getAsPlayer().getPacketSender()
                 .sendMessage("You enter the combat ring.");
 
@@ -92,6 +96,10 @@ public class CombatRingArea extends Area {
 
     @Override
     public void leave(Mobile character, boolean logout) {
+        if (!(character instanceof Player)) {
+            return;
+        }
+
         Player player = character.getAsPlayer();
 
         player.getPacketSender()
