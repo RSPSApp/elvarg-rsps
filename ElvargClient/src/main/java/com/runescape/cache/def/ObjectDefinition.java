@@ -104,6 +104,9 @@ public final class ObjectDefinition {
             objectDef.interactions = new String[5];
             objectDef.interactions[0] = "Restore-stats";
         }
+        if (id == 620) {
+            objectDef.name = "Empty Stall";
+        }
         if (id == 4150) {
             objectDef.name = "Bank portal";
         } else if (id == 4151) {

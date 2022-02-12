@@ -2,13 +2,19 @@ package com.elvarg.net.packet.impl;
 
 import com.elvarg.Server;
 import com.elvarg.game.collision.RegionManager;
+import com.elvarg.game.content.ArmorAnimator;
 import com.elvarg.game.content.minigames.FightCaves;
 import com.elvarg.game.content.skill.skillable.impl.Smithing;
 import com.elvarg.game.content.skill.skillable.impl.Smithing.Bar;
 import com.elvarg.game.content.skill.skillable.impl.Smithing.EquipmentMaking;
 import com.elvarg.game.content.skill.skillable.impl.Thieving.StallThieving;
+import com.elvarg.game.content.skill.skillable.impl.Woodcutting;
 import com.elvarg.game.definition.ObjectDefinition;
+import com.elvarg.game.definition.ObjectDefinition.ObjectFace;
+import com.elvarg.game.definition.ObjectDefinition.ObjectType;
 import com.elvarg.game.entity.impl.object.GameObject;
+import com.elvarg.game.entity.impl.object.LadderHandler;
+import com.elvarg.game.entity.impl.object.LadderHandler.Ladders;
 import com.elvarg.game.entity.impl.object.MapObjects;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
@@ -17,7 +23,9 @@ import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.Location;
 import com.elvarg.game.model.MagicSpellbook;
 import com.elvarg.game.model.Skill;
+import com.elvarg.game.model.areas.impl.CombatRingArea;
 import com.elvarg.game.model.areas.impl.PrivateArea;
+import com.elvarg.game.model.areas.impl.WildernessArea;
 import com.elvarg.game.model.movement.WalkToAction;
 import com.elvarg.game.model.rights.PlayerRights;
 import com.elvarg.game.model.teleportation.TeleportHandler;
@@ -28,6 +36,8 @@ import com.elvarg.net.packet.Packet;
 import com.elvarg.net.packet.PacketConstants;
 import com.elvarg.net.packet.PacketExecutor;
 import com.elvarg.util.ObjectIdentifiers;
+import org.apache.commons.lang.ArrayUtils;
+
 
 /**
  * This packet listener is called when a player clicked on a game object.
@@ -42,7 +52,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
 	 *
 	 * @param player
 	 *            The player that clicked on the object.
-	 * @param packet
+	 * @param object
 	 *            The packet containing the object's information.
 	 */
     private static void firstClick(Player player, GameObject object) {
@@ -52,6 +62,12 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         }
 
         switch (object.getId()) {
+        case MAGICAL_ANIMATOR:
+            ArmorAnimator.animateArmor(player);
+            break;
+        case COMBAT_RING:
+            CombatRingArea.handleRingFirstClick(player);
+            break;
         case KBD_LADDER_DOWN:
             TeleportHandler.teleport(player, new Location(3069, 10255), TeleportType.LADDER_DOWN, false);
             break;
@@ -104,9 +120,9 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         case WILDERNESS_DITCH:
             player.getMovementQueue().reset();
             if (player.getForceMovement() == null && player.getClickDelay().elapsed(2000)) {
-                final Location crossDitch = new Location(0, player.getLocation().getY() < 3522 ? 3 : -3);
+                final Location crossDitch = new Location(player.getLocation().getX() < 3835 ? 3 : -3, 0);
                 TaskManager.submit(new ForceMovementTask(player, 3, new ForceMovement(player.getLocation().clone(),
-                        crossDitch, 0, 70, crossDitch.getY() == 3 ? 0 : 2, 6132)));
+                        crossDitch, 0, 70, crossDitch.getX() == 3 ? 1 : 4, 6132)));
                 player.getClickDelay().reset();
             }
             break;
@@ -151,7 +167,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
      *
      * @param player
      *            The player that clicked on the object.
-     * @param packet
+     * @param object
      *            The packet containing the object's information.
      */
     private static void secondClick(Player player, GameObject object) {
@@ -190,7 +206,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
 	 *
 	 * @param player
 	 *            The player that clicked on the object.
-	 * @param packet
+	 * @param object
 	 *            The packet containing the object's information.
 	 */
 	private static void thirdClick(Player player, GameObject object) {
@@ -210,7 +226,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
 	 *
 	 * @param player
 	 *            The player that clicked on the object.
-	 * @param packet
+	 * @param object
 	 *            The packet containing the object's information.
 	 */
 	private static void fourthClick(Player player, GameObject object) {
@@ -234,6 +250,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         
         final GameObject object = MapObjects.get(player, id, location);
         if (object == null) {
+            // TODO: Re-add when mapdata is packed server side
             return;
         }
 
@@ -257,20 +274,26 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
                         return;
                     }
                 }
-                
+
+                // Ladders
+                if ((def.getName() != null && def.getName().contains("Ladder")) || ArrayUtils.contains(Ladders.LADDER_IDS, id)) {
+                   if (Ladders.forObjectLoc(object.getLocation()).isPresent()) {
+
+                       new LadderHandler(player, def, location, clickType-1,  Ladders.forObjectLoc(
+                               object.getLocation()
+                       ).get());
+                   } else {
+                       new LadderHandler(player, def, location, clickType-1 , (Ladders) null);
+                   }
+
+                    return;
+                }
+
                 switch (clickType) {
-                case 1:
-                    firstClick(player, object);
-                    break;
-                case 2:
-                    secondClick(player, object);
-                    break;
-                case 3:
-                    thirdClick(player, object);
-                    break;
-                case 4:
-                    fourthClick(player, object);
-                    break;
+                    case 1 -> firstClick(player, object);
+                    case 2 -> secondClick(player, object);
+                    case 3 -> thirdClick(player, object);
+                    case 4 -> fourthClick(player, object);
                 }
             }
             
@@ -288,34 +311,82 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
                     height = def.objectSizeX;
                 }
                 int rotation = def.surroundings;
-                if (orientation != 0)
+                if (orientation != ObjectFace.NORTH) {
+                    // Don't need to work out bitwise rotation for North as its already 0
                     rotation = (rotation << orientation & 0xf) + (rotation >> 4 - orientation);
-                if (type == 10 || type == 11 || type == 22) {
-                    return atObject(location.getY(), location.getX(), player.getLocation().getX(), height, rotation,
-                            width, player.getLocation().getY(), player.getPrivateArea());
                 }
-                
-                return atObject(location.getY(), location.getX(), player.getLocation().getX(), 0, 0,
-                            width, player.getLocation().getY(), player.getPrivateArea());
+
+                if (type == ObjectType.SOLID_OBJECTS || type == ObjectType.GROUND_OBJECTS || type == ObjectType.GROUND_DECORATIONS) {
+                    return atObject(location, player.getLocation(), width, height, rotation, player.getPrivateArea(), type, orientation, def);
+                }
+
+                // For walls/fences, height and rotation shouldn't matter
+                return atObject(location, player.getLocation(), 0, 0,
+                        width, player.getPrivateArea(), type, orientation, def);
             }
         });
     }
 
-    private static boolean atObject(int finalY, int finalX, int x, int height, int rotation, int width, int y, PrivateArea privateArea) {
-        int maxX = (finalX + width) - 1;
-        int maxY = (finalY + height) - 1;
-        if (x >= finalX && x <= maxX && y >= finalY && y <= maxY)
+    private static boolean atObject(Location objectLocaton, Location playerLocation, int width, int height, int rotation, PrivateArea privateArea, int type, int orientation, ObjectDefinition def) {
+        int playerX = playerLocation.getX(), playerY = playerLocation.getY(), playerZ = playerLocation.getZ();
+        int objectX = objectLocaton.getX(), objectY = objectLocaton.getY();
+        int maxX = (objectX + width) - (width > 0 ? 1 : 0);
+        int maxY = (objectY + height) - (height > 0 ? 1 : 0);
+
+        if (playerX >= objectX && playerX <= maxX && playerY >= objectY && playerY <= maxY)  {
+            // Player is already within reach of object, no need to keep walking
             return true;
-        if (x == finalX - 1 && y >= finalY && y <= maxY && (RegionManager.getClipping(x, y, height, privateArea) & 8) == 0
-                && (rotation & 8) == 0)
+        }
+
+        int tolerance = 1;
+
+        if (type == ObjectType.STRAGHT_WALLS_FENCES) {
+            if (orientation == ObjectFace.SOUTH && playerX < objectX) {
+                // Player will have to stand on the wall tile to be at it
+                tolerance = 0;
+            }
+
+            if (orientation == ObjectFace.NORTH && playerX > objectX) {
+                // Player will have to stand on the wall tile to be at it
+                tolerance = 0;
+            }
+
+            if (orientation == ObjectFace.EAST && playerY < objectY) {
+                tolerance = 0;
+            }
+
+            if (orientation == ObjectFace.WEST && playerY > objectY) {
+                tolerance = 0;
+            }
+        }
+
+        // Object east of player
+        if (playerX == objectX - tolerance && playerY >= objectY && playerY <= maxY && (rotation & 8) == 0 &&
+                (def.impenetrable || (RegionManager.getClipping(playerX, playerY, playerZ, privateArea) & 8) == 0)) {
             return true;
-        if (x == maxX + 1 && y >= finalY && y <= maxY && (RegionManager.getClipping(x, y, height, privateArea) & 0x80) == 0
-                && (rotation & 2) == 0)
+        }
+
+        // Object west of player
+        if (playerX == maxX + tolerance && playerY >= objectY && playerY <= maxY && (rotation & 2) == 0 &&
+                (def.impenetrable || (RegionManager.getClipping(playerX, playerY, playerZ, privateArea) & 0x80) == 0)) {
             return true;
-        return y == finalY - 1 && x >= finalX && x <= maxX && (RegionManager.getClipping(x, y, height, privateArea) & 2) == 0
-                && (rotation & 4) == 0
-                || y == maxY + 1 && x >= finalX && x <= maxX && (RegionManager.getClipping(x, y, height, privateArea) & 0x20) == 0
-                        && (rotation & 1) == 0;
+        }
+
+        // Object north of player
+        if(playerY == objectY - tolerance && playerX >= objectX && playerX <= maxX &&
+                ((rotation & 4) == 0 || orientation == ObjectFace.WEST) &&
+                (def.impenetrable || (RegionManager.getClipping(playerX, playerY, playerZ, privateArea) & 2) == 0)) {
+            return true;
+        }
+
+        // Object south of player
+        if (playerY == maxY + tolerance && playerX >= objectX && playerX <= maxX &&
+                ((rotation & 1) == 0 || orientation == ObjectFace.EAST) &&
+                (def.impenetrable || (RegionManager.getClipping(playerX, playerY, playerZ, privateArea) & 0x20) == 0)) {
+            return true;
+        }
+
+        return false;
     }
 
 	@Override

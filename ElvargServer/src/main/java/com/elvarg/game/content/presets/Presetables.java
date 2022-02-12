@@ -265,6 +265,9 @@ public class Presetables {
 	private static void load(Player player, final Presetable preset) {
 		final int oldCbLevel = player.getSkillManager().getCombatLevel();
 
+		// Always use the temporary skill manager for presets
+		SkillManager tempSkillManager = player.getTempSkillManager();
+
 		// Close!
 		player.getPacketSender().sendInterfaceRemoval();
 
@@ -280,26 +283,20 @@ public class Presetables {
 			return;
 		}
 
-		// Send valuable items in inventory/equipment to bank
 		boolean sent = false;
-		for (Item item : Misc.concat(player.getInventory().getCopiedItems(), player.getEquipment().getCopiedItems())) {
-			if (!item.isValid()) {
-				continue;
-			}
-			boolean spawnable = false;
-			for (int i : GameConstants.ALLOWED_SPAWNS) {
-				if (item.getId() == i) {
-					spawnable = true;
-					break;
+		if (!player.hasUsedPreset) {
+			// Player is loading preset for first time, bank all their items
+			for (Item item : Misc.concat(player.getInventory().getCopiedItems(), player.getEquipment().getCopiedItems())) {
+				if (!item.isValid()) {
+					continue;
 				}
-			}
-			if (!spawnable) {
+
 				player.getBank(Bank.getTabForItem(player, item.getId())).add(item, false);
 				sent = true;
 			}
-		}
-		if (sent) {
-			player.getPacketSender().sendMessage("The non-spawnable items you had on you have been sent to your bank.");
+			if (sent) {
+				player.getPacketSender().sendMessage("The items/equipment you had on you have been sent to your bank.");
+			}
 		}
 
 		player.getInventory().resetItems().refreshItems();
@@ -372,19 +369,19 @@ public class Presetables {
 			Skill skill = Skill.values()[i];
 			int level = preset.getStats()[i];
 			int exp = SkillManager.getExperienceForLevel(level);
-			player.getSkillManager().setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill, exp);
+			tempSkillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill, exp);
 			totalExp += exp;
 		}
 
 		// Update prayer tab with prayer info
-		player.getPacketSender().sendString(687, player.getSkillManager().getCurrentLevel(Skill.PRAYER) + "/"
-				+ player.getSkillManager().getMaxLevel(Skill.PRAYER));
+		player.getPacketSender().sendString(687, tempSkillManager.getCurrentLevel(Skill.PRAYER) + "/"
+				+ tempSkillManager.getMaxLevel(Skill.PRAYER));
 
 		// Send total level
-		player.getPacketSender().sendString(31200, "" + player.getSkillManager().getTotalLevel());
+		player.getPacketSender().sendString(31200, "" + tempSkillManager.getTotalLevel());
 
 		// Send combat level
-		final int newCbLevel = player.getSkillManager().getCombatLevel();
+		final int newCbLevel = tempSkillManager.getCombatLevel();
 		final String combatLevel = "Combat level: " + newCbLevel;
 		player.getPacketSender().sendString(19000, combatLevel).sendString(5858, combatLevel);
 
@@ -398,6 +395,7 @@ public class Presetables {
 		player.getPacketSender().sendConfig(711, PrayerHandler.canUse(player, PrayerData.RIGOUR, false) ? 1 : 0);
 		player.getPacketSender().sendConfig(713, PrayerHandler.canUse(player, PrayerData.AUGURY, false) ? 1 : 0);
 		player.resetAttributes();
+		player.hasUsedPreset = true;
 		player.getPacketSender().sendMessage("Preset loaded!");
 		player.getPacketSender().sendTotalExp(totalExp);
 
