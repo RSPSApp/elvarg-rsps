@@ -254,6 +254,14 @@ public class Combat {
 		return castSpell;
 	}
 
+	public CombatSpell getSelectedSpell() {
+		CombatSpell spell = getCastSpell();
+		if (spell != null) {
+			return spell;
+		}
+		return getAutocastSpell();
+	}
+
 	public void setCastSpell(CombatSpell castSpell) {
 		this.castSpell = castSpell;
 	}
@@ -264,14 +272,6 @@ public class Combat {
 
 	public void setAutocastSpell(CombatSpell autoCastSpell) {
 		this.autoCastSpell = autoCastSpell;
-	}
-
-	public CombatSpell getSelectedSpell() {
-		CombatSpell spell = getCastSpell();
-		if (spell != null) {
-			return spell;
-		}
-		return getAutocastSpell();
 	}
 
 	public CombatSpell getPreviousCast() {

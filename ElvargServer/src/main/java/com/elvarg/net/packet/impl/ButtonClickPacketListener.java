@@ -10,6 +10,7 @@ import com.elvarg.game.content.combat.magic.EffectSpells;
 import com.elvarg.game.content.presets.Presetables;
 import com.elvarg.game.content.skill.skillable.impl.Smithing;
 import com.elvarg.game.entity.impl.player.Player;
+import com.elvarg.game.model.areas.impl.CombatRingArea;
 import com.elvarg.game.model.container.impl.Bank;
 import com.elvarg.game.model.dialogues.DialogueOption;
 import com.elvarg.game.model.equipment.BonusManager;
@@ -141,6 +142,10 @@ public class ButtonClickPacketListener implements PacketExecutor {
 		case OPEN_PRESETS:
 			if (player.busy()) {
 				player.getPacketSender().sendInterfaceRemoval();
+			}
+			if (!(player.getArea() instanceof CombatRingArea)) {
+				player.getPacketSender().sendMessage("You can only load presets inside the Combat Ring.");
+				break;
 			}
 			Presetables.open(player);
 			break;
