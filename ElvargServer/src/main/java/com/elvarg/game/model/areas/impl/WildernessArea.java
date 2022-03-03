@@ -18,6 +18,8 @@ public class WildernessArea extends Area {
 		return ((((y > 6400 ? y - 6400 : y) - 3520) / 8) + 1);
 	}
 
+
+
 	public static boolean multi(int x, int y) {
 		if (x >= 3155 && y >= 3798 || x >= 3020 && x <= 3055 && y >= 3684 && y <= 3711
 				|| x >= 3150 && x <= 3195 && y >= 2958 && y <= 3003 || x >= 3645 && x <= 3715 && y >= 3454 && y <= 3550
@@ -32,11 +34,12 @@ public class WildernessArea extends Area {
 		super(Arrays.asList(new Boundary(2940, 3392, 3525, 3968), new Boundary(2986, 3012, 10338, 10366),
 				new Boundary(3653, 3720, 3441, 3538), new Boundary(3650, 3653, 3457, 3472),
 				new Boundary(3150, 3199, 3796, 3869), new Boundary(2994, 3041, 3733, 3790),
-				new Boundary(3061, 3074, 10253, 10262)));
+				new Boundary(3061, 3074, 10253, 10262), new Boundary(3837, 3900, 2815, 2876)));
 	}
 
 	@Override
 	public void enter(Mobile character) {
+		character.getArea();
 		if (character.isPlayer()) {
 			Player player = character.getAsPlayer();
 			player.getPacketSender().sendInteractionOption("Attack", 2, true);
@@ -64,7 +67,7 @@ public class WildernessArea extends Area {
 	public void process(Mobile character) {
 		if (character.isPlayer()) {
 			Player player = character.getAsPlayer();
-			player.setWildernessLevel(getLevel(player.getLocation().getY()));
+			player.setWildernessLevel(getLevel(player.getLocation().getX()));
 			player.getPacketSender().sendString(199, "Level: " + player.getWildernessLevel());
 		}
 	}

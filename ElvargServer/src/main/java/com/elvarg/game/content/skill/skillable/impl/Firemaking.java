@@ -157,7 +157,7 @@ public class Firemaking extends DefaultSkillable {
     }
 
     @Override
-    public void onCycle(Player player) {
+    public void onCycle(Player player, int cycle) {
         PetHandler.onSkill(player, Skill.FIREMAKING);
     }
 

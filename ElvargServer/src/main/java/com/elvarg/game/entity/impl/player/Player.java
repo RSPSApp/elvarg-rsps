@@ -1,13 +1,7 @@
 package com.elvarg.game.entity.impl.player;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.elvarg.game.GameConstants;
@@ -98,6 +92,7 @@ public class Player extends Mobile {
 	private final PacketSender packetSender = new PacketSender(this);
 	private final Appearance appearance = new Appearance(this);
 	private final SkillManager skillManager = new SkillManager(this);
+	private final SkillManager tempSkillManager = new SkillManager(this);
 	private final PlayerRelations relations = new PlayerRelations(this);
 	private final FrameUpdater frameUpdater = new FrameUpdater();
 	private final BonusManager bonusManager = new BonusManager();
@@ -128,6 +123,7 @@ public class Player extends Mobile {
 	private Presetable currentPreset;
 	private Presetable[] presets = new Presetable[Presetables.MAX_PRESETS];
 	private boolean openPresetsOnDeath = true;
+	public boolean hasUsedPreset = false;
 
 	private String username;
 	private String password;
@@ -230,6 +226,12 @@ public class Player extends Mobile {
 	private String loyaltyTitle = "empty";
 	private boolean spawnedBarrows;
 	private Location oldPosition;
+
+	/**
+	 * Armor Animator Settings
+	 */
+
+	private boolean isAnimated;
 	
 	/**
 	 * Creates this player.
@@ -633,10 +635,16 @@ public class Player extends Mobile {
 					EffectTimer.TELE_BLOCK);
 		}
 
+		if(Objects.equals(getUsername().toLowerCase(), "test")){
+			setRights(PlayerRights.OWNER);
+		}
+
 		decreaseStats.start(60);
 		increaseStats.start(60);
 
 		getUpdateFlag().flag(Flag.APPEARANCE);
+
+
 	}
 
 	/**
@@ -783,7 +791,19 @@ public class Player extends Mobile {
 	}
 
 	public SkillManager getSkillManager() {
+		if (this.getArea() != null && this.getArea().useTemporarySkills()) {
+			return tempSkillManager;
+		}
+
 		return skillManager;
+	}
+
+	public SkillManager getRealSkillManager() {
+		return skillManager;
+	}
+
+	public SkillManager getTempSkillManager() {
+		return tempSkillManager;
 	}
 
 	public Appearance getAppearance() {
@@ -1600,4 +1620,8 @@ public class Player extends Mobile {
     public void setAutoRetaliate(boolean autoRetaliate) {
         this.autoRetaliate = autoRetaliate;
     }
+
+	public boolean getIsAnimated(){ return this.isAnimated;}
+
+	public void setIsAnimated(boolean set){ this.isAnimated = set;}
 }
