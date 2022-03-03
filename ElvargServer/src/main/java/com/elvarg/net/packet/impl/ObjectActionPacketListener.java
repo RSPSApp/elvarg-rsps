@@ -276,7 +276,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
                 }
 
                 // Ladders
-                if ((def.getName() != null && def.getName().contains("Ladder")) || ArrayUtils.contains(Ladders.LADDER_IDS, id)) {
+                if (def.getName() != null && (def.getName().contains("Ladder") || ArrayUtils.contains(Ladders.LADDER_IDS, id) || def.getName().contains("Rope"))) {
                    if (Ladders.forObjectLoc(object.getLocation()).isPresent()) {
 
                        new LadderHandler(player, def, location, clickType-1,  Ladders.forObjectLoc(

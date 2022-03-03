@@ -1,5 +1,6 @@
 package com.elvarg.game.entity.impl.object;
 
+import com.elvarg.game.collision.RegionManager;
 import com.elvarg.game.definition.ObjectDefinition;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Location;
@@ -53,12 +54,12 @@ public class LadderHandler {
 
 
     public void climbLadder(Player player, int newHeight, String direction) {
-        TaskManager.submit(new Task(2) {
+        TaskManager.submit(new Task(1) {
             @Override
             public void execute() {
+
                 TeleportType teleType = (direction.equals("up")) ? TeleportType.LADDER_UP : TeleportType.LADDER_DOWN;
                 Location teleportLoc;
-                player.getPacketSender().sendMessage("You climb " + direction + " the ladder.");
                 if(ladder == null) {
                     teleportLoc = new Location(player.getLocation().getX(),
                             player.getLocation().getY(),
@@ -66,6 +67,7 @@ public class LadderHandler {
                 } else {
                     teleportLoc = ladder.getNewLoc();
                 }
+                player.getPacketSender().sendMessage("You climb " + direction + " the " + ladderData.getName() + ".");
                 TeleportHandler.teleport(
                         player,
                         teleportLoc,
@@ -98,7 +100,9 @@ public class LadderHandler {
      */
     public enum Ladders {
         MILL_DOWN(new Location(2208,4839,0), new Location(3789,2825,0) ),
-        ZOMBIES_UP(new Location(3788,2825,0), new Location(2208,4840,0) );
+        ZOMBIES_UP(new Location(3788,2825,0), new Location(2208,4840,0) ),
+        TRAINING_UP(new Location(3812,2837,0), new Location(1760,5164,0) ),
+        TRAINING_DOWN(new Location(1760,5163,0), new Location(3812,2838,0) );
 
 
         private static final Map<Location, Ladders> ladders = new HashMap<>();
