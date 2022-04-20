@@ -98,6 +98,7 @@ public class Player extends Mobile {
 	private final PacketSender packetSender = new PacketSender(this);
 	private final Appearance appearance = new Appearance(this);
 	private final SkillManager skillManager = new SkillManager(this);
+	private final SkillManager tempSkillManager = new SkillManager(this);
 	private final PlayerRelations relations = new PlayerRelations(this);
 	private final FrameUpdater frameUpdater = new FrameUpdater();
 	private final BonusManager bonusManager = new BonusManager();
@@ -783,7 +784,19 @@ public class Player extends Mobile {
 	}
 
 	public SkillManager getSkillManager() {
+		if (this.getArea() != null && this.getArea().useTemporarySkills()) {
+			return tempSkillManager;
+		}
+
 		return skillManager;
+	}
+
+	public SkillManager getRealSkillManager() {
+		return skillManager;
+	}
+
+	public SkillManager getTempSkillManager() {
+		return tempSkillManager;
 	}
 
 	public Appearance getAppearance() {

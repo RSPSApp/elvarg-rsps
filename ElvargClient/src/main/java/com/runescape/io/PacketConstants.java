@@ -8,9 +8,9 @@ package com.runescape.io;
  */
 public final class PacketConstants {
 
-	public static final int SET_POISON_TYPE = 184;
-	public static final int SHOW_TELEPORT_INTERFACE = 183;
-	public static final int SET_SPECIAL_ENABLED = 186;
+    public static final int SET_POISON_TYPE = 184;
+    public static final int SHOW_TELEPORT_INTERFACE = 183;
+    public static final int SET_SPECIAL_ENABLED = 186;
     public static final int FOCUS_CHANGE = 3;
     public static final int FLAG_ACCOUNT = 45;
     public static final int REPORT_PLAYER = 218;
@@ -114,7 +114,7 @@ public final class PacketConstants {
     public static final int IDLE_LOGOUT = 202;
     public static final int ITEM_ON_NPC = 57;
     public static final int CREATION_MENU = 167;
-    
+
     public static final int[] PACKET_SIZES = {
             0, 0, 0, 1, 6, 0, 0, 0, 4, 4, //0
             6, 2, -1, 1, 1, -1, 1, 0, 0, 0, // 10
@@ -132,7 +132,7 @@ public final class PacketConstants {
             -1, 0, 0, 0, 13, 0, 0, 1, 0, 0, // 130
             3, 10, 2, 0, 0, 0, 0, 14, 0, 0, //140
             0, 4, 5, 3, 0, 0, 3, 0, 0, 0, //150
-            4, 5, 0, 0, 2, 0, 6, 0, 0, 0, //160
+            4, 5, 0, 0, 2, 0, 6, 9, 0, 0, //160
             0, 5, -2, -2, 7, 5, 10, 6, 0, -2, // 170
             0, 0, 0, 1, 1, 2, 1, -1, 0, 0, //180
             0, 0, 0, 0, 0, 2, -1, 0, -1, 0, //190
@@ -142,5 +142,5 @@ public final class PacketConstants {
             8, 0, 0, 0, 0, 0, 0, 0, 0, 0,//230
             2, -2, 0, 0, -1, 0, 6, 0, 4, 3,//240
             -1, 0, 0, -1, 6, 0, 0//250
-        };
+    };
 }

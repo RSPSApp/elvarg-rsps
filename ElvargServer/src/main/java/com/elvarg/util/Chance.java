@@ -16,7 +16,9 @@ public enum Chance {
 
     UNCOMMON(35),
 
-    VERY_UNCOMMON(10),
+    VERY_UNCOMMON(25),
+
+    RARE(10),
 
     EXTREMELY_RARE(5),
 
