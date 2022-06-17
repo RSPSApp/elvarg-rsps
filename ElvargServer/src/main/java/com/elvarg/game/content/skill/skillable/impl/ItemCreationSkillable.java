@@ -140,7 +140,7 @@ public class ItemCreationSkillable extends DefaultSkillable {
         boolean hasItems = true;
         for (RequiredItem item : requiredItems) {
             if (!player.getInventory().contains(item.getItem())) {
-                String prefix = item.getItem().getAmount() > 1 ? Integer.toString(item.getItem().getAmount()) : "some";
+                String prefix = item.getItem().getAmount() > 1 ? Integer.toString(item.getItem().getAmount()) : ":";
                 player.getPacketSender().sendMessage("You " + (!hasItems ? "also need" : "need") + " " + prefix + " "
                         + item.getItem().getDefinition().getName() + ".");
                 hasItems = false;
