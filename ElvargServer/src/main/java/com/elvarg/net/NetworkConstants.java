@@ -13,6 +13,10 @@ import io.netty.util.AttributeKey;
  */
 public class NetworkConstants {
 
+    public static final boolean WEBSOCKETS = true;
+
+    public static final int HTTP_PORT = 8080;
+
     /**
      * The game port
      */
@@ -61,4 +65,5 @@ public class NetworkConstants {
     public static final int PACKET_PROCESS_LIMIT = 30;
 
 
+    public static final int IDLE_TIME = 3000;
 }

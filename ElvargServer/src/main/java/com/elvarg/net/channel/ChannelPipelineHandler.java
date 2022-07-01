@@ -19,13 +19,24 @@ public class ChannelPipelineHandler extends ChannelInitializer<SocketChannel> {
     /**
      * The part of the pipeline that limits connections, and checks for any banned hosts.
      */
-    private final ChannelFilter FILTER = new ChannelFilter();
+    private ChannelFilter filter;
 
     /**
      * The part of the pipeline that handles exceptions caught, channels being read, in-active
      * channels, and channel triggered events.
      */
-    private final ChannelEventHandler HANDLER = new ChannelEventHandler();
+    private ChannelEventHandler handler;
+
+
+    /**
+     * Creates the service pipeline factory.
+     */
+    public ChannelPipelineHandler(ChannelEventHandler handler, ChannelFilter filter) {
+        this.handler = handler;
+        this.filter = filter;
+    }
+
+
 
     @Override
     protected void initChannel(SocketChannel channel) throws Exception {
@@ -33,10 +44,10 @@ public class ChannelPipelineHandler extends ChannelInitializer<SocketChannel> {
 
         channel.attr(NetworkConstants.SESSION_KEY).setIfAbsent(new PlayerSession(channel));
 
-        pipeline.addLast("channel-filter", FILTER);
+        pipeline.addLast("channel-filter", filter);
         pipeline.addLast("decoder", new LoginDecoder());
         pipeline.addLast("encoder", new LoginEncoder());
         pipeline.addLast("timeout", new IdleStateHandler(NetworkConstants.SESSION_TIMEOUT, 0, 0));
-        pipeline.addLast("channel-handler", HANDLER);
+        pipeline.addLast("channel-handler", handler);
     }
 }
