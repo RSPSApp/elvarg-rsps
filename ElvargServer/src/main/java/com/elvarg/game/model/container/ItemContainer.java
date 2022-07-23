@@ -520,7 +520,7 @@ public abstract class ItemContainer {
      * @param item The item to add.
      * @return The ItemContainer instance.
      */
-    public ItemContainer add(Item item) {
+    public boolean add(Item item) {
         return add(item, true);
     }
 
@@ -531,7 +531,7 @@ public abstract class ItemContainer {
      * @param amount The amount of the item.
      * @return The ItemContainer instance.
      */
-    public ItemContainer add(int id, int amount) {
+    public boolean add(int id, int amount) {
         return add(new Item(id, amount));
     }
 
@@ -543,9 +543,9 @@ public abstract class ItemContainer {
      *                refreshed.
      * @return The ItemContainer instance.
      */
-    public ItemContainer add(Item item, boolean refresh) {
+    public boolean add(Item item, boolean refresh) {
         if (item.getId() <= 0 || (item.getAmount() <= 0 && !(this instanceof Bank))) {
-            return this;
+            return false;
         }
         if (ItemDefinition.forId(item.getId()).isStackable() || stackType() == StackType.STACKS) {
             int slot = getSlot(item.getId());
@@ -559,7 +559,7 @@ public abstract class ItemContainer {
                 if (refresh) {
                     refreshItems();
                 }
-                return this;
+                return false;
             }
             long totalAmount = (Long.valueOf(items[slot].getAmount()) + Long.valueOf(item.getAmount()));
             items[slot].setId(item.getId());
@@ -577,7 +577,7 @@ public abstract class ItemContainer {
                     if (refresh) {
                         refreshItems();
                     }
-                    return this;
+                    return false;
                 } else {
                     items[slot].setId(item.getId());
                     items[slot].setAmount(1);
@@ -589,7 +589,7 @@ public abstract class ItemContainer {
         if (refresh) {
             refreshItems();
         }
-        return this;
+        return true;
     }
 
     /**
