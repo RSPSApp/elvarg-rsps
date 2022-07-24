@@ -12,12 +12,17 @@ import com.elvarg.net.login.LoginResponses;
 import com.elvarg.net.packet.Packet;
 import com.elvarg.net.packet.PacketBuilder;
 import com.elvarg.net.packet.PacketConstants;
+import com.elvarg.net.websocket.ByteBufToWebSockBufferEncoder;
+import com.elvarg.net.websocket.RequestContext;
 import com.elvarg.util.Misc;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.codec.http.websocketx.WebSocket13FrameEncoder;
+import io.netty.util.AttributeKey;
 
 /**
  * The session handler dedicated to a player that will handle input and output
@@ -35,6 +40,8 @@ public class PlayerSession {
     private final LinkedList<Packet> packetsQueue = new LinkedList<>();
 
     private final LinkedList<Integer> lastPacketOpcodeQueue = new LinkedList<>();
+
+    private static final AttributeKey<RequestContext> WEBSOCKET_CONTEXT = AttributeKey.valueOf("websocket");
 
     /**
      * The channel that will manage the connection for this player.
@@ -62,7 +69,9 @@ public class PlayerSession {
      * @param msg The player's login information.
      */
     public void finalizeLogin(LoginDetailsMessage msg) {
-        SocketChannel channel = (SocketChannel) msg.getContext().channel();
+        ChannelHandlerContext messageContext = msg.getContext();
+
+        SocketChannel channel = (SocketChannel) messageContext.channel();
 
         // Update the player
         player.setUsername(msg.getUsername()).setLongUsername(Misc.stringToLong(msg.getUsername()))
@@ -85,6 +94,13 @@ public class PlayerSession {
 
         // Replace decoder/encoder to packets
         channel.pipeline().replace("encoder", "encoder", new PacketEncoder(msg.getEncryptor()));
+
+        RequestContext requestContext = channel.attr(WEBSOCKET_CONTEXT).get();
+        if(requestContext != null && requestContext.isWebsocketRequest()) {
+            channel.pipeline().remove("byteBufToWebsocketEncoder");
+            channel.pipeline().addBefore("encoder", "byteBufToWebsocketEncoder", new ByteBufToWebSockBufferEncoder());
+            channel.pipeline().addBefore("byteBufToWebsocketEncoder",  "websocketEncoder", new WebSocket13FrameEncoder(false));
+        }
 
         channel.pipeline().replace("decoder", "decoder", new PacketDecoder(msg.getDecryptor()));
 

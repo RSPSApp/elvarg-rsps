@@ -57,6 +57,7 @@ public final class LoginDecoder extends ByteToMessageDecoder {
     public static void sendLoginResponse(ChannelHandlerContext ctx, int response) {
         ByteBuf buffer = Unpooled.buffer(Byte.BYTES);
         buffer.writeByte(response);
+        // Apollo calls writeAndFlush directly on the ctx
         ctx.writeAndFlush(buffer).addListener(ChannelFutureListener.CLOSE);
     }
 
@@ -79,13 +80,12 @@ public final class LoginDecoder extends ByteToMessageDecoder {
     }
 
     private void decodeRequest(ChannelHandlerContext ctx, ByteBuf buffer) {
-
         if (!buffer.isReadable()) {
             ctx.channel().close();
             return;
         }
 
-        int request = buffer.readUnsignedByte();
+        int request = buffer.readUnsignedByte(); // Username hash
         if (request != NetworkConstants.LOGIN_REQUEST_OPCODE) {
             Server.getLogger().info("Session rejected for bad login request id: " + request);
             sendLoginResponse(ctx, LoginResponses.LOGIN_BAD_SESSION_ID);
@@ -109,14 +109,26 @@ public final class LoginDecoder extends ByteToMessageDecoder {
                     (ip >> 24 & 0xff));
         }
 
+        //if (buffer.isReadable()) {
+            //usernameHash = buffer.readUnsignedByte();
+            //serverSeed = RANDOM.nextLong();
+
+            //ByteBuf response = ctx.alloc().buffer(17);
+            //response.writeByte(0);
+            //response.writeLong(0);
+            //response.writeLong(serverSeed);
+            //ctx.channel().write(response);
+
+            //setState(LoginDecoderState.LOGIN_HEADER);
+        //}
+
         // Send information to the client
         ByteBuf buf = Unpooled.buffer(Byte.BYTES + Long.BYTES);
         buf.writeByte(0); // 0 = continue login
-        buf.writeLong(random.nextLong()); // This long will be used for
-        // encryption later on
-        ctx.writeAndFlush(buf);
+        buf.writeLong(random.nextLong()); // This long will be used for encryption later on
+        ctx.channel().write(buf);//writeAndFlush(buf);
 
-        state = LoginDecoderState.LOGIN_TYPE;
+        this.state = LoginDecoderState.LOGIN_TYPE;
     }
 
     private void decodeType(ChannelHandlerContext ctx, ByteBuf buffer) {
