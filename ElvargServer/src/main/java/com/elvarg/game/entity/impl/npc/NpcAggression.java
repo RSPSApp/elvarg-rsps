@@ -9,7 +9,9 @@ import com.elvarg.game.model.areas.impl.WildernessArea;
 import com.elvarg.game.model.container.impl.Equipment;
 import com.elvarg.util.Misc;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Handles the behavior of aggressive {@link Npc}s around players within the
@@ -34,7 +36,7 @@ public final class NpcAggression {
         runAggression(player, player.getLocalNpcs());
 
         if (player.getArea() instanceof PrivateArea) {
-            runAggression(player, ((PrivateArea) player.getArea()).getNpcs());
+            runAggression(player, new ArrayList<NPC>(((PrivateArea) player.getArea()).getNpcs().values()));
         }
     }
 

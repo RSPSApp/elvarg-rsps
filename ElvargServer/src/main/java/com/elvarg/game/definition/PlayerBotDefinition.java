@@ -1,5 +1,6 @@
 package com.elvarg.game.definition;
 
+import com.elvarg.game.content.presets.Presetable;
 import com.elvarg.game.entity.impl.playerbot.PlayerBot;
 import com.elvarg.game.model.Location;
 
@@ -9,12 +10,12 @@ public class PlayerBotDefinition {
 
     private Location spawnLocation;
 
-    private int presetIndex;
+    private Presetable preset;
 
-    public PlayerBotDefinition(String _username, Location _spawnLocation, int _presetIndex) {
+    public PlayerBotDefinition(String _username, Location _spawnLocation, Presetable _preset) {
         this.username = _username;
         this.spawnLocation = _spawnLocation;
-        this.presetIndex = _presetIndex;
+        this.preset = _preset;
     }
 
     public String getUsername() {
@@ -25,7 +26,5 @@ public class PlayerBotDefinition {
         return this.spawnLocation;
     }
 
-    public int getPresetIndex() {
-        return this.presetIndex;
-    }
+    public Presetable getPreset() { return this.preset; }
 }

@@ -54,7 +54,7 @@ public class MapObjects {
     public static GameObject get(int id, Location location, PrivateArea privateArea) {
         // Check instanced objects..
         if (privateArea != null) {
-            for (GameObject object : privateArea.getObjects()) {
+            for (GameObject object : privateArea.getPrivateObjects()) {
                 if (object.getId() == id && object.getLocation().equals(location)) {
                     return object;
                 }
@@ -92,7 +92,7 @@ public class MapObjects {
     public static GameObject get(Location location, int type, PrivateArea privateArea) {
         // Check instanced objects..
         if (privateArea != null) {
-            for (GameObject object : privateArea.getObjects()) {
+            for (GameObject object : privateArea.getPrivateObjects()) {
                 if (object.getType() == type && object.getLocation().equals(location)) {
                     return object;
                 }

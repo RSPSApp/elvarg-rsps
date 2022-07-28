@@ -1,5 +1,6 @@
 package com.elvarg.game;
 
+import com.elvarg.game.content.presets.impl.*;
 import com.elvarg.game.definition.PlayerBotDefinition;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -127,12 +128,12 @@ public class GameConstants {
 			1704, 1731, 1725, 1727, 1729));
 
 	public static final PlayerBotDefinition[] PLAYER_BOTS = new PlayerBotDefinition[] {
-			new PlayerBotDefinition("Bot Hello123", new Location(3085, 3528), 0),
-			new PlayerBotDefinition("Elvemage", new Location(3093, 3529), 1),
-			new PlayerBotDefinition("Bot 1337Pk", new Location(3087, 3530), 2),
-			new PlayerBotDefinition("Bot Kids Ranqe", new Location(3089, 3530), 3),
-			new PlayerBotDefinition("Bot Josh", new Location(3091, 3533), 4),
-			new PlayerBotDefinition("Bot Josh", new Location(3091, 3533), 5),
+			new PlayerBotDefinition("Bot Hello123", new Location(3085, 3528), ObbyMauler_57.preset),
+			new PlayerBotDefinition("Elvemage", new Location(3093, 3529), Elvemage_86.preset),
+			new PlayerBotDefinition("Bot 1337Pk", new Location(3087, 3530), GMauler_70.preset),
+			new PlayerBotDefinition("Bot Kids Ranqe", new Location(3089, 3530), DDSPure_M_73.preset),
+			new PlayerBotDefinition("Bot Josh", new Location(3091, 3533), DDSPure_R_73.preset),
+			new PlayerBotDefinition("Bot John", new Location(3094, 3531), NHPure_83.preset),
 	};
 
 	// The password for every player bot account

@@ -13,6 +13,27 @@ import static com.elvarg.util.ItemIdentifiers.*;
 
 public class GMaulerFightStyle extends PlayerBotFightStyle {
 
+    private WeaponSwitch[] weaponSwitches = new WeaponSwitch[] {
+
+        new WeaponSwitch(new ItemInSlot(GRANITE_MAUL, 5)) {
+            @Override
+            public boolean shouldSwitch(PlayerBot playerBot, Mobile enemy) {
+                return playerBot.getSpecialPercentage() >= 50 &&
+                        // Don't switch to Melee if we're frozen
+                        playerBot.getMovementQueue().canMove() &&
+                        // Switch if the enemy has enabled protect from missles or has lowish health
+                        (enemy.getPrayerActive()[PrayerHandler.PROTECT_FROM_MISSILES] || enemy.getHitpoints() < 60);
+            }
+
+            @Override
+            public void afterSwitch(PlayerBot playerBot) {
+                CombatSpecial.activate(playerBot);
+            }
+        },
+
+        // TODO: Switch to Rune crossbow and Dragonstone bolts - but why?
+    };
+
     @Override
     public int getMainWeaponId() {
         return MAGIC_SHORTBOW;
@@ -20,40 +41,6 @@ public class GMaulerFightStyle extends PlayerBotFightStyle {
 
     @Override
     public WeaponSwitch[] getWeaponSwitches() {
-        return new WeaponSwitch[] {
-
-                new WeaponSwitch(new ItemInSlot(GRANITE_MAUL, 5)) {
-                    @Override
-                    public boolean shouldSwitch(PlayerBot playerBot, Mobile enemy) {
-                        return playerBot.getSpecialPercentage() >= 50 &&
-                                // Don't switch to Melee if we're frozen
-                                playerBot.getMovementQueue().canMove() &&
-                                // Switch if the enemy has enabled protect from missles or has lowish health
-                                (enemy.getPrayerActive()[PrayerHandler.PROTECT_FROM_MISSILES] || enemy.getHitpoints() < 60);
-                    }
-
-                    @Override
-                    public void afterSwitch(PlayerBot playerBot) {
-                        CombatSpecial.activate(playerBot);
-                    }
-                },
-
-                // TODO: Switch to Rune crossbow and Dragonstone bolts - but why?
-        };
-    }
-
-    @Override
-    public boolean shouldEat() {
-        return false;
-    }
-
-    @Override
-    public ItemInSlot[] potions() {
-        return new ItemInSlot[0];
-    }
-
-    @Override
-    public int[] food() {
-        return new int[] { COOKED_KARAMBWAN, SHARK };
+        return this.weaponSwitches;
     }
 }

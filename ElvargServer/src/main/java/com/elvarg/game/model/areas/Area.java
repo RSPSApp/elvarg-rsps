@@ -6,57 +6,61 @@ import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.entity.impl.playerbot.PlayerBot;
 import com.elvarg.game.model.Boundary;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public abstract class Area {
 
     private final List<Boundary> boundaries;
 
-    private final List<NPC> npcs;
-    private final List<Player> players;
-    private final List<PlayerBot> playerBots;
+    private final Map<Integer, NPC> npcs;
+    private final Map<Integer, Player> players;
+    private final Map<Integer, PlayerBot> playerBots;
 
     public Area(List<Boundary> boundaries) {
         this.boundaries = boundaries;
-        this.npcs = new ArrayList<NPC>();
-        this.players = new ArrayList<Player>();
-        this.playerBots = new ArrayList<PlayerBot>();
+        this.npcs = new HashMap<Integer, NPC>();
+        this.players = new HashMap<Integer, Player>();
+        this.playerBots = new HashMap<Integer, PlayerBot>();
     }
 
     public void enter(Mobile character) {
+
+    }
+
+    public void postEnter(Mobile character) {
         if (character.isPlayerBot()) {
-            this.playerBots.add(character.getAsPlayerBot());
+            this.playerBots.put(character.getIndex(), character.getAsPlayerBot());
             return;
         }
 
         if (character.isPlayer()) {
-            this.players.add(character.getAsPlayer());
+            this.players.put(character.getIndex(), character.getAsPlayer());
             return;
         }
 
         if (character.isNpc()) {
-            this.npcs.add(character.getAsNpc());
+            this.npcs.put(character.getIndex(), character.getAsNpc());
         }
     }
 
     public void leave(Mobile character, boolean logout) {
+    }
+
+    public void postLeave(Mobile character) {
         if (character.isPlayerBot()) {
-            this.playerBots.remove(character.getAsPlayerBot());
+            this.playerBots.remove(character.getIndex());
             return;
         }
 
         if (character.isPlayer()) {
-            this.players.remove(character.getAsPlayer());
+            this.players.remove(character.getIndex());
             return;
         }
 
         if (character.isNpc()) {
-            this.npcs.remove(character.getAsNpc());
+            this.npcs.remove(character.getIndex());
         }
     }
-
     public abstract void process(Mobile character);
 
     public abstract boolean canTeleport(Player player);
@@ -91,15 +95,15 @@ public abstract class Area {
         return this.getClass().getSimpleName();
     }
 
-    public List<NPC> getNpcs() {
+    public Map<Integer, NPC> getNpcs() {
         return this.npcs;
     }
 
-    public List<Player> getPlayers() {
+    public Map<Integer, Player> getPlayers() {
         return this.players;
     }
 
-    public List<PlayerBot> getPlayerBots() {
+    public Map<Integer, PlayerBot> getPlayerBots() {
         return this.playerBots;
     }
 }

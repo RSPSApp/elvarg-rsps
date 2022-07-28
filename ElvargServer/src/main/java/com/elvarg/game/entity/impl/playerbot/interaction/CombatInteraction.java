@@ -49,7 +49,7 @@ public class CombatInteraction {
         }
 
         // Get fight style
-        PlayerBotFightStyle fightStyle = this.playerBot.getCurrentPreset().getPlayerBotFightStyle();
+        PlayerBotFightStyle fightStyle = PlayerBot.PLAYER_BOT_PRESETS.get(this.playerBot.getCurrentPreset());
 
         if (fightStyle != null) {
             boolean shouldSwitchBackToMainWeapon = true;
@@ -141,7 +141,7 @@ public class CombatInteraction {
             @Override
             protected void execute() {
                 // Load this Bot's preset
-                playerBot.setCurrentPreset(PlayerBot.PLAYER_BOT_PRESETS[playerBot.getDefinition().getPresetIndex()]);
+                playerBot.setCurrentPreset(playerBot.getDefinition().getPreset());
                 Presetables.handleButton(playerBot, LOAD_PRESET_BUTTON_ID);
 
                 // Teleport this bot back to their home location after some time

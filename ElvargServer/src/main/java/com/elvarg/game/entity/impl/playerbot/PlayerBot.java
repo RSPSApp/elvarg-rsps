@@ -2,13 +2,17 @@ package com.elvarg.game.entity.impl.playerbot;
 
 import com.elvarg.game.GameConstants;
 import com.elvarg.game.World;
+import com.elvarg.game.content.presets.Presetable;
 import com.elvarg.game.content.presets.Presetables;
+import com.elvarg.game.content.presets.impl.*;
 import com.elvarg.game.definition.PlayerBotDefinition;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.entity.impl.playerbot.commands.BotCommand;
 import com.elvarg.game.entity.impl.playerbot.commands.FollowPlayer;
 import com.elvarg.game.entity.impl.playerbot.commands.HoldItems;
 import com.elvarg.game.entity.impl.playerbot.commands.LoadPreset;
+import com.elvarg.game.entity.impl.playerbot.fightstyle.PlayerBotFightStyle;
+import com.elvarg.game.entity.impl.playerbot.fightstyle.impl.*;
 import com.elvarg.game.entity.impl.playerbot.interaction.*;
 import com.elvarg.game.entity.updating.PlayerUpdating;
 import com.elvarg.game.model.ChatMessage;
@@ -17,7 +21,10 @@ import com.elvarg.net.PlayerBotSession;
 import com.elvarg.net.PlayerSession;
 import com.elvarg.util.Misc;
 
+import java.util.Dictionary;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
 
 import static com.elvarg.game.entity.impl.playerbot.commands.LoadPreset.LOAD_PRESET_BUTTON_ID;
 
@@ -32,17 +39,26 @@ public class PlayerBot extends Player {
     // The current interaction of this PlayerBot
     private InteractionState currentState = InteractionState.IDLE;
 
+    /**
+     * Pre-made sets which are defined for Player Bots to use.
+     */
+    public static final Map<Presetable, PlayerBotFightStyle> PLAYER_BOT_PRESETS  = new HashMap<Presetable, PlayerBotFightStyle>() {{
+        put(ObbyMauler_57.preset, new ObbyMaulerFightStyle());
+        put(Elvemage_86.preset, new ElvemageFightStyle());
+        put(GMauler_70.preset, new ObbyMaulerFightStyle());
+        put(DDSPure_M_73.preset, new DDSPureMFightStyle());
+        put(DDSPure_R_73.preset, new DDSPureRFightStyle());
+        put(NHPure_83.preset, new NHPureFightStyle());
+    }};
+
     private static final BotCommand[] chatCommands = new BotCommand[] {
             new FollowPlayer(), new HoldItems(), new LoadPreset()
     };
 
     private BotCommand activeCommand;
 
-
     public enum InteractionState {
         IDLE,
-
-        // Performing a job for a player
         COMMAND;
     }
 
@@ -157,7 +173,7 @@ public class PlayerBot extends Player {
     public void onLogin() {
         super.onLogin();
 
-        this.setCurrentPreset(Presetables.GLOBAL_PRESETS[this.getDefinition().getPresetIndex()]);
+        this.setCurrentPreset(this.getDefinition().getPreset());
         Presetables.handleButton(this, LOAD_PRESET_BUTTON_ID);
     }
 

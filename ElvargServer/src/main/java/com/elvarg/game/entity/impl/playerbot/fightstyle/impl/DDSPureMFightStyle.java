@@ -12,6 +12,24 @@ import static com.elvarg.util.ItemIdentifiers.*;
 
 public class DDSPureMFightStyle  extends PlayerBotFightStyle {
 
+    private WeaponSwitch[] weaponSwitches = new WeaponSwitch[]{
+
+        new WeaponSwitch(new ItemInSlot(DRAGON_DAGGER_P_PLUS_PLUS_, 0)) {
+            @Override
+            public boolean shouldSwitch(PlayerBot playerBot, Mobile enemy) {
+                return playerBot.getSpecialPercentage() >= 25 &&
+                        // Switch if the enemy has lowish health
+                        enemy.getHitpoints() < 40;
+            }
+
+            @Override
+            public void afterSwitch(PlayerBot playerBot) {
+                CombatSpecial.activate(playerBot);
+            }
+        },
+
+    };
+
     @Override
     public int getMainWeaponId() {
         return DRAGON_SCIMITAR;
@@ -19,36 +37,7 @@ public class DDSPureMFightStyle  extends PlayerBotFightStyle {
 
     @Override
     public WeaponSwitch[] getWeaponSwitches() {
-        return new WeaponSwitch[]{
-
-                new WeaponSwitch(new ItemInSlot(DRAGON_DAGGER_P_PLUS_PLUS_, 0)) {
-                    @Override
-                    public boolean shouldSwitch(PlayerBot playerBot, Mobile enemy) {
-                        return playerBot.getSpecialPercentage() >= 25 &&
-                                // Switch if the enemy has lowish health
-                                enemy.getHitpoints() < 60;
-                    }
-
-                    @Override
-                    public void afterSwitch(PlayerBot playerBot) {
-                        CombatSpecial.activate(playerBot);
-                    }
-                },
-        };
+        return this.weaponSwitches;
     }
 
-    @Override
-    public boolean shouldEat() {
-        return false;
-    }
-
-    @Override
-    public ItemInSlot[] potions() {
-        return new ItemInSlot[0];
-    }
-
-    @Override
-    public int[] food() {
-        return new int[] { COOKED_KARAMBWAN, SHARK };
-    }
 }

@@ -47,9 +47,9 @@ public class Presetables {
 	 * Pre-made sets by the server which everyone can use.
 	 */
 	public static final Presetable[] GLOBAL_PRESETS = new Presetable[] {
-		new ObbyMauler_57(), new GMauler_70(), new DDSPure_M_73(), new DDSPure_R_73(),
-		new NHPure_83(), new Att60Zerker_94(), new Att70Zerker_97(), new MainRune_126(),
-		new MainHybrid_126(), new MainTribrid_126()
+		ObbyMauler_57.preset, GMauler_70.preset, DDSPure_M_73.preset, DDSPure_R_73.preset,
+		NHPure_83.preset, Att60Zerker_94.preset, Att70Zerker_97.preset, MainRune_126.preset,
+		MainHybrid_126.preset, MainTribrid_126.preset
 
 	};
 

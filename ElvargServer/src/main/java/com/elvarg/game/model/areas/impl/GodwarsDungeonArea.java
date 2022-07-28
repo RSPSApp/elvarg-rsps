@@ -19,7 +19,6 @@ public class GodwarsDungeonArea extends Area {
 
 	@Override
 	public void enter(Mobile character) {
-		super.enter(character);
 		if (character.isPlayer()) {
 			Player player = character.getAsPlayer();
 			updateInterface(player);
@@ -29,7 +28,6 @@ public class GodwarsDungeonArea extends Area {
 
 	@Override
 	public void leave(Mobile character, boolean logout) {
-		super.leave(character, logout);
 		if (character.isPlayer()) {
 			Player player = character.getAsPlayer();
 			player.getPacketSender().sendWalkableInterface(-1);

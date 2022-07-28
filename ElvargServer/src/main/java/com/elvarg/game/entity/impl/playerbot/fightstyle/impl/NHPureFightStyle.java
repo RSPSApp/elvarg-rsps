@@ -61,19 +61,4 @@ public class NHPureFightStyle extends PlayerBotFightStyle {
 
         };
     }
-
-    @Override
-    public boolean shouldEat() {
-        return false;
-    }
-
-    @Override
-    public ItemInSlot[] potions() {
-        return new ItemInSlot[0];
-    }
-
-    @Override
-    public int[] food() {
-        return new int[] { COOKED_KARAMBWAN, SHARK };
-    }
 }

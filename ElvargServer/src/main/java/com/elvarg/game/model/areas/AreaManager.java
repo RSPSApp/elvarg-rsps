@@ -38,6 +38,7 @@ public class AreaManager {
         if (area != null) {
             if (!inside(position, area)) {
                 area.leave(c, false);
+                area.postLeave(c);
                 area = null;
             }
         }
@@ -46,6 +47,7 @@ public class AreaManager {
             area = get(position);
             if (area != null) {
                 area.enter(c);
+                area.postEnter(c);
             }
         }
 

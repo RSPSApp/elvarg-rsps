@@ -552,6 +552,7 @@ public class Player extends Mobile {
 		// Leave area
 		if (getArea() != null) {
 			getArea().leave(this, true);
+			getArea().postLeave(this);
 		}
 
 		// Do stuff...

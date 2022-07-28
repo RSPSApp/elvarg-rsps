@@ -33,16 +33,14 @@ public abstract class PrivateArea extends Area {
 
     @Override
     public void leave(Mobile mobile, boolean logout) {
-        super.leave(mobile, logout);
         remove(mobile);
-        if (getPlayers().isEmpty()) {
+        if (getPrivatePlayers().isEmpty()) {
             destroy();
         }
     }
 
     @Override
     public void enter(Mobile mobile) {
-        super.enter(mobile);
         add(mobile);
     }
 
@@ -68,12 +66,12 @@ public abstract class PrivateArea extends Area {
         if (destroyed) {
             return;
         }
-        for (NPC npc : getNpcs()) {
+        for (NPC npc : getPrivateNpcs()) {
             if (npc.isRegistered()) {
                 World.getRemoveNPCQueue().add(npc);
             }
         }
-        for (GameObject object : getObjects()) {
+        for (GameObject object : getPrivateObjects()) {
             ObjectManager.deregister(object, false);
         }
         for (ItemOnGround item : World.getItems()) {
@@ -86,8 +84,7 @@ public abstract class PrivateArea extends Area {
         destroyed = true;
     }
 
-    @Override
-    public List<NPC> getNpcs() {
+    public List<NPC> getPrivateNpcs() {
         List<NPC> npcs = new ArrayList<>();
         for (Entity entity : entities) {
             if (entity instanceof NPC) {
@@ -97,8 +94,7 @@ public abstract class PrivateArea extends Area {
         return npcs;
     }
 
-    @Override
-    public List<Player> getPlayers() {
+    private List<Player> getPrivatePlayers() {
         List<Player> players = new ArrayList<>();
         for (Entity entity : entities) {
             if (entity instanceof Player) {
@@ -107,8 +103,8 @@ public abstract class PrivateArea extends Area {
         }
         return players;
     }
-    
-    public List<GameObject> getObjects() {
+
+    public List<GameObject> getPrivateObjects() {
         List<GameObject> objects = new ArrayList<>();
         for (Entity entity : entities) {
             if (entity instanceof GameObject) {

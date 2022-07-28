@@ -48,8 +48,8 @@ public class Presetable {
 	private final boolean isGlobal;
 
 	public Presetable() {
-	index = 0;
-	isGlobal = false;
+		this.index = 0;
+		this.isGlobal = true;
 	}
 
 	/**
@@ -131,5 +131,17 @@ public class Presetable {
 		return index;
 	}
 
-	public PlayerBotFightStyle getPlayerBotFightStyle() { return null; }
+	@Override
+	public int hashCode() {
+		// For better HashMap performance
+		return this.getIndex();
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		// For better HashMap performance
+		if (o == this)
+			return true;
+		return (((Presetable) o).getIndex() == this.getIndex());
+	}
 }
