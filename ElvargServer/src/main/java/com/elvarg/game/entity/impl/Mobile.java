@@ -7,6 +7,7 @@ import com.elvarg.game.content.combat.CombatType;
 import com.elvarg.game.content.combat.hit.HitDamage;
 import com.elvarg.game.content.combat.hit.PendingHit;
 import com.elvarg.game.entity.Entity;
+import com.elvarg.game.entity.attributes.AttributeKey;
 import com.elvarg.game.entity.impl.npc.NPC;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.entity.impl.playerbot.PlayerBot;
@@ -21,6 +22,9 @@ import com.elvarg.game.task.Task;
 import com.elvarg.game.task.TaskManager;
 import com.elvarg.util.Stopwatch;
 import com.elvarg.util.timers.TimerRepository;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Represents a {@link Player} or {@link NPC}.
@@ -58,10 +62,16 @@ public abstract class Mobile extends Entity {
 	private boolean isTeleporting = false;
 	private HitDamage primaryHit;
 	private HitDamage secondaryHit;
+
 	/**
 	 * Is this entity registered.
 	 */
 	private boolean registered;
+
+	/**
+	 * Attributes related to this Mobile which can be saved / loaded
+	 */
+	protected Map<AttributeKey, Object> attributes;
 
 	/**
 	 * Constructs this character/entity
@@ -596,4 +606,51 @@ public abstract class Mobile extends Entity {
         }
         return ((NPC) this);
     }
+
+	/**
+	 * Gets an attribute without a default value.
+	 * Make sure to be careful using this, to avoid
+	 * NullPointerExceptions because of no default value.
+	 *
+	 * @param key
+	 * @param <T>
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public <T> T getAttrib(AttributeKey key) {
+		return attributes == null ? null : (T) attributes.get(key);
+	}
+
+	/**
+	 * Gets an attribute with a default value.
+	 *
+	 * @param key
+	 * @param defaultValue
+	 * @param <T>
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public <T> T getAttributeOr(AttributeKey key, Object defaultValue) {
+		return attributes == null ? (T) defaultValue : (T) attributes.getOrDefault(key, defaultValue);
+	}
+
+	@SuppressWarnings("unchecked")
+	public <T> T getOrT(AttributeKey key, T defaultValue) {
+		return attributes == null ? (T) defaultValue : (T) attributes.getOrDefault(key, defaultValue);
+	}
+
+	public void clearAttributes(AttributeKey key) {
+		if (attributes != null)
+			attributes.remove(key);
+	}
+
+	public void clearAttributes() {
+		attributes.clear();
+	}
+
+	public Object putAttribute(AttributeKey key, Object v) {
+		if (attributes == null)
+			attributes = new HashMap<>();
+		return attributes.put(key, v);
+	}
 }
