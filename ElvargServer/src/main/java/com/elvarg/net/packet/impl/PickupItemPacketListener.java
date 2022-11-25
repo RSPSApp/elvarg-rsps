@@ -9,6 +9,7 @@ import com.elvarg.game.entity.impl.grounditem.ItemOnGroundManager.OperationType;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Location;
 import com.elvarg.game.model.movement.WalkToAction;
+import com.elvarg.game.model.movement.path.PathFinder;
 import com.elvarg.game.model.rights.PlayerRights;
 import com.elvarg.net.packet.Packet;
 import com.elvarg.net.packet.PacketExecutor;
@@ -33,11 +34,7 @@ public class PickupItemPacketListener implements PacketExecutor {
 					.sendMessage("Pick up item: " + itemId + ". " + position.toString());
 		}
 
-		if (player.busy()) {
-			return;
-		}
-
-		if (!player.getLastItemPickup().elapsed(300))
+		if (player.busy() || !player.getLastItemPickup().elapsed(300))
 			return;
 
 		player.getMovementQueue().walkToGroundItem(player, position, () -> takeItem(player, itemId, position));

@@ -259,8 +259,8 @@ public final class MovementQueue {
         }
 
         //if (character.getFollowing() != null) {
-         //   processFollowing();
-       // }
+        //   processFollowing();
+        // }
 
         // Poll through the actual movement queue and
         // begin moving.
@@ -652,21 +652,25 @@ public final class MovementQueue {
         return foundRoute;
     }
 
-    public void walkToGroundItem(Player player, Location pos, Runnable run) {
+    public void walkToGroundItem(Player player, Location pos, Runnable action) {
         reset();
 
         int destX = pos.getX();
+
         int destY = pos.getY();
+
+        boolean isInstant = player.getLocation().getDistance(pos) == 0;
+
+        if (isInstant) {
+            action.run();
+            return;
+        }
 
         PathFinder.calculateWalkRoute(player, destX, destY);
 
         if (!canMove()) {
             reset();
         }
-
-        final int finalDestinationX = player.getMovementQueue().pathX;
-
-        final int finalDestinationY = player.getMovementQueue().pathY;
 
         TaskManager.submit(new Task(1, player, false) {
 
@@ -676,13 +680,6 @@ public final class MovementQueue {
             protected void execute() {
 
                 if (stage != 0) {
-                    if (stage == 1) {
-                        player.getMovementQueue().reset();
-                        if (run != null)
-                            run.run();
-                        stop();
-                        return;
-                    }
                     player.getMovementQueue().reset();
                     stop();
                     player.getPacketSender().sendMessage("You can't reach that!");
@@ -693,12 +690,16 @@ public final class MovementQueue {
                     return;
                 }
 
-                if (!player.getMovementQueue().hasRoute() || player.getLocation().getX() != finalDestinationX || player.getLocation().getY() != finalDestinationY) {
+                if (!player.getMovementQueue().hasRoute() || player.getLocation().getX() != destX || player.getLocation().getY() != destY) {
                     stage = -1;
                     return;
                 }
-                stage = 1;
-                return;
+
+                if (action != null) {
+                    action.run();
+                }
+                player.getMovementQueue().reset();
+                stop();
             }
         });
     }
@@ -719,7 +720,7 @@ public final class MovementQueue {
 
         PathFinder.calculateEntityRoute(player, destX, destY);
 
-        System.err.println(finalDestinationX+""+finalDestinationY);
+        System.err.println(finalDestinationX + "" + finalDestinationY);
 
         TaskManager.submit(new Task(1, player, false) {
 
@@ -731,7 +732,7 @@ public final class MovementQueue {
 
             @Override
             protected void execute() {
-                System.err.println(destX+","+destY+", finalDestinationX"+finalDestinationX+","+finalDestinationY);
+                System.err.println(destX + "," + destY + ", finalDestinationX" + finalDestinationX + "," + finalDestinationY);
                 player.setMobileInteraction(entity);
                 if (currentX != entity.getLocation().getX() || currentY != entity.getLocation().getY()) {
                     reset();
