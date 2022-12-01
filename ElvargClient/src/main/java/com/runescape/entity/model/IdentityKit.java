@@ -2,6 +2,8 @@ package com.runescape.entity.model;
 
 import com.runescape.cache.FileArchive;
 import com.runescape.io.Buffer;
+import com.runescape.sign.SignLink;
+import com.runescape.util.FileUtils;
 
 public final class IdentityKit {
 
@@ -21,7 +23,14 @@ public final class IdentityKit {
     }
 
     public static void init(FileArchive archive) {
-        Buffer buffer = new Buffer(archive.readFile("idk.dat"));
+        /**
+         * Uses actual cache to find the file within Index2
+         */
+        //Buffer buffer = new Buffer(archive.readFile("idk.dat"));
+        /**
+         * Temp stand alone version with fixed file.
+         */
+        Buffer buffer = new Buffer(FileUtils.readFile(SignLink.findcachedir() + "idk.dat"));
 
         length = buffer.readUShort();
         if (kits == null) {
