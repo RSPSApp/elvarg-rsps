@@ -8,6 +8,7 @@ import com.elvarg.game.content.skill.skillable.impl.Fishing;
 import com.elvarg.game.content.skill.skillable.impl.Fishing.FishingTool;
 import com.elvarg.game.content.skill.skillable.impl.Thieving.Pickpocketing;
 import com.elvarg.game.entity.impl.npc.NPC;
+import com.elvarg.game.entity.impl.npc.impl.Barricades;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.container.shop.ShopManager;
 import com.elvarg.game.model.dialogues.builders.impl.EmblemTraderDialogue;
@@ -95,7 +96,10 @@ public class NPCOptionPacketListener extends NpcIdentifiers implements PacketExe
 
         final int opcode = packet.getOpcode();
 
-        npc.setPositionToFace(player.getLocation());
+        boolean dontFaceUpdate = npc.isBarricade();
+
+        if (!dontFaceUpdate)
+            npc.setPositionToFace(player.getLocation());
 
         if (opcode == PacketConstants.FIRST_CLICK_NPC_OPCODE) {
             if (PetHandler.interact(player, npc)) {
@@ -162,6 +166,10 @@ public class NPCOptionPacketListener extends NpcIdentifiers implements PacketExe
 
             // Check if we're thieving..
             if (Pickpocketing.init(player, npc)) {
+                return;
+            }
+
+            if (Barricades.handleInteractiveOptions(player, npc, opcode)) {
                 return;
             }
 
