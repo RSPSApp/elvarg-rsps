@@ -39,6 +39,7 @@ import com.elvarg.game.content.skill.skillable.Skillable;
 import com.elvarg.game.content.skill.skillable.impl.Runecrafting.Pouch;
 import com.elvarg.game.content.skill.skillable.impl.Runecrafting.PouchContainer;
 import com.elvarg.game.content.skill.slayer.ActiveSlayerTask;
+import com.elvarg.game.content.teleporting.TeleportRequestManager;
 import com.elvarg.game.definition.ItemDefinition;
 import com.elvarg.game.definition.PlayerBotDefinition;
 import com.elvarg.game.entity.impl.Mobile;
@@ -134,6 +135,8 @@ public class Player extends Mobile {
 	private Presetable currentPreset;
 	private Presetable[] presets = new Presetable[Presetables.MAX_PRESETS];
 	private boolean openPresetsOnDeath = true;
+
+	public TeleportRequestManager teleportRequestManager = new TeleportRequestManager(this);
 
 	private String username;
 	private String passwordHashWithSalt;

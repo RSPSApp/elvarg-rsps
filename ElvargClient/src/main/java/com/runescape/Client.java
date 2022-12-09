@@ -1849,6 +1849,54 @@ public class Client extends GameApplet {
                             }
                         }
                     }
+
+                    if (type == 12 && isFriendOrSelf(name)) {
+                        if (chatTypeView == 3 || chatTypeView == 0) {
+                            newRegularFont.drawBasicString(name + " " + message,
+                                    11, yPos + yOffset, 0x0000FF, shadow);
+                            j++;
+                            j77++;
+                        }
+                        if (type == 11 && (clanChatMode == 0)) {
+                            if (chatTypeView == 11) {
+                                newRegularFont.drawBasicString(
+                                        name + " " + message, 11,
+                                        yPos + yOffset, 0x0000FF, shadow);
+                                j++;
+                                j77++;
+                            }
+                            if (type == 12) {
+                                newRegularFont.drawBasicString(message + "",
+                                        11, yPos + yOffset, 0x0000FF, shadow);
+                                j++;
+                            }
+                        }
+                    }
+
+                    if (type == 13 && isFriendOrSelf(name)) {
+                        if (chatTypeView == 3 || chatTypeView == 0) {
+                            newRegularFont.drawBasicString(name + " " + message,
+                                    11, yPos + yOffset, 0x0000FF, shadow);
+                            j++;
+                            j77++;
+                        }
+                        if (type == 11 && (clanChatMode == 0)) {
+                            if (chatTypeView == 11) {
+                                newRegularFont.drawBasicString(
+                                        name + " " + message, 11,
+                                        yPos + yOffset, 0x0000FF, shadow);
+                                j++;
+                                j77++;
+                            }
+                            if (type == 12) {
+                                newRegularFont.drawBasicString(message + "",
+                                        11, yPos + yOffset, 0x0000FF, shadow);
+                                j++;
+                            }
+                        }
+                    }
+
+
                     if (type == 16) {
                         if (chatTypeView == 11 || chatTypeView == 0) {
 
@@ -6898,6 +6946,43 @@ public class Client extends GameApplet {
                 packetSender.sendUseItemOnPlayer(anInt1284, clicked, anInt1285, anInt1283);
             }
         }
+
+        if (action == 560 || action == 559) {
+            String text = menuActionText[id];
+            int indexOf = text.indexOf("@whi@");
+            if (indexOf != -1) {
+                long usernameHash = StringUtils.encodeBase37(text.substring(indexOf + 5).trim());
+                int resultIndex = -1;
+                for (int friendIndex = 0; friendIndex < friendsCount; friendIndex++) {
+                    if (friendsListAsLongs[friendIndex] != usernameHash) {
+                        continue;
+                    }
+                    resultIndex = friendIndex;
+                    break;
+                }
+                packetSender.sendTeleportRequest(friendsListAsLongs[resultIndex], action == 560);
+            }
+            return;
+        }
+
+        if (action == 562 || action == 563) {
+            String text = menuActionText[id];
+            int pIndex = -1;
+            int indexOf = text.indexOf("@whi@");
+            if (indexOf != -1) {
+                long usernameHash = StringUtils.encodeBase37(text.substring(indexOf + 5).trim());
+                int resultIndex = -1;
+                for (int friendIndex = 0; friendIndex < friendsCount; friendIndex++) {
+                    if (friendsListAsLongs[friendIndex] != usernameHash) {
+                        continue;
+                    }
+                    pIndex = friendIndex;
+                    break;
+                }
+            }
+            packetSender.sendAcceptedTeleport(action == 562 ? 1 : 2, friendsListAsLongs[pIndex]);
+            return;
+        }
         
         if (action == 639) {
             String text = menuActionText[id];
@@ -7867,6 +7952,30 @@ public class Client extends GameApplet {
                 }
                 l++;
             }
+            if (chatTypeView == 4 && chatType == 13 && isFriendOrSelf(name)) {
+                if (j > k1 - 14 && j <= k1) {
+                    menuActionText[menuActionRow] = "Accept Teleport Request @whi@" + name;
+                    menuActionTypes[menuActionRow] = 563;
+                    menuActionRow++;
+                }
+                l++;
+            }
+            if (chatTypeView == 4 && chatType == 12 && isFriendOrSelf(name)) {
+                if (j > k1 - 14 && j <= k1) {
+                    menuActionText[menuActionRow] = "Accept Teleport Request @whi@" + name;
+                    menuActionTypes[menuActionRow] = 562;
+                    menuActionRow++;
+                }
+                l++;
+            }
+            if (chatTypeView == 4 && chatType == 12 && isFriendOrSelf(name)) {
+                if (j > k1 - 14 && j <= k1) {
+                    menuActionText[menuActionRow] = "Accept Teleport Request @whi@" + name;
+                    menuActionTypes[menuActionRow] = 562;
+                    menuActionRow++;
+                }
+                l++;
+            }
             if (chatType == 12) {
                 if (j > k1 - 14 && j <= k1) {
                     menuActionText[menuActionRow] = "Go-to @blu@" + name;
@@ -8015,6 +8124,22 @@ public class Client extends GameApplet {
                 if (j > k1 - 14 && j <= k1) {
                     menuActionText[menuActionRow] = "Accept challenge @whi@" + chatName;
                     menuActionTypes[menuActionRow] = 6;
+                    menuActionRow++;
+                }
+                l++;
+            }
+            if (chatType == 13 && isFriendOrSelf(chatName)) {
+                if (j > k1 - 14 && j <= k1) {
+                    menuActionText[menuActionRow] = "Accept Teleport Request @whi@" + chatName;
+                    menuActionTypes[menuActionRow] = 563;
+                    menuActionRow++;
+                }
+                l++;
+            }
+            if (chatType == 12 && isFriendOrSelf(chatName)) {
+                if (j > k1 - 14 && j <= k1) {
+                    menuActionText[menuActionRow] = "Accept Teleport Request @whi@" + chatName;
+                    menuActionTypes[menuActionRow] = 562;
                     menuActionRow++;
                 }
                 l++;
@@ -10458,6 +10583,12 @@ public class Client extends GameApplet {
                 i -= 101;
             else
                 i--;
+            menuActionText[menuActionRow] = "Teleport To @whi@" + friendsList[i];
+            menuActionTypes[menuActionRow] = 560;
+            menuActionRow++;
+            menuActionText[menuActionRow] = "Teleport To Me @whi@" + friendsList[i];
+            menuActionTypes[menuActionRow] = 559;
+            menuActionRow++;
             menuActionText[menuActionRow] = "Remove @whi@" + friendsList[i];
             menuActionTypes[menuActionRow] = 792;
             menuActionRow++;
@@ -14645,6 +14776,30 @@ public class Client extends GameApplet {
                     }
                     if (!ignored && onTutorialIsland == 0)
                         sendMessage("wishes to duel with you.", 8, name);
+                } else if (message.endsWith(":teletoreq:")) {
+                    String name = message.substring(0, message.indexOf(":"));
+                    long encodedName = StringUtils.encodeBase37(name);
+                    boolean ignored = false;
+                    for (int count = 0; count < ignoreCount; count++) {
+                        if (ignoreListAsLongs[count] != encodedName)
+                            continue;
+                        ignored = true;
+
+                    }
+                    if (!ignored && onTutorialIsland == 0)
+                        sendMessage("has requested to teleport to you. Click to accept.", 12, name);
+                } else if (message.endsWith(":teletomereq:")) {
+                    String name = message.substring(0, message.indexOf(":"));
+                    long encodedName = StringUtils.encodeBase37(name);
+                    boolean ignored = false;
+                    for (int count = 0; count < ignoreCount; count++) {
+                        if (ignoreListAsLongs[count] != encodedName)
+                            continue;
+                        ignored = true;
+
+                    }
+                    if (!ignored && onTutorialIsland == 0)
+                        sendMessage("has requested to teleport you to their location. Click to accept.", 13, name);
                 } else if (message.endsWith(":chalreq:")) {
                     String name = message.substring(0, message.indexOf(":"));
                     long encodedName = StringUtils.encodeBase37(name);

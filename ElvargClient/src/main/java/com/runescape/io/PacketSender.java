@@ -436,8 +436,20 @@ public class PacketSender {
             buffer.writeByte(colours[l1]);
         }
     }
+
+    public void sendTeleportRequest(long username, boolean teleportToRequest) {
+        buffer.writeOpcode(190);
+        buffer.writeLong(username);
+        buffer.writeByte(teleportToRequest ? 1 : 0);
+    }
     
     public Buffer getBuffer() {
         return buffer;
+    }
+
+    public void sendAcceptedTeleport(int type, long nameHash) {
+        buffer.writeOpcode(191);
+        buffer.writeByte(type);
+        buffer.writeLong(nameHash);
     }
 }
