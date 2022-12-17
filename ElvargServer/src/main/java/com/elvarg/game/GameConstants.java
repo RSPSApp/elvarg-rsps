@@ -37,6 +37,8 @@ public class GameConstants {
 	 */
 	public static final String DEFINITIONS_DIRECTORY = "./data/definitions/";
 
+	public static final String CACHE_DIRECTORY = "./data/cache/";
+
 	/**
 	 * The directory of the clipping files.
 	 */
@@ -148,7 +150,7 @@ public class GameConstants {
 			new PlayerBotDefinition("Bot F2P Pure", new Location(3096, 3530), new F2PMeleeFighterPreset()),
 	};
 
-	// The password for every player bot account
+    // The password for every player bot account
 	public static String PLAYER_BOT_PASSWORD = "wirfunerpro4n!1";
 
 	// The list of roles who can "steal" a bot from any player

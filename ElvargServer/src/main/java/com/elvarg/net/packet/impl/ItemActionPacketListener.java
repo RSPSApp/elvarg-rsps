@@ -6,6 +6,7 @@ import com.elvarg.game.content.Gambling;
 import com.elvarg.game.content.PotionConsumable;
 import com.elvarg.game.content.combat.CombatSpecial;
 import com.elvarg.game.content.minigames.Barrows;
+import com.elvarg.game.content.morphing.MorphSelection;
 import com.elvarg.game.content.skill.skillable.impl.Herblore;
 import com.elvarg.game.content.skill.skillable.impl.Prayer;
 import com.elvarg.game.content.skill.skillable.impl.Runecrafting;
@@ -14,6 +15,7 @@ import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
 import com.elvarg.game.model.BarrowsSet;
 import com.elvarg.game.model.areas.impl.WildernessArea;
+import com.elvarg.game.model.dialogues.builders.impl.NieveDialogue;
 import com.elvarg.game.model.teleportation.TeleportHandler;
 import com.elvarg.game.model.teleportation.TeleportTablets;
 import com.elvarg.game.model.teleportation.TeleportType;
@@ -193,6 +195,9 @@ public class ItemActionPacketListener implements PacketExecutor {
 						.sendMessage("You've opened your " + ItemDefinition.forId(itemId).getName() + ".");
 			}
 			break;
+		case 773:
+			player.getDialogueManager().start(new MorphSelection());
+			break;
 		}
 	}
 
@@ -232,6 +237,7 @@ public class ItemActionPacketListener implements PacketExecutor {
 			DialogueManager.sendStatement(player,
 					"You still have " + (40 - player.getRecoilDamage()) + " damage before it breaks. Continue?");*/
 			break;
+
 		}
 	}
 

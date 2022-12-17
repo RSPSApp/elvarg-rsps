@@ -5,6 +5,7 @@ import java.util.Queue;
 
 import com.elvarg.game.collision.RegionManager;
 import com.elvarg.game.content.clan.ClanChatManager;
+import com.elvarg.game.definition.NPCDef;
 import com.elvarg.game.definition.loader.impl.ItemDefinitionLoader;
 import com.elvarg.game.definition.loader.impl.NpcDefinitionLoader;
 import com.elvarg.game.definition.loader.impl.NpcDropDefinitionLoader;
@@ -71,6 +72,7 @@ public class GameBuilder {
         tasks.add(PlayerPunishment::init);
 
         // Load definitions..
+        tasks.add(NPCDef::init);
         tasks.add(new ObjectSpawnDefinitionLoader());
         tasks.add(new ItemDefinitionLoader());
         tasks.add(new ShopDefinitionLoader());

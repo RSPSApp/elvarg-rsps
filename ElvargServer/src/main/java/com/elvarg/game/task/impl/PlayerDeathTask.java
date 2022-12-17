@@ -89,7 +89,7 @@ public class PlayerDeathTask extends Task {
 				player.getPacketSender().sendMessage("Oh dear, you are dead!");
 
 				// Perform death animation..
-				player.performAnimation(new Animation(836, Priority.HIGH));
+				player.performAnimation(new Animation(player.getDeathAnim(), Priority.HIGH));
 
 				// Handle retribution prayer effect on our killer, if present..
 				if (PrayerHandler.isActivated(player, PrayerHandler.RETRIBUTION)) {

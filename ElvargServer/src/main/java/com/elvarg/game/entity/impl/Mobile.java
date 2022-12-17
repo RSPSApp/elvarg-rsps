@@ -361,8 +361,12 @@ public abstract class Mobile extends Entity {
 
 	public Mobile setNpcTransformationId(int npcTransformationId) {
 		this.npcTransformationId = npcTransformationId;
-		getUpdateFlag().flag(Flag.APPEARANCE);
+		this.getUpdateFlag().flag(Flag.APPEARANCE);
 		return this;
+	}
+
+	public boolean isMorphed() {
+		return getNpcTransformationId() != -1;
 	}
 
 	public HitDamage decrementHealth(HitDamage hit) {

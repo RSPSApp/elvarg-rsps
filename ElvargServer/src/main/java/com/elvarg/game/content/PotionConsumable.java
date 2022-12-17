@@ -126,6 +126,7 @@ public enum PotionConsumable {
 		@Override
 		public void onEffect(Player player) {
 			PotionConsumable.onPrayerEffect(player, true);
+			PotionConsumable.onSlayerEffect(player, true);
 			PotionConsumable.onRestoreEffect(player);
 		}
 	},
@@ -314,6 +315,12 @@ public enum PotionConsumable {
 		int maxLevel = player.getSkillManager().getMaxLevel(Skill.PRAYER);
 		double min = (int) Math.floor((restorePotion ? 8 : 7) + (maxLevel / 4));
 		player.getSkillManager().increaseCurrentLevel(Skill.PRAYER, (int) min, maxLevel);
+	}
+
+	private static void onSlayerEffect(Player player, boolean restorePotion) {
+		int maxLevel = player.getSkillManager().getMaxLevel(Skill.SLAYER);
+		double min = (int) Math.floor((restorePotion ? 8 : 7) + (maxLevel / 4));
+		player.getSkillManager().increaseCurrentLevel(Skill.SLAYER, (int) min, maxLevel);
 	}
 
 	/**

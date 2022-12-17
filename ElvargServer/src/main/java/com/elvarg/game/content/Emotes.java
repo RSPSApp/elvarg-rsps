@@ -68,6 +68,9 @@ public class Emotes {
             return;
         }
 
+        if (player.slayerMorph != null)
+            return;
+
         //Stop skilling..
         player.getSkillManager().stopSkillable();
 
