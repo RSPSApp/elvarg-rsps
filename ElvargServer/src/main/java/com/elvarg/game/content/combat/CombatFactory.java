@@ -61,6 +61,7 @@ import com.elvarg.game.task.impl.CombatPoisonEffect.PoisonType;
 import com.elvarg.util.ItemIdentifiers;
 import com.elvarg.util.Misc;
 import com.elvarg.util.NpcIdentifiers;
+import com.elvarg.util.RandomGen;
 import com.elvarg.util.timers.TimerKey;
 
 /**
@@ -333,8 +334,6 @@ public class CombatFactory {
 	 *
 	 * @param attacker
 	 *            The entity which wants to attack.
-	 * @param cb_type
-	 *            The combat type the attacker is using.
 	 * @param target
 	 *            The victim.
 	 * @return True if attacker has the proper distance to attack, otherwise false.
@@ -425,8 +424,6 @@ public class CombatFactory {
 	 *
 	 * @param attacker
 	 *            The entity which wants to attack.
-	 * @param cb_type
-	 *            The combat type the attacker is using.
 	 * @param target
 	 *            The victim.
 	 * @return True if attacker has the requirements to attack, otherwise false.
@@ -824,7 +821,11 @@ public class CombatFactory {
 		if (damage == 0) {
 			return;
 		}
-		final int returnDmg = (int) (damage * 0.1) + 1;
+		int returnDmg = (int) (damage * 0.1) + 1;
+
+		if(returnDmg < 3 && new RandomGen().inclusive(1, 3) == 2) {
+			returnDmg = 0;
+		}
 
 		// Increase recoil damage for a player.
 		player.setRecoilDamage(player.getRecoilDamage() + returnDmg);
@@ -845,9 +846,6 @@ public class CombatFactory {
 	 * Handles the spell "Vengeance" for a player. The spell returns damage to the
 	 * attacker.
 	 *
-	 * @param player
-	 * @param attacker
-	 * @param damage
 	 */
 	public static void handleVengeance(Mobile character, Mobile attacker, int damage) {
 		int returnDmg = (int) (damage * 0.75);
@@ -928,8 +926,6 @@ public class CombatFactory {
 	/**
 	 * Stuns a character for the specified seconds.
 	 *
-	 * @param player
-	 * @param seconds
 	 */
 	public static void stun(Mobile character, int seconds, boolean force) {
 		if (!force) {
