@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.TimeUnit;
 
 import com.elvarg.game.GameConstants;
 import com.elvarg.game.Sound;
@@ -128,6 +129,8 @@ public class Player extends Mobile {
 	private Presetable currentPreset;
 	private Presetable[] presets = new Presetable[Presetables.MAX_PRESETS];
 	private boolean openPresetsOnDeath = true;
+
+	public long idleTime;
 
 	private String username;
 	private String passwordHashWithSalt;
@@ -503,6 +506,19 @@ public class Player extends Mobile {
 				}
 			}
 		}
+
+		if (isAfk()) {
+			PLAYER_PERSISTENCE.save(this);
+			requestLogout();
+		}
+	}
+
+	public void setIdleTime() {
+		idleTime = System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(5);
+	}
+
+	public boolean isAfk() {
+		return idleTime < System.currentTimeMillis() && isOnline && this.getRights().ordinal() < 2;
 	}
 
 	// Construction
@@ -547,9 +563,10 @@ public class Player extends Mobile {
 	public void onLogout() {
 		// Notify us
 		System.out.println(
-				"[World] Deregistering player - [username, host] : [" + getUsername() + ", " + getHostAddress() + "]");
+				"[World] Deregistering player - [username, host] : [" + getUsername() + ", " + getHostAddress() + "] Afk: "+(this.isAfk() ? "YES" : "NO"));
 
 		getPacketSender().sendInterfaceRemoval();
+		isOnline = false;
 
 		// Leave area
 		if (getArea() != null) {
@@ -570,10 +587,14 @@ public class Player extends Mobile {
 		}
 	}
 
+	public boolean isOnline;
+
 	/**
 	 * Called by the world's login queue!
 	 */
 	public void onLogin() {
+		setIdleTime();
+		isOnline = true;
 		// Attempt to register the player..
 		System.out.println(
 				"[World] Registering player - [username, host] : [" + getUsername() + ", " + getHostAddress() + "]");

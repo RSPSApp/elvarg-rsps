@@ -32,6 +32,9 @@ public final class ChannelEventHandler extends SimpleChannelInboundHandler<Objec
 				return;
 			}
 
+			if (session.getPlayer() != null)
+				session.getPlayer().setIdleTime();
+
 			if (msg instanceof LoginDetailsMessage) {
 				session.finalizeLogin((LoginDetailsMessage) msg);
 			} else if (msg instanceof Packet) {
