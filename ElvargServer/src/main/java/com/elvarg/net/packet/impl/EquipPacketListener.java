@@ -184,7 +184,9 @@ public class EquipPacketListener implements PacketExecutor {
 				}
 
 				if (equipmentSlot == Equipment.WEAPON_SLOT) {
-					//resets weapon special attack when equiping different weapons
+					var newWeaponHasSpecial = CombatSpecial.SPECIAL_ATTACK_WEAPON_IDS.contains(id);
+					resetWeapon(player, !newWeaponHasSpecial);
+					//resets special attack when equipping a different weapon
 					player.setSpecialActivated(false);
 					CombatSpecial.updateBar(player);
 				}
