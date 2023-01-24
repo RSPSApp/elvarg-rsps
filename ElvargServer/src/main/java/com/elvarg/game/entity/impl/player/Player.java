@@ -130,7 +130,7 @@ public class Player extends Mobile {
 	private Presetable[] presets = new Presetable[Presetables.MAX_PRESETS];
 	private boolean openPresetsOnDeath = true;
 
-	public long idleTime;
+	private long lastActionTimestamp;
 
 	private String username;
 	private String passwordHashWithSalt;
