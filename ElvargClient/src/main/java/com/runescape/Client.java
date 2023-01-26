@@ -4535,8 +4535,6 @@ public class Client extends GameApplet {
 
             SoundEffects.unpack(buffer);
 
-            requestMusic(SoundConstants.SCAPE_RUNE);
-
             tileFlags = new byte[4][104][104];
             tileHeights = new int[4][105][105];
             scene = new SceneGraph(tileHeights);
@@ -4552,6 +4550,7 @@ public class Client extends GameApplet {
             Model.init();
             drawLoadingText(80, "Unpacking media");
 
+            requestMusic(SoundConstants.SCAPE_RUNE);
             /*byte soundData[] = soundArchive.readFile("sounds.dat");
             Buffer stream = new Buffer(soundData);
             SoundEffects.unpack(stream);*/
