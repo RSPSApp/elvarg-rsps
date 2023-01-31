@@ -2512,7 +2512,7 @@ public class Model extends Renderable {
         int k2 = k1 * j + j2 * k >> 16;
         int l2 = maxVertexDistanceXZPlane * k >> 16;
         int i3 = k2 + l2;
-        if (i3 <= 50 || k2 >= 3500)
+        if (i3 <= 50 || k2 >= 4500)
             return;
 
         int j3 = l1 * l + j1 * i1 >> 16;

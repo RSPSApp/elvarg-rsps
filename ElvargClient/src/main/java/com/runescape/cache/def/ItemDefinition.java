@@ -8,7 +8,10 @@ import com.runescape.draw.Rasterizer3D;
 import com.runescape.entity.model.Model;
 import com.runescape.io.Buffer;
 import com.runescape.sign.SignLink;
+import com.runescape.util.BufferExt;
 import com.runescape.util.FileUtils;
+
+import java.util.HashMap;
 
 public final class ItemDefinition {
 
@@ -58,6 +61,19 @@ public final class ItemDefinition {
     private int model_scale_y;
     private int light_intensity;
     private byte equipped_model_male_translation_y;
+    public int weight;
+    public int wearPos1;
+    public int wearPos2;
+    public int wearPos3;
+    private int boughtId;
+    private int boughtTemplateId;
+    private int placeholderId;
+    private int placeholderTemplateId;
+    private HashMap params;
+    private int shiftClickIndex = -2;
+
+    private short[] textureFind;
+    private short[] textureReplace;
 
     private ItemDefinition() {
         id = -1;
@@ -72,8 +88,8 @@ public final class ItemDefinition {
     }
 
     public static void init(FileArchive archive) {
-        item_data = new Buffer(FileUtils.readFile(SignLink.findcachedir() + "obj.dat"));
-        Buffer stream = new Buffer(FileUtils.readFile(SignLink.findcachedir() + "obj.idx"));
+        item_data = new Buffer(archive.readFile("obj.dat"));
+        Buffer stream = new Buffer(archive.readFile("obj.idx"));
 
         totalItems = stream.readUShort();
         streamIndices = new int[totalItems];
@@ -575,8 +591,6 @@ public final class ItemDefinition {
                 inventory_model = buffer.readUShort();
             else if (opCode == 2)
                 name = buffer.readString();
-            else if (opCode == 3)
-                /*description = */buffer.readString();
             else if (opCode == 4)
                 modelZoom = buffer.readUShort();
             else if (opCode == 5)
@@ -591,12 +605,14 @@ public final class ItemDefinition {
                 translate_yz = buffer.readUShort();
                 if (translate_yz > 32767)
                     translate_yz -= 0x10000;
-            } else if (opCode == 10)
-                buffer.readUShort();
-            else if (opCode == 11)
+            } else if (opCode == 11)
                 stackable = true;
             else if (opCode == 12) {
                 value = buffer.readInt();
+            } else if (opCode == 13) {
+                wearPos1 = buffer.readUnsignedByte();
+            } else if (opCode == 14) {
+                wearPos2 = buffer.readUnsignedByte();
             } else if (opCode == 16)
                 is_members_only = true;
             else if (opCode == 23) {
@@ -607,9 +623,11 @@ public final class ItemDefinition {
             else if (opCode == 25) {
                 equipped_model_female_1 = buffer.readUShort();
                 equipped_model_female_translation_y = buffer.readSignedByte();
-            } else if (opCode == 26)
+            } else if (opCode == 26) {
                 equipped_model_female_2 = buffer.readUShort();
-            else if (opCode >= 30 && opCode < 35) {
+            } else if (opCode == 27) {
+                wearPos3 = buffer.readUnsignedByte();
+            } else if (opCode >= 30 && opCode < 35) {
                 if (groundActions == null)
                     groundActions = new String[5];
                 groundActions[opCode - 30] = buffer.readString();
@@ -624,9 +642,21 @@ public final class ItemDefinition {
                 modified_model_colors = new int[j];
                 original_model_colors = new int[j];
                 for (int k = 0; k < j; k++) {
-                    original_model_colors[k] = buffer.readUShort();
                     modified_model_colors[k] = buffer.readUShort();
+                    original_model_colors[k] = buffer.readUShort();
                 }
+            } else if (opCode == 41) {
+                int length = buffer.readUnsignedByte();
+                textureFind = new short[length];
+                textureReplace = new short[length];
+                for (int index = 0; index < length; index++) {
+                    textureFind[index] = (short) buffer.readUShort();
+                    textureReplace[index] = (short) buffer.readUShort();
+                }
+            } else if (opCode == 42) {
+                shiftClickIndex = buffer.readUnsignedByte();
+            } else if (opCode == 75) {
+                weight = buffer.readUShort();
             } else if (opCode == 78)
                 equipped_model_male_3 = buffer.readUShort();
             else if (opCode == 79)
@@ -665,6 +695,20 @@ public final class ItemDefinition {
                 light_mag = buffer.readSignedByte() * 5;
             else if (opCode == 115)
                 team = buffer.readUnsignedByte();
+            else if (opCode == 139)
+                boughtId = buffer.readUShort();
+            else if (opCode == 140)
+                boughtTemplateId = buffer.readUShort();
+            else if (opCode == 148)
+                placeholderId = buffer.readUShort();
+            else if (opCode == 149) {
+                placeholderTemplateId = buffer.readUShort();
+            } else if (opCode == 249) {
+                params = BufferExt.readStringIntParameters(buffer);
+            }
+            if (stackable) {
+                weight = 0;
+            }
         } while (true);
     }
 }

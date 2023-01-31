@@ -4560,7 +4560,7 @@ public class Client extends GameApplet {
 
             minimapImage = new Sprite(512, 512);
             drawLoadingText(60, "Connecting to update server");
-            Frame.animationlist = new Frame[3000][0];
+            Frame.animationlist = new Frame[4000][0];
 
             Model.init();
             drawLoadingText(80, "Unpacking media");

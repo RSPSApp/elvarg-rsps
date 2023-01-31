@@ -211,7 +211,7 @@ public final class SceneGraph {
         int i1 = j * camLeftRightX - k * camLeftRightY >> 16;
         int j1 = i * camUpDownY + i1 * camUpDownX >> 16;
         int k1 = i * camUpDownX - i1 * camUpDownY >> 16;
-        if (j1 < 50 || j1 > 3500)
+        if (j1 < 50 || j1 > 4500)
             return false;
         int l1 = viewportHalfWidth + (l << viewDistance) / j1;
         int i2 = viewportHalfHeight + (k1 << viewDistance) / j1;
