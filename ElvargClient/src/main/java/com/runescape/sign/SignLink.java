@@ -91,4 +91,10 @@ public final class SignLink {
             cacheDirectory.mkdir();
         return Configuration.CACHE_DIRECTORY;
     }
+
+    public static String indexLocation(int cacheIndex, int index) {
+        return SignLink.findcachedir() + "index" + cacheIndex + "/"
+                + (index != -1 ? index + ".gz" : "");
+    }
+
 }

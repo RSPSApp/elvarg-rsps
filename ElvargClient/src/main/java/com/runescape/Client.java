@@ -4697,11 +4697,19 @@ public class Client extends GameApplet {
 
             loadPlayerData();
             //resourceProvider.writeAll();
-            
-            /*repackCacheIndex(1);
-            repackCacheIndex(2);
-            repackCacheIndex(3);
-            repackCacheIndex(4);*/
+
+            if(Configuration.repackIndexOne) {
+                repackCacheIndex(1);
+            }
+            if(Configuration.repackIndexTwo) {
+                repackCacheIndex(2);
+            }
+            if(Configuration.repackIndexThree) {
+                repackCacheIndex(3);
+            }
+            if(Configuration.repackIndexFour) {
+                repackCacheIndex(4);
+            }
 
             return;
         } catch (Exception exception) {
@@ -4709,6 +4717,27 @@ public class Client extends GameApplet {
             System.out.println("loaderror " + aString1049 + " " + anInt1079);
         }
         loadingError = true;
+    }
+
+    public void repackCacheIndex(int cacheIndex) {
+        System.out.println("Started repacking index " + cacheIndex + ".");
+        int indexLength = new File(SignLink.indexLocation(cacheIndex, -1)).listFiles().length;
+        File[] file = new File(SignLink.indexLocation(cacheIndex, -1)).listFiles();
+        try {
+            for (int index = 0; index < indexLength; index++) {
+                int fileIndex = Integer.parseInt(FileUtils.getFileNameWithoutExtension(file[index].toString()));
+                byte[] data = FileUtils.fileToByteArray(cacheIndex, fileIndex);
+                if (data != null && data.length > 0) {
+                    indices[cacheIndex].writeFile(data.length, data, fileIndex);
+                    System.out.println("Repacked " + fileIndex + ".");
+                } else {
+                    System.out.println("Unable to locate index " + fileIndex + ".");
+                }
+            }
+        } catch (Exception ex) {
+            System.out.println("Error packing cache index " + cacheIndex + ".");
+        }
+        System.out.println("Finished repacking " + cacheIndex + ".");
     }
 
     public FileArchive createArchive(int file, String displayedName, String name, int x) {
