@@ -2450,6 +2450,11 @@ public class Model extends Renderable {
     }
 
     public final void method482(int j, int k, int l, int i1, int j1, int k1) {
+        try {
+
+        }catch (Exception e) {
+
+        }
         int i = 0;
         int l1 = Rasterizer3D.originViewX;
         int i2 = Rasterizer3D.originViewY;

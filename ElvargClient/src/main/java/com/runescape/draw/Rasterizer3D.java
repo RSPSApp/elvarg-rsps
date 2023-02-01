@@ -18,7 +18,7 @@ public final class Rasterizer3D extends Rasterizer2D {
     public static int[] scanOffsets;
     public static int lastTextureRetrievalCount;
     public static int[] hslToRgb = new int[0x10000];
-    private static final int textureAmount = 60;
+    private static final int textureAmount = 94;
     public static IndexedImage[] textures = new IndexedImage[textureAmount];
     public static int[] textureLastUsed = new int[textureAmount];
     private static boolean aBoolean1463;
@@ -112,6 +112,7 @@ public final class Rasterizer3D extends Rasterizer2D {
                 } else {
                     textures[index].resize();
                 }
+
                 textureCount++;
             } catch (Exception ex) {
                 ex.printStackTrace();

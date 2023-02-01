@@ -10,10 +10,7 @@ import com.runescape.cache.anim.Frame;
 import com.runescape.cache.anim.Graphic;
 import com.runescape.cache.config.VariableBits;
 import com.runescape.cache.config.VariablePlayer;
-import com.runescape.cache.def.FloorDefinition;
-import com.runescape.cache.def.ItemDefinition;
-import com.runescape.cache.def.NpcDefinition;
-import com.runescape.cache.def.ObjectDefinition;
+import com.runescape.cache.def.*;
 import com.runescape.collection.Deque;
 import com.runescape.collection.Linkable;
 import com.runescape.draw.Console;
@@ -2444,18 +2441,15 @@ public class Client extends GameApplet {
                     id = id >> 14 & 0x7fff;
 
                     int function = ObjectDefinition.lookup(id).minimapFunction;
-                    if (function >= 15 && function <= 67) {
-                        function -= 2;
-                    } else if (function == 13 || function >= 68 && function <= 84) {
-                        function -= 1;
-                    }
+
                     if (function >= 0) {
-                        int viewportX = x;
-                        int viewportY = y;
-                        minimapHint[anInt1071] = mapFunctions[function];
-                        minimapHintX[anInt1071] = viewportX;
-                        minimapHintY[anInt1071] = viewportY;
-                        anInt1071++;
+                        int sprite = AreaDefinition.lookup(function).spriteId;
+                        if(sprite != -1) {
+                            minimapHint[anInt1071] = AreaDefinition.getImage(sprite);
+                            minimapHintX[anInt1071] = x;
+                            minimapHintY[anInt1071] = y;
+                            anInt1071++;
+                        }
                     }
                 }
             }
@@ -4639,6 +4633,7 @@ public class Client extends GameApplet {
             drawLoadingText(86, "Unpacking config");
             Animation.init(configArchive);
             ObjectDefinition.init(configArchive);
+            AreaDefinition.init(configArchive);
             FloorDefinition.init(configArchive);
             NpcDefinition.init(configArchive);
             IdentityKit.init(configArchive);
@@ -15151,8 +15146,8 @@ public class Client extends GameApplet {
                     ItemDefinition definition = ItemDefinition.lookup(item);
                     Widget.interfaceCache[widget].defaultMediaType = 4;
                     Widget.interfaceCache[widget].defaultMedia = item;
-                    Widget.interfaceCache[widget].modelRotation1 = definition.rotation_y;
-                    Widget.interfaceCache[widget].modelRotation2 = definition.rotation_x;
+                    Widget.interfaceCache[widget].modelRotation1 = definition.xan2d;
+                    Widget.interfaceCache[widget].modelRotation2 = definition.yan2d;
                     Widget.interfaceCache[widget].modelZoom = (definition.modelZoom * 100 / scale);
                     opcode = -1;
                     return true;
