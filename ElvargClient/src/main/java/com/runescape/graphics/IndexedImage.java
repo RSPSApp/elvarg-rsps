@@ -53,6 +53,13 @@ public final class IndexedImage extends Rasterizer2D {
                 }
             }
         }
+        setTransparency(255, 0, 255);
+    }
+
+    public void setTransparency(int transRed, int transGreen, int transBlue) {
+        for (int index = 0; index < palette.length; index++)
+            if (((palette[index] >> 16) & 255) == transRed && ((palette[index] >> 8) & 255) == transGreen && (palette[index] & 255) == transBlue)
+                palette[index] = 0;
     }
 
     public void downscale() {

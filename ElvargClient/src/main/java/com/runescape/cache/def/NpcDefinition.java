@@ -7,6 +7,9 @@ import com.runescape.cache.config.VariableBits;
 import com.runescape.collection.ReferenceCache;
 import com.runescape.entity.model.Model;
 import com.runescape.io.Buffer;
+import com.runescape.util.BufferExt;
+
+import java.util.Map;
 
 /**
  * Refactored reference:
@@ -47,6 +50,23 @@ public final class NpcDefinition {
 	public boolean priorityRender;
 	public int[] modelId;
 	public int id;
+	private Map<Integer, Object> params = null;
+	public boolean rotationFlag = true;
+	public int rotateLeftAnimation = -1;
+	public int rotateRightAnimation = -1;
+	public boolean isPet;
+	private int category;
+
+	public int runRotate180Animation = -1;
+	public int runRotateLeftAnimation = -1;
+	public int runRotateRightAnimation = -1;
+	public int crawlAnimation = -1;
+	public int crawlRotate180Animation = -1;
+	public int runAnimation = -1;
+	public int crawlRotateLeftAnimation = -1;
+	public int crawlRotateRightAnimation = -1;
+	private short[] textureFind;
+	private short[] textureReplace;
 
 	public NpcDefinition() {
 		turn90CCWAnimIndex = -1;
@@ -420,9 +440,9 @@ public final class NpcDefinition {
             } else if (opcode == 14) {
                 walkAnim = buffer.readUShort();
             } else if (opcode == 15) {
-                buffer.readUShort();
+				rotateLeftAnimation  = buffer.readUShort();
             } else if (opcode == 16) {
-                buffer.readUShort();
+				rotateRightAnimation = buffer.readUShort();
             } else if (opcode == 17) {
                 walkAnim = buffer.readUShort();
                 turn180AnimIndex = buffer.readUShort();
@@ -437,6 +457,8 @@ public final class NpcDefinition {
                 if (turn90CCWAnimIndex == 65535) {
                     turn90CCWAnimIndex = walkAnim;
                 }
+			} else if (opcode == 18) {
+				category = buffer.readUShort();
             } else if (opcode >= 30 && opcode < 35) {
                 if (actions == null) {
                     actions = new String[5];
@@ -456,13 +478,14 @@ public final class NpcDefinition {
                     recolourTarget[i] = buffer.readUShort();
                 }
 
-            } else if (opcode == 41) {
-                int len = buffer.readUnsignedByte();
-
-                for (int i = 0; i < len; i++) {
-                    buffer.readUShort(); // textures
-                    buffer.readUShort();
-                }
+			} else if (opcode == 41) {
+				int length = buffer.readUnsignedByte();
+				textureFind = new short[length];
+				textureReplace = new short[length];
+				for (int index = 0; index < length; index++) {
+					textureFind[index] = (short) buffer.readUShort();
+					textureReplace[index] = (short) buffer.readUShort();
+				}
             } else if (opcode == 60) {
                 int len = buffer.readUnsignedByte();
                 additionalModels = new int[len];
@@ -515,13 +538,31 @@ public final class NpcDefinition {
                     }
                 }
                 childrenIDs[len + 1] = value;
-            } else if (opcode == 109) {
-                clickable = false;
-            } else if (opcode == 107 || opcode == 111) {
-                
-            } else {
-                System.out.println(String.format("npc def invalid opcode: %d", opcode));
-            }
+			} else if (opcode == 107)
+				clickable = false;
+			else if (opcode == 109) {
+				rotationFlag = false;
+			} else if (opcode == 111) {
+				isPet = true;
+			} else if (opcode == 114) {
+				runAnimation = buffer.readUShort();
+			} else if (opcode == 115) {
+				runAnimation = buffer.readUShort();
+				runRotate180Animation = buffer.readUShort();
+				runRotateLeftAnimation = buffer.readUShort();
+				runRotateRightAnimation = buffer.readUShort();
+			} else if (opcode == 116) {
+				crawlAnimation = buffer.readUShort();
+			} else if (opcode == 117) {
+				crawlAnimation = buffer.readUShort();
+				crawlRotate180Animation = buffer.readUShort();
+				crawlRotateLeftAnimation = buffer.readUShort();
+				crawlRotateRightAnimation = buffer.readUShort();
+			} else if (opcode == 249) {
+				params = BufferExt.readStringIntParameters(buffer);
+			} else {
+				System.err.printf("Error unrecognised {NPC} opcode: %d%n%n", opcode);
+			}
         }
 	}
 }

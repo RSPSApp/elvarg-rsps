@@ -27,12 +27,12 @@ public final class MapRegion {
     private final int[] chromas;
     private final int[] anIntArray128;
     private final int[][][] tileHeights;
-    private final byte[][][] overlays;
+    private final short[][][] overlays;
     private final byte[][][] shading;
     private final int[][][] anIntArrayArrayArray135;
     private final byte[][][] overlayTypes;
     private final int[][] tileLighting;
-    private final byte[][][] underlays;
+    private final short[][][] underlays;
     private final int regionSizeX;
     private final int regionSizeY;
     private final byte[][][] overlayOrientations;
@@ -44,8 +44,8 @@ public final class MapRegion {
         regionSizeY = 104;
         this.tileHeights = tileHeights;
         this.tileFlags = fileFlags;
-        underlays = new byte[4][regionSizeX][regionSizeY];
-        overlays = new byte[4][regionSizeX][regionSizeY];
+        underlays = new short[4][regionSizeX][regionSizeY];
+        overlays = new short[4][regionSizeX][regionSizeY];
         overlayTypes = new byte[4][regionSizeX][regionSizeY];
         overlayOrientations = new byte[4][regionSizeX][regionSizeY];
         anIntArrayArrayArray135 = new int[4][regionSizeX + 1][regionSizeY + 1];
@@ -408,7 +408,7 @@ public final class MapRegion {
                     for (int i8 = 0; i8 < regionSizeY; i8++) {
                         int k9 = l6 + 5;
                         if (k9 >= 0 && k9 < regionSizeX) {
-                            int l12 = underlays[z][k9][i8] & 0xff;
+                            int l12 = underlays[z][k9][i8] & 0x7FFF;
                             if (l12 > 0) {
                                 if (l12 > FloorDefinition.underlays.length) {
                                     l12 = FloorDefinition.underlays.length;
@@ -423,8 +423,11 @@ public final class MapRegion {
                         }
                         int i13 = l6 - 5;
                         if (i13 >= 0 && i13 < regionSizeX) {
-                            int i14 = underlays[z][i13][i8] & 0xff;
+                            int i14 = underlays[z][i13][i8] & 0x7FFF;
                             if (i14 > 0) {
+                                if (i14 > FloorDefinition.underlays.length) {
+                                    i14 = FloorDefinition.underlays.length;
+                                }
                                 FloorDefinition flo_1 = FloorDefinition.underlays[i14 - 1];
                                 hues[i8] -= flo_1.blendHue;
                                 saturations[i8] -= flo_1.saturation;
@@ -461,8 +464,8 @@ public final class MapRegion {
                             if (k17 >= 1 && k17 < regionSizeY - 1 && (!lowMem || (tileFlags[0][l6][k17] & 2) != 0 || (tileFlags[z][l6][k17] & 0x10) == 0 && getCollisionPlane(k17, z, l6) == anInt131)) {
                                 if (z < maximumPlane)
                                     maximumPlane = z;
-                                int l18 = underlays[z][l6][k17] & 0xff;
-                                int i19 = overlays[z][l6][k17] & 0xff;
+                                int l18 = underlays[z][l6][k17] & 0x7FFF;
+                                int i19 = overlays[z][l6][k17] & 0x7FFF;
                                 if (l18 > 0 || i19 > 0) {
                                     int j19 = tileHeights[z][l6][k17];
                                     int k19 = tileHeights[z][l6 + 1][k17];
@@ -1125,7 +1128,7 @@ public final class MapRegion {
             if (k >= 0 && k < 104 && i >= 0 && i < 104) {
                 tileFlags[l][k][i] = 0;
                 do {
-                    int l1 = stream.readUnsignedByte();
+                    int l1 = stream.readUShort();
                     if (l1 == 0)
                         if (l == 0) {
                             tileHeights[0][k][i] = -calculateVertexHeight(0xe3b7b + k + k1, 0x87cce + i + j) * 8;
@@ -1147,7 +1150,7 @@ public final class MapRegion {
                         }
                     }
                     if (l1 <= 49) {
-                        overlays[l][k][i] = stream.readSignedByte();
+                        overlays[l][k][i] = (short) stream.readUShort();
                         overlayTypes[l][k][i] = (byte) ((l1 - 2) / 4);
                         overlayOrientations[l][k][i] = (byte) ((l1 - 2) + i1 & 3);
                     } else if (l1 <= 81)
@@ -1157,7 +1160,7 @@ public final class MapRegion {
                 } while (true);
             }
             do {
-                int i2 = stream.readUnsignedByte();
+                int i2 = stream.readUShort();
                 if (i2 == 0)
                     break;
                 if (i2 == 1) {
@@ -1165,7 +1168,7 @@ public final class MapRegion {
                     return;
                 }
                 if (i2 <= 49)
-                    stream.readUnsignedByte();
+                    stream.readUShort();
             } while (true);
         } catch (Exception e) {
         }
