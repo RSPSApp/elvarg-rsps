@@ -2321,9 +2321,8 @@ public class Client extends GameEngine implements RSClient {
             exception.printStackTrace();
         }
         ObjectDefinition.baseModels.clear();
-        if (hasFrame()) {
-            packetSender.sendRegionChange();
-        }
+        packetSender.sendRegionChange();
+
         if (lowMemory && SignLink.cache_dat != null) {
             int j = resourceProvider.getVersionCount(0);
             for (int i1 = 0; i1 < j; i1++) {
@@ -2489,60 +2488,6 @@ public class Client extends GameEngine implements RSClient {
         scene.addGroundItemTile(obj, i, i1, ((Renderable) (obj1)),
                 getCenterHeight(plane, j * 128 + 64, i * 128 + 64), ((Renderable) (obj2)),
                 ((Renderable) (obj)), plane, j);
-    }
-
-    private boolean prioritizedNpc(Npc npc) {
-
-        //Check if it's being interacted with
-        if (localPlayer.interactingEntity != -1 &&
-                localPlayer.interactingEntity < 32768) {
-            if (npc.index == localPlayer.interactingEntity) {
-                return true;
-            }
-        }
-
-        if (npc.desc == null) {
-            return false;
-        }
-
-        return npc.desc.priorityRender;
-    }
-
-    private void showPrioritizedNPCs() {
-        for (int index = 0; index < npcCount; index++) {
-            Npc npc = npcs[npcIndices[index]];
-
-            if (prioritizedNpc(npc)) {
-                showNpc(npc, index, npc.desc.priorityRender);
-            }
-        }
-    }
-
-    private void showOtherNpcs() {
-        for (int index = 0; index < npcCount; index++) {
-            Npc npc = npcs[npcIndices[index]];
-            showNpc(npc, index, false);
-        }
-    }
-
-    private boolean showNpc(Npc npc, int index, boolean priorityRender) {
-        int k = 0x20000000 + (npcIndices[index] << 14);
-        if (npc == null || !npc.isVisible() || npc.desc.priorityRender != priorityRender)
-            return false;
-        int l = npc.x >> 7;
-        int i1 = npc.y >> 7;
-        if (l < 0 || l >= 104 || i1 < 0 || i1 >= 104)
-            return false;
-        if (npc.size == 1 && (npc.x & 0x7f) == 64 && (npc.y & 0x7f) == 64) {
-            if (anIntArrayArray929[l][i1] == anInt1265)
-                return false;
-            anIntArrayArray929[l][i1] = anInt1265;
-        }
-        if (!npc.desc.clickable)
-            k += 0x80000000;
-        scene.addAnimableA(plane, npc.orientation, getCenterHeight(plane, npc.y, npc.x), k, npc.y,
-                (npc.size - 1) * 64 + 60, npc.x, npc, npc.animationStretches);
-        return true;
     }
 
     public void drawHoverBox(int xPos, int yPos, String text) {
@@ -4636,63 +4581,7 @@ public class Client extends GameEngine implements RSClient {
         return streamLoader;
     }
 
-    private void showPrioritizedPlayers() {
-        showPlayer(localPlayer, internalLocalPlayerIndex << 14, true);
 
-        //Draw the player we're interacting with
-        //Interacting includes combat, following, etc.
-        int interact = localPlayer.interactingEntity - 32768;
-        if (interact > 0) {
-            Player player = players[interact];
-            showPlayer(player, interact << 14, false);
-        }
-    }
-
-    private void showOtherPlayers() {
-        for (int l = 0; l < playerCount; l++) {
-            Player player = players[playerList[l]];
-            int index = playerList[l] << 14;
-
-            //Don't draw interacting player as we've already drawn it on top
-            int interact_index = (localPlayer.interactingEntity - 32768);
-            if (interact_index > 0 && index == interact_index << 14) {
-                continue;
-            }
-
-            if (!showPlayer(player, index, false)) {
-                continue;
-            }
-        }
-    }
-
-    private boolean showPlayer(Player player, int i1, boolean flag) {
-        if (player == null || !player.isVisible()) {
-            return false;
-        }
-        if (localPlayer.x >> 7 == destinationX && localPlayer.y >> 7 == destinationY)
-            destinationX = 0;
-        player.aBoolean1699 = (lowMemory && playerCount > 50 || playerCount > 200) && !flag && player.movementAnimation == player.idleAnimation;
-        int j1 = player.x >> 7;
-        int k1 = player.y >> 7;
-        if (j1 < 0 || j1 >= 104 || k1 < 0 || k1 >= 104) {
-            return false;
-        }
-        if (player.playerModel != null && tick >= player.objectModelStart && tick < player.objectModelStop) {
-            player.aBoolean1699 = false;
-            player.anInt1709 = getCenterHeight(plane, player.y, player.x);
-            scene.addToScenePlayerAsObject(plane, player.y, player, player.orientation, player.objectAnInt1722GreaterYLoc, player.x, player.anInt1709, player.objectAnInt1719LesserXLoc, player.objectAnInt1721GreaterXLoc, i1, player.objectAnInt1720LesserYLoc);
-            return false;
-        }
-        if ((player.x & 0x7f) == 64 && (player.y & 0x7f) == 64) {
-            if (anIntArrayArray929[j1][k1] == anInt1265) {
-                return false;
-            }
-            anIntArrayArray929[j1][k1] = anInt1265;
-        }
-        player.anInt1709 = getCenterHeight(plane, player.y, player.x);
-        scene.addAnimableA(plane, player.orientation, player.anInt1709, i1, player.y, 60, player.x, player, player.animationStretches);
-        return true;
-    }
 
     private boolean promptUserForInput(Widget widget) {
         int contentType = widget.contentType;
@@ -5765,8 +5654,8 @@ public class Client extends GameEngine implements RSClient {
         }
 
         // using item on object
-        if (action == 62 && clickObject(clicked, button, first)) {
-            packetSender.sendUseItemOnObject(anInt1284, clicked >> 14 & 0x7fff, button + regionBaseY, anInt1283, first + regionBaseX, anInt1285);
+        if (action == 62 && clickObject(clickedLong, button, first)) {
+            packetSender.sendUseItemOnObject(anInt1284, ObjectKeyUtil.getObjectId(clickedLong), button + regionBaseY, anInt1283, first + regionBaseX, anInt1285);
         }
 
         // using item on ground item
@@ -5952,10 +5841,10 @@ public class Client extends GameEngine implements RSClient {
                 // outgoing.writeTriByte(0xe63271);
                 anInt924 = 0;
             }
-            clickObject(clicked, button, first);
+            clickObject(clickedLong, button, first);
 
             // object option 5
-            packetSender.sendObjectOption5(clicked >> 14 & 0x7fff, button + regionBaseY, first + regionBaseX);
+            packetSender.sendObjectOption5(ObjectKeyUtil.getObjectId(clickedLong), button + regionBaseY, first + regionBaseX);
         }
 
         // continue dialogue
@@ -6518,9 +6407,9 @@ public class Client extends GameEngine implements RSClient {
         }
 
         if (action == 900) {
-            clickObject(clicked, button, first);
+            clickObject(clickedLong, button, first);
             // object option 2
-            packetSender.sendObjectOption2(clicked >> 14 & 0x7fff, button + regionBaseY, first + regionBaseX);
+            packetSender.sendObjectOption2(ObjectKeyUtil.getObjectId(clickedLong), button + regionBaseY, first + regionBaseX);
         }
 
         // Using the "Attack" option on a npc
@@ -6738,21 +6627,21 @@ public class Client extends GameEngine implements RSClient {
 
         // Object option 3
         if (action == 113) {
-            clickObject(clicked, button, first);
+            clickObject(clickedLong, button, first);
             // object option 3
-            packetSender.sendObjectOption3(first + regionBaseX, button + regionBaseY, clicked >> 14 & 0x7fff);
+            packetSender.sendObjectOption3(first + regionBaseX, button + regionBaseY, ObjectKeyUtil.getObjectId(clickedLong));
         }
 
         // Object option 4
         if (action == 872) {
-            clickObject(clicked, button, first);
-            packetSender.sendObjectOption4(first + regionBaseX, clicked >> 14 & 0x7fff, button + regionBaseY);
+            clickObject(clickedLong, button, first);
+            packetSender.sendObjectOption4(first + regionBaseX, ObjectKeyUtil.getObjectId(clickedLong), button + regionBaseY);
         }
 
         // Object option 1
         if (action == 502) {
-            clickObject(clicked, button, first);
-            packetSender.sendObjectOption1(first + regionBaseX, clicked >> 14 & 0x7fff, button + regionBaseY);
+            clickObject(clickedLong, button, first);
+            packetSender.sendObjectOption1(first + regionBaseX, ObjectKeyUtil.getObjectId(clickedLong), button + regionBaseY);
         }
 
 
@@ -6935,7 +6824,31 @@ public class Client extends GameEngine implements RSClient {
                 }
             }
             if (opcode == 0) {
+                Player player = players[uid];
+                if ((player.x & 0x7f) == 64 && (player.y & 0x7f) == 64) {
+                    for (int k2 = 0; k2 < npcCount; k2++) {
+                        Npc class30_sub2_sub4_sub1_sub1_2 = npcs[npcIndices[k2]];
+                        if (class30_sub2_sub4_sub1_sub1_2 != null
+                                && class30_sub2_sub4_sub1_sub1_2.desc.size == 1
+                                && class30_sub2_sub4_sub1_sub1_2.x == player.x
+                                && class30_sub2_sub4_sub1_sub1_2.y == player.y)
+                            buildAtNPCMenu(class30_sub2_sub4_sub1_sub1_2.desc,
+                                    npcIndices[k2], y, x);
+                    }
 
+                    for (int i3 = 0; i3 < playerCount; i3++) {
+                        Player class30_sub2_sub4_sub1_sub2_2 =
+                                players[playerList[i3]];
+                        if (class30_sub2_sub4_sub1_sub2_2 != null
+                                && class30_sub2_sub4_sub1_sub2_2 != player
+                                && class30_sub2_sub4_sub1_sub2_2.x == player.x
+                                && class30_sub2_sub4_sub1_sub2_2.y == player.y)
+                            buildAtPlayerMenu(x, playerList[i3],
+                                    class30_sub2_sub4_sub1_sub2_2, y);
+                    }
+
+                }
+                buildAtPlayerMenu(x, uid, player, y);
             }
             if (opcode == 3) {
                 Deque class19 = groundItems[plane][x][y];
@@ -14878,13 +14791,125 @@ public class Client extends GameEngine implements RSClient {
         return true;
     }
 
+    private void renderPlayer() {
+
+        renderPlayerAttributes(localPlayer, (long) internalLocalPlayerIndex << 32, true);
+        int action = localPlayer.interactingEntity - 32768;
+        if(action > 0) {
+            Player player = players[action];
+            renderPlayerAttributes(player, (long) action << 32, false);
+        }
+    }
+
+
+    private void renderPlayerList() {
+
+        for(int rendered = 0; rendered < playerCount; rendered++) {
+            Player player = players[playerList[rendered]];
+            long index = (long) playerList[rendered] << 32;
+            int action = (localPlayer.interactingEntity - 32768);
+            if(action > 0 && index == (long) action << 32) {
+                continue;
+            }
+            if(!renderPlayerAttributes(player, index, false)) {
+                continue;
+            }
+        }
+    }
+
+    private boolean renderPlayerAttributes(Player player, long index, boolean render) {
+
+        if (player == null || !player.isVisible())
+            return false;
+
+        player.aBoolean1699 = (lowMemory  && playerCount > 50 || playerCount > 200)
+                && !render && player.movementAnimation == player.idleAnimation;
+        if (localPlayer.x >> 7 == destinationX && localPlayer.y >> 7 == destinationY)
+            destinationX = 0;
+        int regionX = player.x >> 7;
+        int regionY = player.y >> 7;
+        if (regionX < 0 || regionX >= 104 || regionY < 0 || regionY >= 104)
+            return false;
+
+        if (player.playerModel != null && tick >= player.objectModelStart && tick < player.objectModelStop) {
+            player.aBoolean1699 = false;
+            player.anInt1709 = getCenterHeight(plane, player.y, player.x);
+            scene.addToScenePlayerAsObject(plane, player.y, player, player.orientation, player.objectAnInt1722GreaterYLoc, player.x, player.anInt1709, player.objectAnInt1719LesserXLoc, player.objectAnInt1721GreaterXLoc, index, player.objectAnInt1720LesserYLoc);
+            return false;
+        }
+
+        if ((player.x & 0x7f) == 64 && (player.y & 0x7f) == 64) {
+            if (anIntArrayArray929[regionX][regionY] == anInt1265)
+                return false;
+
+            anIntArrayArray929[regionX][regionY] = anInt1265;
+        }
+
+        player.anInt1709 = getCenterHeight(plane, player.y, player.x);
+        scene.addAnimableA(plane, player.orientation, player.anInt1709, index, player.y, 60, player.x, player, player.animationStretches);
+        return true;
+    }
+
+
+    private void showPrioritizedNPCs() {
+
+        for (int index = 0; index < npcCount; index++) {
+            Npc npc = npcs[npcIndices[index]];
+
+            if (prioritizedNpc(npc)) {
+                showNpc(npc, index, npc.desc.priorityRender);
+            }
+        }
+    }
+
+
+    private boolean prioritizedNpc(Npc npc) {
+
+        //Check if it's being interacted with
+        if (localPlayer.interactingEntity != -1 &&
+                localPlayer.interactingEntity < 32768) {
+            if (npc.index == localPlayer.interactingEntity) {
+                return true;
+            }
+        }
+
+        return npc.desc != null && npc.desc.priorityRender;
+
+    }
+
+    private void showOtherNpcs() {
+        for (int index = 0; index < npcCount; index++) {
+            Npc npc = npcs[npcIndices[index]];
+            showNpc(npc, index, false);
+        }
+    }
+
+    private boolean showNpc(Npc npc, int index, boolean priorityRender) {
+
+        long k = 0x20000000 | (long) npcIndices[index] << 32;
+        if (npc == null || !npc.isVisible() || npc.desc.priorityRender != priorityRender)
+            return false;
+        int l = npc.x >> 7;
+        int i1 = npc.y >> 7;
+        if (l < 0 || l >= 104 || i1 < 0 || i1 >= 104)
+            return false;
+        if (npc.size == 1 && (npc.x & 0x7f) == 64 && (npc.y & 0x7f) == 64) {
+            if (anIntArrayArray929[l][i1] == anInt1265)
+                return false;
+            anIntArrayArray929[l][i1] = anInt1265;
+        }
+
+        scene.addAnimableA(plane, npc.orientation, getCenterHeight(plane, npc.y, npc.x), k, npc.y, (npc.size - 1) * 64 + 60, npc.x, npc, npc.animationStretches);
+        return true;
+    }
+
     private void moveCameraWithPlayer() {
         anInt1265++;
 
-        showPrioritizedPlayers();
-        showPrioritizedNPCs();
+        renderPlayer();
+        renderPlayerList();
 
-        showOtherPlayers();
+        showPrioritizedNPCs();
         showOtherNpcs();
 
         createProjectiles();
