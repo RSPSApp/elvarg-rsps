@@ -28,42 +28,46 @@ public class Slider {
 
     public static void handleSlider(int mX, int mY) {
 
-        int tabInterfaceId = Client.tabInterfaceIDs[Client.tabId];
+        try {
+            int tabInterfaceId = Client.tabInterfaceIDs[Client.tabId];
 
-        if (tabInterfaceId != -1) {
+            if (tabInterfaceId != -1) {
 
-            if (tabInterfaceId == 42500) {
-                tabInterfaceId = Widget.interfaceCache[42500].children[9];
-            } // Settings tab adjustment
-            Widget widget = Widget.interfaceCache[tabInterfaceId];
+                if (tabInterfaceId == 42500) {
+                    tabInterfaceId = Widget.interfaceCache[42500].children[9];
+                } // Settings tab adjustment
+                Widget widget = Widget.interfaceCache[tabInterfaceId];
 
-            if (widget == null ||
-                    widget.children == null) {
-                return;
+                if (widget == null ||
+                        widget.children == null) {
+                    return;
+                }
+
+                for (int childId : widget.children) {
+                    Widget child = Widget.interfaceCache[childId];
+                    if (child == null || child.slider == null)
+                        continue;
+                    child.slider.handleClick(mX, mY, 0,0, child.contentType);
+                }
+                Client.tabAreaAltered = true;
             }
 
-            for (int childId : widget.children) {
-                Widget child = Widget.interfaceCache[childId];
-                if (child == null || child.slider == null)
-                    continue;
-                child.slider.handleClick(mX, mY, !Client.instance.isResized() ? 519 : 0, !Client.instance.isResized() ? 168 : 0, child.contentType);
+            int interfaceId = Client.openInterfaceId;
+            if (interfaceId != -1) {
+                Widget widget = Widget.interfaceCache[interfaceId];
+                if (widget == null ||
+                        widget.children == null) {
+                    return;
+                }
+                for (int childId : widget.children) {
+                    Widget child = Widget.interfaceCache[childId];
+                    if (child == null || child.slider == null)
+                        continue;
+                    child.slider.handleClick(mX, mY, 4, 4, child.contentType);
+                }
             }
-            Client.tabAreaAltered = true;
-        }
+        }catch (Exception e) {
 
-        int interfaceId = Client.openInterfaceId;
-        if (interfaceId != -1) {
-            Widget widget = Widget.interfaceCache[interfaceId];
-            if (widget == null ||
-                    widget.children == null) {
-                return;
-            }
-            for (int childId : widget.children) {
-                Widget child = Widget.interfaceCache[childId];
-                if (child == null || child.slider == null)
-                    continue;
-                child.slider.handleClick(mX, mY, 4, 4, child.contentType);
-            }
         }
     }
 

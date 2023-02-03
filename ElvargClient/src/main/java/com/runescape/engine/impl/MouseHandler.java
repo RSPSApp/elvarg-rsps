@@ -100,7 +100,7 @@ public class MouseHandler implements MouseListener, MouseMotionListener, FocusLi
                         clickMode1 = 1;
                         clickMode2 = 1;
                     }
-
+                    Slider.handleSlider(e.getX(), e.getY());
                     if (mouseEvent.isPopupTrigger()) {
                         mouseEvent.consume();
                     }
