@@ -897,7 +897,7 @@ public final class MapRegion {
         }
     }
 
-    public final void loadTerrainBlock(byte[] blockData, int blockY, int blockX, int seed, int xOffset, CollisionMap[] collisionMap) {
+    public final void loadTerrainBlock(byte[] blockData, int blockY, int blockX, int k, int l, CollisionMap[] collisionMap) {
         for (int plane = 0; plane < 4; plane++) {
             for (int tileX = 0; tileX < 64; tileX++) {
                 for (int tileY = 0; tileY < 64; tileY++) {
@@ -910,13 +910,11 @@ public final class MapRegion {
 
         }
 
-        final Buffer buffer = new Buffer(blockData);
+        final Buffer stream = new Buffer(blockData);
         for (int plane = 0; plane < 4; plane++) {
             for (int tileX = 0; tileX < 64; tileX++) {
                 for (int tileY = 0; tileY < 64; tileY++) {
-                    int x = tileX + blockX;
-                    int y = tileY + blockY;
-                    this.loadTile(tileY + blockY, x + xOffset, buffer, tileX + blockX, plane, 0, y + seed);
+                    this.loadTile(tileY + blockY, l, stream, tileX + blockX, plane, 0, k);
                 }
 
             }
@@ -924,67 +922,65 @@ public final class MapRegion {
         }
     }
 
-    private void loadTile(int x, int y, Buffer buffer, int z, int level, int overlayRotation, int seed) {
-        if (level >= 0 && level < 4 && z >= 0 && z < 104 && x >= 0 && x < 104) {
-            tileFlags[level][z][x] = 0;
-            while(true) {
-                int opcode = buffer.readUShort();
-                if (opcode == 0) {
-                    if (level == 0) {
-                        int baseHeight = interpolatedNoise(seed + 932731, y + 556238, 4) - 128 + (interpolatedNoise(10294 + seed + 932731, y + 556238, 2) - 128 >> 1) + (interpolatedNoise(seed + 932731, y + 556238, 1) - 128 >> 2);
-                        baseHeight = (int)((double)baseHeight * 0.3D) + 35;
-                        if (baseHeight < 10) {
-                            baseHeight = 10;
-                        } else if (baseHeight > 60) {
-                            baseHeight = 60;
-                        }
-
-                        tileHeights[0][z][x] = -baseHeight * 8;
+    private void loadTile(int tileY, int xOffset, Buffer stream, int tileX, int tileZ, int overlayRotation, int seed) {
+        if (tileX >= 0 && tileX < 104 && tileY >= 0 && tileY < 104) {
+            tileFlags[tileZ][tileX][tileY] = 0;
+            do {
+                int opcode = stream.readUShort();
+                if (opcode == 0)
+                    if (tileZ == 0) {
+                        tileHeights[0][tileX][tileY] = -calculateVertexHeight(0xe3b7b + tileX + seed, 0x87cce + tileY + xOffset) * 8;
+                        return;
                     } else {
-                        tileHeights[level][z][x] = tileHeights[level - 1][z][x] - 240;
+                        tileHeights[tileZ][tileX][tileY] = tileHeights[tileZ - 1][tileX][tileY] - 240;
+                        return;
                     }
-                    break;
-                }
-
                 if (opcode == 1) {
-                    int height = buffer.readUnsignedByte();
-                    if (height == 1) {
+                    int height = stream.readUnsignedByte();
+                    if (height == 1)
                         height = 0;
-                    }
-
-                    if (level == 0) {
-                        tileHeights[0][z][x] = -height * 8;
+                    if (tileZ == 0) {
+                        tileHeights[0][tileX][tileY] = -height * 8;
+                        return;
                     } else {
-                        tileHeights[level][z][x] = tileHeights[level - 1][z][x] - height * 8;
+                        tileHeights[tileZ][tileX][tileY] = tileHeights[tileZ - 1][tileX][tileY] - height * 8;
+                        return;
                     }
-                    break;
                 }
-
                 if (opcode <= 49) {
-                    overlays[level][z][x] = (short)buffer.readShort();
-                    overlayTypes[level][z][x] = (byte)((opcode - 2) / 4);
-                    overlayOrientations[level][z][x] = (byte)(opcode - 2 + overlayRotation & 3);
-                } else if (opcode <= 81) {
-                    tileFlags[level][z][x] = (byte)(opcode - 49);
-                } else {
-                    underlays[level][z][x] = (short)(opcode - 81);
-                }
-            }
-        } else {
-            while (true) {
-                int opcode = buffer.readUShort();
-                if (opcode == 0) {
-                    break;
-                } else if (opcode == 1) {
-                    buffer.readUnsignedByte();
-                    break;
-                } else if (opcode <= 49) {
-                    buffer.readShort();
-                }
-            }
+                    overlays[tileZ][tileX][tileY] = (short) stream.readShort();
+                    overlayTypes[tileZ][tileX][tileY] = (byte) ((opcode - 2) / 4);
+                    overlayOrientations[tileZ][tileX][tileY] = (byte) ((opcode - 2) + overlayRotation & 3);
+                } else if (opcode <= 81)
+                    tileFlags[tileZ][tileX][tileY] = (byte) (opcode - 49);
+                else
+                    underlays[tileZ][tileX][tileY] = (byte) (opcode - 81);
+            } while (true);
         }
+        do {
+            int value = stream.readUShort();
+            if (value == 0)
+                break;
+            if (value == 1) {
+                stream.readUnsignedByte();
+                return;
+            }
+            if (value <= 49)
+                stream.readShort();
+        } while (true);
     }
 
+    private static int calculateVertexHeight(int x, int y) {
+        int vertexHeight = (interpolatedNoise(x + 45365, y + 0x16713, 4) - 128) + (interpolatedNoise(x + 10294, y + 37821, 2) - 128 >> 1) + (interpolatedNoise(x, y, 1) - 128 >> 2);
+        vertexHeight = (int) ((double) vertexHeight * 0.29999999999999999D) + 35;
+        if (vertexHeight < 10) {
+            vertexHeight = 10;
+        }
+        else if (vertexHeight > 60) {
+            vertexHeight = 60;
+        }
+        return vertexHeight;
+    }
 
     /**
      * Returns the plane that actually contains the collision flag, to adjust for objects such as bridges. TODO better
