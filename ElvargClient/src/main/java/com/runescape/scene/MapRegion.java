@@ -139,6 +139,9 @@ public final class MapRegion {
                         if (i13 >= 0 && i13 < regionSizeX) {
                             int i14 = underlays[z][i13][i8] & 0x7FFF;
                             if (i14 > 0) {
+                                if (i14 > FloorDefinition.underlays.length) {
+                                    i14 = FloorDefinition.underlays.length;
+                                }
                                 FloorDefinition flo_1 = FloorDefinition.underlays[i14 - 1];
                                 hues[i8] -= flo_1.blendHue;
                                 saturations[i8] -= flo_1.saturation;
@@ -926,8 +929,8 @@ public final class MapRegion {
         if (tileX >= 0 && tileX < 104 && tileY >= 0 && tileY < 104) {
             tileFlags[tileZ][tileX][tileY] = 0;
             do {
-                int opcode = stream.readUShort();
-                if (opcode == 0)
+                int value = stream.readUShort();
+                if (value == 0)
                     if (tileZ == 0) {
                         tileHeights[0][tileX][tileY] = -calculateVertexHeight(0xe3b7b + tileX + seed, 0x87cce + tileY + xOffset) * 8;
                         return;
@@ -935,7 +938,7 @@ public final class MapRegion {
                         tileHeights[tileZ][tileX][tileY] = tileHeights[tileZ - 1][tileX][tileY] - 240;
                         return;
                     }
-                if (opcode == 1) {
+                if (value == 1) {
                     int height = stream.readUnsignedByte();
                     if (height == 1)
                         height = 0;
@@ -947,14 +950,14 @@ public final class MapRegion {
                         return;
                     }
                 }
-                if (opcode <= 49) {
+                if (value <= 49) {
                     overlays[tileZ][tileX][tileY] = (short) stream.readShort();
-                    overlayTypes[tileZ][tileX][tileY] = (byte) ((opcode - 2) / 4);
-                    overlayOrientations[tileZ][tileX][tileY] = (byte) ((opcode - 2) + overlayRotation & 3);
-                } else if (opcode <= 81)
-                    tileFlags[tileZ][tileX][tileY] = (byte) (opcode - 49);
+                    overlayTypes[tileZ][tileX][tileY] = (byte) ((value - 2) / 4);
+                    overlayOrientations[tileZ][tileX][tileY] = (byte) ((value - 2) + overlayRotation & 3);
+                } else if (value <= 81)
+                    tileFlags[tileZ][tileX][tileY] = (byte) (value - 49);
                 else
-                    underlays[tileZ][tileX][tileY] = (byte) (opcode - 81);
+                    underlays[tileZ][tileX][tileY] = (byte) (value - 81);
             } while (true);
         }
         do {
