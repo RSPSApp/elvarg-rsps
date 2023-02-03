@@ -2321,6 +2321,7 @@ public class Client extends GameEngine implements RSClient {
             exception.printStackTrace();
         }
         ObjectDefinition.baseModels.clear();
+
         packetSender.sendRegionChange();
 
         if (lowMemory && SignLink.cache_dat != null) {
@@ -2356,6 +2357,7 @@ public class Client extends GameEngine implements RSClient {
         }
         setGameState(GameState.LOGGED_IN);
     }
+
 
     private void unlinkCaches() {
         ObjectDefinition.baseModels.clear();
@@ -13733,6 +13735,7 @@ public class Client extends GameEngine implements RSClient {
                 if (opcode != PacketConstants.SEND_REGION_MAP_REGION
                         && currentRegionX == regionX
                         && currentRegionY == regionY && loadingStage == 2) {
+                    setGameState(GameState.LOGGED_IN);
                     opcode = -1;
                     return true;
                 }
@@ -13894,6 +13897,7 @@ public class Client extends GameEngine implements RSClient {
                 }
                 inCutScene = false;
                 opcode = -1;
+                setGameState(GameState.LOGGED_IN);
                 return true;
             }
 
