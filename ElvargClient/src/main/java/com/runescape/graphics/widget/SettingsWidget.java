@@ -321,6 +321,11 @@ public class SettingsWidget extends Widget {
         Widget.interfaceCache[42500].children[9] = tabs[tab];
     }
 
+    public static void updateResizableSettings() {
+        Widget.interfaceCache[FIXED_MODE].active = !Client.instance.isResized();
+        Widget.interfaceCache[RESIZABLE_MODE].active = Client.instance.isResized();
+    }
+
     public static void updateSettings() {
 		/* Settings */
         Widget.interfaceCache[ACCEPT_AID].active = true;
@@ -329,8 +334,6 @@ public class SettingsWidget extends Widget {
         Widget.interfaceCache[SPLIT_PRIVATE_CHAT].active = Client.instance.splitPrivateChat == 1;
         Widget.interfaceCache[MOUSE_BUTTONS].active = true;
         Widget.interfaceCache[SHIFT_CLICK_DROP].active = Configuration.enableShiftClickDrop;
-        Widget.interfaceCache[FIXED_MODE].active = !Client.instance.isResized();
-        Widget.interfaceCache[RESIZABLE_MODE].active = !Client.instance.isResized();
         Widget.interfaceCache[PLAYER_ATTACK_DROPDOWN].dropdown.setSelected(Widget.interfaceCache[42554].dropdown.getOptions()[Configuration.playerAttackOptionPriority]);
         Widget.interfaceCache[NPC_ATTACK_DROPDOWN].dropdown.setSelected(Widget.interfaceCache[42556].dropdown.getOptions()[Configuration.npcAttackOptionPriority]);
 

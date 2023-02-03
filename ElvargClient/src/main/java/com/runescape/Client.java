@@ -1107,6 +1107,8 @@ public class Client extends GameEngine implements RSClient {
 
         showChatComponents = !isResized() || showChatComponents;
         showTabComponents = !isResized() || showTabComponents;
+
+        SettingsWidget.updateResizableSettings();
     }
 
 
