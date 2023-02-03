@@ -17,6 +17,7 @@ import com.runescape.collection.Deque;
 import com.runescape.collection.Linkable;
 import com.runescape.draw.*;
 import com.runescape.draw.Console;
+import com.runescape.draw.flames.FlameManager;
 import com.runescape.draw.skillorbs.SkillOrbs;
 import com.runescape.draw.teleports.TeleportChatBox;
 import com.runescape.engine.GameEngine;
@@ -99,6 +100,8 @@ import static com.runescape.scene.SceneGraph.pitchRelaxEnabled;
 
 @Slf4j
 public class Client extends GameEngine implements RSClient {
+
+    public static FlameManager loginScreenRunesAnimation;
 
     public final void init() {
         nodeID = 10;
@@ -4403,6 +4406,8 @@ public class Client extends GameEngine implements RSClient {
             FileArchive wordencArchive = createArchive(7, "chat system", "wordenc", 50);
 
             FileArchive soundArchive = createArchive(8, "sound effects", "sounds", 55);
+
+            loginScreenRunesAnimation = new FlameManager();
 
             byte[] bytes = soundArchive.readFile("sounds.dat");
             Buffer buffer = new Buffer(bytes);
@@ -8966,6 +8971,7 @@ public class Client extends GameEngine implements RSClient {
                 anInt1188 = 0;
                 anInt1155 = 0;
                 anInt1226 = 0;
+                loginScreenRunesAnimation.reset();
                 SettingsWidget.updateSettings();
                 midi_player.stop();
 
@@ -12737,6 +12743,9 @@ public class Client extends GameEngine implements RSClient {
         spriteCache.lookup(639).drawAdvancedSprite(centerX - (766 / 2),centerY - (503 / 2));
         spriteCache.lookup(635).drawAdvancedSprite(centerX - (444 / 2),centerY - (canvasHeight / 2) + 17);
         spriteCache.lookup(636).drawSprite(centerX - (360 / 2),centerY - (200 / 2) + 21);
+
+        loginScreenRunesAnimation.draw(centerX - (766 / 2) -15, 0,Client.tick,226);
+        loginScreenRunesAnimation.draw(canvasWidth - 110, 0,Client.tick,226);
 
         int loginBoxX = centerX - (360 / 2);
         int loginBoxY = centerY - (200 / 2) + 21;
