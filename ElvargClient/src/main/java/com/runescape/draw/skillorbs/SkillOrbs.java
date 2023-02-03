@@ -55,7 +55,7 @@ public class SkillOrbs {
 
         // Positioning of orbs
         int y = 12;
-        int x = Client.frameMode == Client.ScreenMode.FIXED ? (int) (Client.frameWidth / 3.1) - (totalOrbs * 30) : (Client.frameWidth / 2) - (totalOrbs * 30);
+        int x = !Client.instance.isResized() ? (int) (Client.canvasWidth / 3.1) - (totalOrbs * 30) : (Client.canvasWidth / 2) - (totalOrbs * 30);
 
         if (blockingInterfaceOpen) {
             x -= (totalOrbs * 10);
@@ -95,7 +95,7 @@ public class SkillOrbs {
                 // Increase x, space between orbs
                 x += 62;
 
-                int xLimit = Client.frameMode == Client.ScreenMode.FIXED ? 300 : Client.frameWidth - 203;
+                int xLimit = !Client.instance.isResized() ? 300 : Client.canvasWidth - 203;
                 if (x > (blockingInterfaceOpen ? xLimit : xLimit + 160)) {
                     break;
                 }

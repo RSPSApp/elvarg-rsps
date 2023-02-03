@@ -1,6 +1,7 @@
 package com.runescape.graphics;
 
 import com.runescape.Client;
+import com.runescape.engine.impl.MouseHandler;
 import com.runescape.graphics.sprite.Sprite;
 import com.runescape.graphics.widget.Widget;
 import com.runescape.draw.Rasterizer3D;
@@ -45,7 +46,7 @@ public class Slider {
                 Widget child = Widget.interfaceCache[childId];
                 if (child == null || child.slider == null)
                     continue;
-                child.slider.handleClick(mX, mY, Client.frameMode == Client.ScreenMode.FIXED ? 519 : 0, Client.frameMode == Client.ScreenMode.FIXED ? 168 : 0, child.contentType);
+                child.slider.handleClick(mX, mY, !Client.instance.isResized() ? 519 : 0, !Client.instance.isResized() ? 168 : 0, child.contentType);
             }
             Client.tabAreaAltered = true;
         }
@@ -74,8 +75,8 @@ public class Slider {
     }
 
     public void handleClick(int mouseX, int mouseY, int offsetX, int offsetY, int contentType) {
-        int mX = Client.instance.mouseX;
-        int mY = Client.instance.mouseY;
+        int mX = MouseHandler.mouseX;
+        int mY = MouseHandler.mouseY;
         if (mX - offsetX >= x && mX - offsetX <= x + length
                 && mY - offsetY >= y + images[1].myHeight / 2 - images[0].myHeight / 2
                 && mY - offsetY <= y + images[1].myHeight / 2 + images[0].myHeight / 2) {

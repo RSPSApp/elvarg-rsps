@@ -86,10 +86,10 @@ public class SettingsWidget extends Widget {
 		/* Mouse zoom */
         hoverButton(42521, "Restore Default Zoom", 189, 190);
 		/* Screen sizes */
-        if (Client.frameMode == ScreenMode.FIXED) {
+        if (!Client.instance.isResized()) {
             configHoverButton(FIXED_MODE, "Fixed mode", Sprite.SETTINGS_FIXED_ACTIVE, Sprite.SETTINGS_FIXED_ACTIVE, Sprite.SETTINGS_FIXED_INACTIVE_HOVER, Sprite.SETTINGS_FIXED_INACTIVE, true, 42523);
             configHoverButton(RESIZABLE_MODE, "Resizable mode", Sprite.SETTINGS_RESIZABLE_INACTIVE_HOVER, Sprite.SETTINGS_RESIZABLE_INACTIVE, Sprite.SETTINGS_RESIZABLE_ACTIVE, Sprite.SETTINGS_RESIZABLE_ACTIVE, false, 42522);
-        } else if (Client.frameMode == ScreenMode.RESIZABLE) {
+        } else if (Client.instance.isResized()) {
             configHoverButton(FIXED_MODE, "Fixed mode", Sprite.SETTINGS_FIXED_INACTIVE_HOVER, Sprite.SETTINGS_FIXED_INACTIVE, Sprite.SETTINGS_FIXED_ACTIVE, Sprite.SETTINGS_FIXED_ACTIVE, false, 42523);
             configHoverButton(RESIZABLE_MODE, "Resizable mode", Sprite.SETTINGS_RESIZABLE_ACTIVE, Sprite.SETTINGS_RESIZABLE_ACTIVE, Sprite.SETTINGS_RESIZABLE_INACTIVE_HOVER, Sprite.SETTINGS_RESIZABLE_INACTIVE, true, 42522);
         }
@@ -239,20 +239,20 @@ public class SettingsWidget extends Widget {
                 switchSettings(button);
                 break;
             case FIXED_MODE:
-                if (Client.frameMode == Client.ScreenMode.FIXED) {
+                if (!Client.instance.isResized()) {
                     // Prevent flicker if already in fixed
                     break;
                 }
 
-                Client.instance.frameMode(Client.ScreenMode.FIXED);
+                Client.instance.frameMode(false);
                 break;
             case RESIZABLE_MODE:
-                if (Client.frameMode == ScreenMode.RESIZABLE) {
+                if (Client.instance.isResized()) {
                     // Prevent flicker if already in resizable
                     break;
                 }
 
-                Client.instance.frameMode(Client.ScreenMode.RESIZABLE);
+                Client.instance.frameMode(true);
                 break;
             case SHIFT_CLICK_DROP:
                 Configuration.enableShiftClickDrop = !Configuration.enableShiftClickDrop;
@@ -277,7 +277,7 @@ public class SettingsWidget extends Widget {
                 Client.changeChatArea = !Client.changeChatArea;
                 break;
             case SIDE_STONES_ARRANGEMENT:
-            	if (Client.frameMode == ScreenMode.FIXED) {
+            	if (!Client.instance.isResized()) {
             		return;
             	}
             	Client.stackSideStones = !Client.stackSideStones;
@@ -329,8 +329,8 @@ public class SettingsWidget extends Widget {
         Widget.interfaceCache[SPLIT_PRIVATE_CHAT].active = Client.instance.splitPrivateChat == 1;
         Widget.interfaceCache[MOUSE_BUTTONS].active = true;
         Widget.interfaceCache[SHIFT_CLICK_DROP].active = Configuration.enableShiftClickDrop;
-        Widget.interfaceCache[FIXED_MODE].active = Client.frameMode == ScreenMode.FIXED;
-        Widget.interfaceCache[RESIZABLE_MODE].active = Client.frameMode == ScreenMode.RESIZABLE;
+        Widget.interfaceCache[FIXED_MODE].active = !Client.instance.isResized();
+        Widget.interfaceCache[RESIZABLE_MODE].active = !Client.instance.isResized();
         Widget.interfaceCache[PLAYER_ATTACK_DROPDOWN].dropdown.setSelected(Widget.interfaceCache[42554].dropdown.getOptions()[Configuration.playerAttackOptionPriority]);
         Widget.interfaceCache[NPC_ATTACK_DROPDOWN].dropdown.setSelected(Widget.interfaceCache[42556].dropdown.getOptions()[Configuration.npcAttackOptionPriority]);
 

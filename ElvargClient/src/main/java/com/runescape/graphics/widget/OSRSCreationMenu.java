@@ -6,6 +6,7 @@ import java.util.List;
 import com.runescape.Client;
 import com.runescape.Client.ScreenMode;
 import com.runescape.cache.def.ItemDefinition;
+import com.runescape.engine.impl.MouseHandler;
 import com.runescape.graphics.GameFont;
 import com.runescape.graphics.sprite.Sprite;
 import com.runescape.draw.Rasterizer2D;
@@ -28,10 +29,10 @@ public class OSRSCreationMenu {
     }
 
     public static void draw(int x, int y) {
-        boolean fixed = Client.frameMode == ScreenMode.FIXED;
-        int mouseX = Client.instance.mouseX;
-        int mouseY = Client.instance.mouseY - y - (fixed ? 338 : 0);
-        boolean click = Client.instance.clickMode3 == 1;
+        boolean fixed = !Client.instance.isResized();
+        int mouseX = MouseHandler.mouseX;
+        int mouseY = MouseHandler.mouseY - y - (fixed ? 338 : 0);
+        boolean click = MouseHandler.clickMode3 == 1;
 
         // Titles
         Client.instance.boldText.drawCenteredText(Widget.interfaceCache[31104].defaultText, x + 145, y + 30, 0x403020, false);
@@ -101,7 +102,7 @@ public class OSRSCreationMenu {
             String itemName = "";
             int zoom = 0;
             if (def != null) {
-                zoom = (def.modelZoom / 3) + 40;
+                zoom = (def.zoom2d / 3) + 40;
                 itemName = "(" + (i + 1) + ") " + def.name;
                 if (hover) {
                     GameFont font = Client.instance.gameFont;
@@ -109,7 +110,7 @@ public class OSRSCreationMenu {
                     int hoverX = x + itemX + (boxWidth / 2);
                     int hoverY = y + 132;          
                     Rasterizer2D.drawBox(hoverX - (textWidth / 2) - 2, hoverY - 1, textWidth + 5, 19, 0x000000);
-                    Rasterizer2D.fillRectangle(17, hoverY, hoverX - (textWidth / 2) - 1, 0xFFFFA0, textWidth + 3);
+                    Rasterizer2D.drawBox(17, hoverY, hoverX - (textWidth / 2) - 1, 0xFFFFA0, textWidth + 3);
                     font.drawCenteredText(itemName, hoverX, hoverY + 14, 0x605048, false);
                 }
             }

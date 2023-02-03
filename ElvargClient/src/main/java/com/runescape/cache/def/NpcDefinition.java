@@ -8,6 +8,11 @@ import com.runescape.collection.ReferenceCache;
 import com.runescape.entity.model.Model;
 import com.runescape.io.Buffer;
 import com.runescape.util.BufferExt;
+import net.runelite.api.HeadIcon;
+import net.runelite.api.IterableHashTable;
+import net.runelite.api.NPCComposition;
+import net.runelite.rs.api.RSIterableNodeHashTable;
+import net.runelite.rs.api.RSNPCComposition;
 
 import java.util.Map;
 
@@ -15,7 +20,7 @@ import java.util.Map;
  * Refactored reference:
  * http://www.rune-server.org/runescape-development/rs2-client/downloads/575183-almost-fully-refactored-317-client.html
  */
-public final class NpcDefinition {
+public final class NpcDefinition implements RSNPCComposition {
 	public static int anInt56;
 	public static Buffer dataBuf;
 	public static int[] offsets;
@@ -347,24 +352,24 @@ public final class NpcDefinition {
 					model.recolor(recolourOriginal[k1], recolourTarget[k1]);
 
 			}
-			model.skin();
+			model.generateBones();
 			model.scale(132, 132, 132);
 			model.light(84 + lightModifier, 1000 + shadowModifier, -90, -580, -90, true);
 			modelCache.put(model, interfaceType);
 		}
-		Model empty = Model.EMPTY_MODEL;
-		empty.method464(model, Frame.noAnimationInProgress(frame) & Frame.noAnimationInProgress(j));
+		Model empty = Model.emptyModel;
+		empty.replaceModel(model, Frame.noAnimationInProgress(frame) & Frame.noAnimationInProgress(j));
 		if (frame != -1 && j != -1)
-			empty.applyAnimationFrames(ai, j, frame);
+			empty.animate2(ai, j, frame);
 		else if (frame != -1)
-			empty.applyTransform(frame);
+			empty.animate(frame);
 		if (scaleXZ != 128 || scaleY != 128)
 			empty.scale(scaleXZ, scaleXZ, scaleY);
-		empty.calculateDistances();
+		empty.calculateBoundsCylinder();
 		empty.faceGroups = null;
 		empty.vertexGroups = null;
 		if (size == 1)
-			empty.fits_on_single_square = true;
+			empty.singleTile = true;
 		return empty;
 	}
 
@@ -398,24 +403,24 @@ public final class NpcDefinition {
 					model.recolor(recolourOriginal[index], recolourTarget[index]);
 
 			}
-			model.skin();
+			model.generateBones();
 			model.light(64 + lightModifier, 850 + shadowModifier, -30, -50, -30, true);
 			modelCache.put(model, interfaceType);
 		}
-		Model model_1 = Model.EMPTY_MODEL;
-		model_1.method464(model,
+		Model model_1 = Model.emptyModel;
+		model_1.replaceModel(model,
 				Frame.noAnimationInProgress(secondaryFrame) & Frame.noAnimationInProgress(primaryFrame));
 		if (secondaryFrame != -1 && primaryFrame != -1)
-			model_1.applyAnimationFrames(interleaveOrder, primaryFrame, secondaryFrame);
+			model_1.animate2(interleaveOrder, primaryFrame, secondaryFrame);
 		else if (secondaryFrame != -1)
-			model_1.applyTransform(secondaryFrame);
+			model_1.animate(secondaryFrame);
 		if (scaleXZ != 128 || scaleY != 128)
 			model_1.scale(scaleXZ, scaleXZ, scaleY);
-		model_1.calculateDistances();
+		model_1.calculateBoundsCylinder();
 		model_1.faceGroups = null;
 		model_1.vertexGroups = null;
 		if (size == 1)
-			model_1.fits_on_single_square = true;
+			model_1.singleTile = true;
 		return model_1;
 	}
 
@@ -565,4 +570,116 @@ public final class NpcDefinition {
 			}
         }
 	}
+
+	@Override
+	public HeadIcon getOverheadIcon() {
+		return null;
+	}
+
+	@Override
+	public int getIntValue(int paramID) {
+		return 0;
+	}
+
+	@Override
+	public void setValue(int paramID, int value) {
+
+	}
+
+	@Override
+	public String getStringValue(int paramID) {
+		return null;
+	}
+
+	@Override
+	public void setValue(int paramID, String value) {
+
+	}
+
+	@Override
+	public String getName() {
+		return null;
+	}
+
+	@Override
+	public int[] getModels() {
+		return new int[0];
+	}
+
+	@Override
+	public String[] getActions() {
+		return new String[0];
+	}
+
+	@Override
+	public boolean isClickable() {
+		return false;
+	}
+
+	@Override
+	public boolean isFollower() {
+		return false;
+	}
+
+	@Override
+	public boolean isInteractible() {
+		return false;
+	}
+
+	@Override
+	public boolean isMinimapVisible() {
+		return false;
+	}
+
+	@Override
+	public boolean isVisible() {
+		return false;
+	}
+
+	@Override
+	public int getId() {
+		return 0;
+	}
+
+	@Override
+	public int getCombatLevel() {
+		return 0;
+	}
+
+	@Override
+	public int[] getConfigs() {
+		return new int[0];
+	}
+
+	@Override
+	public RSNPCComposition transform() {
+		return null;
+	}
+
+	@Override
+	public int getSize() {
+		return 0;
+	}
+
+	@Override
+	public int getRsOverheadIcon() {
+		return 0;
+	}
+
+	@Override
+	public RSIterableNodeHashTable getParams() {
+		return null;
+	}
+
+	@Override
+	public void setParams(IterableHashTable params) {
+
+	}
+
+	@Override
+	public void setParams(RSIterableNodeHashTable params) {
+
+	}
+
+
 }

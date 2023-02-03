@@ -17,7 +17,7 @@ public final class Graphic {
     public int rotation;
     public int modelBrightness;
     public int modelShadow;
-    private int anInt404;
+    public int id;
     private int modelId;
     private int animationId;
 
@@ -37,7 +37,7 @@ public final class Graphic {
         for (int index = 0; index < length; index++) {
             if (cache[index] == null)
                 cache[index] = new Graphic();
-            cache[index].anInt404 = index;
+            cache[index].id = index;
             cache[index].readValues(stream);
         }
 
@@ -89,7 +89,7 @@ public final class Graphic {
     }
 
     public Model getModel() {
-        Model model = (Model) models.get(anInt404);
+        Model model = (Model) models.get(id);
         if (model != null)
             return model;
         model = Model.getModel(modelId);
@@ -105,7 +105,7 @@ public final class Graphic {
             if (originalModelColours[0] != 0)
                 model.recolor(originalModelColours[i], modifiedModelColours[i]);
 
-        models.put(model, anInt404);
+        models.put(model, id);
         return model;
     }
 }

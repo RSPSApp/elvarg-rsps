@@ -164,7 +164,8 @@ public class RSFont extends Rasterizer2D {
             for (int i_9_ = -i_3_; i_9_ < 0; i_9_++) {
                 if (is_0_[i_1_++] != 0) {
                     int i_10_ = is[i_2_];
-                    is[i_2_++] = ((((i_10_ & 0xff00ff) * i_7_ & ~0xff00ff) + ((i_10_ & 0xff00) * i_7_ & 0xff0000)) >> 8) + i;
+                    drawAlpha(is, i_2_++, ((((i_10_ & 0xff00ff) * i_7_ & ~0xff00ff)
+                            + ((i_10_ & 0xff00) * i_7_ & 0xff0000)) >> 8) + i, 255);
                 } else {
                     i_2_++;
                 }
@@ -182,29 +183,29 @@ public class RSFont extends Rasterizer2D {
         for (int i_32_ = -i_28_; i_32_ < 0; i_32_++) {
             for (int i_33_ = i_31_; i_33_ < 0; i_33_++) {
                 if (is_24_[i_25_++] != 0) {
-                    is[i_26_++] = i;
+                    drawAlpha(is, i_26_++, i, 255);
                 } else {
                     i_26_++;
                 }
                 if (is_24_[i_25_++] != 0) {
-                    is[i_26_++] = i;
+                    drawAlpha(is, i_26_++, i, 255);
                 } else {
                     i_26_++;
                 }
                 if (is_24_[i_25_++] != 0) {
-                    is[i_26_++] = i;
+                    drawAlpha(is, i_26_++, i, 255);
                 } else {
                     i_26_++;
                 }
                 if (is_24_[i_25_++] != 0) {
-                    is[i_26_++] = i;
+                    drawAlpha(is, i_26_++, i, 255);
                 } else {
                     i_26_++;
                 }
             }
             for (int i_34_ = i_27_; i_34_ < 0; i_34_++) {
                 if (is_24_[i_25_++] != 0) {
-                    is[i_26_++] = i;
+                    drawAlpha(is, i_26_++, i, 255);
                 } else {
                     i_26_++;
                 }

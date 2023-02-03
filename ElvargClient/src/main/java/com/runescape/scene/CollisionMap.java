@@ -1,6 +1,8 @@
 package com.runescape.scene;
 
-public final class CollisionMap {
+import net.runelite.rs.api.RSCollisionMap;
+
+public final class CollisionMap implements RSCollisionMap {
 
     private static final int BLOCKED_TILE = 0x200000;
     //private static final int OBJECT_TILE = 0x100;
@@ -339,106 +341,106 @@ public final class CollisionMap {
         clipData[k][j] &= 0xdfffff;
     }
 
-    public boolean method219(int destX, int baseX, int baseY, int direction, int size, int destY) {
-
-        if (baseX == destX && baseY == destY)
+    public boolean method219(int i, int j, int k, int i1, int j1, int k1) {
+        if (j == i && k == k1)
             return true;
-        baseX -= xOffset;
-        baseY -= yOffset;
-        destX -= xOffset;
-        destY -= yOffset;
-        if (size == 0)
-            if (direction == 0) {
-                if (baseX == destX - 1 && baseY == destY)
+        j -= xOffset;
+        k -= yOffset;
+        i -= xOffset;
+        k1 -= yOffset;
+        if (j1 == 0)
+            if (i1 == 0) {
+                if (j == i - 1 && k == k1)
                     return true;
-                if (baseX == destX && baseY == destY + 1
-                        && (clipData[baseX][baseY] & 0x1280120) == 0)
+                if (j == i && k == k1 + 1
+                        && (clipData[j][k] & 0x1280120) == 0)
                     return true;
-                if (baseX == destX && baseY == destY - 1
-                        && (clipData[baseX][baseY] & 0x1280102) == 0)
+                if (j == i && k == k1 - 1
+                        && (clipData[j][k] & 0x1280102) == 0)
                     return true;
-            } else if (direction == 1) {
-                if (baseX == destX && baseY == destY + 1)
+            } else if (i1 == 1) {
+                if (j == i && k == k1 + 1)
                     return true;
-                if (baseX == destX - 1 && baseY == destY
-                        && (clipData[baseX][baseY] & 0x1280108) == 0)
+                if (j == i - 1 && k == k1
+                        && (clipData[j][k] & 0x1280108) == 0)
                     return true;
-                if (baseX == destX + 1 && baseY == destY
-                        && (clipData[baseX][baseY] & 0x1280180) == 0)
+                if (j == i + 1 && k == k1
+                        && (clipData[j][k] & 0x1280180) == 0)
                     return true;
-            } else if (direction == 2) {
-                if (baseX == destX + 1 && baseY == destY)
+            } else if (i1 == 2) {
+                if (j == i + 1 && k == k1)
                     return true;
-                if (baseX == destX && baseY == destY + 1
-                        && (clipData[baseX][baseY] & 0x1280120) == 0)
+                if (j == i && k == k1 + 1
+                        && (clipData[j][k] & 0x1280120) == 0)
                     return true;
-                if (baseX == destX && baseY == destY - 1
-                        && (clipData[baseX][baseY] & 0x1280102) == 0)
+                if (j == i && k == k1 - 1
+                        && (clipData[j][k] & 0x1280102) == 0)
                     return true;
-            } else if (direction == 3) {
-                if (baseX == destX && baseY == destY - 1)
+            } else if (i1 == 3) {
+                if (j == i && k == k1 - 1)
                     return true;
-                if (baseX == destX - 1 && baseY == destY
-                        && (clipData[baseX][baseY] & 0x1280108) == 0)
+                if (j == i - 1 && k == k1
+                        && (clipData[j][k] & 0x1280108) == 0)
                     return true;
-                if (baseX == destX + 1 && baseY == destY
-                        && (clipData[baseX][baseY] & 0x1280180) == 0)
-                    return true;
-            }
-        if (size == 2)
-            if (direction == 0) {
-                if (baseX == destX - 1 && baseY == destY)
-                    return true;
-                if (baseX == destX && baseY == destY + 1)
-                    return true;
-                if (baseX == destX + 1 && baseY == destY
-                        && (clipData[baseX][baseY] & 0x1280180) == 0)
-                    return true;
-                if (baseX == destX && baseY == destY - 1
-                        && (clipData[baseX][baseY] & 0x1280102) == 0)
-                    return true;
-            } else if (direction == 1) {
-                if (baseX == destX - 1 && baseY == destY
-                        && (clipData[baseX][baseY] & 0x1280108) == 0)
-                    return true;
-                if (baseX == destX && baseY == destY + 1)
-                    return true;
-                if (baseX == destX + 1 && baseY == destY)
-                    return true;
-                if (baseX == destX && baseY == destY - 1
-                        && (clipData[baseX][baseY] & 0x1280102) == 0)
-                    return true;
-            } else if (direction == 2) {
-                if (baseX == destX - 1 && baseY == destY
-                        && (clipData[baseX][baseY] & 0x1280108) == 0)
-                    return true;
-                if (baseX == destX && baseY == destY + 1
-                        && (clipData[baseX][baseY] & 0x1280120) == 0)
-                    return true;
-                if (baseX == destX + 1 && baseY == destY)
-                    return true;
-                if (baseX == destX && baseY == destY - 1)
-                    return true;
-            } else if (direction == 3) {
-                if (baseX == destX - 1 && baseY == destY)
-                    return true;
-                if (baseX == destX && baseY == destY + 1
-                        && (clipData[baseX][baseY] & 0x1280120) == 0)
-                    return true;
-                if (baseX == destX + 1 && baseY == destY
-                        && (clipData[baseX][baseY] & 0x1280180) == 0)
-                    return true;
-                if (baseX == destX && baseY == destY - 1)
+                if (j == i + 1 && k == k1
+                        && (clipData[j][k] & 0x1280180) == 0)
                     return true;
             }
-        if (size == 9) {
-            if (baseX == destX && baseY == destY + 1 && (clipData[baseX][baseY] & 0x20) == 0)
+        if (j1 == 2)
+            if (i1 == 0) {
+                if (j == i - 1 && k == k1)
+                    return true;
+                if (j == i && k == k1 + 1)
+                    return true;
+                if (j == i + 1 && k == k1
+                        && (clipData[j][k] & 0x1280180) == 0)
+                    return true;
+                if (j == i && k == k1 - 1
+                        && (clipData[j][k] & 0x1280102) == 0)
+                    return true;
+            } else if (i1 == 1) {
+                if (j == i - 1 && k == k1
+                        && (clipData[j][k] & 0x1280108) == 0)
+                    return true;
+                if (j == i && k == k1 + 1)
+                    return true;
+                if (j == i + 1 && k == k1)
+                    return true;
+                if (j == i && k == k1 - 1
+                        && (clipData[j][k] & 0x1280102) == 0)
+                    return true;
+            } else if (i1 == 2) {
+                if (j == i - 1 && k == k1
+                        && (clipData[j][k] & 0x1280108) == 0)
+                    return true;
+                if (j == i && k == k1 + 1
+                        && (clipData[j][k] & 0x1280120) == 0)
+                    return true;
+                if (j == i + 1 && k == k1)
+                    return true;
+                if (j == i && k == k1 - 1)
+                    return true;
+            } else if (i1 == 3) {
+                if (j == i - 1 && k == k1)
+                    return true;
+                if (j == i && k == k1 + 1
+                        && (clipData[j][k] & 0x1280120) == 0)
+                    return true;
+                if (j == i + 1 && k == k1
+                        && (clipData[j][k] & 0x1280180) == 0)
+                    return true;
+                if (j == i && k == k1 - 1)
+                    return true;
+            }
+        if (j1 == 9) {
+            if (j == i && k == k1 + 1 && (clipData[j][k] & 0x20) == 0)
                 return true;
-            if (baseX == destX && baseY == destY - 1 && (clipData[baseX][baseY] & 2) == 0)
+            if (j == i && k == k1 - 1 && (clipData[j][k] & 2) == 0)
                 return true;
-            if (baseX == destX - 1 && baseY == destY && (clipData[baseX][baseY] & 8) == 0)
+            if (j == i - 1 && k == k1 && (clipData[j][k] & 8) == 0)
                 return true;
-            return baseX == destX + 1 && baseY == destY && (clipData[baseX][baseY] & 0x80) == 0;
+            if (j == i + 1 && k == k1 && (clipData[j][k] & 0x80) == 0)
+                return true;
         }
         return false;
     }
@@ -482,7 +484,8 @@ public final class CollisionMap {
                 return true;
             if (j1 == i - 1 && k == j && (clipData[j1][k] & 8) == 0)
                 return true;
-            return j1 == i + 1 && k == j && (clipData[j1][k] & 0x80) == 0;
+            if (j1 == i + 1 && k == j && (clipData[j1][k] & 0x80) == 0)
+                return true;
         }
         return false;
     }
@@ -505,5 +508,10 @@ public final class CollisionMap {
                 && (rotation & 4) == 0 || y == maxY + 1 && x >= finalX && x <= maxX
                 && (clipData[x - xOffset][y - yOffset] & 0x20) == 0
                 && (rotation & 1) == 0;
+    }
+
+    @Override
+    public int[][] getFlags() {
+        return clipData;
     }
 }
