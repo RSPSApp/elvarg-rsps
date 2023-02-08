@@ -184,6 +184,7 @@ public class NPC extends Mobile {
 	 * Processes this npc.
 	 */
 	public void process() {
+
 		if (getDefinition() == null) {
 			// Only process the npc if they have properly been added with a definition.
 			return;

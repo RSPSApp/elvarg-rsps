@@ -1,18 +1,15 @@
 package com.elvarg.game.entity.impl.object;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 import com.elvarg.game.collision.RegionManager;
 import com.elvarg.game.entity.impl.player.Player;
+import com.elvarg.game.entity.impl.playerbot.PlayerBot;
 import com.elvarg.game.model.Location;
-import com.elvarg.game.model.areas.Area;
 import com.elvarg.game.model.areas.impl.PrivateArea;
+import com.elvarg.game.model.movement.path.PathFinder;
 import com.elvarg.game.model.rights.PlayerRights;
+import com.google.common.collect.Lists;
 
 /**
  * Map objects are objects that are in the maps. These are loaded when the maps
@@ -36,15 +33,15 @@ public class MapObjects {
      */
     public static GameObject get(Player player, int id, Location location) {
         GameObject object = get(id, location, player.getPrivateArea());
-        
+
         if (object == null && player.getRights() == PlayerRights.DEVELOPER) {
             player.getPacketSender().sendMessage("@red@Object with id " + id + " does not exist.");
             object = new GameObject(id, location, 10, 0, player.getPrivateArea());
         }
-        
+
         return object;
     }
-    
+
     /**
      * Attempts to get an object with the given id and position.
      *
@@ -60,7 +57,7 @@ public class MapObjects {
                 }
             }
         }
-        
+
         // Load region..
         RegionManager.loadMapFiles(location.getX(), location.getY());
 
@@ -88,7 +85,7 @@ public class MapObjects {
         }
         return null;
     }
-    
+
     public static GameObject get(Location location, int type, PrivateArea privateArea) {
         // Check instanced objects..
         if (privateArea != null) {
@@ -98,7 +95,7 @@ public class MapObjects {
                 }
             }
         }
-        
+
         // Load region..
         RegionManager.loadMapFiles(location.getX(), location.getY());
 
@@ -126,7 +123,7 @@ public class MapObjects {
         }
         return null;
     }
-    
+
     /**
      * Checks if an gameobject exists.
      *
@@ -142,13 +139,16 @@ public class MapObjects {
      *
      * @param object
      */
-    public static void add(GameObject object) {     
+
+    public static List<GameObject> cache_objects = Lists.newCopyOnWriteArrayList();
+
+    public static void add(GameObject object) {
         // Register the object if it's not registered in a private area..
         if (object.getPrivateArea() == null) {
-            
+
             // Get hash for object..
             long hash = getHash(object.getLocation().getX(), object.getLocation().getY(), object.getLocation().getZ());
-            
+
             if (mapObjects.containsKey(hash)) {
                 // Check if object already exists in this list..
                 boolean exists = false;
@@ -171,6 +171,8 @@ public class MapObjects {
                 mapObjects.put(hash, list);
             }
         }
+
+        cache_objects.add(object);
 
         // Add clipping for object.
         RegionManager.addObjectClipping(object);
@@ -196,6 +198,9 @@ public class MapObjects {
             }
         }
 
+        if (cache_objects.contains(object))
+            cache_objects.remove(object);
+
         // Remove clipping from this area..
         RegionManager.removeObjectClipping(object);
     }
@@ -220,6 +225,15 @@ public class MapObjects {
             }
         }
 
+        for (GameObject o : cache_objects) {
+            if (o != null) {
+                if (Objects.equals(o.getLocation(), position))
+                    cache_objects.remove(o);
+            }
+        }
+
+
+
         // Remove clipping from this area..
         RegionManager.removeClipping(position.getX(), position.getY(), position.getZ(), clipShift, null);
     }
@@ -235,4 +249,5 @@ public class MapObjects {
     public static long getHash(int x, int y, int z) {
         return (z + ((long) x << 24) + ((long) y << 48));
     }
+
 }

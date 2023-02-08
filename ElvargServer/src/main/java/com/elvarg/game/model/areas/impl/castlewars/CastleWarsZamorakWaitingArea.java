@@ -67,7 +67,7 @@ public class CastleWarsZamorakWaitingArea extends Area {
             // Ensure the game start timer is cancelled
             TaskManager.cancelTasks(START_GAME_TASK);
         }
-
+        System.err.println("logging? - "+logout);
         if (logout) {
             // Player has logged out, teleport them to the lobby
             player.moveTo(new Location(2439 + Misc.random(4), 3085 + Misc.random(5), 0));

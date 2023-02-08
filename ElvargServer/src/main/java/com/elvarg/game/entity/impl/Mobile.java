@@ -12,21 +12,22 @@ import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.entity.impl.playerbot.PlayerBot;
 import com.elvarg.game.model.*;
 import com.elvarg.game.model.movement.MovementQueue;
-import com.elvarg.game.task.Task;
-import com.elvarg.game.task.TaskManager;
+import com.elvarg.game.task.*;
 import com.elvarg.util.Misc;
 import com.elvarg.util.Stopwatch;
 import com.elvarg.util.timers.TimerRepository;
 import com.google.common.collect.Maps;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
  * Represents a {@link Player} or {@link NPC}.
  */
 public abstract class Mobile extends Entity {
-	
-    private int index;
+
+	public final ArrayList<Chain<?>> chains = new ArrayList<>();
+	private int index;
     private Location lastKnownRegion;
     private final TimerRepository timers = new TimerRepository();
 	private final Combat combat = new Combat(this);
@@ -684,4 +685,9 @@ public abstract class Mobile extends Entity {
 
 		this.getAsPlayer().getPacketSender().sendMessage(message);
 	}
+
+	public void startEvent(int delayTicks, Runnable run) {
+		Chain.bound(this instanceof Player ? this.getAsPlayer().getUsername() : this.getAsNpc().getDefinition().getName()).runFn(delayTicks, () -> run.run());
+	}
+
 }

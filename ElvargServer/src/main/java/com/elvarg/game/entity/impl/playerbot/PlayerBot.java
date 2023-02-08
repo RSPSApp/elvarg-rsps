@@ -8,6 +8,7 @@ import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.entity.impl.playerbot.commands.*;
 import com.elvarg.game.entity.impl.playerbot.interaction.*;
+import com.elvarg.game.entity.impl.playerbot.minigame.CastlewarsBotState;
 import com.elvarg.game.entity.updating.PlayerUpdating;
 import com.elvarg.game.model.ChatMessage;
 import com.elvarg.game.model.Location;
@@ -150,6 +151,15 @@ public class PlayerBot extends Player {
         for (Player localPlayer : this.getLocalPlayers()) {
             PlayerUpdating.update(localPlayer);
         }
+    }
+
+    private CastlewarsBotState castlewarsBotState;
+    public CastlewarsBotState getCastleWarsState() {
+        return castlewarsBotState;
+    }
+
+    public void setCastlewarsBotState(CastlewarsBotState botState) {
+        this.castlewarsBotState = botState;
     }
 
     @Override

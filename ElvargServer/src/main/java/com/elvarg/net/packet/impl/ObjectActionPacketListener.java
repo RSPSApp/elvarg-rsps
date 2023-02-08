@@ -250,7 +250,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         }
 	}
 
-    private static void objectInteract(Player player, int id, int x, int y, int clickType) {
+    public static void objectInteract(Player player, int id, int x, int y, int clickType) {
         final Location location = new Location(x, y, player.getLocation().getZ());
 
         final GameObject object = MapObjects.get(player, id, location);

@@ -19,6 +19,7 @@ import com.elvarg.game.model.Location;
 import com.elvarg.game.model.commands.impl.Players;
 import com.elvarg.game.task.TaskManager;
 import com.elvarg.util.Misc;
+import com.google.common.collect.Lists;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -266,6 +267,7 @@ public class World {
 	}
 
 	public static TreeMap<String, PlayerBot> getPlayerBots() { return playerBots; }
+
 
 	public static List<ItemOnGround> getItems() {
 		return items;

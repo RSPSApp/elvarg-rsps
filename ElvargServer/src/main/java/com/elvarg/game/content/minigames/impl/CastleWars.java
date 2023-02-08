@@ -10,6 +10,7 @@ import com.elvarg.game.entity.impl.npc.impl.Barricades;
 import com.elvarg.game.entity.impl.object.GameObject;
 import com.elvarg.game.entity.impl.object.ObjectManager;
 import com.elvarg.game.entity.impl.player.Player;
+import com.elvarg.game.entity.impl.playerbot.minigame.CastlewarsBotState;
 import com.elvarg.game.model.*;
 import com.elvarg.game.model.areas.Area;
 import com.elvarg.game.model.areas.impl.castlewars.CastleWarsGameArea;
@@ -311,16 +312,19 @@ public class CastleWars implements Minigame {
      */
     public static void addToWaitingRoom(Player player, Team team) {
         if (player == null) {
+            System.err.println("blocked 0..");
             return;
         }
 
         if (isGameActive()) {
             player.getPacketSender().sendMessage("There's already a Castle Wars going. Please wait a few minutes before trying again.");
+            System.err.println("blocked 1..");
             return;
         }
 
         if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].isValid()
                 || player.getEquipment().getItems()[Equipment.CAPE_SLOT].isValid()) {
+            System.err.println("blocked 2..");
             StatementDialogue.send(player, "Some items are stopping you from entering the Castle Wars waiting " +
                     "area. See the chat for details.");
             player.getPacketSender().sendMessage("You can't wear hats, capes or helms in the arena.");
@@ -329,10 +333,10 @@ public class CastleWars implements Minigame {
 
         Integer[] foodIds = Food.Edible.getTypes();
         if (player.getEquipment().containsAny(foodIds)) {
+            System.err.println("blocked 3..");
             player.getPacketSender().sendMessage("You may not bring your own consumables inside of Castle Wars.");
             return;
         }
-
         int saradominPlayerCount = Team.SARADOMIN.getWaitingPlayers();
         int zamorakPlayerCount = Team.ZAMORAK.getWaitingPlayers();
 
@@ -361,7 +365,7 @@ public class CastleWars implements Minigame {
                 addToWaitingRoom(player, newTeam);
                 return;
         }
-
+        System.err.println("tping to room!");
         /** Uses smart teleport with a radius of 8. **/
         player.smartMove(team.getWaitingRoom(), 8);
     }
@@ -746,6 +750,9 @@ public class CastleWars implements Minigame {
                     return true;
                 }
                 player.resetCastlewarsIdleTime();
+                if (player.isPlayerBot()) {
+                    player.getAsPlayerBot().setCastlewarsBotState(CastlewarsBotState.STAIRS_TO_MAIN_AREA);
+                }
                 if (x == 2426) {
                     if (playerY == 3080) {
                         player.moveTo(new Location(2426, 3081, playerZ));
@@ -764,6 +771,9 @@ public class CastleWars implements Minigame {
                 if (Team.getTeamForPlayer(player) == Team.SARADOMIN) {
                     player.getPacketSender().sendMessage("You are not allowed in the other teams spawn point.");
                     return true;
+                }
+                if (player.isPlayerBot()) {
+                    player.getAsPlayerBot().setCastlewarsBotState(CastlewarsBotState.STAIRS_TO_MAIN_AREA);
                 }
                 player.resetCastlewarsIdleTime();
                 if (x == 2373 && y == 3126) {

@@ -38,6 +38,8 @@ public abstract class Task {
      */
     private boolean running = false;
 
+    private Runnable onCompleted;
+
     /**
      * The task's owner
      */
@@ -222,5 +224,15 @@ public abstract class Task {
      */
     public void stop() {
         running = false;
+    }
+
+    public void onStop() {
+        if (onCompleted != null) {
+            onCompleted.run();
+        }
+    }
+    public Task onStop(Runnable r) {
+        this.onCompleted = r;
+        return this;
     }
 }
