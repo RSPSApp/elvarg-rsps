@@ -1,6 +1,5 @@
 package com.runescape;
 
-import app.rsps.DiscordOAuth;
 import com.google.common.primitives.Doubles;
 import com.runescape.cache.FileArchive;
 import com.runescape.cache.FileStore;
@@ -18,6 +17,9 @@ import com.runescape.collection.Linkable;
 import com.runescape.draw.*;
 import com.runescape.draw.Console;
 import com.runescape.draw.flames.FlameManager;
+import com.runescape.draw.gameframe.GameFrame;
+import com.runescape.draw.gameframe.impl.Frame317;
+import com.runescape.draw.gameframe.impl.FrameOSRS;
 import com.runescape.draw.skillorbs.SkillOrbs;
 import com.runescape.draw.teleports.TeleportChatBox;
 import com.runescape.engine.GameEngine;
@@ -450,10 +452,7 @@ public class Client extends GameEngine implements RSClient {
     public final FileStore[] indices;
     public final Widget aClass9_1059;
     public final int anInt1239 = 100;
-    final int[] sideIconsX = {17, 49, 83, 114, 146, 180, 214, 16, 49, 82, 116, 148, 184, 217},
-            sideIconsY = {9, 7, 7, 5, 2, 3, 7, 303, 306, 306, 302, 305, 303, 304, 306},
-            sideIconsId = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13},
-            sideIconsTab = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+
     private final int[] soundVolume;
     private final NumberFormat format = NumberFormat.getInstance(Locale.US);
     private final int[] modeX = {160, 224, 288, 352, 416},
@@ -463,11 +462,7 @@ public class Client extends GameEngine implements RSClient {
     private final String[] modeNames =
             {"All", "Game", "Public", "Private", "Clan", "Trade", "Yell", "Report"};
     private final int[] hitmarks562 = {31, 32, 33, 34};
-    private final int[] tabClickX = {38, 33, 33, 33, 33, 33, 38, 38, 33, 33, 33, 33, 33, 38},
-            tabClickStart = {522, 560, 593, 625, 659, 692, 724, 522, 560, 593, 625, 659, 692,
-                    724},
-            tabClickY = {169, 169, 169, 169, 169, 169, 169, 466, 466, 466, 466, 466, 466,
-                    466};
+
     private final int[] quakeMagnitudes;
     private final boolean[] quakeDirectionActive;
     private final int maxPlayers;
@@ -580,7 +575,7 @@ public class Client extends GameEngine implements RSClient {
     private String searchSyntax = "";
     private final int[] searchResults = new int[100];
     private boolean fetchSearchResults;
-    private boolean searchingSpawnTab;
+    public boolean searchingSpawnTab;
     private SpawnTabType spawnType = SpawnTabType.INVENTORY;
     private String enter_amount_title = "Enter amount:";
     private String enter_name_title = "Enter name:";
@@ -677,9 +672,9 @@ public class Client extends GameEngine implements RSClient {
     private int hintIconLocationArrowHeight;
     private int hintIconLocationArrowRelX;
     private int hintIconLocationArrowRelY;
-    private int tickDelta;
+    public int tickDelta;
     private SceneGraph scene;
-    private Sprite[] sideIcons;
+    public Sprite[] sideIcons;
     private int menuScreenArea;
     private int menuOffsetX;
     private int menuOffsetY;
@@ -736,7 +731,7 @@ public class Client extends GameEngine implements RSClient {
     private boolean maleCharacter;
     private int anInt1048;
     private String aString1049;
-    private int flashingSidebarId;
+    public int flashingSidebarId;
     private int multicombat;
     private Deque incompleteAnimables;
     private IndexedImage[] mapScenes;
@@ -786,7 +781,7 @@ public class Client extends GameEngine implements RSClient {
     private ProducingGraphicsBuffer aRSImageProducer_1115;
     private int membersInt;
     private String aString1121;
-    private Sprite compass;
+    public Sprite compass;
     private ProducingGraphicsBuffer chatSettingImageProducer;
     private int cameraY;
     private int menuActionRow;
@@ -821,7 +816,7 @@ public class Client extends GameEngine implements RSClient {
     private int cameraHorizontal;
     private int anInt1186;
     private int anInt1187;
-    private int overlayInterfaceId;
+    public int overlayInterfaceId;
     private int[] anIntArray1190;
     private int[] anIntArray1191;
     public Buffer chatBuffer;
@@ -1248,6 +1243,9 @@ public class Client extends GameEngine implements RSClient {
         return 0;
     }
 
+
+    public String frameName = "osrs";
+
     public void savePlayerData() {
         try {
             File file = new File(SignLink.findcachedir() + "/settings.dat");
@@ -1302,6 +1300,7 @@ public class Client extends GameEngine implements RSClient {
                 stream.writeBoolean(Configuration.enableMusic);
 
                 stream.writeUTF(discordToken);
+                stream.writeUTF(frameName);
                 stream.close();
             }
 
@@ -1309,6 +1308,8 @@ public class Client extends GameEngine implements RSClient {
             e.printStackTrace();
         }
     }
+
+
 
     private void loadPlayerData() throws IOException {
         File file = new File(SignLink.findcachedir() + "/settings.dat");
@@ -1369,6 +1370,9 @@ public class Client extends GameEngine implements RSClient {
             Configuration.enableMusic = stream.readBoolean();
 
             discordToken = stream.readUTF();
+
+            setGameFrameByName(stream.readUTF());
+
         } catch (IOException e) {
             System.out.println("Unable to load player data.");
             file.delete();
@@ -1663,7 +1667,7 @@ public class Client extends GameEngine implements RSClient {
         if (mouseInRegion(canvasWidth - 216, canvasWidth, 0, 172)) {
             return false;
         }
-        if (!stackSideStones) {
+        if (stackSideStones) {
             if (MouseHandler.mouseX > 0 && MouseHandler.mouseY > 0 && MouseHandler.mouseY < canvasWidth
                     && MouseHandler.mouseY < canvasHeight) {
                 return MouseHandler.mouseX < canvasWidth - 242 || MouseHandler.mouseY < canvasHeight - 335;
@@ -1762,9 +1766,9 @@ public class Client extends GameEngine implements RSClient {
         }
     }
 
-    public void drawChannelButtons() {
+    private void drawChannelButtons() {
         int yOffset = !isResized() ? 338 : canvasHeight - 165;
-        spriteCache.draw(49, 0, 143 + yOffset);
+        spriteCache.lookup(currentGameFrame.chatButtons().get(0)).drawAdvancedSprite(0, 143 + yOffset);
         String[] text = {"On", "Friends", "Off", "Hide"};
         int[] textColor = {65280, 0xffff00, 0xff0000, 65535};
         switch (cButtonCPos) {
@@ -1775,7 +1779,7 @@ public class Client extends GameEngine implements RSClient {
             case 4:
             case 5:
             case 6:
-                spriteCache.draw(16, channelButtonsX[cButtonCPos], 143 + yOffset);
+                spriteCache.lookup(currentGameFrame.chatButtons().get(2)).drawAdvancedSprite(channelButtonsX[cButtonCPos], 143 + yOffset);
                 break;
         }
         if (cButtonHPos == cButtonCPos) {
@@ -1788,7 +1792,7 @@ public class Client extends GameEngine implements RSClient {
                 case 5:
                 case 6:
                 case 7:
-                    spriteCache.draw(17, channelButtonsX[cButtonHPos], 143 + yOffset);
+                    spriteCache.lookup(currentGameFrame.chatButtons().get(3)).drawAdvancedSprite(channelButtonsX[cButtonHPos], 143 + yOffset);
                     break;
             }
         } else {
@@ -1800,10 +1804,10 @@ public class Client extends GameEngine implements RSClient {
                 case 4:
                 case 5:
                 case 6:
-                    spriteCache.draw(15, channelButtonsX[cButtonHPos], 143 + yOffset);
+                    spriteCache.lookup(currentGameFrame.chatButtons().get(1)).drawAdvancedSprite(channelButtonsX[cButtonHPos], 143 + yOffset);
                     break;
                 case 7:
-                    spriteCache.draw(18, channelButtonsX[cButtonHPos], 143 + yOffset);
+                    spriteCache.lookup(currentGameFrame.chatButtons().get(4)).drawAdvancedSprite(channelButtonsX[cButtonHPos], 143 + yOffset);
                     break;
             }
         }
@@ -1816,7 +1820,20 @@ public class Client extends GameEngine implements RSClient {
         }
     }
 
-    private boolean chatStateCheck() {
+    public static GameFrame currentGameFrame;
+
+    public void setGameFrameByName(String revision) {
+        if(revision.equals("OSRS")) {
+            currentGameFrame = new FrameOSRS(instance);
+        } else if(revision.equals("317")) {
+            currentGameFrame = new Frame317(instance);
+        } else {
+            log.info("Unable to find frame {} using defualt", revision);
+            currentGameFrame = new FrameOSRS(instance);
+        }
+    }
+
+    public boolean chatStateCheck() {
         return messagePromptRaised || inputDialogState != 0 || clickToContinueString != null || backDialogueId != -1 || dialogueId != -1;
     }
 
@@ -1824,18 +1841,9 @@ public class Client extends GameEngine implements RSClient {
         int yOffset = !isResized() ? 338 : canvasHeight - 165;
 
         Rasterizer3D.scanOffsets = anIntArray1180;
-        if (chatStateCheck()) {
-            showChatComponents = true;
-            spriteCache.draw(20, 0, yOffset);
-        }
-        if (showChatComponents) {
-            if ((changeChatArea && isResized()) && !chatStateCheck()) {
-                Rasterizer2D.drawHorizontalLine(7, 7 + yOffset, 506, 0x575757);
-                Rasterizer2D.drawTransparentGradientBox(7, 7 + yOffset, 510, 130, 0x00000000, 0x5A000000,20);
-            } else {
-                spriteCache.draw(20, 0, yOffset);
-            }
-        }
+
+        currentGameFrame.drawChatLook(yOffset);
+
         drawChannelButtons();
         GameFont font = regularText;
         if (messagePromptRaised) {
@@ -2173,7 +2181,7 @@ public class Client extends GameEngine implements RSClient {
             if (j == 2 && menuActionRow > 0)
                 determineMenuSize();
             processMainScreenClick();
-            processTabClick();
+            currentGameFrame.processTabClick();
             processChatModeClick();
             minimapHovers();
         }
@@ -2511,7 +2519,7 @@ public class Client extends GameEngine implements RSClient {
         }
     }
 
-    private void buildInterfaceMenu(int i, Widget widget, int k, int l, int i1, int j1) {
+    public void buildInterfaceMenu(int i, Widget widget, int k, int l, int i1, int j1) {
         if (widget == null || widget.type != 0 || widget.children == null || widget.invisible || widget.hidden)
             return;
         if (k < i || i1 < l || k > i + widget.width || i1 > l + widget.height)
@@ -2975,7 +2983,34 @@ public class Client extends GameEngine implements RSClient {
                 5 + y + 16 + barPos + barHeight - 5 - (y + 16 + barPos), 0xffffff, 32);
     }
 
+    private void renderChatInterface(int j, int k, int l, int i1, int j1, boolean transparent) {
+
+        spriteCache.lookup(394).drawSprite(i1, l);
+        spriteCache.lookup(395).drawSprite(i1, (l + j) - 16);
+
+        Rasterizer2D.fillPixelsReverseOrder(j - 32, l + 16, i1, 0x23201b, 16);
+        int k1 = ((j - 32) * j) / j1;
+        if (k1 < 8) {
+            k1 = 8;
+        }
+        int l1 = ((j - 32 - k1) * k) / (j1 - j);
+        Rasterizer2D.fillPixelsReverseOrder(k1, l + 16 + l1, i1, 0x4d4233, 16);
+        Rasterizer2D.method341(l + 16 + l1, 0x766654, k1, i1);
+        Rasterizer2D.method341(l + 16 + l1, 0x766654, k1, i1 + 1);
+        Rasterizer2D.method339(l + 16 + l1, 0x766654, 16, i1);
+        Rasterizer2D.method339(l + 17 + l1, 0x766654, 16, i1);
+        Rasterizer2D.method341(l + 16 + l1, 0x332d25, k1, i1 + 15);
+        Rasterizer2D.method341(l + 17 + l1, 0x332d25, k1 - 1, i1 + 14);
+        Rasterizer2D.method339(l + 15 + l1 + k1, 0x332d25, 16, i1);
+        Rasterizer2D.method339(l + 14 + l1 + k1, 0x332d25, 15, i1 + 1);
+
+    }
+
     public void drawScrollbar(int height, int pos, int y, int x, int maxScroll, boolean transparent) {
+        if(currentGameFrame.oldScroll()) {
+            renderChatInterface(height, pos, y, x, maxScroll, transparent);
+            return;
+        }
         if (transparent) {
             drawTransparentScrollBar(x, y, height, maxScroll, pos);
         } else {
@@ -3875,145 +3910,12 @@ public class Client extends GameEngine implements RSClient {
         }
     }
 
-    public void drawSideIcons() {
-        final int xOffset = !isResized() ? 516 : canvasWidth - 247;
-        final int yOffset = !isResized() ? 168 : canvasHeight - 336;
-        if (!isResized() || isResized() && !stackSideStones) {
-            for (int i = 0; i < sideIconsTab.length; i++) {
-                if (tabInterfaceIDs[sideIconsTab[i]] != -1) {
-                    if (sideIconsId[i] != -1) {
-                        Sprite sprite = sideIcons[sideIconsId[i]];
-                        if (i == 13) {
-                            spriteCache.draw(360, sideIconsX[i] + xOffset, sideIconsY[i] + yOffset, true);
-                        } else {
-                            sprite.drawSprite(sideIconsX[i] + xOffset, sideIconsY[i] + yOffset);
-                        }
-
-                    }
-                }
-            }
-        } else if (stackSideStones && canvasWidth < 1000) {
-            int[] iconId = {0, 1, 2, 3, 4, 5, 6, -1, 8, 9, 7, 11, 12, 13};
-            int[] iconX = {219, 189, 156, 126, 94, 62, 30, 219, 189, 156, 124, 92, 59, 28};
-            int[] iconY = {67, 69, 67, 69, 72, 72, 69, 32, 29, 29, 32, 30, 33, 31, 32};
-            for (int i = 0; i < sideIconsTab.length; i++) {
-                if (tabInterfaceIDs[sideIconsTab[i]] != -1) {
-                    if (iconId[i] != -1) {
-                        Sprite sprite = sideIcons[iconId[i]];
-                        if (i == 13) {
-                            spriteCache.draw(360, canvasWidth - iconX[i] + 2, canvasHeight - iconY[i] + 1, true);
-                        } else {
-                            sprite.drawSprite(canvasWidth - iconX[i], canvasHeight - iconY[i]);
-                        }
-                    }
-                }
-            }
-        } else if (stackSideStones && canvasWidth >= 1000) {
-            int[] iconId = {0, 1, 2, 3, 4, 5, 6, -1, 8, 9, 7, 11, 12, 13};
-            int[] iconX =
-                    {50, 80, 114, 143, 176, 208, 240, 242, 273, 306, 338, 370, 404, 433};
-            int[] iconY = {30, 32, 30, 32, 34, 34, 32, 32, 29, 29, 32, 31, 32, 32, 32};
-            for (int i = 0; i < sideIconsTab.length; i++) {
-                if (tabInterfaceIDs[sideIconsTab[i]] != -1) {
-                    if (iconId[i] != -1) {
-                        Sprite sprite = sideIcons[iconId[i]];
-                        if (i == 13) {
-                            spriteCache.draw(360, canvasWidth - 461 + iconX[i] + 2, canvasHeight - iconY[i] + 1, true);
-                        } else {
-                            sprite.drawSprite(canvasWidth - 461 + iconX[i], canvasHeight - iconY[i]);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private void drawRedStones() {
-
-        final int[] redStonesX =
-                {6, 44, 77, 110, 143, 176, 209, 6, 44, 77, 110, 143, 176, 209},
-                redStonesY = {0, 0, 0, 0, 0, 0, 0, 298, 298, 298, 298, 298, 298, 298},
-                redStonesId = {35, 39, 39, 39, 39, 39, 36, 37, 39, 39, 39, 39, 39, 38};
-
-        final int xOffset = !isResized() ? 516 : canvasWidth - 247;
-        final int yOffset = !isResized() ? 168 : canvasHeight - 336;
-        if (!isResized() || isResized() && !stackSideStones) {
-            if (tabInterfaceIDs[tabId] != -1 && tabId != 15) {
-                spriteCache.draw(redStonesId[tabId], redStonesX[tabId] + xOffset,
-                        redStonesY[tabId] + yOffset);
-            }
-        } else if (stackSideStones && canvasWidth < 1000) {
-            int[] stoneX = {226, 194, 162, 130, 99, 65, 34, 219, 195, 161, 130, 98, 65, 33};
-            int[] stoneY = {73, 73, 73, 73, 73, 73, 73, -1, 37, 37, 37, 37, 37, 37, 37};
-            if (tabInterfaceIDs[tabId] != -1 && tabId != 10 && showTabComponents) {
-                if (tabId == 7) {
-                    spriteCache.draw(39, canvasWidth - 130, canvasHeight - 37);
-                }
-                spriteCache.draw(39, canvasWidth - stoneX[tabId],
-                        canvasHeight - stoneY[tabId]);
-            }
-        } else if (stackSideStones && canvasWidth >= 1000) {
-            int[] stoneX =
-                    {417, 385, 353, 321, 289, 256, 224, 129, 193, 161, 130, 98, 65, 33};
-            if (tabInterfaceIDs[tabId] != -1 && tabId != 10 && showTabComponents) {
-                spriteCache.draw(39, canvasWidth - stoneX[tabId], canvasHeight - 37);
-            }
-        }
-    }
-
     private void drawTabArea() {
-        final int xOffset = !isResized() ? 516 : canvasWidth - 241;
-        final int yOffset = !isResized() ? 168 : canvasHeight - 336;
-       
+
         Rasterizer3D.scanOffsets = anIntArray1181;
-        if (!isResized()) {
-            spriteCache.draw(21, xOffset, yOffset);
-        } else if (!stackSideStones) {
-            Rasterizer2D.drawTransparentBox(canvasWidth - 217, canvasHeight - 304, 195, 270, 0x3E3529, transparentTabArea ? 80 : 256);
-            spriteCache.draw(47, xOffset, yOffset);
-        } else {
-            if (canvasWidth >= 1000) {
-                if (showTabComponents) {
-                    Rasterizer2D.drawTransparentBox(canvasWidth - 197, canvasHeight - 304, 197, 265, 0x3E3529, transparentTabArea ? 80 : 256);
-                    spriteCache.draw(50, canvasWidth - 204, canvasHeight - 311);
-                }
-                for (int x = canvasWidth - 417, y = canvasHeight - 37, index = 0; x <= canvasWidth - 30 && index < 13; x += 32, index++) {
-                    spriteCache.draw(46, x, y);
-                }
-            } else {
-                if (showTabComponents) {
-                    Rasterizer2D.drawTransparentBox(canvasWidth - 197, canvasHeight - 341, 195, 265, 0x3E3529, transparentTabArea ? 80 : 256);
-                    spriteCache.draw(50, canvasWidth - 204, canvasHeight - 348);
-                }
-                for (int x = canvasWidth - 226, y = canvasHeight - 73, index = 0; x <= canvasWidth - 32 && index < 7; x += 32, index++) {
-                    spriteCache.draw(46, x, y);
-                }
-                for (int x = canvasWidth - 226, y = canvasHeight - 37, index = 0; x <= canvasWidth - 32 && index < 7; x += 32, index++) {
-                    spriteCache.draw(46, x, y);
-                }
-            }
-        }
-        if (overlayInterfaceId == -1) {
-            drawRedStones();
-            drawSideIcons();
-        }
-        if (showTabComponents) {
-            int x = !isResized() ? xOffset + 31 : canvasWidth - 215;
-            int y = !isResized() ? yOffset + 37 : canvasHeight - 299;
-            if (stackSideStones) {
-                x = canvasWidth - 197;
-                y = canvasWidth >= 1000 ? canvasHeight - 303 : canvasHeight - 340;
-            }
-            try {
-                if (overlayInterfaceId != -1) {
-                    drawInterface(0, x, Widget.interfaceCache[overlayInterfaceId], y);
-                } else if (tabInterfaceIDs[tabId] != -1) {
-                    drawInterface(0, x, Widget.interfaceCache[tabInterfaceIDs[tabId]], y);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
+
+        currentGameFrame.drawTabArea();
+
         if (menuOpen) {
             drawMenu(0, 0);
         } else {
@@ -4510,6 +4412,7 @@ public class Client extends GameEngine implements RSClient {
             ObjectDefinition.clientInstance = this;
             NpcDefinition.clientInstance = this;
 
+            setGameFrameByName("OSRS");
             loadPlayerData();
             //resourceProvider.writeAll();
 
@@ -7305,7 +7208,11 @@ public class Client extends GameEngine implements RSClient {
                         return;
                     }
 
-                    if (inputString.startsWith("::")) {
+                    if (inputString.equals("::317")) {
+                        setGameFrameByName("317");
+                    } else if (inputString.equals("::osrs")) {
+                        setGameFrameByName("OSRS");
+                    } else if (inputString.startsWith("::")) {
                         packetSender.sendCommand(inputString.substring(2));
                     } else {
                         String text = inputString.toLowerCase();
@@ -8117,345 +8024,7 @@ public class Client extends GameEngine implements RSClient {
         expCounterHover = fixed ? mouseInRegion(519, 536, 20, 46) : mouseInRegion(canvasWidth - 216, canvasWidth - 190, 22, 47);
     }
 
-    private void processTabClick() {
-        if (MouseHandler.clickMode3 == 1) {
-            if (!isResized()
-                    || isResized() && !stackSideStones) {
-                int xOffset = !isResized() ? 0 : canvasWidth - 765;
-                int yOffset = !isResized() ? 0 : canvasHeight - 503;
-                for (int i = 0; i < tabClickX.length; i++) {
-                    if (MouseHandler.mouseX >= tabClickStart[i] + xOffset
-                            && MouseHandler.mouseX <= tabClickStart[i] + tabClickX[i]
-                            + xOffset
-                            && MouseHandler.mouseY >= tabClickY[i] + yOffset
-                            && MouseHandler.mouseY < tabClickY[i] + 37 + yOffset
-                            && tabInterfaceIDs[i] != -1) {
-                        tabId = i;
-                        tabAreaAltered = true;
 
-                        //Spawn tab
-                        searchingSpawnTab = tabId == 2;
-
-                        break;
-                    }
-                }
-            } else if (stackSideStones && canvasWidth < 1000) {
-                if (MouseHandler.saveClickX >= canvasWidth - 226
-                        && MouseHandler.saveClickX <= canvasWidth - 195
-                        && MouseHandler.saveClickY >= canvasHeight - 72
-                        && MouseHandler.saveClickY < canvasHeight - 40
-                        && tabInterfaceIDs[0] != -1) {
-                    if (tabId == 0) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 0;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 194
-                        && MouseHandler.saveClickX <= canvasWidth - 163
-                        && MouseHandler.saveClickY >= canvasHeight - 72
-                        && MouseHandler.saveClickY < canvasHeight - 40
-                        && tabInterfaceIDs[1] != -1) {
-                    if (tabId == 1) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 1;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 162
-                        && MouseHandler.saveClickX <= canvasWidth - 131
-                        && MouseHandler.saveClickY >= canvasHeight - 72
-                        && MouseHandler.saveClickY < canvasHeight - 40
-                        && tabInterfaceIDs[2] != -1) {
-                    if (tabId == 2) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 2;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 129
-                        && MouseHandler.saveClickX <= canvasWidth - 98
-                        && MouseHandler.saveClickY >= canvasHeight - 72
-                        && MouseHandler.saveClickY < canvasHeight - 40
-                        && tabInterfaceIDs[3] != -1) {
-                    if (tabId == 3) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 3;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 97
-                        && MouseHandler.saveClickX <= canvasWidth - 66
-                        && MouseHandler.saveClickY >= canvasHeight - 72
-                        && MouseHandler.saveClickY < canvasHeight - 40
-                        && tabInterfaceIDs[4] != -1) {
-                    if (tabId == 4) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 4;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 65
-                        && MouseHandler.saveClickX <= canvasWidth - 34
-                        && MouseHandler.saveClickY >= canvasHeight - 72
-                        && MouseHandler.saveClickY < canvasHeight - 40
-                        && tabInterfaceIDs[5] != -1) {
-                    if (tabId == 5) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 5;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 33 && MouseHandler.saveClickX <= canvasWidth
-                        && MouseHandler.saveClickY >= canvasHeight - 72
-                        && MouseHandler.saveClickY < canvasHeight - 40
-                        && tabInterfaceIDs[6] != -1) {
-                    if (tabId == 6) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 6;
-                    tabAreaAltered = true;
-
-                }
-
-                if (MouseHandler.saveClickX >= canvasWidth - 194
-                        && MouseHandler.saveClickX <= canvasWidth - 163
-                        && MouseHandler.saveClickY >= canvasHeight - 37
-                        && MouseHandler.saveClickY < canvasHeight - 0
-                        && tabInterfaceIDs[8] != -1) {
-                    if (tabId == 8) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 8;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 162
-                        && MouseHandler.saveClickX <= canvasWidth - 131
-                        && MouseHandler.saveClickY >= canvasHeight - 37
-                        && MouseHandler.saveClickY < canvasHeight - 0
-                        && tabInterfaceIDs[9] != -1) {
-                    if (tabId == 9) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 9;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 129
-                        && MouseHandler.saveClickX <= canvasWidth - 98
-                        && MouseHandler.saveClickY >= canvasHeight - 37
-                        && MouseHandler.saveClickY < canvasHeight - 0
-                        && tabInterfaceIDs[10] != -1) {
-                    if (tabId == 7) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 7;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 97
-                        && MouseHandler.saveClickX <= canvasWidth - 66
-                        && MouseHandler.saveClickY >= canvasHeight - 37
-                        && MouseHandler.saveClickY < canvasHeight - 0
-                        && tabInterfaceIDs[11] != -1) {
-                    if (tabId == 11) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 11;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 65
-                        && MouseHandler.saveClickX <= canvasWidth - 34
-                        && MouseHandler.saveClickY >= canvasHeight - 37
-                        && MouseHandler.saveClickY < canvasHeight - 0
-                        && tabInterfaceIDs[12] != -1) {
-                    if (tabId == 12) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 12;
-                    tabAreaAltered = true;
-
-                }
-                if (MouseHandler.saveClickX >= canvasWidth - 33 && MouseHandler.saveClickX <= canvasWidth
-                        && MouseHandler.saveClickY >= canvasHeight - 37
-                        && MouseHandler.saveClickY < canvasHeight - 0
-                        && tabInterfaceIDs[13] != -1) {
-                    if (tabId == 13) {
-                        showTabComponents = !showTabComponents;
-                    } else {
-                        showTabComponents = true;
-                    }
-                    tabId = 13;
-                    tabAreaAltered = true;
-
-                }
-            } else if (stackSideStones && canvasWidth >= 1000) {
-                if (MouseHandler.mouseY >= canvasHeight - 37 && MouseHandler.mouseY <= canvasHeight) {
-                    if (MouseHandler.mouseX >= canvasWidth - 417
-                            && MouseHandler.mouseX <= canvasWidth - 386) {
-                        if (tabId == 0) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 0;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 385
-                            && MouseHandler.mouseX <= canvasWidth - 354) {
-                        if (tabId == 1) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 1;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 353
-                            && MouseHandler.mouseX <= canvasWidth - 322) {
-                        if (tabId == 2) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 2;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 321
-                            && MouseHandler.mouseX <= canvasWidth - 290) {
-                        if (tabId == 3) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 3;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 289
-                            && MouseHandler.mouseX <= canvasWidth - 258) {
-                        if (tabId == 4) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 4;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 257
-                            && MouseHandler.mouseX <= canvasWidth - 226) {
-                        if (tabId == 5) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 5;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 225
-                            && MouseHandler.mouseX <= canvasWidth - 194) {
-                        if (tabId == 6) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 6;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 193
-                            && MouseHandler.mouseX <= canvasWidth - 163) {
-                        if (tabId == 8) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 8;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 162
-                            && MouseHandler.mouseX <= canvasWidth - 131) {
-                        if (tabId == 9) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 9;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 130
-                            && MouseHandler.mouseX <= canvasWidth - 99) {
-                        if (tabId == 7) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 7;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 98
-                            && MouseHandler.mouseX <= canvasWidth - 67) {
-                        if (tabId == 11) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 11;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 66
-                            && MouseHandler.mouseX <= canvasWidth - 45) {
-                        if (tabId == 12) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 12;
-                        tabAreaAltered = true;
-                    }
-                    if (MouseHandler.mouseX >= canvasWidth - 31 && MouseHandler.mouseX <= canvasWidth) {
-                        if (tabId == 13) {
-                            showTabComponents = !showTabComponents;
-                        } else {
-                            showTabComponents = true;
-                        }
-                        tabId = 13;
-                        tabAreaAltered = true;
-                    }
-                }
-            }
-        }
-    }
     private void refreshMinimap(Sprite sprite, int j, int k) {
         int l = k * k + j * j;
         if (l > 4225 && l < 0x15f90) {
@@ -8608,38 +8177,9 @@ public class Client extends GameEngine implements RSClient {
         }
         anInt886 = 0;
         anInt1315 = 0;
-        if (!stackSideStones) {
-            final int yOffset = !isResized() ? 0 : canvasHeight - 503;
-            final int xOffset = !isResized() ? 0 : canvasWidth - 765;
-            if (MouseHandler.mouseX > 548 + xOffset && MouseHandler.mouseX < 740 + xOffset
-                    && MouseHandler.mouseY > 207 + yOffset && MouseHandler.mouseY < 468 + yOffset) {
-                if (overlayInterfaceId != -1) {
-                    buildInterfaceMenu(548 + xOffset,
-                            Widget.interfaceCache[overlayInterfaceId], MouseHandler.mouseX,
-                            207 + yOffset, MouseHandler.mouseY, 0);
-                } else if (tabInterfaceIDs[tabId] != -1) {
-                    buildInterfaceMenu(548 + xOffset,
-                            Widget.interfaceCache[tabInterfaceIDs[tabId]],
-                            MouseHandler.mouseX, 207 + yOffset, MouseHandler.mouseY, 0);
-                }
-            }
-        } else if (stackSideStones) {
-            final int yOffset = canvasWidth >= 1000 ? 37 : 74;
-            if (MouseHandler.mouseX > canvasWidth - 197 && MouseHandler.mouseY > canvasHeight - yOffset - 267
-                    && MouseHandler.mouseX < canvasWidth - 7
-                    && MouseHandler.mouseY < canvasHeight - yOffset - 7 && showTabComponents) {
-                if (overlayInterfaceId != -1) {
-                    buildInterfaceMenu(canvasWidth - 197,
-                            Widget.interfaceCache[overlayInterfaceId], MouseHandler.mouseX,
-                            canvasHeight - yOffset - 267, MouseHandler.mouseY, 0);
-                } else if (tabInterfaceIDs[tabId] != -1) {
-                    buildInterfaceMenu(canvasWidth - 197,
-                            Widget.interfaceCache[tabInterfaceIDs[tabId]],
-                            MouseHandler.mouseX, canvasHeight - yOffset - 267, MouseHandler.mouseY,
-                            0);
-                }
-            }
-        }
+
+        currentGameFrame.processTabAreaClick();
+
         if (anInt886 != anInt1048) {
             tabAreaAltered = true;
             anInt1048 = anInt886;
@@ -10031,7 +9571,7 @@ public class Client extends GameEngine implements RSClient {
         Rasterizer2D.drawTransparentBox(xPos, yPos, 174, 68, 0, 220);
     }
 
-    private void drawInterface(int scroll_y, int x, Widget rsInterface, int y) throws Exception {
+    public void drawInterface(int scroll_y, int x, Widget rsInterface, int y) throws Exception {
         if (rsInterface == null)
             return;
         if (rsInterface.type != 0 || rsInterface.children == null)
@@ -12197,7 +11737,7 @@ public class Client extends GameEngine implements RSClient {
                 }
             }
             loadAllOrbs();
-            compass.rotate(33, cameraHorizontal, anIntArray1057, 256, anIntArray968,
+            currentGameFrame.setCompass().rotate(33, cameraHorizontal, anIntArray1057, 256, anIntArray968,
                     (!isResized() ? 25 : 24), 4,
                     (!isResized() ? xOffset + 29 : canvasWidth - 176), 33, 25);
 
@@ -12313,7 +11853,7 @@ public class Client extends GameEngine implements RSClient {
         } else {
             spriteCache.draw(44, canvasWidth - 181, 0);
         }
-        compass.rotate(33, cameraHorizontal, anIntArray1057, 256, anIntArray968,
+        currentGameFrame.setCompass().rotate(33, cameraHorizontal, anIntArray1057, 256, anIntArray968,
                 (!isResized() ? 25 : 24), 4,
                 (!isResized() ? xOffset + 29 : canvasWidth - 176), 33, 25);
         if (isResized() && stackSideStones) {

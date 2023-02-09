@@ -13,6 +13,7 @@ import java.util.Hashtable;
 
 public class Rasterizer2D extends Cacheable implements RSRasterizer2D {
 
+
     public static void drawAlpha(int[] pixels, int index, int value, int alpha) {
         if (! Client.instance.isGpu() || pixels != Client.instance.getBufferProvider().getPixels())
         {
@@ -149,6 +150,62 @@ public class Rasterizer2D extends Cacheable implements RSRasterizer2D {
                 drawAlpha(pixels, pixelIndex++, rgbColour, 255);
             pixelIndex += leftOver;
         }
+    }
+
+    public static void fillPixelsReverseOrder(int height, int topY, int topX, int pixel, int width) {
+        if (topX < Rasterizer2D.leftX) {
+            width -= Rasterizer2D.leftX - topX;
+            topX = Rasterizer2D.leftX;
+        }
+        if (topY < Rasterizer2D.topY) {
+            height -= Rasterizer2D.topY - topY;
+            topY = Rasterizer2D.topY;
+        }
+        if (topX + width > bottomX) {
+            width = bottomX - topX;
+        }
+        if (topY + height > bottomY) {
+            height = bottomY - topY;
+        }
+        int increment = Rasterizer2D.width - width;
+        int i = topX + topY * Rasterizer2D.width;
+
+        for (int y = -height; y < 0; y++) {
+            for (int x = -width; x < 0; x++) {
+                drawAlpha(pixels, i++, pixel, 255);
+            }
+            i += increment;
+        }
+    }
+
+    public static void method341(int i, int j, int k, int l) {
+        if (l < leftX || l >= bottomX)
+            return;
+        if (i < topY) {
+            k -= topY - i;
+            i = topY;
+        }
+        if (i + k > bottomY)
+            k = bottomY - i;
+        int j1 = l + i * width;
+        for (int k1 = 0; k1 < k; k1++)
+            drawAlpha(pixels, j1 + k1 * width, j, 255);
+
+    }
+
+    public static void method339(int i, int j, int k, int l) {
+        if (i < topY || i >= bottomY)
+            return;
+        if (l < leftX) {
+            k -= leftX - l;
+            l = leftX;
+        }
+        if (l + k > bottomX)
+            k = bottomX - l;
+        int i1 = l + i * width;
+        for (int j1 = 0; j1 < k; j1++)
+            drawAlpha(pixels, i1 + j1, j, 255);
+
     }
 
     /**
