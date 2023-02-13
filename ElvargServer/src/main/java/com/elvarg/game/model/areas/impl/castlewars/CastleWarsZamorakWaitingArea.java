@@ -67,7 +67,7 @@ public class CastleWarsZamorakWaitingArea extends Area {
             // Ensure the game start timer is cancelled
             TaskManager.cancelTasks(START_GAME_TASK);
         }
-        System.err.println("logging? - "+logout);
+        System.err.println("logging? - "+logout+" from= "+new Throwable().getStackTrace()[1].toString());
         if (logout) {
             // Player has logged out, teleport them to the lobby
             player.moveTo(new Location(2439 + Misc.random(4), 3085 + Misc.random(5), 0));
@@ -136,6 +136,6 @@ public class CastleWarsZamorakWaitingArea extends Area {
     @Override
     public boolean canPlayerBotIdle(PlayerBot playerBot) {
         // Allow the player bot to wait here if there are players in the other team
-        return CastleWars.SARADOMIN_WAITING_AREA.getPlayers().size() > 0;
+        return true;//CastleWars.SARADOMIN_WAITING_AREA.getPlayers().size() > 0;
     }
 }

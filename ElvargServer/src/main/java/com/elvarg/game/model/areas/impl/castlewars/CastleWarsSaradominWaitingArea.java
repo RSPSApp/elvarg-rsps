@@ -136,6 +136,6 @@ public class CastleWarsSaradominWaitingArea extends Area {
     @Override
     public boolean canPlayerBotIdle(PlayerBot playerBot) {
         // Allow the player bot to wait here if there are players in the other team
-        return CastleWars.ZAMORAK_WAITING_AREA.getPlayers().size() > 0;
+        return true;//CastleWars.ZAMORAK_WAITING_AREA.getPlayers().size() > 0;
     }
 }
