@@ -37,8 +37,6 @@ public class CastlewarsBot {
 
         CastleWars.Team team = CastleWars.Team.getTeamForPlayer(bot);
 
-        GameObject teambarrier = null;
-
         if (team == null) {
             return;
         }
