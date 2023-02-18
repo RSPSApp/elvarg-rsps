@@ -126,6 +126,7 @@ public class Frame317 extends GameFrame {
 
     public final void drawSideIcons() {
         Sprite[] sideIcons = new Sprite[]{Client.spriteCache.lookup(681), Client.spriteCache.lookup(682), Client.spriteCache.lookup(683), Client.spriteCache.lookup(stackSideStones && instance.isResized() ? 685 : 684), Client.spriteCache.lookup(686), Client.spriteCache.lookup(687), Client.spriteCache.lookup(689), Client.spriteCache.lookup(692), Client.spriteCache.lookup(694), Client.spriteCache.lookup(695), Client.spriteCache.lookup(stackSideStones && instance.isResized() ? 697 : 696), Client.spriteCache.lookup(698), Client.spriteCache.lookup(699), Client.spriteCache.lookup(700)};
+
         int xOffset = !instance.isResized() ? 516 : canvasWidth - 247;
         int yOffset = !instance.isResized() ? 168 : canvasHeight - 336;
         int index;
@@ -252,204 +253,72 @@ public class Frame317 extends GameFrame {
     }
 
     public void processTabClick() {
-        int[] tabClickX = new int[]{38, 33, 33, 33, 33, 33, 38, 38, 33, 33, 33, 33, 33, 38};
-        int[] tabClickStart = new int[]{522, 560, 593, 625, 659, 692, 724, 522, 560, 593, 625, 659, 692, 724};
-        int[] tabClickY = new int[]{169, 169, 169, 169, 169, 169, 169, 466, 466, 466, 466, 466, 466, 466};
+        Sprite[] sideIcons = new Sprite[]{Client.spriteCache.lookup(681), Client.spriteCache.lookup(682), Client.spriteCache.lookup(683), Client.spriteCache.lookup(stackSideStones && instance.isResized() ? 685 : 684), Client.spriteCache.lookup(686), Client.spriteCache.lookup(687), Client.spriteCache.lookup(689), Client.spriteCache.lookup(692), Client.spriteCache.lookup(694), Client.spriteCache.lookup(695), Client.spriteCache.lookup(stackSideStones && instance.isResized() ? 697 : 696), Client.spriteCache.lookup(698), Client.spriteCache.lookup(699), Client.spriteCache.lookup(700)};
+
         if (MouseHandler.clickMode3 == 1) {
-            int x;
-            int yOffset;
+            int xOffset = !instance.isResized() ? 516 : canvasWidth - 247;
+            int yOffset = !instance.isResized() ? 168 : canvasHeight - 336;
             int index;
-            if (instance.isResized() && (!instance.isResized() || !instance.isResized() || !stackSideStones)) {
-                if (instance.isResized() && stackSideStones && canvasWidth < 1000) {
-                    if (tabInterfaceIDs[0] != 65535 && MouseHandler.saveClickX >= canvasWidth - 226 && MouseHandler.saveClickX <= canvasWidth - 195 && MouseHandler.saveClickY >= canvasHeight - 72 && MouseHandler.saveClickY < canvasHeight - 40 && tabInterfaceIDs[0] != -1) {
-                        if (tabId == 0) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
+            byte var5;
+            if (!instance.isResized()) {
+                index = 0;
 
-                        tabId = 0;
-                        Client.tabAreaAltered = true;
+                for(var5 = 13; index <= var5; ++index) {
+                    if(instance.clickInRegion(sideIconsX[index] + xOffset, sideIconsY[index] + yOffset,sideIcons[index])) {
+                        switchTab(index);
                     }
+                }
+            } else if (instance.isResized() && !stackSideStones) {
+                index = 0;
 
-                    if (tabInterfaceIDs[1] != 65535 && MouseHandler.saveClickX >= canvasWidth - 194 && MouseHandler.saveClickX <= canvasWidth - 163 && MouseHandler.saveClickY >= canvasHeight - 72 && MouseHandler.saveClickY < canvasHeight - 40 && tabInterfaceIDs[1] != -1) {
-                        if (tabId == 1) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 1;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[2] != 65535 && MouseHandler.saveClickX >= canvasWidth - 162 && MouseHandler.saveClickX <= canvasWidth - 131 && MouseHandler.saveClickY >= canvasHeight - 72 && MouseHandler.saveClickY < canvasHeight - 40 && tabInterfaceIDs[2] != -1) {
-                        if (tabId == 2) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 2;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[3] != 65535 && MouseHandler.saveClickX >= canvasWidth - 129 && MouseHandler.saveClickX <= canvasWidth - 98 && MouseHandler.saveClickY >= canvasHeight - 72 && MouseHandler.saveClickY < canvasHeight - 40 && tabInterfaceIDs[3] != -1) {
-                        if (tabId == 3) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 3;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[4] != 65535 && MouseHandler.saveClickX >= canvasWidth - 97 && MouseHandler.saveClickX <= canvasWidth - 66 && MouseHandler.saveClickY >= canvasHeight - 72 && MouseHandler.saveClickY < canvasHeight - 40 && tabInterfaceIDs[4] != -1) {
-                        if (tabId == 4) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 4;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[5] != 65535 && MouseHandler.saveClickX >= canvasWidth - 65 && MouseHandler.saveClickX <= canvasWidth - 34 && MouseHandler.saveClickY >= canvasHeight - 72 && MouseHandler.saveClickY < canvasHeight - 40 && tabInterfaceIDs[5] != -1) {
-                        if (tabId == 5) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 5;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[6] != 65535 && MouseHandler.saveClickX >= canvasWidth - 33 && MouseHandler.saveClickX <= canvasWidth && MouseHandler.saveClickY >= canvasHeight - 72 && MouseHandler.saveClickY < canvasHeight - 40 && tabInterfaceIDs[6] != -1) {
-                        if (tabId == 6) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 6;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[7] != 65535 && MouseHandler.saveClickX >= canvasWidth - 226 && MouseHandler.saveClickX <= canvasWidth - 195 && MouseHandler.saveClickY >= canvasHeight - 27 && MouseHandler.saveClickY < canvasHeight - 0 && tabInterfaceIDs[7] != -1) {
-                        if (tabId == 7) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 7;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[8] != 65535 && MouseHandler.saveClickX >= canvasWidth - 194 && MouseHandler.saveClickX <= canvasWidth - 163 && MouseHandler.saveClickY >= canvasHeight - 37 && MouseHandler.saveClickY < canvasHeight - 0 && tabInterfaceIDs[8] != -1) {
-                        if (tabId == 8) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 8;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[9] != 65535 && MouseHandler.saveClickX >= canvasWidth - 162 && MouseHandler.saveClickX <= canvasWidth - 131 && MouseHandler.saveClickY >= canvasHeight - 37 && MouseHandler.saveClickY < canvasHeight - 0 && tabInterfaceIDs[9] != -1) {
-                        if (tabId == 9) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 9;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[10] != 65535 && MouseHandler.saveClickX >= canvasWidth - 129 && MouseHandler.saveClickX <= canvasWidth - 98 && MouseHandler.saveClickY >= canvasHeight - 37 && MouseHandler.saveClickY < canvasHeight - 0 && tabInterfaceIDs[10] != -1) {
-                        if (tabId == 10) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 10;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[11] != 65535 && MouseHandler.saveClickX >= canvasWidth - 97 && MouseHandler.saveClickX <= canvasWidth - 66 && MouseHandler.saveClickY >= canvasHeight - 37 && MouseHandler.saveClickY < canvasHeight - 0 && tabInterfaceIDs[11] != -1) {
-                        if (tabId == 11) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 11;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[12] != 65535 && MouseHandler.saveClickX >= canvasWidth - 65 && MouseHandler.saveClickX <= canvasWidth - 34 && MouseHandler.saveClickY >= canvasHeight - 37 && MouseHandler.saveClickY < canvasHeight - 0 && tabInterfaceIDs[12] != -1) {
-                        if (tabId == 12) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 12;
-                        Client.tabAreaAltered = true;
-                    }
-
-                    if (tabInterfaceIDs[13] != 65535 && MouseHandler.saveClickX >= canvasWidth - 33 && MouseHandler.saveClickX <= canvasWidth && MouseHandler.saveClickY >= canvasHeight - 37 && MouseHandler.saveClickY < canvasHeight - 0 && tabInterfaceIDs[13] != -1) {
-                        if (tabId == 13) {
-                            Client.showTabComponents = !Client.showTabComponents;
-                        } else {
-                            Client.showTabComponents = true;
-                        }
-
-                        tabId = 13;
-                        Client.tabAreaAltered = true;
-                    }
-                } else if (instance.isResized() && stackSideStones && canvasWidth >= 1000 && instance.getMouseY() >= canvasHeight - 68 && instance.getMouseY() <= canvasHeight) {
-                    x = canvasWidth - 449;
-                    yOffset = canvasHeight - 37;
-
-                    for(index = 0; x <= canvasWidth - 30 && index < 14; ++index) {
-                        if (tabInterfaceIDs[index] != 65535 && MouseHandler.clickMode3 == 1) {
-                            if (tabId == index) {
-                                Client.showTabComponents = !Client.showTabComponents;
-                            } else {
-                                Client.showTabComponents = true;
-                            }
-
-                            tabId = index;
-                            Client.tabAreaAltered = true;
-                        }
-
-                        x += 32;
+                for(var5 = 13; index <= var5; ++index) {
+                    if(instance.clickInRegion(sideIconsX[index] + xOffset + 1, sideIconsY[index] + yOffset + 2,sideIcons[index])) {
+                        switchTab(index);
                     }
                 }
             } else {
-                x = !instance.isResized() ? 0 : canvasWidth - 765;
-                yOffset = !instance.isResized() ? 0 : canvasHeight - 503;
-                index = 0;
+                int index1;
+                byte var7;
+                int[] iconX;
+                int[] iconY;
+                if (instance.isResized() && stackSideStones && canvasWidth < 1000) {
+                    iconX = new int[]{220, 191, 156, 126, 92, 59, 29, 223, 191, 158, 126, 92, 55, 28};
+                    iconY = new int[]{68, 70, 70, 68, 71, 70, 68, 25, 25, 25, 25, 27, 27, 25, 25};
+                    index1 = 0;
 
-                for(int var7 = tabClickX.length; index < var7; ++index) {
-                    if (tabInterfaceIDs[index] != 65535 && instance.getMouseX() >= tabClickStart[index] + x && instance.getMouseX() <= tabClickStart[index] + tabClickX[index] + x && instance.getMouseY() >= tabClickY[index] + yOffset && instance.getMouseY() < tabClickY[index] + 37 + yOffset && tabInterfaceIDs[index] != -1) {
-                        tabId = index;
-                        Client.tabAreaAltered = true;
-                        break;
+                    for(var7 = 13; index1 <= var7; ++index1) {
+                        if(instance.clickInRegion(canvasWidth - iconX[index1], canvasHeight - iconY[index1] - 5,sideIcons[index1])) {
+                            switchTab(index1);
+                        }
+                    }
+                } else if (instance.isResized() && stackSideStones && canvasWidth >= 1000) {
+                    iconX = new int[]{35, 65, 102, 133, 167, 200, 233, 267, 301, 333, 365, 400, 435, 463};
+                    iconY = new int[]{30, 32, 32, 30, 32, 34, 32, 32, 31, 31, 32, 31, 33, 32, 32};
+                    index1 = 0;
+
+                    for(var7 = 13; index1 <= var7; ++index1) {
+                        if(instance.clickInRegion(canvasWidth - 493 + iconX[index1], canvasHeight - iconY[index1],sideIcons[index1])) {
+                            switchTab(index1);
+                        }
                     }
                 }
             }
         }
 
     }
-    
+
+    public void switchTab(int index) {
+        if(instance.isResized()) {
+            if (tabId == index) {
+                showTabComponents = !showTabComponents;
+            } else {
+                showTabComponents = true;
+            }
+        }
+        tabId = index;
+        tabAreaAltered = true;
+    }
+
     public Sprite setCompass() {
         return Client.spriteCache.lookup(675);
     }

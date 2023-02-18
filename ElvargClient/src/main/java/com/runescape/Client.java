@@ -978,7 +978,7 @@ public class Client extends GameEngine implements RSClient {
         incompleteAnimables = new Deque();
         anIntArray1057 = new int[33];
         aClass9_1059 = new Widget();
-        mapScenes = new IndexedImage[100];
+        mapScenes = new IndexedImage[105];
         barFillColor = 0x4d4233;
         anIntArray1065 = new int[7];
         minimapHintX = new int[1000];
@@ -4296,7 +4296,7 @@ public class Client extends GameEngine implements RSClient {
                 sideIcons[j3] = new Sprite(mediaArchive, "sideicons", j3);
             compass = new Sprite(mediaArchive, "compass", 0);
             try {
-                for (int k3 = 0; k3 < 100; k3++)
+                for (int k3 = 0; k3 < 105; k3++)
                     mapScenes[k3] = new IndexedImage(mediaArchive, "mapscene", k3);
             } catch (Exception _ex) {
             }
