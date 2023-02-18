@@ -32,19 +32,21 @@ public final class SceneObject extends Renderable {
         anInt1604 = l;
         anInt1605 = i1;
         anInt1606 = k1;
-        if (l1 != -1) {
-            aAnimation_1607 = Animation.animations[l1];
-            anInt1599 = 0;
-            anInt1608 = Client.tick;
-            if (flag && aAnimation_1607.loopOffset != -1) {
-                anInt1599 = (int) (Math.random() * (double) aAnimation_1607.frameCount);
-                anInt1608 -= (int) (Math.random() * (double) aAnimation_1607.duration(anInt1599));
+        try {
+            if (l1 != -1) {
+                aAnimation_1607 = Animation.animations[l1];
+                anInt1599 = 0;
+                anInt1608 = Client.tick;
+                if (flag && aAnimation_1607.loopOffset != -1) {
+                    anInt1599 = (int) (Math.random() * (double) aAnimation_1607.frameCount);
+                    anInt1608 -= (int) (Math.random() * (double) aAnimation_1607.duration(anInt1599));
+                }
             }
-        }
+        }catch (Exception e) {}
         ObjectDefinition objectDef = ObjectDefinition.lookup(anInt1610);
-        anInt1601 = objectDef.varbit;
-        anInt1602 = objectDef.varp;
-        anIntArray1600 = objectDef.childrenIDs;
+        anInt1601 = objectDef.varbitID;
+        anInt1602 = objectDef.varpID;
+        anIntArray1600 = objectDef.configs;
     }
 
     private ObjectDefinition method457() {

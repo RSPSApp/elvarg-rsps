@@ -51,4 +51,32 @@ public final class FileUtils {
         return null;
     }
 
+    public static byte[] fileToByteArray(int cacheIndex, int index) {
+        try {
+            if (SignLink.indexLocation(cacheIndex, index).length() <= 0) {
+                return null;
+            } else {
+                SignLink.indexLocation(cacheIndex, index);
+            }
+            File file = new File(SignLink.indexLocation(cacheIndex, index));
+            byte[] fileData = new byte[(int) file.length()];
+            FileInputStream fis = new FileInputStream(file);
+            fis.read(fileData);
+            fis.close();
+            return fileData;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static String getFileNameWithoutExtension(String fileName) {
+        File tmpFile = new File(fileName);
+        tmpFile.getName();
+        int whereDot = tmpFile.getName().lastIndexOf('.');
+        if (0 < whereDot && whereDot <= tmpFile.getName().length() - 2) {
+            return tmpFile.getName().substring(0, whereDot);
+        }
+        return "";
+    }
+
 }

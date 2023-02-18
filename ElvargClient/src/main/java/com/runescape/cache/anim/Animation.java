@@ -3,6 +3,10 @@ package com.runescape.cache.anim;
 import com.runescape.cache.FileArchive;
 import com.runescape.io.Buffer;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Arrays;
+
 public final class Animation {
 
     public static Animation[] animations;
@@ -20,6 +24,14 @@ public final class Animation {
     public int animatingPrecedence;
     public int priority;
     public int replayMode;
+    private int skeletalRangeBegin;
+    private int skeletalRangeEnd;
+    private int skeletalId;
+    private boolean[] masks;
+    public int chatFrameIds[];
+    public int frameSounds[];
+
+    public Map<Integer, Integer> skeletalSounds;
 
     private Animation() {
         loopOffset = -1;
@@ -114,19 +126,44 @@ public final class Animation {
             } else if (opcode == 12) {
                 int len = buffer.readUnsignedByte();
 
+                chatFrameIds = new int[len];
                 for (int i = 0; i < len; i++) {
-                    buffer.readUShort();
+                    chatFrameIds[i] = buffer.readUShort();
                 }
 
                 for (int i = 0; i < len; i++) {
-                    buffer.readUShort();
+                    chatFrameIds[i] = buffer.readUShort() << 16;
                 }
             } else if (opcode == 13) {
                 int len = buffer.readUnsignedByte();
-
+                frameSounds = new int[len];
                 for (int i = 0; i < len; i++) {
-                    buffer.read24Int();
+                    frameSounds[i] = buffer.read24Int();
                 }
+            } else if (opcode == 14) {
+                skeletalId = buffer.readInt();
+            } else if (opcode == 15) {
+                this.skeletalSounds = new HashMap<Integer, Integer>();
+                int count = buffer.readUShort();
+
+                for (int index = 0; index < count; index++) {
+                    skeletalSounds.put(buffer.readUShort(),buffer.read24Int());
+                }
+            } else if (opcode == 16) {
+                skeletalRangeBegin = buffer.readUShort();
+                skeletalRangeEnd = buffer.readUShort();
+            } else if (opcode == 17) {
+
+                this.masks = new boolean[256];
+                Arrays.fill(masks,false);
+
+                int count = buffer.readUnsignedByte();
+
+                for(int index = 0; index < count; ++index) {
+                    this.masks[buffer.readUnsignedByte()] = true;
+                }
+            } else {
+                System.err.printf("Error unrecognised {Anim} opcode: %d%n%n", opcode);
             }
         }
         if (frameCount == 0) {

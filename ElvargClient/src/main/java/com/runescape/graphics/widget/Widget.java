@@ -3647,15 +3647,15 @@ public class Widget {
 			model = getModel(defaultMediaType, defaultMedia);
 		if (model == null)
 			return null;
-		if (k == -1 && j == -1 && model.triangleColours == null)
+		if (k == -1 && j == -1 && model.colors == null)
 			return model;
 		Model model_1 = new Model(true, Frame.noAnimationInProgress(k) & Frame.noAnimationInProgress(j), false, model);
 		if (k != -1 || j != -1)
-			model_1.skin();
+			model_1.generateBones();
 		if (k != -1)
-			model_1.applyTransform(k);
+			model_1.animate(k);
 		if (j != -1)
-			model_1.applyTransform(j);
+			model_1.animate(j);
 		model_1.light(64, 850, -30, -50, -30, true);
 		return model_1;
 	}

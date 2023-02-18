@@ -8,12 +8,62 @@ public class FloorDefinition {
 
     public static FloorDefinition[] overlays;
     public static FloorDefinition[] underlays;
-    public int texture;
-    public int rgb;
-    public boolean occlude;
-    public int anotherRgb;
+
+    public int rgb = 0;
+
+    public int texture = -1;
+
+    public boolean hideUnderlay = true;
+
+    public int secondaryRgb = -1;
+
     public int hue;
+
     public int saturation;
+
+    public int lightness;
+
+    public int secondaryHue;
+
+    public int secondarySaturation;
+
+    public int secondaryLightness;
+
+    public static void init(FileArchive archive) {
+        ByteBuffer buffer = ByteBuffer.wrap(archive.readFile("flo.dat"));
+        int underlayAmount = buffer.getShort();
+        underlays = new FloorDefinition[underlayAmount];
+
+        for (int i = 0; i < underlayAmount; i++) {
+            if (underlays[i] == null) {
+                underlays[i] = new FloorDefinition();
+            }
+
+            underlays[i].readValuesUnderlay(buffer);
+            underlays[i].generateHsl(true);
+        }
+
+        int overlayAmount = buffer.getShort();
+        overlays = new FloorDefinition[overlayAmount];
+
+        for (int i = 0; i < overlayAmount; i++) {
+            if (overlays[i] == null) {
+                overlays[i] = new FloorDefinition();
+            }
+
+            overlays[i].readValuesOverlay(buffer);
+            overlays[i].postDecode();
+        }
+        System.out.println("Floors read -> (" + underlayAmount + " underlays) | (" + overlayAmount + " overlays)");
+    }
+
+
+    private FloorDefinition() {
+        texture = -1;
+        hideUnderlay = true;
+    }
+
+
     public int luminance;
     public int anotherHue;
     public int anotherSaturation;
@@ -22,65 +72,20 @@ public class FloorDefinition {
     public int blendHueMultiplier;
     public int hsl16;
 
-    private FloorDefinition() {
-        texture = -1;
-        occlude = true;
-    }
-
-    public static void init(FileArchive archive) {
-        ByteBuffer buffer = ByteBuffer.wrap(archive.readFile("flo.dat"));
-        int underlayAmount = buffer.getShort();
-        System.out.println("Loaded: " + underlayAmount + " underlays");
-        underlays = new FloorDefinition[underlayAmount];
-        for (int i = 0; i < underlayAmount; i++) {
-            if (underlays[i] == null) {
-                underlays[i] = new FloorDefinition();
-            }
-            underlays[i].readValuesUnderlay(buffer);
-            underlays[i].generateHsl();
-        }
-
-        // buffer = ByteBuffer.wrap(archive.readFile("flo2.dat"));
-        int overlayAmount = buffer.getShort();
-        System.out.println("Loaded: " + overlayAmount + " overlays");
-        overlays = new FloorDefinition[overlayAmount];
-        for (int i = 0; i < overlayAmount; i++) {
-            if (overlays[i] == null) {
-                overlays[i] = new FloorDefinition();
-            }
-            overlays[i].readValuesOverlay(buffer);
-            overlays[i].generateHsl();
-        }
-    }
-
-    private final static int hsl24to16(int h, int s, int l) {
-        if (l > 179) {
-            s /= 2;
-        }
-        if (l > 192) {
-            s /= 2;
-        }
-        if (l > 217) {
-            s /= 2;
-        }
-        if (l > 243) {
-            s /= 2;
-        }
-        return (h / 4 << 10) + (s / 32 << 7) + l / 2;
-    }
-
-    private void generateHsl() {
-        if (anotherRgb != -1) {
-            rgbToHsl(anotherRgb);
+    private void generateHsl(boolean isUnderlay) {
+        if (secondaryRgb != -1) {
+            rgbToHsl(secondaryRgb);
             anotherHue = hue;
             anotherSaturation = saturation;
             anotherLuminance = luminance;
         }
-        rgbToHsl(rgb);
+        int color = rgb;
+        rgbToHsl(color);
     }
 
+
     private void readValuesUnderlay(ByteBuffer buffer) {
-        for (; ; ) {
+        for (;;) {
             int opcode = buffer.get();
             if (opcode == 0) {
                 break;
@@ -93,7 +98,7 @@ public class FloorDefinition {
     }
 
     private void readValuesOverlay(ByteBuffer buffer) {
-        for (; ; ) {
+        for (;;) {
             int opcode = buffer.get();
             if (opcode == 0) {
                 break;
@@ -102,14 +107,78 @@ public class FloorDefinition {
             } else if (opcode == 2) {
                 texture = buffer.get() & 0xff;
             } else if (opcode == 5) {
-                occlude = false;
+                hideUnderlay = false;
             } else if (opcode == 7) {
-                anotherRgb = ((buffer.get() & 0xff) << 16) + ((buffer.get() & 0xff) << 8) + (buffer.get() & 0xff);
+                secondaryRgb = ((buffer.get() & 0xff) << 16) + ((buffer.get() & 0xff) << 8) + (buffer.get() & 0xff);
             } else {
                 System.out.println("Error unrecognised overlay code: " + opcode);
             }
         }
     }
+
+    public void postDecode() {
+        if (this.secondaryRgb != -1) {
+            this.setHsl(this.secondaryRgb);
+            this.secondaryHue = this.hue;
+            this.secondarySaturation = this.saturation;
+            this.secondaryLightness = this.lightness;
+        }
+        this.setHsl(this.rgb);
+    }
+
+    void setHsl(int var1) {
+        double var2 = ((double) (var1 >> 16 & 255)) / 256.0;
+        double var4 = ((double) (var1 >> 8 & 255)) / 256.0;
+        double var6 = ((double) (var1 & 255)) / 256.0;
+        double var8 = var2;
+        if (var4 < var2) {
+            var8 = var4;
+        }
+        if (var6 < var8) {
+            var8 = var6;
+        }
+        double var10 = var2;
+        if (var4 > var2) {
+            var10 = var4;
+        }
+        if (var6 > var10) {
+            var10 = var6;
+        }
+        double var12 = 0.0;
+        double var14 = 0.0;
+        double var16 = (var10 + var8) / 2.0;
+        if (var10 != var8) {
+            if (var16 < 0.5) {
+                var14 = (var10 - var8) / (var8 + var10);
+            }
+            if (var16 >= 0.5) {
+                var14 = (var10 - var8) / (2.0 - var10 - var8);
+            }
+            if (var10 == var2) {
+                var12 = (var4 - var6) / (var10 - var8);
+            } else if (var4 == var10) {
+                var12 = 2.0 + (var6 - var2) / (var10 - var8);
+            } else if (var6 == var10) {
+                var12 = 4.0 + (var2 - var4) / (var10 - var8);
+            }
+        }
+        var12 /= 6.0;
+        this.hue = ((int) (256.0 * var12));
+        this.saturation = ((int) (256.0 * var14));
+        this.lightness = ((int) (256.0 * var16));
+        if (this.saturation < 0) {
+            this.saturation = 0;
+        } else if (this.saturation > 255) {
+            this.saturation = 255;
+        }
+        if (this.lightness < 0) {
+            this.lightness = 0;
+        } else if (this.lightness > 255) {
+            this.lightness = 255;
+        }
+    }
+
+
     private void rgbToHsl(int rgb) {
         double r = (rgb >> 16 & 0xff) / 256.0;
         double g = (rgb >> 8 & 0xff) / 256.0;
@@ -170,5 +239,21 @@ public class FloorDefinition {
         }
         blendHue = (int) (h * blendHueMultiplier);
         hsl16 = hsl24to16(hue, saturation, luminance);
+    }
+
+    private final static int hsl24to16(int h, int s, int l) {
+        if (l > 179) {
+            s /= 2;
+        }
+        if (l > 192) {
+            s /= 2;
+        }
+        if (l > 217) {
+            s /= 2;
+        }
+        if (l > 243) {
+            s /= 2;
+        }
+        return (h / 4 << 10) + (s / 32 << 7) + l / 2;
     }
 }
