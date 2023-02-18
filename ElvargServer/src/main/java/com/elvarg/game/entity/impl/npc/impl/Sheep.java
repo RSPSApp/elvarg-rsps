@@ -17,7 +17,9 @@ import static com.elvarg.util.ItemIdentifiers.SHEARS;
 import static com.elvarg.util.ItemIdentifiers.WOOL;
 import static com.elvarg.util.NpcIdentifiers.*;
 
-@Ids({SHEEP_FULL_BLACK_HEAD, SHEEP_FULL_GREY_HEAD, SHEEP_FULL_WHITE_HEAD, SHEEP_FULL_YELLOW_GREY_HEAD, SHEEP_FULL_YELLOW_BLACK_HEAD})
+// TODO: Fix NPC ids for all sheep
+
+@Ids({SHEEP})
 public class Sheep extends NPC implements NPCInteraction {
 
     private static final Animation SHEARING = new Animation(893);
@@ -114,32 +116,12 @@ public class Sheep extends NPC implements NPCInteraction {
      */
     private int getSheepTransformId(NPC npc) {
         switch (npc.getId()) {
-            case SHEEP_FULL_BLACK_HEAD -> {
-                return SHEEP_BALD_BLACK_HEAD;
-            }
-            case SHEEP_BALD_BLACK_HEAD -> {
-                return SHEEP_FULL_BLACK_HEAD;
+            case SHEEP -> {
+                return SHEEP_2;
             }
 
-            case SHEEP_FULL_GREY_HEAD -> {
-                return SHEEP_BALD_GREY_HEAD;
-            }
-            case SHEEP_BALD_GREY_HEAD -> {
-                return SHEEP_FULL_GREY_HEAD;
-            }
-
-            case SHEEP_FULL_WHITE_HEAD -> {
-                return SHEEP_BALD_WHITE_HEAD;
-            }
-            case SHEEP_BALD_WHITE_HEAD -> {
-                return SHEEP_FULL_WHITE_HEAD;
-            }
-
-            case SHEEP_FULL_YELLOW_GREY_HEAD -> {
-                return SHEEP_BALD_YELLOW_GREY_HEAD;
-            }
-            case SHEEP_FULL_YELLOW_BLACK_HEAD -> {
-                return SHEEP_BALD_YELLOW_BLACK_HEAD;
+            case SHEEP_2 -> {
+                return SHEEP;
             }
         }
 

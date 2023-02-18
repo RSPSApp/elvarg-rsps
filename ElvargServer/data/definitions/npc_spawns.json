@@ -2972,7 +2972,8 @@
   {
     "facing": "NORTH",
     "radius": 0,
-    "id": 315,
+    "id": 308,
+    "description": "Edgeville Ditch Emblem Trader",
     "position": {
       "x": 3090,
       "y": 3523,
@@ -2982,7 +2983,8 @@
   {
     "facing": "NORTH",
     "radius": 0,
-    "id": 394,
+    "id": 766,
+    "description": "Edgeville Ditch Banker",
     "position": {
       "x": 3088,
       "y": 3523,
@@ -2993,6 +2995,7 @@
     "facing": "NORTH",
     "radius": 0,
     "id": 7456,
+    "description": "Edgeville Ditch Perdu",
     "position": {
       "x": 3089,
       "y": 3523,
