@@ -16,13 +16,15 @@ import net.runelite.api.Point;
 import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldArea;
 import net.runelite.api.coords.WorldPoint;
+import net.runelite.api.kit.KitType;
 import net.runelite.rs.api.*;
 import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
-public final class Player extends Mob implements RSPlayer {
+public final class Player extends Mob implements RSPlayer,RSPlayerComposition {
 
 
     public static ReferenceCache models = new ReferenceCache(260);
@@ -522,8 +524,17 @@ public final class Player extends Mob implements RSPlayer {
     }
 
     @Override
-    public Shape getConvexHull() {
-        return null;
+    public Shape getConvexHull()
+    {
+        RSModel model = getModel();
+        if (model == null)
+        {
+            return null;
+        }
+
+        int tileHeight = Perspective.getTileHeight(Client.instance, new LocalPoint(getX(), getY()), Client.instance.getPlane());
+
+        return model.getConvexHull(getX(), getY(), getOrientation(), tileHeight);
     }
 
     @Override
@@ -542,9 +553,48 @@ public final class Player extends Mob implements RSPlayer {
     }
 
     @Override
-    public Polygon[] getPolygons() {
-        return new Polygon[0];
+    public Polygon[] getPolygons()
+    {
+        RSModel model = getModel();
+
+        if (model == null)
+        {
+            return null;
+        }
+
+        int[] x2d = new int[model.getVerticesCount()];
+        int[] y2d = new int[model.getVerticesCount()];
+
+        int localX = getX();
+        int localY = getY();
+
+        final int tileHeight = Perspective.getTileHeight(Client.instance, new LocalPoint(localX, localY), Client.instance.getPlane());
+
+        Perspective.modelToCanvas(Client.instance, model.getVerticesCount(), localX, localY, tileHeight, getOrientation(), model.getVerticesX(), model.getVerticesZ(), model.getVerticesY(), x2d, y2d);
+        ArrayList polys = new ArrayList(model.getFaceCount());
+
+        int[] trianglesX = model.getFaceIndices1();
+        int[] trianglesY = model.getFaceIndices2();
+        int[] trianglesZ = model.getFaceIndices3();
+
+        for (int triangle = 0; triangle < model.getFaceCount(); ++triangle)
+        {
+            int[] xx =
+                    {
+                            x2d[trianglesX[triangle]], x2d[trianglesY[triangle]], x2d[trianglesZ[triangle]]
+                    };
+
+            int[] yy =
+                    {
+                            y2d[trianglesX[triangle]], y2d[trianglesY[triangle]], y2d[trianglesZ[triangle]]
+                    };
+
+            polys.add(new Polygon(xx, yy, 3));
+        }
+
+        return (Polygon[]) polys.toArray(new Polygon[0]);
     }
+
 
     @Nullable
     @Override
@@ -804,6 +854,21 @@ public final class Player extends Mob implements RSPlayer {
     }
 
     @Override
+    public int[] getEquipmentIds() {
+        return new int[0];
+    }
+
+    @Override
+    public void setTransformedNpcId(int id) {
+
+    }
+
+    @Override
+    public void setHash() {
+
+    }
+
+    @Override
     public RSNode getPrevious() {
         return null;
     }
@@ -902,4 +967,37 @@ public final class Player extends Mob implements RSPlayer {
     public void draw(int orientation, int pitchSin, int pitchCos, int yawSin, int yawCos, int x, int y, int z, long hash) {
 
     }
+
+    public boolean isFemale()
+    {
+        return gender == 1;
+    }
+
+    @Override
+    public int[] getColors() {
+        return new int[0];
+    }
+
+    @Override
+    public int getEquipmentId(KitType type)
+    {
+        int id = getEquipmentIds()[type.getIndex()];
+        if (id < 512)
+        {
+            return -1; // not an item
+        }
+        return id - 512;
+    }
+
+    @Override
+    public int getKitId(KitType type)
+    {
+        int id = getEquipmentIds()[type.getIndex()];
+        if (id < 256 || id >= 512)
+        {
+            return -1; // not a kit
+        }
+        return id - 256;
+    }
+
 }

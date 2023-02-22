@@ -2,6 +2,7 @@ package com.runescape.draw;
 
 import com.runescape.Client;
 import com.runescape.collection.Cacheable;
+import net.runelite.api.BufferProvider;
 import net.runelite.rs.api.RSRasterizer2D;
 
 import java.awt.*;
@@ -518,6 +519,203 @@ public class Rasterizer2D extends Cacheable implements RSRasterizer2D {
         Area ring = new Area(sector);
         ring.subtract(new Area(innerCircle));
         return ring;
+    }
+
+    private static void drawGradientAlpha(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7)
+    {
+        final int width = Client.instance.getGraphicsPixelsWidth();
+        final int startX = Client.instance.getStartX();
+        final int startY = Client.instance.getStartY();
+        final int endX = Client.instance.getEndX();
+        final int endY = Client.instance.getEndY();
+        final int[] pixels = Client.instance.getGraphicsPixels();
+
+        if (!Client.instance.isGpu())
+        {
+            drawGradientAlpha(var0, var1, var2, var3, var4, var5, var6, var7);
+            return;
+        }
+
+        if (var2 > 0 && var3 > 0)
+        {
+            int var8 = 0;
+            int var9 = 65536 / var3;
+            if (var0 < startX)
+            {
+                var2 -= startX - var0;
+                var0 = startX;
+            }
+
+            if (var1 < startY)
+            {
+                var8 += (startY - var1) * var9;
+                var3 -= startY - var1;
+                var1 = startY;
+            }
+
+            if (var0 + var2 > endX)
+            {
+                var2 = endX - var0;
+            }
+
+            if (var3 + var1 > endY)
+            {
+                var3 = endY - var1;
+            }
+
+            int var10 = width - var2;
+            int var11 = var0 + width * var1;
+
+            for (int var12 = -var3; var12 < 0; ++var12)
+            {
+                int var13 = 65536 - var8 >> 8;
+                int var14 = var8 >> 8;
+                int var15 = (var13 * var6 + var14 * var7 & 65280) >>> 8;
+                if (var15 == 0)
+                {
+                    var11 += width;
+                    var8 += var9;
+                }
+                else
+                {
+                    int var16 = (var14 * (var5 & 16711935) + var13 * (var4 & 16711935) & -16711936) + (var14 * (var5 & 65280) + var13 * (var4 & 65280) & 16711680) >>> 8;
+                    int var17 = 255 - var15;
+                    int var18 = ((var16 & 16711935) * var15 >> 8 & 16711935) + (var15 * (var16 & 65280) >> 8 & 65280);
+
+                    for (int var19 = -var2; var19 < 0; ++var19)
+                    {
+                        int var20 = pixels[var11];
+                        var20 = ((var20 & 16711935) * var17 >> 8 & 16711935) + (var17 * (var20 & 65280) >> 8 & 65280);
+                        drawAlpha(pixels, var11++, var18 + var20, var15);
+                    }
+
+                    var11 += var10;
+                    var8 += var9;
+                }
+            }
+        }
+    }
+
+
+    public static void raster2d7(int var0, int var1, int var2, int var3, int var4, int var5, byte[] var6, int var7)
+    {
+        final int width = Client.instance.getGraphicsPixelsWidth();
+        final int height = Client.instance.getGraphicsPixelsHeight();
+        final int[] pixels = Client.instance.getGraphicsPixels();
+
+        if (!Client.instance.isGpu())
+        {
+            raster2d7(var0, var1, var2, var3, var4, var5, var6, var7);
+            return;
+        }
+
+        if (var0 + var2 >= 0 && var3 + var1 >= 0)
+        {
+            if (var0 < width && var1 < height)
+            {
+                int var8 = 0;
+                int var9 = 0;
+                if (var0 < 0)
+                {
+                    var8 -= var0;
+                    var2 += var0;
+                }
+
+                if (var1 < 0)
+                {
+                    var9 -= var1;
+                    var3 += var1;
+                }
+
+                if (var0 + var2 > width)
+                {
+                    var2 = width - var0;
+                }
+
+                if (var3 + var1 > height)
+                {
+                    var3 = height - var1;
+                }
+
+                int var10 = var6.length / var7;
+                int var11 = width - var2;
+                int var12 = var4 >>> 24;
+                int var13 = var5 >>> 24;
+                int var14;
+                int var15;
+                int var16;
+                int var17;
+                int var18;
+                if (var12 == 255 && var13 == 255)
+                {
+                    var14 = var0 + var8 + (var9 + var1) * width;
+
+                    for (var15 = var9 + var1; var15 < var3 + var9 + var1; ++var15)
+                    {
+                        for (var16 = var0 + var8; var16 < var0 + var8 + var2; ++var16)
+                        {
+                            var17 = (var15 - var1) % var10;
+                            var18 = (var16 - var0) % var7;
+                            if (var6[var18 + var17 * var7] != 0)
+                            {
+                                pixels[var14++] = var5;
+                            }
+                            else
+                            {
+                                pixels[var14++] = var4;
+                            }
+                        }
+
+                        var14 += var11;
+                    }
+                }
+                else
+                {
+                    var14 = var0 + var8 + (var9 + var1) * width;
+
+                    for (var15 = var9 + var1; var15 < var3 + var9 + var1; ++var15)
+                    {
+                        for (var16 = var0 + var8; var16 < var0 + var8 + var2; ++var16)
+                        {
+                            var17 = (var15 - var1) % var10;
+                            var18 = (var16 - var0) % var7;
+                            int var19 = var4;
+                            if (var6[var18 + var17 * var7] != 0)
+                            {
+                                var19 = var5;
+                            }
+
+                            int var20 = var19 >>> 24;
+                            int var21 = 255 - var20;
+                            int var22 = pixels[var14];
+                            int var23 = ((var19 & 16711935) * var20 + (var22 & 16711935) * var21 & -16711936) + (var20 * (var19 & 65280) + var21 * (var22 & 65280) & 16711680) >> 8;
+                            drawAlpha(pixels, var14++, var23, var20);
+                        }
+
+                        var14 += var11;
+                    }
+                }
+            }
+        }
+    }
+
+    public static void clearColorBuffer(int x, int y, int width, int height, int color)
+    {
+        BufferProvider bp = Client.instance.getBufferProvider();
+        int canvasWidth = bp.getWidth();
+        int[] pixels = bp.getPixels();
+
+        int pixelPos = y * canvasWidth + x;
+        int pixelJump = canvasWidth - width;
+
+        for (int cy = y; cy < y + height; cy++)
+        {
+            for (int cx = x; cx < x + width; cx++)
+            {
+                pixels[pixelPos++] = 0;
+            }
+            pixelPos += pixelJump;
+        }
     }
 
 }

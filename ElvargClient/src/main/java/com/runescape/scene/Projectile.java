@@ -249,7 +249,7 @@ public final class Projectile extends Renderable implements RSProjectile {
 
     @Override
     public int getModelHeight() {
-        return 0;
+        return modelBaseY;
     }
 
     @Override
@@ -259,7 +259,7 @@ public final class Projectile extends Renderable implements RSProjectile {
 
     @Override
     public RSModel getModel() {
-        return null;
+        return getRotatedModel();
     }
 
     @Override

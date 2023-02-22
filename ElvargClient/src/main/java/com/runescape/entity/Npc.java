@@ -367,7 +367,12 @@ public final class Npc extends Mob implements RSNPC {
 
     @Override
     public String getName() {
-        return desc.getName();
+        RSNPCComposition composition = desc;
+        if (composition != null && composition.getConfigs() != null)
+        {
+            composition = composition.transform();
+        }
+        return composition == null ? null : composition.getName().replace('\u00A0', ' ');
     }
 
     @Override
@@ -498,7 +503,6 @@ public final class Npc extends Mob implements RSNPC {
         }
 
         return new WorldArea(this.getWorldLocation(), size, size);
-        //return new WorldArea(getWorldLocation(), desc.scaleXZ, desc.scaleY);
     }
 
     @Override

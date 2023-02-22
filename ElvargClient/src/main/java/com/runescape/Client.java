@@ -3159,7 +3159,7 @@ public class Client extends GameEngine implements RSClient {
                         + " size:" + npcCount);
                 throw new RuntimeException("eek");
             }
-
+        Client.instance.callbacks.updateNpcs();
     }
 
     public void processChatModeClick() {
@@ -5050,7 +5050,7 @@ public class Client extends GameEngine implements RSClient {
                 if (activeInterfaceType == 3)
                     updateChatbox = true;
                 activeInterfaceType = 0;
-                if (aBoolean1242 && dragItemDelay >= 10) {
+                if (aBoolean1242 && dragItemDelay >= dragValue) {
                     lastActiveInvInterface = -1;
                     processRightClick();
                     if (!createBankTab()) {
@@ -14904,7 +14904,8 @@ public class Client extends GameEngine implements RSClient {
     public DrawCallbacks drawCallbacks;
     @javax.inject.Inject
     private Callbacks callbacks;
-
+    private int dragValue = 5;
+    private int tickCount;
     private boolean gpu = false;
 
     @Override
@@ -14979,7 +14980,7 @@ public class Client extends GameEngine implements RSClient {
 
     @Override
     public RSNodeDeque getProjectilesDeque() {
-        return null;
+        return projectiles;
     }
 
     @Override
@@ -15844,17 +15845,47 @@ public class Client extends GameEngine implements RSClient {
     }
 
     @Override
-    public int getSkillExperience(Skill skill) {
-        return 1;
+    public int getSkillExperience(Skill skill)
+    {
+        int[] experiences = getSkillExperiences();
+
+        if (skill == Skill.OVERALL)
+        {
+            log.debug("getSkillExperience called for {}!", skill);
+            return (int) getOverallExperience();
+        }
+
+        int idx = skill.ordinal();
+
+        // I'm not certain exactly how needed this is, but if the Skill enum is updated in the future
+        // to hold something else that's not reported it'll save us from an ArrayIndexOutOfBoundsException.
+        if (idx >= experiences.length)
+        {
+            return -1;
+        }
+
+        return experiences[idx];
     }
 
     @Override
-    public long getOverallExperience() {
-        return 1;
+    public long getOverallExperience()
+    {
+        int[] experiences = getSkillExperiences();
+
+        long totalExperience = 0L;
+
+        for (int experience : experiences)
+        {
+            totalExperience += experience;
+        }
+
+        return totalExperience;
     }
 
     @Override
-    public void refreshChat() {
+    public void refreshChat()
+    {
+        setChatCycle(getCycleCntr());
     }
 
     @Override
@@ -15991,9 +16022,17 @@ public class Client extends GameEngine implements RSClient {
     }
 
     @Override
-    public LocalPoint getLocalDestinationLocation() {
+    public LocalPoint getLocalDestinationLocation()
+    {
+        int sceneX = getDestinationX();
+        int sceneY = getDestinationY();
+        if (sceneX != 0 && sceneY != 0)
+        {
+            return LocalPoint.fromScene(sceneX, sceneY);
+        }
         return null;
     }
+
 
     @Override
     public List<net.runelite.api.Projectile> getProjectiles() {
@@ -17034,7 +17073,7 @@ public class Client extends GameEngine implements RSClient {
 
     @Override
     public int[] getSkillExperiences() {
-        return null;
+        return currentExp;
     }
 
     @Override
@@ -17054,6 +17093,10 @@ public class Client extends GameEngine implements RSClient {
 
     @Override
     public void queueChangedSkill(Skill skill) {
+        int[] skills = Client.instance.getChangedSkills();
+        int count = Client.instance.getChangedSkillsCount();
+        skills[++count - 1 & 31] = skill.ordinal();
+        Client.instance.setChangedSkillsCount(count);
     }
 
     @Override
@@ -17078,18 +17121,18 @@ public class Client extends GameEngine implements RSClient {
 
     @Override
     public int getTickCount() {
-        return 0;
+        return tickCount;
     }
 
     @Override
     public void setTickCount(int tickCount) {
-
+        this.tickCount = tickCount;
     }
 
 
     @Override
     public void setInventoryDragDelay(int delay) {
-
+        dragValue = delay;
     }
 
 
@@ -17764,14 +17807,16 @@ public class Client extends GameEngine implements RSClient {
 
     }
 
+    boolean renderFlames = true;
+
     @Override
     public void setShouldRenderLoginScreenFire(boolean val) {
-
+        renderFlames = val;
     }
 
     @Override
     public boolean shouldRenderLoginScreenFire() {
-        return false;
+        return renderFlames;
     }
 
     @Override

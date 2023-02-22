@@ -59,12 +59,13 @@ public final class GameObject implements RSGameObject {
 
     @Override
     public int sizeX() {
-        return xLocHigh - xLocLow;
+        return getEndX() - getStartX() + 1;
     }
 
     @Override
+
     public int sizeY() {
-        return yLocHigh - yLocLow;
+        return getEndY() - getStartY() + 1;
     }
 
     @Override
@@ -102,7 +103,7 @@ public final class GameObject implements RSGameObject {
 
     @Override
     public Point getCanvasLocation() {
-        return Perspective.localToCanvas(Client.instance, getLocalLocation(), getPlane(), 0);
+        return getCanvasLocation(0);
     }
 
     @Override
@@ -111,8 +112,15 @@ public final class GameObject implements RSGameObject {
     }
 
     @Override
-    public Polygon getCanvasTilePoly() {
-        return Perspective.getCanvasTilePoly(Client.instance, this.getLocalLocation());
+    public Polygon getCanvasTilePoly()
+    {
+        int sizeX = 1;
+        int sizeY = 1;
+
+        sizeX = ((RSGameObject) this).sizeX();
+        sizeY = ((RSGameObject) this).sizeY();
+
+        return Perspective.getCanvasTileAreaPoly(Client.instance, getLocalLocation(), sizeX, sizeY, getPlane(), 0);
     }
 
     @Override
@@ -140,7 +148,12 @@ public final class GameObject implements RSGameObject {
 
     @Override
     public WorldPoint getWorldLocation() {
-        return WorldPoint.fromLocal(Client.instance, this.getX(), this.getY(), this.getPlane());
+        RSGameObject gameObject = (RSGameObject) this;
+        int startX = gameObject.getStartX();
+        int startY = gameObject.getStartY();
+        int diffX = gameObject.getEndX() - startX;
+        int diffY = gameObject.getEndY() - startY;
+        return WorldPoint.fromScene(Client.instance, startX + diffX / 2, startY + diffY / 2, getPlane());
     }
 
     @Override

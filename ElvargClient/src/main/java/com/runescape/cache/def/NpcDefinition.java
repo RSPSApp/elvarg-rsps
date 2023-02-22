@@ -598,37 +598,37 @@ public final class NpcDefinition implements RSNPCComposition {
 
 	@Override
 	public String getName() {
-		return null;
+		return name;
 	}
 
 	@Override
 	public int[] getModels() {
-		return new int[0];
+		return modelId;
 	}
 
 	@Override
 	public String[] getActions() {
-		return new String[0];
+		return actions;
 	}
 
 	@Override
 	public boolean isClickable() {
-		return false;
+		return clickable;
 	}
 
 	@Override
 	public boolean isFollower() {
-		return false;
+		return isPet;
 	}
 
 	@Override
 	public boolean isInteractible() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isMinimapVisible() {
-		return false;
+		return drawMinimapDot;
 	}
 
 	@Override
@@ -638,27 +638,27 @@ public final class NpcDefinition implements RSNPCComposition {
 
 	@Override
 	public int getId() {
-		return 0;
+		return id;
 	}
 
 	@Override
 	public int getCombatLevel() {
-		return 0;
+		return combatLevel;
 	}
 
 	@Override
 	public int[] getConfigs() {
-		return new int[0];
+		return childrenIDs;
 	}
 
 	@Override
 	public RSNPCComposition transform() {
-		return null;
+		return morph();
 	}
 
 	@Override
 	public int getSize() {
-		return 0;
+		return size;
 	}
 
 	@Override

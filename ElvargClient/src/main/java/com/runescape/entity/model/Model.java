@@ -22,6 +22,7 @@ import net.runelite.api.model.Triangle;
 import net.runelite.api.model.Vertex;
 import net.runelite.rs.api.RSFrames;
 import net.runelite.rs.api.RSModel;
+import net.runelite.rs.api.RSModelData;
 
 public class Model extends Renderable implements RSModel {
 

@@ -3,6 +3,7 @@ package com.runescape.draw.flames;
 import com.runescape.Client;
 import com.runescape.draw.Rasterizer2D;
 import com.runescape.graphics.sprite.Sprite;
+import net.runelite.rs.api.RSLoginScreenAnimation;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -10,7 +11,7 @@ import java.util.stream.IntStream;
 
 import static com.runescape.draw.Rasterizer2D.drawAlpha;
 
-public class FlameManager {
+public class FlameManager implements RSLoginScreenAnimation {
 
     private int[] field1234;
 
@@ -75,25 +76,28 @@ public class FlameManager {
 
 
     public void draw(int xPosition, int yPosition,int cycle, int alpha) {
-        if (flameStrengths == null) {
-            initColors();
-        }
+        if (Client.instance.shouldRenderLoginScreenFire())
+        {
+            if (flameStrengths == null) {
+                initColors();
+            }
 
-        if (currentCycle == 0) {
+            if (currentCycle == 0) {
+                currentCycle = cycle;
+            }
+
+            int lastCycle = cycle - currentCycle;
+            if (lastCycle >= 256) {
+                lastCycle = 0;
+            }
+
             currentCycle = cycle;
-        }
+            if (lastCycle > 0) {
+                method2207(lastCycle);
+            }
 
-        int lastCycle = cycle - currentCycle;
-        if (lastCycle >= 256) {
-            lastCycle = 0;
+            initializeFlames(xPosition,yPosition,alpha);
         }
-
-        currentCycle = cycle;
-        if (lastCycle > 0) {
-            method2207(lastCycle);
-        }
-
-        initializeFlames(xPosition,yPosition,alpha);
     }
 
     int[] flameSprites = IntStream.rangeClosed(655, 666).toArray();
