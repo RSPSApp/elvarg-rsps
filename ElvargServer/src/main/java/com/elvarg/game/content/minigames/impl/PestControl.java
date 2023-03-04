@@ -78,7 +78,7 @@ public class PestControl implements Minigame {
             { portals[1], 2680, 2588 }, // portal
             { portals[2], 2669, 2570 }, // portal
             { portals[3], 2645, 2569 }, // portal
-            { VOID_KNIGHT_GAME, 2656, 2592 },
+            { VOID_KNIGHT_5, 2656, 2592 },
     };
 
     /**
