@@ -73,6 +73,7 @@ import com.elvarg.game.model.movement.MovementQueue;
 import com.elvarg.game.model.rights.DonatorRights;
 import com.elvarg.game.model.rights.PlayerRights;
 import com.elvarg.game.model.teleportation.TeleportButton;
+import com.elvarg.game.task.Task;
 import com.elvarg.game.task.TaskManager;
 import com.elvarg.game.task.impl.CombatPoisonEffect;
 import com.elvarg.game.task.impl.PlayerDeathTask;
@@ -117,6 +118,7 @@ public class Player extends Mobile {
 	private final SecondsTimer targetSearchTimer = new SecondsTimer();
 	private final List<String> recentKills = new ArrayList<String>(); // Contains ip addresses of recent kills
 	private final Queue<ChatMessage> chatMessageQueue = new ConcurrentLinkedQueue<>();
+	public boolean choosingMusic;
 	private ChatMessage currentChatMessage;
 	// Logout
 	private final SecondsTimer forcedLogoutTimer = new SecondsTimer();
@@ -201,9 +203,7 @@ public class Player extends Mobile {
 	private int highestKillstreak;
 	private int deaths;
 	private int safeTimer = 180;
-	//Pest Control
-	public int pcDamage = 0;
-	public int pcPoints = 0;
+	public int pcPoints;
 	// Barrows
 	private int barrowsCrypt;
 	private int barrowsChestsLooted;
@@ -1677,5 +1677,35 @@ public class Player extends Mobile {
 		this.questProgress = questProgress;
 	}
 
-	public int castlewarsKills, castlewarsDeaths;
+	public int castlewarsKills, castlewarsDeaths, castlewarsIdleTime;
+
+	public void resetCastlewarsIdleTime() {
+		this.castlewarsIdleTime = 200;
+	}
+
+	public void climb(boolean down, Location location) {
+		this.performAnimation(new Animation(down ? 827 : 828));
+		Task task = new Task(1, this.getIndex(), true) {
+			int ticks = 0;
+
+			@Override
+			protected void execute() {
+				ticks++;
+				if (ticks == 2) {
+					moveTo(location);
+					stop();
+				}
+			}
+		};
+		TaskManager.submit(task);
+	}
+
+	public int currentInterfaceTabId;
+
+	public int getCurrentInterfaceTabId() {
+		return currentInterfaceTabId;
+	}
+    public void setCurrentInterfaceTab(int currentInterfaceTabId) {
+		this.currentInterfaceTabId = currentInterfaceTabId;
+    }
 }

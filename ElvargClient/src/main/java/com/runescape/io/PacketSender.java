@@ -407,6 +407,11 @@ public class PacketSender {
         buffer.writeLEShort(x);
     }
 
+    public void sendInterfaceTab(int tabId) {
+        buffer.writeOpcode(239);
+        buffer.writeByte(tabId);
+    }
+
     public void sendGroundItemOption1(int y, int itemId, int x) {
         buffer.writeOpcode(235);
         buffer.writeLEShort(y);

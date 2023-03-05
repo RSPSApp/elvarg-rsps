@@ -315,8 +315,7 @@ public class Frame317 extends GameFrame {
                 showTabComponents = true;
             }
         }
-        tabId = index;
-        tabAreaAltered = true;
+        Client.instance.setInterfaceTab(index);
     }
 
     public Sprite setCompass() {

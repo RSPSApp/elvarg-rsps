@@ -152,7 +152,7 @@ public class Client extends GameEngine implements RSClient {
     public static byte[] music_payload;
     public static int anInt155 = 0;
     public static int anInt2200 = 0;
-    public static int anInt1478;
+    public static int jmp_volume;
     public static boolean aBoolean475;
     public static int fadeDuration;
     public static boolean repeatMusic;
@@ -176,12 +176,12 @@ public class Client extends GameEngine implements RSClient {
                 } else
                     anInt720 = 1;
                 music_payload = is;
-                anInt1478 = volume;
+                jmp_volume = volume;
                 aBoolean475 = bool;
             } else if (anInt720 == 0)
                 method853(volume, is, bool);
             else {
-                anInt1478 = volume;
+                jmp_volume = volume;
                 aBoolean475 = bool;
                 music_payload = is;
             }
@@ -204,11 +204,11 @@ public class Client extends GameEngine implements RSClient {
                 }
                 aBoolean475 = bool;
                 music_payload = payload;
-                anInt1478 = i_30_;
+                jmp_volume = i_30_;
             } else if (anInt720 != 0) {
                 aBoolean475 = bool;
                 music_payload = payload;
-                anInt1478 = i_30_;
+                jmp_volume = i_30_;
             } else
                 method853(i_30_, payload, bool);
         }
@@ -242,9 +242,9 @@ public class Client extends GameEngine implements RSClient {
                         if (music_payload == null)
                             midi_player.method831(256);
                         else {
-                            midi_player.method831(anInt1478);
-                            anInt478 = anInt1478;
-                            midi_player.method827(anInt1478, music_payload, 0, aBoolean475);
+                            midi_player.method831(jmp_volume);
+                            anInt478 = jmp_volume;
+                            midi_player.method827(jmp_volume, music_payload, 0, aBoolean475);
                             music_payload = null;
                         }
                         anInt155 = 0;
@@ -1178,9 +1178,10 @@ public class Client extends GameEngine implements RSClient {
         MapRegion.lowMem = false;
     }
 
-    public static void setTab(int id) {
+    public void setInterfaceTab(int id) {
         tabId = id;
         tabAreaAltered = true;
+        packetSender.sendInterfaceTab(id);
     }
 
     private static String combatDiffColor(int i, int j) {
@@ -3332,48 +3333,6 @@ public class Client extends GameEngine implements RSClient {
         }
     }
 
-    public void changeMusicVolume(int newVolume) {//used
-
-        if (newVolume == musicVolume)
-            return;
-
-        if (newVolume == 0) {
-            setVolume(0);
-            return;
-        }
-
-        newVolume *= 20;
-
-        if (musicVolume != 0 || currentSong == -1) {
-            setVolume(newVolume);
-        } else {
-            requestMusic(currentSong);//TODO look into
-            prevSong = 0;
-        }
-        musicVolume = newVolume;
-    }
-
-    public static final void setVolume(int i) {
-        if (musicIsntNull()) {
-            if (fetchMusic)
-                music_volume = i;
-            else
-                method900(i);
-        }
-    }
-
-    public static final void method900(int i) {
-        if (midi_player != null) {
-            if (anInt720 == 0) {
-                if (anInt478 >= 0) {
-                    anInt478 = i;
-                    midi_player.method830(i, 0);
-                }
-            } else if (music_payload != null)
-                anInt1478 = i;
-        }
-    }
-
     public void changeSoundVolume(int newVolume) {
         SoundPlayer.setVolume(-9 + newVolume);
     }
@@ -3483,7 +3442,6 @@ public class Client extends GameEngine implements RSClient {
         if (parameter == 9) {
             anInt913 = state;
         }
-        System.err.println("Para=" + parameter + " " + state);
 
     }
 
@@ -4144,6 +4102,8 @@ public class Client extends GameEngine implements RSClient {
     }
 
     final synchronized void requestMusic(int musicId) {
+        if (!Configuration.enableMusic)
+            setMusicVolume(0);
         if (musicIsntNull()) {
             nextSong = musicId;
             resourceProvider.provide(2, nextSong);
@@ -4267,8 +4227,6 @@ public class Client extends GameEngine implements RSClient {
 
             resourceProvider = new ResourceProvider();
             resourceProvider.initialize(streamLoader_6, this);
-
-            requestMusic(SoundConstants.SCAPE_RUNE);
 
             tileFlags = new byte[4][104][104];
             tileHeights = new int[4][105][105];
@@ -4411,11 +4369,10 @@ public class Client extends GameEngine implements RSClient {
             SceneObject.clientInstance = this;
             ObjectDefinition.clientInstance = this;
             NpcDefinition.clientInstance = this;
-
             setGameFrameByName("OSRS");
             loadPlayerData();
+            requestMusic(SoundConstants.SCAPE_RUNE);
             //resourceProvider.writeAll();
-
             if(Configuration.repackIndexOne) {
                 repackCacheIndex(1);
             }
@@ -5432,8 +5389,7 @@ public class Client extends GameEngine implements RSClient {
                 } else {
                     showTabComponents = true;
                 }
-                tabId = 10;
-                tabAreaAltered = true;
+                setInterfaceTab(10);
             }
         }
 
@@ -5930,8 +5886,7 @@ public class Client extends GameEngine implements RSClient {
             //		"spellId: " + spellId + " - spellSelected: " + spellSelected);
             //	System.out.println(button + " " + widget.selectedActionName + " " + anInt1137);
             if (spellUsableOn == 16) {
-                tabId = 3;
-                tabAreaAltered = true;
+                setInterfaceTab(3);
             }
             return;
         }
@@ -6000,8 +5955,7 @@ public class Client extends GameEngine implements RSClient {
 
         if (action == 1004) {
             if (tabInterfaceIDs[10] != -1) {
-                tabId = 10;
-                tabAreaAltered = true;
+                setInterfaceTab(10);
             }
         }
         if (action == 1003) {
@@ -8023,7 +7977,6 @@ public class Client extends GameEngine implements RSClient {
 
         expCounterHover = fixed ? mouseInRegion(519, 536, 20, 46) : mouseInRegion(canvasWidth - 216, canvasWidth - 190, 22, 47);
     }
-
 
     private void refreshMinimap(Sprite sprite, int j, int k) {
         int l = k * k + j * j;
@@ -12626,7 +12579,7 @@ public class Client extends GameEngine implements RSClient {
         int loginBoxY = centerY - (200 / 2) + 21;
 
         if(newclickInRegion(canvasWidth - 38 - 5,canvasHeight - 45 + 7,spriteCache.lookup(645))) {
-            Configuration.enableMusic = !Configuration.enableMusic;
+            handleMuteMusic();
         }
 
         if (loginScreenState == 0) {
@@ -12712,6 +12665,13 @@ public class Client extends GameEngine implements RSClient {
             }
         } while (true);
         return;
+    }
+
+
+    private void handleMuteMusic() {
+        Configuration.enableMusic = !Configuration.enableMusic;
+        savePlayerData();
+        setMusicVolume(Configuration.enableMusic ? 255 : 0);
     }
 
     private void removeObject(int y, int z, int k, int l, int x, int group, int previousId) {
@@ -16081,6 +16041,17 @@ public class Client extends GameEngine implements RSClient {
 
     @Override
     public void setMusicVolume(int volume) {
+        if (midi_player != null) {
+            if (anInt720 == 0) {
+                if (anInt478 >= 0) {
+                    anInt478 = volume;
+                    midi_player.method830(volume, 0);
+                }
+            } else if (music_payload != null) {
+                jmp_volume = volume;
+            }
+        }
+        music_volume = musicVolume = volume;
     }
 
     @Override

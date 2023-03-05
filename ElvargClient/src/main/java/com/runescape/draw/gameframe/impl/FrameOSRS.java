@@ -236,9 +236,7 @@ public class FrameOSRS extends GameFrame {
                 int yOffset = !instance.isResized() ? 0 : GameEngine.canvasHeight - 503;
                 for (int i = 0; i < tabClickX.length; i++) {
                     if (MouseHandler.mouseX >= tabClickStart[i] + xOffset && MouseHandler.mouseX <= tabClickStart[i] + tabClickX[i] + xOffset && MouseHandler.mouseY >= tabClickY[i] + yOffset && MouseHandler.mouseY < tabClickY[i] + 37 + yOffset && tabInterfaceIDs[i] != -1) {
-                        tabId = i;
-                        Client.tabAreaAltered = true;
-                        //Spawn tab
+                        Client.instance.setInterfaceTab(i);
                         instance.searchingSpawnTab = tabId == 2;
 
                         break;
@@ -256,8 +254,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 0;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(0);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 194
@@ -270,8 +267,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 1;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(1);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 162
@@ -284,8 +280,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 2;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(2);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 129
@@ -298,8 +293,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 3;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(3);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 97
@@ -312,8 +306,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 4;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(4);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 65
@@ -326,8 +319,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 5;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(5);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 33 && MouseHandler.saveClickX <= GameEngine.canvasWidth
@@ -339,8 +331,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 6;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(6);
 
                 }
 
@@ -354,8 +345,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 8;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(8);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 162
@@ -368,8 +358,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 9;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(9);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 129
@@ -382,8 +371,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 7;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(7);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 97
@@ -396,8 +384,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 11;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(11);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 65
@@ -410,8 +397,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 12;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(12);
 
                 }
                 if (MouseHandler.saveClickX >= GameEngine.canvasWidth - 33 && MouseHandler.saveClickX <= GameEngine.canvasWidth
@@ -423,8 +409,7 @@ public class FrameOSRS extends GameFrame {
                     } else {
                         showTabComponents = true;
                     }
-                    tabId = 13;
-                    tabAreaAltered = true;
+                    Client.instance.setInterfaceTab(13);
 
                 }
             } else if (stackSideStones && GameEngine.canvasWidth >= 1000) {
@@ -436,8 +421,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 0;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(0);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 385
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 354) {
@@ -446,8 +430,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 1;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(1);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 353
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 322) {
@@ -456,8 +439,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 2;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(2);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 321
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 290) {
@@ -466,8 +448,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 3;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(3);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 289
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 258) {
@@ -476,8 +457,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 4;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(4);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 257
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 226) {
@@ -486,8 +466,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 5;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(5);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 225
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 194) {
@@ -496,8 +475,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 6;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(6);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 193
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 163) {
@@ -506,8 +484,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 8;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(8);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 162
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 131) {
@@ -516,8 +493,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 9;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(9);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 130
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 99) {
@@ -526,8 +502,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 7;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(7);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 98
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 67) {
@@ -536,8 +511,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 11;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(11);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 66
                             && MouseHandler.mouseX <= GameEngine.canvasWidth - 45) {
@@ -546,8 +520,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 12;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(12);
                     }
                     if (MouseHandler.mouseX >= GameEngine.canvasWidth - 31 && MouseHandler.mouseX <= GameEngine.canvasWidth) {
                         if (tabId == 13) {
@@ -555,8 +528,7 @@ public class FrameOSRS extends GameFrame {
                         } else {
                             showTabComponents = true;
                         }
-                        tabId = 13;
-                        tabAreaAltered = true;
+                        Client.instance.setInterfaceTab(13);
                     }
                 }
             }
