@@ -283,6 +283,8 @@ public class CastleWars implements Minigame {
 
     public static final int TEAM_GUTHIX = 3;
 
+    private static final Projectile CATAPULT_PROJECTILE = new Projectile(304, 75, 75, 30, 100);
+
     public static boolean isGameActive() {
         return GAME_END_TASK.isRunning();
     }
@@ -1074,8 +1076,7 @@ public class CastleWars implements Minigame {
             if (catapult != null) {
                 catapult.performAnimation(new Animation(443));
             }
-            new Projectile(saradomin ? saradomin_catapult_location : zamorak_catapult_location, destination, null, 304, 30, 100, 75, 75, player.getPrivateArea())
-                    .sendProjectile();
+            Projectile.sendProjectile(saradomin ? saradomin_catapult_location : zamorak_catapult_location, destination, CATAPULT_PROJECTILE);
             TaskManager.submit(new Task() {
 
                 int ticks = 0;
@@ -1084,11 +1085,11 @@ public class CastleWars implements Minigame {
                 public void execute() {
                     ticks++;
                     if (ticks == 4) {
-                        World.sendLocalGraphics(303, destination);
+                        World.sendLocalGraphics(303, destination, GraphicHeight.MIDDLE);
                     }
                     if (ticks == 6) {
                         World.getPlayers().stream().filter(Objects::nonNull).filter(p -> p.getLocation().isWithinDistance(destination, 5)).forEach(p -> p.getCombat().getHitQueue().addPendingDamage(new HitDamage(Misc.random(5, 15), HitMask.RED)));
-                        World.sendLocalGraphics(305, destination);
+                        World.sendLocalGraphics(305, destination, GraphicHeight.MIDDLE);
                         stop();
                     }
                 }
