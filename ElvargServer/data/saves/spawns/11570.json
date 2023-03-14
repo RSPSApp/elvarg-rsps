@@ -1,0 +1,254 @@
+[
+  {
+    "facing": "NORTH_WEST",
+    "id": 1146,
+    "position": [
+      {
+        "x": 2929,
+        "y": 3210,
+        "plane": 0
+      }
+    ],
+    "description": "Chemist"
+  },
+  {
+    "facing": "WEST",
+    "id": 3970,
+    "position": [
+      {
+        "x": 2931,
+        "y": 3252,
+        "plane": 0
+      }
+    ],
+    "description": "Zombie rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 3971,
+    "position": [
+      {
+        "x": 2934,
+        "y": 3247,
+        "plane": 0
+      }
+    ],
+    "description": "Zombie rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 0,
+    "position": [
+      {
+        "x": 2940,
+        "y": 3225,
+        "plane": 0
+      }
+    ],
+    "description": "Tool Leprechaun"
+  },
+  {
+    "facing": "WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 2938,
+        "y": 3245,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 2675,
+    "position": [
+      {
+        "x": 2939,
+        "y": 3223,
+        "plane": 0
+      }
+    ],
+    "description": "Taria"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 7967,
+    "position": [
+      {
+        "x": 2910,
+        "y": 3226,
+        "plane": 0
+      }
+    ],
+    "description": "Cabin Boy Colin"
+  },
+  {
+    "facing": "WEST",
+    "id": 8763,
+    "position": [
+      {
+        "x": 2915,
+        "y": 3225,
+        "plane": 0
+      }
+    ],
+    "description": "Captain Barnaby"
+  },
+  {
+    "facing": "EAST",
+    "id": 3288,
+    "position": [
+      {
+        "x": 2921,
+        "y": 3260,
+        "plane": 0
+      }
+    ],
+    "description": "Hobgoblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2854,
+    "position": [
+      {
+        "x": 2922,
+        "y": 3252,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3971,
+    "position": [
+      {
+        "x": 2925,
+        "y": 3251,
+        "plane": 0
+      }
+    ],
+    "description": "Zombie rat"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 1103,
+    "position": [
+      {
+        "x": 2928,
+        "y": 3219,
+        "plane": 0
+      }
+    ],
+    "description": "Da Vinci"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 2927,
+        "y": 3248,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3970,
+    "position": [
+      {
+        "x": 2926,
+        "y": 3244,
+        "plane": 0
+      }
+    ],
+    "description": "Zombie rat"
+  },
+  {
+    "facing": "EAST",
+    "id": 1105,
+    "position": [
+      {
+        "x": 2929,
+        "y": 3222,
+        "plane": 0
+      }
+    ],
+    "description": "Chancy"
+  },
+  {
+    "facing": "WEST",
+    "id": 1107,
+    "position": [
+      {
+        "x": 2930,
+        "y": 3218,
+        "plane": 0
+      }
+    ],
+    "description": "Hops"
+  },
+  {
+    "facing": "EAST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 2935,
+        "y": 3243,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 3969,
+    "position": [
+      {
+        "x": 2930,
+        "y": 3255,
+        "plane": 0
+      }
+    ],
+    "description": "Zombie rat"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3971,
+    "position": [
+      {
+        "x": 2935,
+        "y": 3248,
+        "plane": 0
+      }
+    ],
+    "description": "Zombie rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 3971,
+    "position": [
+      {
+        "x": 2929,
+        "y": 3241,
+        "plane": 0
+      }
+    ],
+    "description": "Zombie rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 2930,
+        "y": 3241,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  }
+]

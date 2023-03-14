@@ -1,0 +1,110 @@
+[
+  {
+    "facing": "NORTH",
+    "id": 3271,
+    "position": [
+      {
+        "x": 2967,
+        "y": 3398,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3269,
+    "position": [
+      {
+        "x": 2967,
+        "y": 3392,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 1419,
+    "position": [
+      {
+        "x": 2963,
+        "y": 3455,
+        "plane": 0
+      }
+    ],
+    "description": "Raccoon"
+  },
+  {
+    "facing": "WEST",
+    "id": 1418,
+    "position": [
+      {
+        "x": 2972,
+        "y": 3436,
+        "plane": 0
+      }
+    ],
+    "description": "Squirrel"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11946,
+    "position": [
+      {
+        "x": 2967,
+        "y": 3394,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 3893,
+    "position": [
+      {
+        "x": 2950,
+        "y": 3450,
+        "plane": 0
+      }
+    ],
+    "description": "Doric"
+  },
+  {
+    "facing": "EAST",
+    "id": 11944,
+    "position": [
+      {
+        "x": 2963,
+        "y": 3400,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 11943,
+    "position": [
+      {
+        "x": 2962,
+        "y": 3395,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 1416,
+    "position": [
+      {
+        "x": 2964,
+        "y": 3443,
+        "plane": 0
+      }
+    ],
+    "description": "Squirrel"
+  }
+]

@@ -1,0 +1,278 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 3908,
+    "position": [
+      {
+        "x": 2691,
+        "y": 3611,
+        "plane": 0
+      }
+    ],
+    "description": "Bear Cub"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3909,
+    "position": [
+      {
+        "x": 2698,
+        "y": 3605,
+        "plane": 0
+      }
+    ],
+    "description": "Bear Cub"
+  },
+  {
+    "facing": "WEST",
+    "id": 2838,
+    "position": [
+      {
+        "x": 2688,
+        "y": 3618,
+        "plane": 0
+      }
+    ],
+    "description": "Grizzly bear"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3908,
+    "position": [
+      {
+        "x": 2700,
+        "y": 3616,
+        "plane": 0
+      }
+    ],
+    "description": "Bear Cub"
+  },
+  {
+    "facing": "WEST",
+    "id": 3909,
+    "position": [
+      {
+        "x": 2692,
+        "y": 3602,
+        "plane": 0
+      }
+    ],
+    "description": "Bear Cub"
+  },
+  {
+    "facing": "EAST",
+    "id": 3908,
+    "position": [
+      {
+        "x": 2719,
+        "y": 3647,
+        "plane": 0
+      }
+    ],
+    "description": "Bear Cub"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3909,
+    "position": [
+      {
+        "x": 2718,
+        "y": 3638,
+        "plane": 0
+      }
+    ],
+    "description": "Bear Cub"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2838,
+    "position": [
+      {
+        "x": 2724,
+        "y": 3636,
+        "plane": 0
+      }
+    ],
+    "description": "Grizzly bear"
+  },
+  {
+    "facing": "WEST",
+    "id": 3909,
+    "position": [
+      {
+        "x": 2714,
+        "y": 3647,
+        "plane": 0
+      }
+    ],
+    "description": "Bear Cub"
+  },
+  {
+    "facing": "EAST",
+    "id": 3908,
+    "position": [
+      {
+        "x": 2720,
+        "y": 3643,
+        "plane": 0
+      }
+    ],
+    "description": "Bear Cub"
+  },
+  {
+    "facing": "EAST",
+    "id": 3901,
+    "position": [
+      {
+        "x": 2725,
+        "y": 3605,
+        "plane": 0
+      }
+    ],
+    "description": "Fox"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3903,
+    "position": [
+      {
+        "x": 2739,
+        "y": 3634,
+        "plane": 0
+      }
+    ],
+    "description": "Bunny"
+  },
+  {
+    "facing": "WEST",
+    "id": 3903,
+    "position": [
+      {
+        "x": 2732,
+        "y": 3631,
+        "plane": 0
+      }
+    ],
+    "description": "Bunny"
+  },
+  {
+    "facing": "WEST",
+    "id": 3901,
+    "position": [
+      {
+        "x": 2737,
+        "y": 3595,
+        "plane": 0
+      }
+    ],
+    "description": "Fox"
+  },
+  {
+    "facing": "EAST",
+    "id": 3902,
+    "position": [
+      {
+        "x": 2738,
+        "y": 3636,
+        "plane": 0
+      }
+    ],
+    "description": "Bunny"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3903,
+    "position": [
+      {
+        "x": 2741,
+        "y": 3638,
+        "plane": 0
+      }
+    ],
+    "description": "Bunny"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3910,
+    "position": [
+      {
+        "x": 2741,
+        "y": 3605,
+        "plane": 0
+      }
+    ],
+    "description": "Unicorn Foal"
+  },
+  {
+    "facing": "EAST",
+    "id": 3903,
+    "position": [
+      {
+        "x": 2743,
+        "y": 3636,
+        "plane": 0
+      }
+    ],
+    "description": "Bunny"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3902,
+    "position": [
+      {
+        "x": 2742,
+        "y": 3635,
+        "plane": 0
+      }
+    ],
+    "description": "Bunny"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3902,
+    "position": [
+      {
+        "x": 2735,
+        "y": 3641,
+        "plane": 0
+      }
+    ],
+    "description": "Bunny"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3903,
+    "position": [
+      {
+        "x": 2744,
+        "y": 3642,
+        "plane": 0
+      }
+    ],
+    "description": "Bunny"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2837,
+    "position": [
+      {
+        "x": 2740,
+        "y": 3609,
+        "plane": 0
+      }
+    ],
+    "description": "Unicorn"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3910,
+    "position": [
+      {
+        "x": 2739,
+        "y": 3605,
+        "plane": 0
+      }
+    ],
+    "description": "Unicorn Foal"
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 2839,
+    "position": [
+      {
+        "x": 2481,
+        "y": 3197,
+        "plane": 0
+      }
+    ],
+    "description": "Black bear"
+  },
+  {
+    "facing": "WEST",
+    "id": 5365,
+    "position": [
+      {
+        "x": 2443,
+        "y": 3189,
+        "plane": 0
+      }
+    ],
+    "description": "Observatory assistant"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1507,
+    "position": [
+      {
+        "x": 2461,
+        "y": 3146,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1507,
+    "position": [
+      {
+        "x": 2469,
+        "y": 3157,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1507,
+    "position": [
+      {
+        "x": 2462,
+        "y": 3145,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "EAST",
+    "id": 5379,
+    "position": [
+      {
+        "x": 2465,
+        "y": 3183,
+        "plane": 0
+      }
+    ],
+    "description": "Smellytoes"
+  },
+  {
+    "facing": "WEST",
+    "id": 5378,
+    "position": [
+      {
+        "x": 2467,
+        "y": 3183,
+        "plane": 0
+      }
+    ],
+    "description": "Greasycheeks"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1507,
+    "position": [
+      {
+        "x": 2461,
+        "y": 3150,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5381,
+    "position": [
+      {
+        "x": 2469,
+        "y": 3158,
+        "plane": 0
+      }
+    ],
+    "description": "Clothears"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5380,
+    "position": [
+      {
+        "x": 2470,
+        "y": 3185,
+        "plane": 0
+      }
+    ],
+    "description": "Creakyknees"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1507,
+    "position": [
+      {
+        "x": 2468,
+        "y": 3157,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  }
+]

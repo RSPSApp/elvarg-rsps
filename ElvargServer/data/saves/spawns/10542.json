@@ -1,0 +1,26 @@
+[
+  {
+    "facing": "WEST",
+    "id": 1470,
+    "position": [
+      {
+        "x": 2628,
+        "y": 2979,
+        "plane": 0
+      }
+    ],
+    "description": "Rantz"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 4859,
+    "position": [
+      {
+        "x": 2655,
+        "y": 2964,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre boat"
+  }
+]

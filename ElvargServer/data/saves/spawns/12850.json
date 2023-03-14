@@ -1,0 +1,1658 @@
+[
+  {
+    "facing": "WEST",
+    "id": 921,
+    "position": [
+      {
+        "x": 3210,
+        "y": 3258,
+        "plane": 0
+      }
+    ],
+    "description": "Donie"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3111,
+    "position": [
+      {
+        "x": 3217,
+        "y": 3207,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5007,
+    "position": [
+      {
+        "x": 3213,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Imp"
+  },
+  {
+    "facing": "EAST",
+    "id": 3108,
+    "position": [
+      {
+        "x": 3218,
+        "y": 3239,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "WEST",
+    "id": 3218,
+    "position": [
+      {
+        "x": 3216,
+        "y": 3237,
+        "plane": 0
+      }
+    ],
+    "description": "Magic combat tutor"
+  },
+  {
+    "facing": "WEST",
+    "id": 3217,
+    "position": [
+      {
+        "x": 3217,
+        "y": 3240,
+        "plane": 0
+      }
+    ],
+    "description": "Ranged combat tutor"
+  },
+  {
+    "facing": "EAST",
+    "id": 6816,
+    "position": [
+      {
+        "x": 3221,
+        "y": 3237,
+        "plane": 0
+      }
+    ],
+    "description": "Gee"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3216,
+    "position": [
+      {
+        "x": 3219,
+        "y": 3237,
+        "plane": 0
+      }
+    ],
+    "description": "Melee combat tutor"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3108,
+    "position": [
+      {
+        "x": 3216,
+        "y": 3214,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3229,
+        "y": 3209,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3106,
+    "position": [
+      {
+        "x": 3225,
+        "y": 3235,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3030,
+    "position": [
+      {
+        "x": 3231,
+        "y": 3257,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3224,
+    "position": [
+      {
+        "x": 3226,
+        "y": 3254,
+        "plane": 0
+      }
+    ],
+    "description": "Smithing apprentice"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8484,
+    "position": [
+      {
+        "x": 3228,
+        "y": 3242,
+        "plane": 0
+      }
+    ],
+    "description": "Veos"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3226,
+    "position": [
+      {
+        "x": 3227,
+        "y": 3244,
+        "plane": 0
+      }
+    ],
+    "description": "Woodsman tutor"
+  },
+  {
+    "facing": "WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3227,
+        "y": 3222,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 311,
+    "position": [
+      {
+        "x": 3229,
+        "y": 3227,
+        "plane": 0
+      }
+    ],
+    "description": "Iron Man tutor"
+  },
+  {
+    "facing": "NORTH",
+    "id": 8665,
+    "position": [
+      {
+        "x": 3229,
+        "y": 3236,
+        "plane": 0
+      }
+    ],
+    "description": "Arthur the Clue Hunter"
+  },
+  {
+    "facing": "EAST",
+    "id": 6818,
+    "position": [
+      {
+        "x": 3230,
+        "y": 3239,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "WEST",
+    "id": 7456,
+    "position": [
+      {
+        "x": 3230,
+        "y": 3215,
+        "plane": 0
+      }
+    ],
+    "description": "Perdu"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3106,
+    "position": [
+      {
+        "x": 3230,
+        "y": 3209,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "WEST",
+    "id": 10619,
+    "position": [
+      {
+        "x": 3230,
+        "y": 3202,
+        "plane": 0
+      }
+    ],
+    "description": "Bob"
+  },
+  {
+    "facing": "EAST",
+    "id": 6773,
+    "position": [
+      {
+        "x": 3232,
+        "y": 3223,
+        "plane": 0
+      }
+    ],
+    "description": "Doomsayer"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3227,
+        "y": 3224,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 7546,
+    "position": [
+      {
+        "x": 3232,
+        "y": 3241,
+        "plane": 0
+      }
+    ],
+    "description": "Bartender"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5523,
+    "position": [
+      {
+        "x": 3233,
+        "y": 3213,
+        "plane": 0
+      }
+    ],
+    "description": "Hatius Cosaintus"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3111,
+    "position": [
+      {
+        "x": 3234,
+        "y": 3206,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "WEST",
+    "id": 3107,
+    "position": [
+      {
+        "x": 3235,
+        "y": 3223,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "EAST",
+    "id": 921,
+    "position": [
+      {
+        "x": 3229,
+        "y": 3225,
+        "plane": 0
+      }
+    ],
+    "description": "Donie"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1838,
+    "position": [
+      {
+        "x": 3234,
+        "y": 3257,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3108,
+    "position": [
+      {
+        "x": 3235,
+        "y": 3204,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3112,
+    "position": [
+      {
+        "x": 3236,
+        "y": 3205,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "EAST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3246,
+        "y": 3225,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 9504,
+    "position": [
+      {
+        "x": 3238,
+        "y": 3200,
+        "plane": 0
+      }
+    ],
+    "description": "Account security tutor"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5007,
+    "position": [
+      {
+        "x": 3212,
+        "y": 3260,
+        "plane": 0
+      }
+    ],
+    "description": "Imp"
+  },
+  {
+    "facing": "WEST",
+    "id": 306,
+    "position": [
+      {
+        "x": 3238,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Lumbridge Guide"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 3235,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2002,
+    "position": [
+      {
+        "x": 3236,
+        "y": 3248,
+        "plane": 0
+      }
+    ],
+    "description": "Ducklings"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1838,
+    "position": [
+      {
+        "x": 3239,
+        "y": 3248,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 3236,
+        "y": 3247,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2002,
+    "position": [
+      {
+        "x": 3236,
+        "y": 3248,
+        "plane": 0
+      }
+    ],
+    "description": "Ducklings"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1527,
+    "position": [
+      {
+        "x": 3239,
+        "y": 3242,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 3235,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1527,
+    "position": [
+      {
+        "x": 3239,
+        "y": 3243,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "WEST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3241,
+        "y": 3256,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1838,
+    "position": [
+      {
+        "x": 3244,
+        "y": 3227,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "EAST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 3240,
+        "y": 3240,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3240,
+        "y": 3241,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3249,
+        "y": 3244,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3246,
+        "y": 3252,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "EAST",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3233,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3241,
+        "y": 3246,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3223,
+    "position": [
+      {
+        "x": 3243,
+        "y": 3215,
+        "plane": 0
+      }
+    ],
+    "description": "Prayer tutor"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1838,
+    "position": [
+      {
+        "x": 3244,
+        "y": 3231,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "EAST",
+    "id": 3030,
+    "position": [
+      {
+        "x": 3202,
+        "y": 3245,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3244,
+        "y": 3238,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "EAST",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3203,
+        "y": 3257,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2812,
+    "position": [
+      {
+        "x": 3241,
+        "y": 3207,
+        "plane": 0
+      }
+    ],
+    "description": "Father Aereck"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3113,
+    "position": [
+      {
+        "x": 3240,
+        "y": 3212,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1326,
+    "position": [
+      {
+        "x": 3243,
+        "y": 3238,
+        "plane": 0
+      }
+    ],
+    "description": "Barfy Bill"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3242,
+        "y": 3240,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3243,
+        "y": 3247,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3233,
+        "y": 3254,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3248,
+        "y": 3230,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "WEST",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3243,
+        "y": 3235,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3245,
+        "y": 3232,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3254,
+        "y": 3247,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3252,
+        "y": 3251,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3247,
+        "y": 3244,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 3250,
+        "y": 3222,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3245,
+        "y": 3233,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3257,
+        "y": 3238,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3246,
+        "y": 3244,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3243,
+        "y": 3244,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 3257,
+        "y": 3211,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "EAST",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3261,
+        "y": 3232,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3248,
+        "y": 3247,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3247,
+        "y": 3240,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3246,
+        "y": 3243,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3243,
+        "y": 3257,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3254,
+        "y": 3225,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3259,
+        "y": 3226,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3030,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3236,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3252,
+        "y": 3263,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3242,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3252,
+        "y": 3254,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3223,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3254,
+        "y": 3245,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3239,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3251,
+        "y": 3239,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3245,
+        "y": 3259,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 236,
+    "position": [
+      {
+        "x": 3248,
+        "y": 3235,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "EAST",
+    "id": 2695,
+    "position": [
+      {
+        "x": 3209,
+        "y": 3262,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "WEST",
+    "id": 2790,
+    "position": [
+      {
+        "x": 3254,
+        "y": 3262,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "WEST",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3257,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3242,
+        "y": 3241,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3259,
+        "y": 3251,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3261,
+        "y": 3251,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3254,
+        "y": 3254,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3249,
+        "y": 3227,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3250,
+        "y": 3230,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3253,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3030,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3238,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2790,
+    "position": [
+      {
+        "x": 3262,
+        "y": 3256,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "EAST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 3262,
+        "y": 3212,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3254,
+        "y": 3223,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3260,
+        "y": 3226,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3255,
+        "y": 3229,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3035,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3240,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3036,
+    "position": [
+      {
+        "x": 3255,
+        "y": 3243,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 2791,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3263,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3221,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3261,
+        "y": 3226,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3205,
+        "y": 3238,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2693,
+    "position": [
+      {
+        "x": 3201,
+        "y": 3258,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2699,
+    "position": [
+      {
+        "x": 3202,
+        "y": 3261,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3201,
+        "y": 3209,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3202,
+        "y": 3203,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3203,
+        "y": 3207,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "EAST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3211,
+        "y": 3200,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3206,
+        "y": 3217,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3209,
+        "y": 3250,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1176,
+    "position": [
+      {
+        "x": 3206,
+        "y": 3260,
+        "plane": 0
+      }
+    ],
+    "description": "Li\u0027l lamb"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3201,
+        "y": 3212,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3201,
+        "y": 3206,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3106,
+    "position": [
+      {
+        "x": 3207,
+        "y": 3227,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "WEST",
+    "id": 3105,
+    "position": [
+      {
+        "x": 3207,
+        "y": 3205,
+        "plane": 0
+      }
+    ],
+    "description": "Hans"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2693,
+    "position": [
+      {
+        "x": 3209,
+        "y": 3263,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "EAST",
+    "id": 4626,
+    "position": [
+      {
+        "x": 3209,
+        "y": 3215,
+        "plane": 0
+      }
+    ],
+    "description": "Cook"
+  },
+  {
+    "facing": "WEST",
+    "id": 1177,
+    "position": [
+      {
+        "x": 3203,
+        "y": 3256,
+        "plane": 0
+      }
+    ],
+    "description": "Lamb"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2813,
+    "position": [
+      {
+        "x": 3211,
+        "y": 3244,
+        "plane": 0
+      }
+    ],
+    "description": "Shop keeper"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1263,
+    "position": [
+      {
+        "x": 3209,
+        "y": 3261,
+        "plane": 0
+      }
+    ],
+    "description": "Ram"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2699,
+    "position": [
+      {
+        "x": 3208,
+        "y": 3260,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "WEST",
+    "id": 12110,
+    "position": [
+      {
+        "x": 3211,
+        "y": 3213,
+        "plane": 0
+      }
+    ],
+    "description": "Patty Seer"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2814,
+    "position": [
+      {
+        "x": 3213,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Shop assistant"
+  },
+  {
+    "facing": "EAST",
+    "id": 3106,
+    "position": [
+      {
+        "x": 3220,
+        "y": 3219,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  }
+]

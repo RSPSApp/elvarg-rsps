@@ -1,0 +1,182 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 5187,
+    "position": [
+      {
+        "x": 2558,
+        "y": 3454,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5192,
+    "position": [
+      {
+        "x": 2558,
+        "y": 3452,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5200,
+    "position": [
+      {
+        "x": 2553,
+        "y": 3411,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1508,
+    "position": [
+      {
+        "x": 2530,
+        "y": 3412,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "EAST",
+    "id": 4179,
+    "position": [
+      {
+        "x": 2516,
+        "y": 3430,
+        "plane": 0
+      }
+    ],
+    "description": "Hadley"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1508,
+    "position": [
+      {
+        "x": 2532,
+        "y": 3411,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 4180,
+    "position": [
+      {
+        "x": 2527,
+        "y": 3413,
+        "plane": 0
+      }
+    ],
+    "description": "Gerald"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1508,
+    "position": [
+      {
+        "x": 2508,
+        "y": 3421,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1508,
+    "position": [
+      {
+        "x": 2527,
+        "y": 3412,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1508,
+    "position": [
+      {
+        "x": 2537,
+        "y": 3405,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "EAST",
+    "id": 679,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3431,
+        "plane": 0
+      }
+    ],
+    "description": "Rasolo"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1508,
+    "position": [
+      {
+        "x": 2507,
+        "y": 3421,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2090,
+    "position": [
+      {
+        "x": 2548,
+        "y": 3408,
+        "plane": 0
+      }
+    ],
+    "description": "Moss giant"
+  },
+  {
+    "facing": "WEST",
+    "id": 2092,
+    "position": [
+      {
+        "x": 2552,
+        "y": 3401,
+        "plane": 0
+      }
+    ],
+    "description": "Moss giant"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 234,
+    "position": [
+      {
+        "x": 2558,
+        "y": 3451,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "facing": "WEST",
+    "id": 114,
+    "position": [
+      {
+        "x": 2624,
+        "y": 3501,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "EAST",
+    "id": 114,
+    "position": [
+      {
+        "x": 2629,
+        "y": 3485,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "EAST",
+    "id": 114,
+    "position": [
+      {
+        "x": 2632,
+        "y": 3472,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "EAST",
+    "id": 114,
+    "position": [
+      {
+        "x": 2634,
+        "y": 3503,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "NORTH",
+    "id": 114,
+    "position": [
+      {
+        "x": 2645,
+        "y": 3490,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 4076,
+    "position": [
+      {
+        "x": 2651,
+        "y": 3466,
+        "plane": 0
+      }
+    ],
+    "description": "Forester"
+  },
+  {
+    "facing": "NORTH",
+    "id": 114,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3476,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "EAST",
+    "id": 114,
+    "position": [
+      {
+        "x": 2663,
+        "y": 3469,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 114,
+    "position": [
+      {
+        "x": 2666,
+        "y": 3504,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "WEST",
+    "id": 114,
+    "position": [
+      {
+        "x": 2670,
+        "y": 3487,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "EAST",
+    "id": 114,
+    "position": [
+      {
+        "x": 2675,
+        "y": 3504,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 382,
+    "position": [
+      {
+        "x": 2685,
+        "y": 3486,
+        "plane": 0
+      }
+    ],
+    "description": "Tramp"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "facing": "EAST",
+    "id": 3024,
+    "position": [
+      {
+        "x": 3037,
+        "y": 3565,
+        "plane": 0
+      }
+    ],
+    "description": "Scorpion"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3024,
+    "position": [
+      {
+        "x": 3031,
+        "y": 3575,
+        "plane": 0
+      }
+    ],
+    "description": "Scorpion"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3024,
+    "position": [
+      {
+        "x": 3024,
+        "y": 3580,
+        "plane": 0
+      }
+    ],
+    "description": "Scorpion"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3024,
+    "position": [
+      {
+        "x": 3036,
+        "y": 3569,
+        "plane": 0
+      }
+    ],
+    "description": "Scorpion"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3024,
+    "position": [
+      {
+        "x": 3045,
+        "y": 3570,
+        "plane": 0
+      }
+    ],
+    "description": "Scorpion"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3024,
+    "position": [
+      {
+        "x": 3055,
+        "y": 3570,
+        "plane": 0
+      }
+    ],
+    "description": "Scorpion"
+  },
+  {
+    "facing": "WEST",
+    "id": 3024,
+    "position": [
+      {
+        "x": 3060,
+        "y": 3567,
+        "plane": 0
+      }
+    ],
+    "description": "Scorpion"
+  }
+]

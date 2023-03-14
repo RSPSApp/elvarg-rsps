@@ -1,0 +1,62 @@
+[
+  {
+    "facing": "EAST",
+    "id": 7985,
+    "position": [
+      {
+        "x": 2480,
+        "y": 2875,
+        "plane": 0
+      }
+    ],
+    "description": "Haris"
+  },
+  {
+    "facing": "WEST",
+    "id": 7986,
+    "position": [
+      {
+        "x": 2492,
+        "y": 2848,
+        "plane": 0
+      }
+    ],
+    "description": "Altarkiz"
+  },
+  {
+    "facing": "NORTH",
+    "id": 8039,
+    "position": [
+      {
+        "x": 2454,
+        "y": 2850,
+        "plane": 0
+      }
+    ],
+    "description": "Freja"
+  },
+  {
+    "facing": "WEST",
+    "id": 7950,
+    "position": [
+      {
+        "x": 2459,
+        "y": 2867,
+        "plane": 0
+      }
+    ],
+    "description": "Alec Kincade"
+  },
+  {
+    "facing": "EAST",
+    "id": 8038,
+    "position": [
+      {
+        "x": 2466,
+        "y": 2849,
+        "plane": 0
+      }
+    ],
+    "description": "Ellen"
+  }
+]

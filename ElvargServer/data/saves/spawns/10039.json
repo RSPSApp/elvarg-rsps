@@ -1,0 +1,230 @@
+[
+  {
+    "facing": "EAST",
+    "id": 3069,
+    "position": [
+      {
+        "x": 2549,
+        "y": 3563,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5229,
+    "position": [
+      {
+        "x": 2553,
+        "y": 3570,
+        "plane": 0
+      }
+    ],
+    "description": "Kharid Scorpion"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1174,
+    "position": [
+      {
+        "x": 2553,
+        "y": 3565,
+        "plane": 0
+      }
+    ],
+    "description": "Chicken"
+  },
+  {
+    "facing": "EAST",
+    "id": 1174,
+    "position": [
+      {
+        "x": 2553,
+        "y": 3567,
+        "plane": 0
+      }
+    ],
+    "description": "Chicken"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1173,
+    "position": [
+      {
+        "x": 2553,
+        "y": 3560,
+        "plane": 0
+      }
+    ],
+    "description": "Chicken"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1544,
+    "position": [
+      {
+        "x": 2515,
+        "y": 3571,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1544,
+    "position": [
+      {
+        "x": 2516,
+        "y": 3574,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1660,
+    "position": [
+      {
+        "x": 2515,
+        "y": 3563,
+        "plane": 0
+      }
+    ],
+    "description": "Private Pierreb"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1659,
+    "position": [
+      {
+        "x": 2528,
+        "y": 3563,
+        "plane": 0
+      }
+    ],
+    "description": "Private Pendron"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1656,
+    "position": [
+      {
+        "x": 2536,
+        "y": 3578,
+        "plane": 0
+      }
+    ],
+    "description": "Commander Connad"
+  },
+  {
+    "facing": "EAST",
+    "id": 2153,
+    "position": [
+      {
+        "x": 2545,
+        "y": 3551,
+        "plane": 0
+      }
+    ],
+    "description": "Gunnjorn"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 7724,
+    "position": [
+      {
+        "x": 2543,
+        "y": 3567,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 7724,
+    "position": [
+      {
+        "x": 2543,
+        "y": 3571,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 3062,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3569,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3055,
+    "position": [
+      {
+        "x": 2546,
+        "y": 3557,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3056,
+    "position": [
+      {
+        "x": 2546,
+        "y": 3569,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "WEST",
+    "id": 3071,
+    "position": [
+      {
+        "x": 2547,
+        "y": 3556,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "WEST",
+    "id": 3057,
+    "position": [
+      {
+        "x": 2546,
+        "y": 3556,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3059,
+    "position": [
+      {
+        "x": 2549,
+        "y": 3566,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  }
+]

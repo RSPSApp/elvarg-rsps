@@ -1,0 +1,86 @@
+[
+  {
+    "facing": "NORTH_EAST",
+    "id": 3912,
+    "position": [
+      {
+        "x": 2642,
+        "y": 3627,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3912,
+    "position": [
+      {
+        "x": 2641,
+        "y": 3617,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "WEST",
+    "id": 3912,
+    "position": [
+      {
+        "x": 2641,
+        "y": 3633,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3921,
+    "position": [
+      {
+        "x": 2656,
+        "y": 3592,
+        "plane": 0
+      }
+    ],
+    "description": "Council workman"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5526,
+    "position": [
+      {
+        "x": 2658,
+        "y": 3626,
+        "plane": 0
+      }
+    ],
+    "description": "Thorodin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3930,
+    "position": [
+      {
+        "x": 2660,
+        "y": 3646,
+        "plane": 0
+      }
+    ],
+    "description": "Town Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3931,
+    "position": [
+      {
+        "x": 2664,
+        "y": 3646,
+        "plane": 0
+      }
+    ],
+    "description": "Town Guard"
+  }
+]

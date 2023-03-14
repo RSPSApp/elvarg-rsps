@@ -1,0 +1,38 @@
+[
+  {
+    "facing": "NORTH_WEST",
+    "id": 263,
+    "position": [
+      {
+        "x": 2974,
+        "y": 3618,
+        "plane": 0
+      }
+    ],
+    "description": "Green dragon"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 264,
+    "position": [
+      {
+        "x": 2978,
+        "y": 3610,
+        "plane": 0
+      }
+    ],
+    "description": "Green dragon"
+  },
+  {
+    "facing": "NORTH",
+    "id": 260,
+    "position": [
+      {
+        "x": 2986,
+        "y": 3619,
+        "plane": 0
+      }
+    ],
+    "description": "Green dragon"
+  }
+]

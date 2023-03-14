@@ -1,0 +1,554 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 6743,
+    "position": [
+      {
+        "x": 3207,
+        "y": 3501,
+        "plane": 0
+      }
+    ],
+    "description": "Sergeant Damien"
+  },
+  {
+    "facing": "EAST",
+    "id": 3260,
+    "position": [
+      {
+        "x": 3202,
+        "y": 3489,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 5083,
+    "position": [
+      {
+        "x": 3204,
+        "y": 3473,
+        "plane": 0
+      }
+    ],
+    "description": "Sir Prysin"
+  },
+  {
+    "facing": "EAST",
+    "id": 11911,
+    "position": [
+      {
+        "x": 3205,
+        "y": 3493,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11925,
+    "position": [
+      {
+        "x": 3205,
+        "y": 3484,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 11913,
+    "position": [
+      {
+        "x": 3202,
+        "y": 3462,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 4160,
+    "position": [
+      {
+        "x": 3207,
+        "y": 3494,
+        "plane": 0
+      }
+    ],
+    "description": "Surok Magis"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 4243,
+    "position": [
+      {
+        "x": 3210,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Reldo"
+  },
+  {
+    "facing": "EAST",
+    "id": 11915,
+    "position": [
+      {
+        "x": 3216,
+        "y": 3465,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 11911,
+    "position": [
+      {
+        "x": 3211,
+        "y": 3463,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 11917,
+    "position": [
+      {
+        "x": 3213,
+        "y": 3467,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "EAST",
+    "id": 528,
+    "position": [
+      {
+        "x": 3213,
+        "y": 3476,
+        "plane": 0
+      }
+    ],
+    "description": "Monk of Zamorak"
+  },
+  {
+    "facing": "WEST",
+    "id": 11912,
+    "position": [
+      {
+        "x": 3210,
+        "y": 3462,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11914,
+    "position": [
+      {
+        "x": 3214,
+        "y": 3459,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5215,
+    "position": [
+      {
+        "x": 3223,
+        "y": 3472,
+        "plane": 0
+      }
+    ],
+    "description": "King Roald"
+  },
+  {
+    "facing": "WEST",
+    "id": 3774,
+    "position": [
+      {
+        "x": 3222,
+        "y": 3475,
+        "plane": 0
+      }
+    ],
+    "description": "Aeonisig Raispher"
+  },
+  {
+    "facing": "NORTH",
+    "id": 11957,
+    "position": [
+      {
+        "x": 3225,
+        "y": 3459,
+        "plane": 0
+      }
+    ],
+    "description": "Treznor"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 516,
+    "position": [
+      {
+        "x": 3227,
+        "y": 3517,
+        "plane": 0
+      }
+    ],
+    "description": "Black Knight"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1390,
+    "position": [
+      {
+        "x": 3227,
+        "y": 3477,
+        "plane": 0
+      }
+    ],
+    "description": "Queen Ellamaria"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2838,
+    "position": [
+      {
+        "x": 3229,
+        "y": 3500,
+        "plane": 0
+      }
+    ],
+    "description": "Grizzly bear"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5007,
+    "position": [
+      {
+        "x": 3200,
+        "y": 3494,
+        "plane": 0
+      }
+    ],
+    "description": "Imp"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 516,
+    "position": [
+      {
+        "x": 3238,
+        "y": 3516,
+        "plane": 0
+      }
+    ],
+    "description": "Black Knight"
+  },
+  {
+    "facing": "WEST",
+    "id": 10414,
+    "position": [
+      {
+        "x": 3236,
+        "y": 3484,
+        "plane": 0
+      }
+    ],
+    "description": "Bob"
+  },
+  {
+    "facing": "WEST",
+    "id": 3097,
+    "position": [
+      {
+        "x": 3239,
+        "y": 3476,
+        "plane": 0
+      }
+    ],
+    "description": "Estate agent"
+  },
+  {
+    "facing": "EAST",
+    "id": 11912,
+    "position": [
+      {
+        "x": 3242,
+        "y": 3501,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "EAST",
+    "id": 10408,
+    "position": [
+      {
+        "x": 3242,
+        "y": 3471,
+        "plane": 0
+      }
+    ],
+    "description": "Marlo"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5007,
+    "position": [
+      {
+        "x": 3250,
+        "y": 3476,
+        "plane": 0
+      }
+    ],
+    "description": "Imp"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11916,
+    "position": [
+      {
+        "x": 3245,
+        "y": 3502,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5042,
+    "position": [
+      {
+        "x": 3253,
+        "y": 3477,
+        "plane": 0
+      }
+    ],
+    "description": "Jeremy Clerksin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 5038,
+    "position": [
+      {
+        "x": 3253,
+        "y": 3484,
+        "plane": 0
+      }
+    ],
+    "description": "Father Lawrence"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5041,
+    "position": [
+      {
+        "x": 3256,
+        "y": 3481,
+        "plane": 0
+      }
+    ],
+    "description": "Martina Scorsby"
+  },
+  {
+    "facing": "NORTH",
+    "id": 11914,
+    "position": [
+      {
+        "x": 3201,
+        "y": 3499,
+        "plane": 1
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 11911,
+    "position": [
+      {
+        "x": 3204,
+        "y": 3491,
+        "plane": 1
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 11913,
+    "position": [
+      {
+        "x": 3202,
+        "y": 3495,
+        "plane": 1
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 11916,
+    "position": [
+      {
+        "x": 3201,
+        "y": 3496,
+        "plane": 1
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2557,
+    "position": [
+      {
+        "x": 3218,
+        "y": 3482,
+        "plane": 1
+      }
+    ],
+    "description": "Ambassador Ferrnook"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2900,
+    "position": [
+      {
+        "x": 3255,
+        "y": 3488,
+        "plane": 1
+      }
+    ],
+    "description": "Elsie"
+  },
+  {
+    "facing": "NORTH",
+    "id": 11913,
+    "position": [
+      {
+        "x": 3207,
+        "y": 3482,
+        "plane": 2
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 5085,
+    "position": [
+      {
+        "x": 3203,
+        "y": 3494,
+        "plane": 2
+      }
+    ],
+    "description": "Captain Rovin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11907,
+    "position": [
+      {
+        "x": 3209,
+        "y": 3490,
+        "plane": 2
+      }
+    ],
+    "description": "Trainee Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11910,
+    "position": [
+      {
+        "x": 3211,
+        "y": 3490,
+        "plane": 2
+      }
+    ],
+    "description": "Trainee Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11907,
+    "position": [
+      {
+        "x": 3213,
+        "y": 3490,
+        "plane": 2
+      }
+    ],
+    "description": "Trainee Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 11906,
+    "position": [
+      {
+        "x": 3216,
+        "y": 3493,
+        "plane": 2
+      }
+    ],
+    "description": "Captain"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11909,
+    "position": [
+      {
+        "x": 3215,
+        "y": 3490,
+        "plane": 2
+      }
+    ],
+    "description": "Trainee Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11908,
+    "position": [
+      {
+        "x": 3217,
+        "y": 3490,
+        "plane": 2
+      }
+    ],
+    "description": "Trainee Guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 11913,
+    "position": [
+      {
+        "x": 3219,
+        "y": 3485,
+        "plane": 2
+      }
+    ],
+    "description": "Guard"
+  }
+]

@@ -1,0 +1,710 @@
+[
+  {
+    "facing": "NORTH",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2386,
+        "y": 3456,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 4299,
+    "position": [
+      {
+        "x": 2371,
+        "y": 3485,
+        "plane": 0
+      }
+    ],
+    "description": "Kathy Corkat"
+  },
+  {
+    "facing": "NORTH",
+    "id": 4294,
+    "position": [
+      {
+        "x": 2370,
+        "y": 3485,
+        "plane": 0
+      }
+    ],
+    "description": "Devin Mendelberg"
+  },
+  {
+    "facing": "EAST",
+    "id": 236,
+    "position": [
+      {
+        "x": 2376,
+        "y": 3476,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 236,
+    "position": [
+      {
+        "x": 2378,
+        "y": 3463,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 6087,
+    "position": [
+      {
+        "x": 2381,
+        "y": 3480,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6086,
+    "position": [
+      {
+        "x": 2382,
+        "y": 3478,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "WEST",
+    "id": 6086,
+    "position": [
+      {
+        "x": 2378,
+        "y": 3496,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "WEST",
+    "id": 6087,
+    "position": [
+      {
+        "x": 2378,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 4973,
+    "position": [
+      {
+        "x": 2384,
+        "y": 3481,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3157,
+    "position": [
+      {
+        "x": 2385,
+        "y": 3487,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome ball referee"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6086,
+    "position": [
+      {
+        "x": 2383,
+        "y": 3496,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "EAST",
+    "id": 4973,
+    "position": [
+      {
+        "x": 2386,
+        "y": 3473,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 6086,
+    "position": [
+      {
+        "x": 2393,
+        "y": 3474,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3151,
+    "position": [
+      {
+        "x": 2389,
+        "y": 3484,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "EAST",
+    "id": 3151,
+    "position": [
+      {
+        "x": 2394,
+        "y": 3490,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3151,
+    "position": [
+      {
+        "x": 2392,
+        "y": 3487,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3151,
+    "position": [
+      {
+        "x": 2388,
+        "y": 3492,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6077,
+    "position": [
+      {
+        "x": 2390,
+        "y": 3475,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome child"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3155,
+    "position": [
+      {
+        "x": 2397,
+        "y": 3488,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome winger"
+  },
+  {
+    "facing": "WEST",
+    "id": 3155,
+    "position": [
+      {
+        "x": 2393,
+        "y": 3493,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome winger"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6077,
+    "position": [
+      {
+        "x": 2392,
+        "y": 3507,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome child"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3158,
+    "position": [
+      {
+        "x": 2395,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Cheerleader"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6077,
+    "position": [
+      {
+        "x": 2393,
+        "y": 3472,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome child"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3147,
+    "position": [
+      {
+        "x": 2394,
+        "y": 3486,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "WEST",
+    "id": 3147,
+    "position": [
+      {
+        "x": 2393,
+        "y": 3484,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "EAST",
+    "id": 3147,
+    "position": [
+      {
+        "x": 2397,
+        "y": 3488,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3147,
+    "position": [
+      {
+        "x": 2393,
+        "y": 3494,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3158,
+    "position": [
+      {
+        "x": 2397,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Cheerleader"
+  },
+  {
+    "facing": "EAST",
+    "id": 3143,
+    "position": [
+      {
+        "x": 2401,
+        "y": 3484,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3143,
+    "position": [
+      {
+        "x": 2404,
+        "y": 3485,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3143,
+    "position": [
+      {
+        "x": 2403,
+        "y": 3483,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3143,
+    "position": [
+      {
+        "x": 2403,
+        "y": 3486,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3143,
+    "position": [
+      {
+        "x": 2402,
+        "y": 3491,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3143,
+    "position": [
+      {
+        "x": 2400,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome baller"
+  },
+  {
+    "facing": "EAST",
+    "id": 6087,
+    "position": [
+      {
+        "x": 2401,
+        "y": 3510,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 6077,
+    "position": [
+      {
+        "x": 2406,
+        "y": 3500,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome child"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6087,
+    "position": [
+      {
+        "x": 2406,
+        "y": 3476,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "EAST",
+    "id": 3142,
+    "position": [
+      {
+        "x": 2400,
+        "y": 3498,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome Coach"
+  },
+  {
+    "facing": "NORTH",
+    "id": 4974,
+    "position": [
+      {
+        "x": 2406,
+        "y": 3509,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 6086,
+    "position": [
+      {
+        "x": 2409,
+        "y": 3496,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 6077,
+    "position": [
+      {
+        "x": 2416,
+        "y": 3486,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome child"
+  },
+  {
+    "facing": "EAST",
+    "id": 2573,
+    "position": [
+      {
+        "x": 2414,
+        "y": 3519,
+        "plane": 0
+      }
+    ],
+    "description": "Sarble"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6086,
+    "position": [
+      {
+        "x": 2421,
+        "y": 3477,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "WEST",
+    "id": 237,
+    "position": [
+      {
+        "x": 2426,
+        "y": 3467,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 6087,
+    "position": [
+      {
+        "x": 2423,
+        "y": 3486,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "NORTH",
+    "id": 235,
+    "position": [
+      {
+        "x": 2418,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "EAST",
+    "id": 6087,
+    "position": [
+      {
+        "x": 2384,
+        "y": 3509,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "EAST",
+    "id": 7156,
+    "position": [
+      {
+        "x": 2388,
+        "y": 3513,
+        "plane": 1
+      }
+    ],
+    "description": "Anita"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6095,
+    "position": [
+      {
+        "x": 2397,
+        "y": 3499,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 6086,
+    "position": [
+      {
+        "x": 2397,
+        "y": 3514,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "WEST",
+    "id": 6095,
+    "position": [
+      {
+        "x": 2416,
+        "y": 3485,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2417,
+        "y": 3489,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2559,
+    "position": [
+      {
+        "x": 2419,
+        "y": 3499,
+        "plane": 1
+      }
+    ],
+    "description": "Damwin"
+  },
+  {
+    "facing": "EAST",
+    "id": 6532,
+    "position": [
+      {
+        "x": 2418,
+        "y": 3499,
+        "plane": 1
+      }
+    ],
+    "description": "Barman"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6096,
+    "position": [
+      {
+        "x": 2419,
+        "y": 3486,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2416,
+        "y": 3498,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6096,
+    "position": [
+      {
+        "x": 2429,
+        "y": 3488,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 236,
+    "position": [
+      {
+        "x": 2427,
+        "y": 3519,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  }
+]

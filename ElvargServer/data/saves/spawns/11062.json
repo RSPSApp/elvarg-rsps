@@ -1,0 +1,86 @@
+[
+  {
+    "facing": "NORTH",
+    "id": 3525,
+    "position": [
+      {
+        "x": 2758,
+        "y": 3517,
+        "plane": 0
+      }
+    ],
+    "description": "Sir Lucan"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5517,
+    "position": [
+      {
+        "x": 2760,
+        "y": 3476,
+        "plane": 0
+      }
+    ],
+    "description": "The \u0027Wedge\u0027"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3521,
+    "position": [
+      {
+        "x": 2763,
+        "y": 3494,
+        "plane": 0
+      }
+    ],
+    "description": "Sir Kay"
+  },
+  {
+    "facing": "WEST",
+    "id": 3520,
+    "position": [
+      {
+        "x": 2766,
+        "y": 3504,
+        "plane": 0
+      }
+    ],
+    "description": "Sir Gawain"
+  },
+  {
+    "facing": "WEST",
+    "id": 3531,
+    "position": [
+      {
+        "x": 2764,
+        "y": 3513,
+        "plane": 0
+      }
+    ],
+    "description": "King Arthur"
+  },
+  {
+    "facing": "WEST",
+    "id": 2837,
+    "position": [
+      {
+        "x": 2774,
+        "y": 3467,
+        "plane": 0
+      }
+    ],
+    "description": "Unicorn"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2837,
+    "position": [
+      {
+        "x": 2790,
+        "y": 3468,
+        "plane": 0
+      }
+    ],
+    "description": "Unicorn"
+  }
+]

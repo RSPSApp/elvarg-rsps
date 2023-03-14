@@ -1,0 +1,290 @@
+[
+  {
+    "facing": "WEST",
+    "id": 2095,
+    "position": [
+      {
+        "x": 2568,
+        "y": 2991,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2095,
+    "position": [
+      {
+        "x": 2575,
+        "y": 2989,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre"
+  },
+  {
+    "facing": "EAST",
+    "id": 2095,
+    "position": [
+      {
+        "x": 2584,
+        "y": 2967,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2095,
+    "position": [
+      {
+        "x": 2583,
+        "y": 2978,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2095,
+    "position": [
+      {
+        "x": 2591,
+        "y": 2965,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre"
+  },
+  {
+    "facing": "WEST",
+    "id": 1473,
+    "position": [
+      {
+        "x": 2595,
+        "y": 2963,
+        "plane": 0
+      }
+    ],
+    "description": "Swamp toad"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 1473,
+    "position": [
+      {
+        "x": 2597,
+        "y": 2970,
+        "plane": 0
+      }
+    ],
+    "description": "Swamp toad"
+  },
+  {
+    "facing": "WEST",
+    "id": 1473,
+    "position": [
+      {
+        "x": 2594,
+        "y": 2961,
+        "plane": 0
+      }
+    ],
+    "description": "Swamp toad"
+  },
+  {
+    "facing": "EAST",
+    "id": 1473,
+    "position": [
+      {
+        "x": 2594,
+        "y": 2968,
+        "plane": 0
+      }
+    ],
+    "description": "Swamp toad"
+  },
+  {
+    "facing": "EAST",
+    "id": 1473,
+    "position": [
+      {
+        "x": 2604,
+        "y": 2961,
+        "plane": 0
+      }
+    ],
+    "description": "Swamp toad"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1473,
+    "position": [
+      {
+        "x": 2598,
+        "y": 2971,
+        "plane": 0
+      }
+    ],
+    "description": "Swamp toad"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 106,
+    "position": [
+      {
+        "x": 2606,
+        "y": 2952,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "EAST",
+    "id": 1473,
+    "position": [
+      {
+        "x": 2604,
+        "y": 2970,
+        "plane": 0
+      }
+    ],
+    "description": "Swamp toad"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1473,
+    "position": [
+      {
+        "x": 2601,
+        "y": 2964,
+        "plane": 0
+      }
+    ],
+    "description": "Swamp toad"
+  },
+  {
+    "facing": "NORTH",
+    "id": 106,
+    "position": [
+      {
+        "x": 2608,
+        "y": 2963,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "EAST",
+    "id": 106,
+    "position": [
+      {
+        "x": 2607,
+        "y": 2967,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2095,
+    "position": [
+      {
+        "x": 2608,
+        "y": 2978,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2095,
+    "position": [
+      {
+        "x": 2608,
+        "y": 2990,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre"
+  },
+  {
+    "facing": "EAST",
+    "id": 106,
+    "position": [
+      {
+        "x": 2611,
+        "y": 2957,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 106,
+    "position": [
+      {
+        "x": 2611,
+        "y": 2964,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "EAST",
+    "id": 106,
+    "position": [
+      {
+        "x": 2614,
+        "y": 2961,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2095,
+    "position": [
+      {
+        "x": 2614,
+        "y": 2998,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 4362,
+    "position": [
+      {
+        "x": 2614,
+        "y": 2987,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre chieftain"
+  },
+  {
+    "facing": "EAST",
+    "id": 2839,
+    "position": [
+      {
+        "x": 2599,
+        "y": 3005,
+        "plane": 0
+      }
+    ],
+    "description": "Black bear"
+  }
+]

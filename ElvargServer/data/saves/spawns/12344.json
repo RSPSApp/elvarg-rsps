@@ -1,0 +1,182 @@
+[
+  {
+    "facing": "WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3134,
+        "y": 3629,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "EAST",
+    "id": 2838,
+    "position": [
+      {
+        "x": 3082,
+        "y": 3606,
+        "plane": 0
+      }
+    ],
+    "description": "Grizzly bear"
+  },
+  {
+    "facing": "WEST",
+    "id": 2838,
+    "position": [
+      {
+        "x": 3076,
+        "y": 3607,
+        "plane": 0
+      }
+    ],
+    "description": "Grizzly bear"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2838,
+    "position": [
+      {
+        "x": 3082,
+        "y": 3600,
+        "plane": 0
+      }
+    ],
+    "description": "Grizzly bear"
+  },
+  {
+    "facing": "NORTH",
+    "id": 10380,
+    "position": [
+      {
+        "x": 3127,
+        "y": 3629,
+        "plane": 0
+      }
+    ],
+    "description": "Zamorakian Acolyte"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 7456,
+    "position": [
+      {
+        "x": 3128,
+        "y": 3631,
+        "plane": 0
+      }
+    ],
+    "description": "Perdu"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6590,
+    "position": [
+      {
+        "x": 3125,
+        "y": 3635,
+        "plane": 0
+      }
+    ],
+    "description": "Sister Scarophia"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 10385,
+    "position": [
+      {
+        "x": 3129,
+        "y": 3617,
+        "plane": 0
+      }
+    ],
+    "description": "Refugee"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 10377,
+    "position": [
+      {
+        "x": 3127,
+        "y": 3634,
+        "plane": 0
+      }
+    ],
+    "description": "Ferox"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 10383,
+    "position": [
+      {
+        "x": 3130,
+        "y": 3619,
+        "plane": 0
+      }
+    ],
+    "description": "Refugee"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 10378,
+    "position": [
+      {
+        "x": 3132,
+        "y": 3618,
+        "plane": 0
+      }
+    ],
+    "description": "Sigismund"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 10389,
+    "position": [
+      {
+        "x": 3135,
+        "y": 3629,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "NORTH",
+    "id": 10390,
+    "position": [
+      {
+        "x": 3135,
+        "y": 3627,
+        "plane": 0
+      }
+    ],
+    "description": "Mercenary"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 10379,
+    "position": [
+      {
+        "x": 3134,
+        "y": 3633,
+        "plane": 0
+      }
+    ],
+    "description": "Zamorakian Acolyte"
+  },
+  {
+    "facing": "WEST",
+    "id": 10381,
+    "position": [
+      {
+        "x": 3134,
+        "y": 3635,
+        "plane": 0
+      }
+    ],
+    "description": "Zamorakian Acolyte"
+  }
+]

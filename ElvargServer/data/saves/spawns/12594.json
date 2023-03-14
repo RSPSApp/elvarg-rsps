@@ -1,0 +1,794 @@
+[
+  {
+    "facing": "NORTH",
+    "id": 238,
+    "position": [
+      {
+        "x": 3141,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "EAST",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3139,
+        "y": 3218,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3150,
+        "y": 3228,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3148,
+        "y": 3232,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3140,
+        "y": 3253,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3150,
+        "y": 3236,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3035,
+    "position": [
+      {
+        "x": 3156,
+        "y": 3240,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2856,
+    "position": [
+      {
+        "x": 3159,
+        "y": 3201,
+        "plane": 0
+      }
+    ],
+    "description": "Giant rat"
+  },
+  {
+    "facing": "EAST",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3138,
+        "y": 3253,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1157,
+    "position": [
+      {
+        "x": 3147,
+        "y": 3208,
+        "plane": 0
+      }
+    ],
+    "description": "Archer"
+  },
+  {
+    "facing": "EAST",
+    "id": 1158,
+    "position": [
+      {
+        "x": 3149,
+        "y": 3208,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1159,
+    "position": [
+      {
+        "x": 3150,
+        "y": 3207,
+        "plane": 0
+      }
+    ],
+    "description": "Monk"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 1160,
+    "position": [
+      {
+        "x": 3149,
+        "y": 3206,
+        "plane": 0
+      }
+    ],
+    "description": "Wizard"
+  },
+  {
+    "facing": "WEST",
+    "id": 238,
+    "position": [
+      {
+        "x": 3148,
+        "y": 3253,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3019,
+    "position": [
+      {
+        "x": 3158,
+        "y": 3227,
+        "plane": 0
+      }
+    ],
+    "description": "Spider"
+  },
+  {
+    "facing": "WEST",
+    "id": 3019,
+    "position": [
+      {
+        "x": 3151,
+        "y": 3229,
+        "plane": 0
+      }
+    ],
+    "description": "Spider"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3156,
+        "y": 3223,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3163,
+        "y": 3227,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "WEST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3159,
+        "y": 3219,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3019,
+    "position": [
+      {
+        "x": 3164,
+        "y": 3227,
+        "plane": 0
+      }
+    ],
+    "description": "Spider"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3019,
+    "position": [
+      {
+        "x": 3159,
+        "y": 3242,
+        "plane": 0
+      }
+    ],
+    "description": "Spider"
+  },
+  {
+    "facing": "EAST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3172,
+        "y": 3253,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3171,
+        "y": 3241,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3019,
+    "position": [
+      {
+        "x": 3167,
+        "y": 3250,
+        "plane": 0
+      }
+    ],
+    "description": "Spider"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3045,
+    "position": [
+      {
+        "x": 3154,
+        "y": 3204,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3167,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3019,
+    "position": [
+      {
+        "x": 3171,
+        "y": 3247,
+        "plane": 0
+      }
+    ],
+    "description": "Spider"
+  },
+  {
+    "facing": "EAST",
+    "id": 238,
+    "position": [
+      {
+        "x": 3166,
+        "y": 3262,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "WEST",
+    "id": 3019,
+    "position": [
+      {
+        "x": 3164,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Spider"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3174,
+        "y": 3244,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "EAST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3166,
+        "y": 3251,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "WEST",
+    "id": 234,
+    "position": [
+      {
+        "x": 3176,
+        "y": 3225,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "NORTH",
+    "id": 234,
+    "position": [
+      {
+        "x": 3179,
+        "y": 3229,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "NORTH",
+    "id": 234,
+    "position": [
+      {
+        "x": 3178,
+        "y": 3221,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 513,
+    "position": [
+      {
+        "x": 3179,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Mugger"
+  },
+  {
+    "facing": "EAST",
+    "id": 234,
+    "position": [
+      {
+        "x": 3182,
+        "y": 3252,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3183,
+        "y": 3252,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3186,
+        "y": 3239,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 234,
+    "position": [
+      {
+        "x": 3189,
+        "y": 3254,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "WEST",
+    "id": 1303,
+    "position": [
+      {
+        "x": 3181,
+        "y": 3215,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3036,
+    "position": [
+      {
+        "x": 3186,
+        "y": 3239,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3176,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 8701,
+    "position": [
+      {
+        "x": 3184,
+        "y": 3200,
+        "plane": 0
+      }
+    ],
+    "description": "Big frog"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 1308,
+    "position": [
+      {
+        "x": 3185,
+        "y": 3215,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3034,
+    "position": [
+      {
+        "x": 3182,
+        "y": 3255,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3036,
+    "position": [
+      {
+        "x": 3181,
+        "y": 3252,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3187,
+        "y": 3206,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2859,
+    "position": [
+      {
+        "x": 3191,
+        "y": 3207,
+        "plane": 0
+      }
+    ],
+    "description": "Giant rat"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3192,
+        "y": 3245,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3194,
+        "y": 3208,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2681,
+    "position": [
+      {
+        "x": 3196,
+        "y": 3229,
+        "plane": 0
+      }
+    ],
+    "description": "Fayeth"
+  },
+  {
+    "facing": "WEST",
+    "id": 2699,
+    "position": [
+      {
+        "x": 3192,
+        "y": 3260,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "WEST",
+    "id": 2861,
+    "position": [
+      {
+        "x": 3189,
+        "y": 3204,
+        "plane": 0
+      }
+    ],
+    "description": "Giant rat"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2860,
+    "position": [
+      {
+        "x": 3193,
+        "y": 3211,
+        "plane": 0
+      }
+    ],
+    "description": "Giant rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 0,
+    "position": [
+      {
+        "x": 3189,
+        "y": 3234,
+        "plane": 0
+      }
+    ],
+    "description": "Tool Leprechaun"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2786,
+    "position": [
+      {
+        "x": 3195,
+        "y": 3257,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "EAST",
+    "id": 2859,
+    "position": [
+      {
+        "x": 3196,
+        "y": 3204,
+        "plane": 0
+      }
+    ],
+    "description": "Giant rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3190,
+        "y": 3203,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3030,
+    "position": [
+      {
+        "x": 3199,
+        "y": 3256,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3199,
+        "y": 3257,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3032,
+    "position": [
+      {
+        "x": 3198,
+        "y": 3241,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 2837,
+    "position": [
+      {
+        "x": 3141,
+        "y": 3209,
+        "plane": 0
+      }
+    ],
+    "description": "Unicorn"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3031,
+    "position": [
+      {
+        "x": 3137,
+        "y": 3250,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3029,
+    "position": [
+      {
+        "x": 3141,
+        "y": 3263,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3030,
+    "position": [
+      {
+        "x": 3146,
+        "y": 3234,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3030,
+    "position": [
+      {
+        "x": 3140,
+        "y": 3263,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  }
+]

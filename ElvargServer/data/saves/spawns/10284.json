@@ -1,0 +1,146 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 9337,
+    "position": [
+      {
+        "x": 2589,
+        "y": 2850,
+        "plane": 0
+      }
+    ],
+    "description": "Trader Crewmember"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2908,
+    "position": [
+      {
+        "x": 2579,
+        "y": 2879,
+        "plane": 0
+      }
+    ],
+    "description": "Spined larupia"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5549,
+    "position": [
+      {
+        "x": 2587,
+        "y": 2878,
+        "plane": 0
+      }
+    ],
+    "description": "Crimson swift"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1339,
+    "position": [
+      {
+        "x": 2562,
+        "y": 2859,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "WEST",
+    "id": 1339,
+    "position": [
+      {
+        "x": 2563,
+        "y": 2862,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 7982,
+    "position": [
+      {
+        "x": 2569,
+        "y": 2866,
+        "plane": 0
+      }
+    ],
+    "description": "Yusuf"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1262,
+    "position": [
+      {
+        "x": 2578,
+        "y": 2868,
+        "plane": 0
+      }
+    ],
+    "description": "Ram"
+  },
+  {
+    "facing": "EAST",
+    "id": 1339,
+    "position": [
+      {
+        "x": 2581,
+        "y": 2861,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "NORTH",
+    "id": 7957,
+    "position": [
+      {
+        "x": 2586,
+        "y": 2867,
+        "plane": 0
+      }
+    ],
+    "description": "Captain Tock"
+  },
+  {
+    "facing": "WEST",
+    "id": 1339,
+    "position": [
+      {
+        "x": 2578,
+        "y": 2841,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1339,
+    "position": [
+      {
+        "x": 2580,
+        "y": 2848,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "WEST",
+    "id": 9373,
+    "position": [
+      {
+        "x": 2584,
+        "y": 2850,
+        "plane": 0
+      }
+    ],
+    "description": "Trader Crewmember"
+  }
+]

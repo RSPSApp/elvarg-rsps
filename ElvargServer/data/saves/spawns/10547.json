@@ -1,0 +1,530 @@
+[
+  {
+    "facing": "WEST",
+    "id": 5313,
+    "position": [
+      {
+        "x": 2643,
+        "y": 3277,
+        "plane": 0
+      }
+    ],
+    "description": "GPDT employee"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5313,
+    "position": [
+      {
+        "x": 2642,
+        "y": 3272,
+        "plane": 0
+      }
+    ],
+    "description": "GPDT employee"
+  },
+  {
+    "facing": "NORTH",
+    "id": 114,
+    "position": [
+      {
+        "x": 2646,
+        "y": 3327,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "EAST",
+    "id": 5313,
+    "position": [
+      {
+        "x": 2646,
+        "y": 3273,
+        "plane": 0
+      }
+    ],
+    "description": "GPDT employee"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3295,
+    "position": [
+      {
+        "x": 2646,
+        "y": 3305,
+        "plane": 0
+      }
+    ],
+    "description": "Hero"
+  },
+  {
+    "facing": "EAST",
+    "id": 11938,
+    "position": [
+      {
+        "x": 2654,
+        "y": 3304,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8681,
+    "position": [
+      {
+        "x": 2651,
+        "y": 3296,
+        "plane": 0
+      }
+    ],
+    "description": "Zenesha"
+  },
+  {
+    "facing": "WEST",
+    "id": 3297,
+    "position": [
+      {
+        "x": 2667,
+        "y": 3295,
+        "plane": 0
+      }
+    ],
+    "description": "Knight of Ardougne"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3294,
+    "position": [
+      {
+        "x": 2654,
+        "y": 3316,
+        "plane": 0
+      }
+    ],
+    "description": "Paladin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8724,
+    "position": [
+      {
+        "x": 2654,
+        "y": 3311,
+        "plane": 0
+      }
+    ],
+    "description": "Baker"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 10419,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3320,
+        "plane": 0
+      }
+    ],
+    "description": "Noella"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8728,
+    "position": [
+      {
+        "x": 2656,
+        "y": 3301,
+        "plane": 0
+      }
+    ],
+    "description": "Silk merchant"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1618,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3280,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "WEST",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3283,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3286,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 11933,
+    "position": [
+      {
+        "x": 2658,
+        "y": 3306,
+        "plane": 0
+      }
+    ],
+    "description": "Paladin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8726,
+    "position": [
+      {
+        "x": 2658,
+        "y": 3296,
+        "plane": 0
+      }
+    ],
+    "description": "Spice seller"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8722,
+    "position": [
+      {
+        "x": 2658,
+        "y": 3316,
+        "plane": 0
+      }
+    ],
+    "description": "Silver merchant"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5418,
+    "position": [
+      {
+        "x": 2661,
+        "y": 3310,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 11939,
+    "position": [
+      {
+        "x": 2662,
+        "y": 3310,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 11937,
+    "position": [
+      {
+        "x": 2660,
+        "y": 3310,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "EAST",
+    "id": 5418,
+    "position": [
+      {
+        "x": 2660,
+        "y": 3300,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5418,
+    "position": [
+      {
+        "x": 2662,
+        "y": 3319,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "EAST",
+    "id": 11939,
+    "position": [
+      {
+        "x": 2665,
+        "y": 3295,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 279,
+    "position": [
+      {
+        "x": 2665,
+        "y": 3308,
+        "plane": 0
+      }
+    ],
+    "description": "Town Crier"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8727,
+    "position": [
+      {
+        "x": 2666,
+        "y": 3295,
+        "plane": 0
+      }
+    ],
+    "description": "Fur trader"
+  },
+  {
+    "facing": "WEST",
+    "id": 11935,
+    "position": [
+      {
+        "x": 2668,
+        "y": 3318,
+        "plane": 0
+      }
+    ],
+    "description": "Hero"
+  },
+  {
+    "facing": "EAST",
+    "id": 11936,
+    "position": [
+      {
+        "x": 2659,
+        "y": 3299,
+        "plane": 0
+      }
+    ],
+    "description": "Knight of Ardougne"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8723,
+    "position": [
+      {
+        "x": 2669,
+        "y": 3303,
+        "plane": 0
+      }
+    ],
+    "description": "Gem merchant"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8725,
+    "position": [
+      {
+        "x": 2669,
+        "y": 3310,
+        "plane": 0
+      }
+    ],
+    "description": "Baker"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3297,
+    "position": [
+      {
+        "x": 2669,
+        "y": 3317,
+        "plane": 0
+      }
+    ],
+    "description": "Knight of Ardougne"
+  },
+  {
+    "facing": "WEST",
+    "id": 8480,
+    "position": [
+      {
+        "x": 2683,
+        "y": 3326,
+        "plane": 0
+      }
+    ],
+    "description": "Wizard Cromperty"
+  },
+  {
+    "facing": "EAST",
+    "id": 9250,
+    "position": [
+      {
+        "x": 2678,
+        "y": 3275,
+        "plane": 0
+      }
+    ],
+    "description": "Captain Barnaby"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 114,
+    "position": [
+      {
+        "x": 2624,
+        "y": 3317,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 114,
+    "position": [
+      {
+        "x": 2624,
+        "y": 3325,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "EAST",
+    "id": 3260,
+    "position": [
+      {
+        "x": 2632,
+        "y": 3296,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 11934,
+    "position": [
+      {
+        "x": 2628,
+        "y": 3288,
+        "plane": 0
+      }
+    ],
+    "description": "Hero"
+  },
+  {
+    "facing": "EAST",
+    "id": 2838,
+    "position": [
+      {
+        "x": 2634,
+        "y": 3274,
+        "plane": 0
+      }
+    ],
+    "description": "Grizzly bear"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11929,
+    "position": [
+      {
+        "x": 2631,
+        "y": 3296,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "EAST",
+    "id": 2838,
+    "position": [
+      {
+        "x": 2633,
+        "y": 3282,
+        "plane": 0
+      }
+    ],
+    "description": "Grizzly bear"
+  },
+  {
+    "facing": "NORTH",
+    "id": 10410,
+    "position": [
+      {
+        "x": 2637,
+        "y": 3294,
+        "plane": 0
+      }
+    ],
+    "description": "Ellie"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5315,
+    "position": [
+      {
+        "x": 2634,
+        "y": 3313,
+        "plane": 0
+      }
+    ],
+    "description": "Horacio"
+  },
+  {
+    "facing": "EAST",
+    "id": 3097,
+    "position": [
+      {
+        "x": 2638,
+        "y": 3293,
+        "plane": 0
+      }
+    ],
+    "description": "Estate agent"
+  },
+  {
+    "facing": "WEST",
+    "id": 114,
+    "position": [
+      {
+        "x": 2638,
+        "y": 3316,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  }
+]

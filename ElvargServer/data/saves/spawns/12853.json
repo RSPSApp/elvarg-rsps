@@ -1,0 +1,710 @@
+[
+  {
+    "facing": "EAST",
+    "id": 1904,
+    "position": [
+      {
+        "x": 3254,
+        "y": 3444,
+        "plane": 0
+      }
+    ],
+    "description": "Marius Giste"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2898,
+    "position": [
+      {
+        "x": 3255,
+        "y": 3418,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2898,
+    "position": [
+      {
+        "x": 3256,
+        "y": 3418,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1905,
+    "position": [
+      {
+        "x": 3256,
+        "y": 3443,
+        "plane": 0
+      }
+    ],
+    "description": "Caden Azro"
+  },
+  {
+    "facing": "EAST",
+    "id": 1906,
+    "position": [
+      {
+        "x": 3257,
+        "y": 3442,
+        "plane": 0
+      }
+    ],
+    "description": "Thias Leacke"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5214,
+    "position": [
+      {
+        "x": 3254,
+        "y": 3450,
+        "plane": 0
+      }
+    ],
+    "description": "Curator Haig Halen"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1910,
+    "position": [
+      {
+        "x": 3260,
+        "y": 3447,
+        "plane": 0
+      }
+    ],
+    "description": "Museum guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 1922,
+    "position": [
+      {
+        "x": 3256,
+        "y": 3454,
+        "plane": 0
+      }
+    ],
+    "description": "Teacher and pupil"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3107,
+    "position": [
+      {
+        "x": 3260,
+        "y": 3397,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1920,
+    "position": [
+      {
+        "x": 3261,
+        "y": 3451,
+        "plane": 0
+      }
+    ],
+    "description": "Schoolboy"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1147,
+    "position": [
+      {
+        "x": 3263,
+        "y": 3407,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "EAST",
+    "id": 1912,
+    "position": [
+      {
+        "x": 3263,
+        "y": 3441,
+        "plane": 0
+      }
+    ],
+    "description": "Museum guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 1921,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3451,
+        "plane": 0
+      }
+    ],
+    "description": "Schoolgirl"
+  },
+  {
+    "facing": "WEST",
+    "id": 11957,
+    "position": [
+      {
+        "x": 3223,
+        "y": 3455,
+        "plane": 0
+      }
+    ],
+    "description": "Treznor"
+  },
+  {
+    "facing": "EAST",
+    "id": 5217,
+    "position": [
+      {
+        "x": 3232,
+        "y": 3392,
+        "plane": 0
+      }
+    ],
+    "description": "Thief"
+  },
+  {
+    "facing": "WEST",
+    "id": 8491,
+    "position": [
+      {
+        "x": 3263,
+        "y": 3455,
+        "plane": 0
+      }
+    ],
+    "description": "The Collector"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2902,
+    "position": [
+      {
+        "x": 3213,
+        "y": 3407,
+        "plane": 0
+      }
+    ],
+    "description": "Stray dog"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2884,
+    "position": [
+      {
+        "x": 3202,
+        "y": 3398,
+        "plane": 0
+      }
+    ],
+    "description": "Shop keeper"
+  },
+  {
+    "facing": "WEST",
+    "id": 10477,
+    "position": [
+      {
+        "x": 3204,
+        "y": 3414,
+        "plane": 0
+      }
+    ],
+    "description": "Thessalia"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2899,
+    "position": [
+      {
+        "x": 3204,
+        "y": 3419,
+        "plane": 0
+      }
+    ],
+    "description": "Iffie"
+  },
+  {
+    "facing": "EAST",
+    "id": 2885,
+    "position": [
+      {
+        "x": 3209,
+        "y": 3396,
+        "plane": 0
+      }
+    ],
+    "description": "Shop assistant"
+  },
+  {
+    "facing": "EAST",
+    "id": 513,
+    "position": [
+      {
+        "x": 3258,
+        "y": 3396,
+        "plane": 0
+      }
+    ],
+    "description": "Mugger"
+  },
+  {
+    "facing": "EAST",
+    "id": 5037,
+    "position": [
+      {
+        "x": 3211,
+        "y": 3425,
+        "plane": 0
+      }
+    ],
+    "description": "Romeo"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2816,
+    "position": [
+      {
+        "x": 3217,
+        "y": 3411,
+        "plane": 0
+      }
+    ],
+    "description": "Shop assistant"
+  },
+  {
+    "facing": "WEST",
+    "id": 2881,
+    "position": [
+      {
+        "x": 3216,
+        "y": 3434,
+        "plane": 0
+      }
+    ],
+    "description": "Baraek"
+  },
+  {
+    "facing": "EAST",
+    "id": 3015,
+    "position": [
+      {
+        "x": 3220,
+        "y": 3392,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "EAST",
+    "id": 2815,
+    "position": [
+      {
+        "x": 3219,
+        "y": 3412,
+        "plane": 0
+      }
+    ],
+    "description": "Shop keeper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5216,
+    "position": [
+      {
+        "x": 3220,
+        "y": 3431,
+        "plane": 0
+      }
+    ],
+    "description": "Benny"
+  },
+  {
+    "facing": "WEST",
+    "id": 11852,
+    "position": [
+      {
+        "x": 3220,
+        "y": 3424,
+        "plane": 0
+      }
+    ],
+    "description": "Eliza"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3501,
+    "position": [
+      {
+        "x": 3220,
+        "y": 3434,
+        "plane": 0
+      }
+    ],
+    "description": "Shilop"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3503,
+    "position": [
+      {
+        "x": 3222,
+        "y": 3434,
+        "plane": 0
+      }
+    ],
+    "description": "Wilough"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3480,
+    "position": [
+      {
+        "x": 3222,
+        "y": 3397,
+        "plane": 0
+      }
+    ],
+    "description": "Dr Harlow"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5213,
+    "position": [
+      {
+        "x": 3221,
+        "y": 3394,
+        "plane": 0
+      }
+    ],
+    "description": "Jonny the beard"
+  },
+  {
+    "facing": "WEST",
+    "id": 3262,
+    "position": [
+      {
+        "x": 3223,
+        "y": 3402,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "WEST",
+    "id": 5525,
+    "position": [
+      {
+        "x": 3225,
+        "y": 3415,
+        "plane": 0
+      }
+    ],
+    "description": "Toby"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1312,
+    "position": [
+      {
+        "x": 3226,
+        "y": 3398,
+        "plane": 0
+      }
+    ],
+    "description": "Bartender"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 381,
+    "position": [
+      {
+        "x": 3229,
+        "y": 3409,
+        "plane": 0
+      }
+    ],
+    "description": "Tramp"
+  },
+  {
+    "facing": "WEST",
+    "id": 2882,
+    "position": [
+      {
+        "x": 3227,
+        "y": 3440,
+        "plane": 0
+      }
+    ],
+    "description": "Horvik"
+  },
+  {
+    "facing": "WEST",
+    "id": 2895,
+    "position": [
+      {
+        "x": 3231,
+        "y": 3402,
+        "plane": 0
+      }
+    ],
+    "description": "Cook"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2883,
+    "position": [
+      {
+        "x": 3234,
+        "y": 3426,
+        "plane": 0
+      }
+    ],
+    "description": "Lowe"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 0,
+    "position": [
+      {
+        "x": 3229,
+        "y": 3455,
+        "plane": 0
+      }
+    ],
+    "description": "Tool Leprechaun"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2922,
+    "position": [
+      {
+        "x": 3252,
+        "y": 3407,
+        "plane": 0
+      }
+    ],
+    "description": "Stray dog"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3106,
+    "position": [
+      {
+        "x": 3232,
+        "y": 3400,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "EAST",
+    "id": 3255,
+    "position": [
+      {
+        "x": 3238,
+        "y": 3398,
+        "plane": 0
+      }
+    ],
+    "description": "Tramp"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3106,
+    "position": [
+      {
+        "x": 3241,
+        "y": 3405,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "WEST",
+    "id": 3019,
+    "position": [
+      {
+        "x": 3237,
+        "y": 3399,
+        "plane": 0
+      }
+    ],
+    "description": "Spider"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3108,
+    "position": [
+      {
+        "x": 3241,
+        "y": 3406,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "WEST",
+    "id": 10425,
+    "position": [
+      {
+        "x": 3238,
+        "y": 3395,
+        "plane": 0
+      }
+    ],
+    "description": "Old Man Yarlo"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 10415,
+    "position": [
+      {
+        "x": 3242,
+        "y": 3450,
+        "plane": 0
+      }
+    ],
+    "description": "Jeff"
+  },
+  {
+    "facing": "WEST",
+    "id": 2855,
+    "position": [
+      {
+        "x": 3241,
+        "y": 3394,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2901,
+    "position": [
+      {
+        "x": 3242,
+        "y": 3430,
+        "plane": 0
+      }
+    ],
+    "description": "Cleaner"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2897,
+    "position": [
+      {
+        "x": 3251,
+        "y": 3418,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2897,
+    "position": [
+      {
+        "x": 3252,
+        "y": 3418,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 11435,
+    "position": [
+      {
+        "x": 3254,
+        "y": 3402,
+        "plane": 0
+      }
+    ],
+    "description": "Aubury"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2897,
+    "position": [
+      {
+        "x": 3253,
+        "y": 3418,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "WEST",
+    "id": 276,
+    "position": [
+      {
+        "x": 3250,
+        "y": 3430,
+        "plane": 0
+      }
+    ],
+    "description": "Town Crier"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1903,
+    "position": [
+      {
+        "x": 3253,
+        "y": 3445,
+        "plane": 0
+      }
+    ],
+    "description": "Barnabus Hurma"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1909,
+    "position": [
+      {
+        "x": 3253,
+        "y": 3454,
+        "plane": 0
+      }
+    ],
+    "description": "Information clerk"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2898,
+    "position": [
+      {
+        "x": 3254,
+        "y": 3418,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  }
+]

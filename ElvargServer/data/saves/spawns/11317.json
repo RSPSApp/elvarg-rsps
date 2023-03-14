@@ -1,0 +1,170 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 107,
+    "position": [
+      {
+        "x": 2863,
+        "y": 3453,
+        "plane": 0
+      }
+    ],
+    "description": "White wolf"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 107,
+    "position": [
+      {
+        "x": 2869,
+        "y": 3438,
+        "plane": 0
+      }
+    ],
+    "description": "White wolf"
+  },
+  {
+    "facing": "EAST",
+    "id": 107,
+    "position": [
+      {
+        "x": 2871,
+        "y": 3444,
+        "plane": 0
+      }
+    ],
+    "description": "White wolf"
+  },
+  {
+    "facing": "WEST",
+    "id": 3213,
+    "position": [
+      {
+        "x": 2833,
+        "y": 3446,
+        "plane": 0
+      }
+    ],
+    "description": "Harry"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1518,
+    "position": [
+      {
+        "x": 2838,
+        "y": 3431,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1518,
+    "position": [
+      {
+        "x": 2855,
+        "y": 3423,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 107,
+    "position": [
+      {
+        "x": 2841,
+        "y": 3449,
+        "plane": 0
+      }
+    ],
+    "description": "White wolf"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1519,
+    "position": [
+      {
+        "x": 2860,
+        "y": 3426,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1520,
+    "position": [
+      {
+        "x": 2854,
+        "y": 3423,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1519,
+    "position": [
+      {
+        "x": 2844,
+        "y": 3429,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1520,
+    "position": [
+      {
+        "x": 2837,
+        "y": 3431,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1520,
+    "position": [
+      {
+        "x": 2845,
+        "y": 3429,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "EAST",
+    "id": 2670,
+    "position": [
+      {
+        "x": 2859,
+        "y": 3434,
+        "plane": 0
+      }
+    ],
+    "description": "Ellena"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 0,
+    "position": [
+      {
+        "x": 2856,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Tool Leprechaun"
+  }
+]

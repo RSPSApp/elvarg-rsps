@@ -1,0 +1,206 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 1908,
+    "position": [
+      {
+        "x": 3267,
+        "y": 3444,
+        "plane": 0
+      }
+    ],
+    "description": "Tinse Torpe"
+  },
+  {
+    "facing": "EAST",
+    "id": 1311,
+    "position": [
+      {
+        "x": 3269,
+        "y": 3393,
+        "plane": 0
+      }
+    ],
+    "description": "Bartender"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 4574,
+    "position": [
+      {
+        "x": 3268,
+        "y": 3398,
+        "plane": 0
+      }
+    ],
+    "description": "Pox"
+  },
+  {
+    "facing": "NORTH",
+    "id": 4588,
+    "position": [
+      {
+        "x": 3266,
+        "y": 3400,
+        "plane": 0
+      }
+    ],
+    "description": "Hooknosed Jack"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8687,
+    "position": [
+      {
+        "x": 3271,
+        "y": 3411,
+        "plane": 0
+      }
+    ],
+    "description": "Tea Seller"
+  },
+  {
+    "facing": "EAST",
+    "id": 11911,
+    "position": [
+      {
+        "x": 3269,
+        "y": 3426,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 11917,
+    "position": [
+      {
+        "x": 3270,
+        "y": 3430,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11912,
+    "position": [
+      {
+        "x": 3275,
+        "y": 3424,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 11916,
+    "position": [
+      {
+        "x": 3275,
+        "y": 3430,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 4984,
+    "position": [
+      {
+        "x": 3277,
+        "y": 3404,
+        "plane": 0
+      }
+    ],
+    "description": "Dimintheis"
+  },
+  {
+    "facing": "WEST",
+    "id": 2887,
+    "position": [
+      {
+        "x": 3278,
+        "y": 3395,
+        "plane": 0
+      }
+    ],
+    "description": "Asyff"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1911,
+    "position": [
+      {
+        "x": 3295,
+        "y": 3427,
+        "plane": 0
+      }
+    ],
+    "description": "Museum guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 1058,
+    "position": [
+      {
+        "x": 3306,
+        "y": 3454,
+        "plane": 0
+      }
+    ],
+    "description": "Tolna"
+  },
+  {
+    "facing": "WEST",
+    "id": 1929,
+    "position": [
+      {
+        "x": 3314,
+        "y": 3425,
+        "plane": 0
+      }
+    ],
+    "description": "Workman"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6088,
+    "position": [
+      {
+        "x": 3321,
+        "y": 3431,
+        "plane": 0
+      }
+    ],
+    "description": "Captain Errdo"
+  },
+  {
+    "facing": "WEST",
+    "id": 1939,
+    "position": [
+      {
+        "x": 3323,
+        "y": 3445,
+        "plane": 0
+      }
+    ],
+    "description": "Ed Wood"
+  },
+  {
+    "facing": "WEST",
+    "id": 1928,
+    "position": [
+      {
+        "x": 3327,
+        "y": 3443,
+        "plane": 0
+      }
+    ],
+    "description": "Workman"
+  }
+]
