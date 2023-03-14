@@ -1,0 +1,290 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 6605,
+    "position": [
+      {
+        "x": 3022,
+        "y": 3694,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "WEST",
+    "id": 8692,
+    "position": [
+      {
+        "x": 3024,
+        "y": 3701,
+        "plane": 0
+      }
+    ],
+    "description": "Noterazzo"
+  },
+  {
+    "facing": "EAST",
+    "id": 2201,
+    "position": [
+      {
+        "x": 3025,
+        "y": 3707,
+        "plane": 0
+      }
+    ],
+    "description": "Neil"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1026,
+    "position": [
+      {
+        "x": 3028,
+        "y": 3702,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 6605,
+    "position": [
+      {
+        "x": 3028,
+        "y": 3708,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1026,
+    "position": [
+      {
+        "x": 3031,
+        "y": 3680,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6605,
+    "position": [
+      {
+        "x": 3031,
+        "y": 3702,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "WEST",
+    "id": 1026,
+    "position": [
+      {
+        "x": 3031,
+        "y": 3694,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1026,
+    "position": [
+      {
+        "x": 3029,
+        "y": 3702,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "EAST",
+    "id": 303,
+    "position": [
+      {
+        "x": 3033,
+        "y": 3692,
+        "plane": 0
+      }
+    ],
+    "description": "Speedy Keith"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 6605,
+    "position": [
+      {
+        "x": 3038,
+        "y": 3702,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "EAST",
+    "id": 8688,
+    "position": [
+      {
+        "x": 3038,
+        "y": 3707,
+        "plane": 0
+      }
+    ],
+    "description": "Fat Tony"
+  },
+  {
+    "facing": "WEST",
+    "id": 1027,
+    "position": [
+      {
+        "x": 3037,
+        "y": 3661,
+        "plane": 0
+      }
+    ],
+    "description": "Guard Bandit"
+  },
+  {
+    "facing": "WEST",
+    "id": 1026,
+    "position": [
+      {
+        "x": 3033,
+        "y": 3683,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "WEST",
+    "id": 6605,
+    "position": [
+      {
+        "x": 3036,
+        "y": 3664,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 6605,
+    "position": [
+      {
+        "x": 3042,
+        "y": 3695,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "WEST",
+    "id": 302,
+    "position": [
+      {
+        "x": 3033,
+        "y": 3696,
+        "plane": 0
+      }
+    ],
+    "description": "Donny the lad"
+  },
+  {
+    "facing": "WEST",
+    "id": 301,
+    "position": [
+      {
+        "x": 3042,
+        "y": 3705,
+        "plane": 0
+      }
+    ],
+    "description": "Black Heather"
+  },
+  {
+    "facing": "WEST",
+    "id": 6605,
+    "position": [
+      {
+        "x": 3044,
+        "y": 3688,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "WEST",
+    "id": 1026,
+    "position": [
+      {
+        "x": 3040,
+        "y": 3704,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "WEST",
+    "id": 6605,
+    "position": [
+      {
+        "x": 3043,
+        "y": 3705,
+        "plane": 0
+      }
+    ],
+    "description": "Bandit"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2856,
+    "position": [
+      {
+        "x": 3052,
+        "y": 3687,
+        "plane": 0
+      }
+    ],
+    "description": "Giant rat"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2864,
+    "position": [
+      {
+        "x": 3052,
+        "y": 3694,
+        "plane": 0
+      }
+    ],
+    "description": "Giant rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1524,
+    "position": [
+      {
+        "x": 3054,
+        "y": 3706,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  }
+]

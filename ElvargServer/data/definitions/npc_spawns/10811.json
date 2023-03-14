@@ -1,0 +1,398 @@
+[
+  {
+    "facing": "NORTH_WEST",
+    "id": 5554,
+    "position": [
+      {
+        "x": 2698,
+        "y": 3790,
+        "plane": 0
+      }
+    ],
+    "description": "Snowy knight"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2907,
+    "position": [
+      {
+        "x": 2697,
+        "y": 3784,
+        "plane": 0
+      }
+    ],
+    "description": "Sabre-toothed kyatt"
+  },
+  {
+    "facing": "WEST",
+    "id": 5555,
+    "position": [
+      {
+        "x": 2700,
+        "y": 3784,
+        "plane": 0
+      }
+    ],
+    "description": "Sapphire glacialis"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5554,
+    "position": [
+      {
+        "x": 2702,
+        "y": 3801,
+        "plane": 0
+      }
+    ],
+    "description": "Snowy knight"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2907,
+    "position": [
+      {
+        "x": 2708,
+        "y": 3800,
+        "plane": 0
+      }
+    ],
+    "description": "Sabre-toothed kyatt"
+  },
+  {
+    "facing": "WEST",
+    "id": 5555,
+    "position": [
+      {
+        "x": 2702,
+        "y": 3795,
+        "plane": 0
+      }
+    ],
+    "description": "Sapphire glacialis"
+  },
+  {
+    "facing": "WEST",
+    "id": 1347,
+    "position": [
+      {
+        "x": 2704,
+        "y": 3777,
+        "plane": 0
+      }
+    ],
+    "description": "Sabre-toothed kebbit"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2907,
+    "position": [
+      {
+        "x": 2694,
+        "y": 3789,
+        "plane": 0
+      }
+    ],
+    "description": "Sabre-toothed kyatt"
+  },
+  {
+    "facing": "WEST",
+    "id": 1347,
+    "position": [
+      {
+        "x": 2707,
+        "y": 3778,
+        "plane": 0
+      }
+    ],
+    "description": "Sabre-toothed kebbit"
+  },
+  {
+    "facing": "EAST",
+    "id": 5554,
+    "position": [
+      {
+        "x": 2708,
+        "y": 3805,
+        "plane": 0
+      }
+    ],
+    "description": "Snowy knight"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1347,
+    "position": [
+      {
+        "x": 2712,
+        "y": 3779,
+        "plane": 0
+      }
+    ],
+    "description": "Sabre-toothed kebbit"
+  },
+  {
+    "facing": "EAST",
+    "id": 1347,
+    "position": [
+      {
+        "x": 2718,
+        "y": 3777,
+        "plane": 0
+      }
+    ],
+    "description": "Sabre-toothed kebbit"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5555,
+    "position": [
+      {
+        "x": 2720,
+        "y": 3778,
+        "plane": 0
+      }
+    ],
+    "description": "Sapphire glacialis"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2907,
+    "position": [
+      {
+        "x": 2718,
+        "y": 3796,
+        "plane": 0
+      }
+    ],
+    "description": "Sabre-toothed kyatt"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 5555,
+    "position": [
+      {
+        "x": 2729,
+        "y": 3784,
+        "plane": 0
+      }
+    ],
+    "description": "Sapphire glacialis"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5554,
+    "position": [
+      {
+        "x": 2735,
+        "y": 3792,
+        "plane": 0
+      }
+    ],
+    "description": "Snowy knight"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2907,
+    "position": [
+      {
+        "x": 2726,
+        "y": 3793,
+        "plane": 0
+      }
+    ],
+    "description": "Sabre-toothed kyatt"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5550,
+    "position": [
+      {
+        "x": 2701,
+        "y": 3829,
+        "plane": 1
+      }
+    ],
+    "description": "Cerulean twitch"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5555,
+    "position": [
+      {
+        "x": 2708,
+        "y": 3817,
+        "plane": 1
+      }
+    ],
+    "description": "Sapphire glacialis"
+  },
+  {
+    "facing": "WEST",
+    "id": 5554,
+    "position": [
+      {
+        "x": 2704,
+        "y": 3816,
+        "plane": 1
+      }
+    ],
+    "description": "Snowy knight"
+  },
+  {
+    "facing": "WEST",
+    "id": 5555,
+    "position": [
+      {
+        "x": 2702,
+        "y": 3823,
+        "plane": 1
+      }
+    ],
+    "description": "Sapphire glacialis"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1503,
+    "position": [
+      {
+        "x": 2710,
+        "y": 3830,
+        "plane": 1
+      }
+    ],
+    "description": "Hunting expert"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5555,
+    "position": [
+      {
+        "x": 2720,
+        "y": 3805,
+        "plane": 1
+      }
+    ],
+    "description": "Sapphire glacialis"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5550,
+    "position": [
+      {
+        "x": 2716,
+        "y": 3807,
+        "plane": 1
+      }
+    ],
+    "description": "Cerulean twitch"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5550,
+    "position": [
+      {
+        "x": 2716,
+        "y": 3824,
+        "plane": 1
+      }
+    ],
+    "description": "Cerulean twitch"
+  },
+  {
+    "facing": "EAST",
+    "id": 5555,
+    "position": [
+      {
+        "x": 2717,
+        "y": 3802,
+        "plane": 1
+      }
+    ],
+    "description": "Sapphire glacialis"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5555,
+    "position": [
+      {
+        "x": 2712,
+        "y": 3827,
+        "plane": 1
+      }
+    ],
+    "description": "Sapphire glacialis"
+  },
+  {
+    "facing": "WEST",
+    "id": 5550,
+    "position": [
+      {
+        "x": 2725,
+        "y": 3833,
+        "plane": 1
+      }
+    ],
+    "description": "Cerulean twitch"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5550,
+    "position": [
+      {
+        "x": 2723,
+        "y": 3836,
+        "plane": 1
+      }
+    ],
+    "description": "Cerulean twitch"
+  },
+  {
+    "facing": "WEST",
+    "id": 5554,
+    "position": [
+      {
+        "x": 2716,
+        "y": 3833,
+        "plane": 1
+      }
+    ],
+    "description": "Snowy knight"
+  },
+  {
+    "facing": "WEST",
+    "id": 5554,
+    "position": [
+      {
+        "x": 2730,
+        "y": 3807,
+        "plane": 1
+      }
+    ],
+    "description": "Snowy knight"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5555,
+    "position": [
+      {
+        "x": 2731,
+        "y": 3832,
+        "plane": 1
+      }
+    ],
+    "description": "Sapphire glacialis"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1347,
+    "position": [
+      {
+        "x": 2711,
+        "y": 3776,
+        "plane": 0
+      }
+    ],
+    "description": "Sabre-toothed kebbit"
+  }
+]

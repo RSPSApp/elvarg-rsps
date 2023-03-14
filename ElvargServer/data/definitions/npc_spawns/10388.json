@@ -1,0 +1,50 @@
+[
+  {
+    "facing": "SOUTH_EAST",
+    "id": 532,
+    "position": [
+      {
+        "x": 2579,
+        "y": 9496,
+        "plane": 0
+      }
+    ],
+    "description": "Chaos druid warrior"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 532,
+    "position": [
+      {
+        "x": 2583,
+        "y": 9501,
+        "plane": 0
+      }
+    ],
+    "description": "Chaos druid warrior"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 532,
+    "position": [
+      {
+        "x": 2582,
+        "y": 9501,
+        "plane": 0
+      }
+    ],
+    "description": "Chaos druid warrior"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2834,
+    "position": [
+      {
+        "x": 2609,
+        "y": 9483,
+        "plane": 0
+      }
+    ],
+    "description": "Giant bat"
+  }
+]

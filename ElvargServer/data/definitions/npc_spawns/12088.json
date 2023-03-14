@@ -1,0 +1,566 @@
+[
+  {
+    "facing": "EAST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3035,
+        "y": 3629,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3034,
+        "y": 3627,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3030,
+        "y": 3627,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3035,
+        "y": 3628,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "EAST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3036,
+        "y": 3634,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3034,
+        "y": 3636,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3034,
+        "y": 3628,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 531,
+    "position": [
+      {
+        "x": 3033,
+        "y": 3639,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3034,
+        "y": 3637,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "EAST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3038,
+        "y": 3639,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2204,
+    "position": [
+      {
+        "x": 3046,
+        "y": 3633,
+        "plane": 0
+      }
+    ],
+    "description": "Sam"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3024,
+        "y": 3625,
+        "plane": 1
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 531,
+    "position": [
+      {
+        "x": 3025,
+        "y": 3636,
+        "plane": 1
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "EAST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3028,
+        "y": 3636,
+        "plane": 1
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3029,
+        "y": 3627,
+        "plane": 1
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3030,
+        "y": 3637,
+        "plane": 1
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "EAST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3035,
+        "y": 3628,
+        "plane": 1
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 531,
+    "position": [
+      {
+        "x": 3035,
+        "y": 3622,
+        "plane": 1
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "EAST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3036,
+        "y": 3640,
+        "plane": 1
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2838,
+    "position": [
+      {
+        "x": 3069,
+        "y": 3606,
+        "plane": 0
+      }
+    ],
+    "description": "Grizzly bear"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2838,
+    "position": [
+      {
+        "x": 3069,
+        "y": 3606,
+        "plane": 0
+      }
+    ],
+    "description": "Grizzly bear"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 71,
+    "position": [
+      {
+        "x": 3009,
+        "y": 3591,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "EAST",
+    "id": 70,
+    "position": [
+      {
+        "x": 3008,
+        "y": 3591,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "EAST",
+    "id": 73,
+    "position": [
+      {
+        "x": 3016,
+        "y": 3597,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "NORTH",
+    "id": 72,
+    "position": [
+      {
+        "x": 3012,
+        "y": 3597,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "EAST",
+    "id": 70,
+    "position": [
+      {
+        "x": 3024,
+        "y": 3595,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "EAST",
+    "id": 71,
+    "position": [
+      {
+        "x": 3023,
+        "y": 3590,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 73,
+    "position": [
+      {
+        "x": 3023,
+        "y": 3595,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 73,
+    "position": [
+      {
+        "x": 3022,
+        "y": 3598,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "WEST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3020,
+        "y": 3623,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3024,
+        "y": 3638,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 70,
+    "position": [
+      {
+        "x": 3018,
+        "y": 3587,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 71,
+    "position": [
+      {
+        "x": 3016,
+        "y": 3589,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "EAST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3024,
+        "y": 3623,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3023,
+        "y": 3627,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3024,
+        "y": 3636,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3025,
+        "y": 3625,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3022,
+        "y": 3628,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3024,
+        "y": 3633,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3025,
+        "y": 3639,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 73,
+    "position": [
+      {
+        "x": 3019,
+        "y": 3591,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 72,
+    "position": [
+      {
+        "x": 3027,
+        "y": 3596,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3027,
+        "y": 3638,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3029,
+        "y": 3626,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 531,
+    "position": [
+      {
+        "x": 3028,
+        "y": 3636,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 531,
+    "position": [
+      {
+        "x": 3033,
+        "y": 3627,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 6606,
+    "position": [
+      {
+        "x": 3027,
+        "y": 3637,
+        "plane": 0
+      }
+    ],
+    "description": "Dark warrior"
+  }
+]

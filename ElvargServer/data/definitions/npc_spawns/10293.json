@@ -1,0 +1,806 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 1510,
+    "position": [
+      {
+        "x": 2605,
+        "y": 3416,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2595,
+        "y": 3428,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2606,
+        "y": 3438,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2599,
+        "y": 3447,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2599,
+        "y": 3440,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2602,
+        "y": 3410,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2595,
+        "y": 3442,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "EAST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2601,
+        "y": 3419,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2612,
+        "y": 3408,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2621,
+        "y": 3407,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "EAST",
+    "id": 3106,
+    "position": [
+      {
+        "x": 2603,
+        "y": 3424,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3989,
+    "position": [
+      {
+        "x": 2612,
+        "y": 3392,
+        "plane": 0
+      }
+    ],
+    "description": "Yellow Sheep"
+  },
+  {
+    "facing": "EAST",
+    "id": 5197,
+    "position": [
+      {
+        "x": 2564,
+        "y": 3408,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 5200,
+    "position": [
+      {
+        "x": 2569,
+        "y": 3412,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5206,
+    "position": [
+      {
+        "x": 2565,
+        "y": 3430,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 5208,
+    "position": [
+      {
+        "x": 2569,
+        "y": 3410,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5195,
+    "position": [
+      {
+        "x": 2567,
+        "y": 3453,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5196,
+    "position": [
+      {
+        "x": 2574,
+        "y": 3427,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 5196,
+    "position": [
+      {
+        "x": 2565,
+        "y": 3399,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 5207,
+    "position": [
+      {
+        "x": 2577,
+        "y": 3427,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5205,
+    "position": [
+      {
+        "x": 2561,
+        "y": 3410,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5197,
+    "position": [
+      {
+        "x": 2572,
+        "y": 3449,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 5199,
+    "position": [
+      {
+        "x": 2575,
+        "y": 3434,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 5207,
+    "position": [
+      {
+        "x": 2585,
+        "y": 3393,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5208,
+    "position": [
+      {
+        "x": 2584,
+        "y": 3412,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5201,
+    "position": [
+      {
+        "x": 2570,
+        "y": 3409,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5205,
+    "position": [
+      {
+        "x": 2576,
+        "y": 3438,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5195,
+    "position": [
+      {
+        "x": 2571,
+        "y": 3406,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 5202,
+    "position": [
+      {
+        "x": 2582,
+        "y": 3414,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 5206,
+    "position": [
+      {
+        "x": 2577,
+        "y": 3405,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 5204,
+    "position": [
+      {
+        "x": 2582,
+        "y": 3425,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5204,
+    "position": [
+      {
+        "x": 2588,
+        "y": 3401,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2584,
+        "y": 3418,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2584,
+        "y": 3419,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 1618,
+    "position": [
+      {
+        "x": 2584,
+        "y": 3421,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2584,
+        "y": 3422,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5207,
+    "position": [
+      {
+        "x": 2581,
+        "y": 3430,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 5203,
+    "position": [
+      {
+        "x": 2586,
+        "y": 3436,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2854,
+    "position": [
+      {
+        "x": 2594,
+        "y": 3410,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2585,
+        "y": 3453,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2600,
+        "y": 3444,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "WEST",
+    "id": 8684,
+    "position": [
+      {
+        "x": 2599,
+        "y": 3396,
+        "plane": 0
+      }
+    ],
+    "description": "Roachey"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2591,
+        "y": 3439,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2604,
+        "y": 3437,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "EAST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2607,
+        "y": 3437,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2592,
+        "y": 3434,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 7727,
+    "position": [
+      {
+        "x": 2599,
+        "y": 3425,
+        "plane": 0
+      }
+    ],
+    "description": "Kylie Minnow"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2599,
+        "y": 3447,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2589,
+        "y": 3452,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1511,
+    "position": [
+      {
+        "x": 2602,
+        "y": 3411,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2601,
+        "y": 3444,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1511,
+    "position": [
+      {
+        "x": 2607,
+        "y": 3410,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1511,
+    "position": [
+      {
+        "x": 2605,
+        "y": 3420,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2588,
+        "y": 3445,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1510,
+    "position": [
+      {
+        "x": 2601,
+        "y": 3422,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1510,
+    "position": [
+      {
+        "x": 2605,
+        "y": 3421,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1510,
+    "position": [
+      {
+        "x": 2605,
+        "y": 3424,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "EAST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2607,
+        "y": 3426,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1511,
+    "position": [
+      {
+        "x": 2603,
+        "y": 3419,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1511,
+    "position": [
+      {
+        "x": 2602,
+        "y": 3426,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1511,
+    "position": [
+      {
+        "x": 2604,
+        "y": 3417,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2597,
+        "y": 3428,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1510,
+    "position": [
+      {
+        "x": 2602,
+        "y": 3414,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1510,
+    "position": [
+      {
+        "x": 2605,
+        "y": 3425,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2589,
+        "y": 3445,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "EAST",
+    "id": 2913,
+    "position": [
+      {
+        "x": 2613,
+        "y": 3393,
+        "plane": 0
+      }
+    ],
+    "description": "Master fisher"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1510,
+    "position": [
+      {
+        "x": 2604,
+        "y": 3426,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  }
+]

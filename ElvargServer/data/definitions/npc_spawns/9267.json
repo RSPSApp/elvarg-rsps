@@ -1,0 +1,170 @@
+[
+  {
+    "facing": "NORTH_EAST",
+    "id": 3426,
+    "position": [
+      {
+        "x": 2321,
+        "y": 3291,
+        "plane": 0
+      }
+    ],
+    "description": "Dire Wolf"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3426,
+    "position": [
+      {
+        "x": 2341,
+        "y": 3271,
+        "plane": 0
+      }
+    ],
+    "description": "Dire Wolf"
+  },
+  {
+    "facing": "EAST",
+    "id": 3021,
+    "position": [
+      {
+        "x": 2337,
+        "y": 3313,
+        "plane": 0
+      }
+    ],
+    "description": "Deadly red spider"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3021,
+    "position": [
+      {
+        "x": 2336,
+        "y": 3315,
+        "plane": 0
+      }
+    ],
+    "description": "Deadly red spider"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3021,
+    "position": [
+      {
+        "x": 2342,
+        "y": 3313,
+        "plane": 0
+      }
+    ],
+    "description": "Deadly red spider"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3426,
+    "position": [
+      {
+        "x": 2340,
+        "y": 3272,
+        "plane": 0
+      }
+    ],
+    "description": "Dire Wolf"
+  },
+  {
+    "facing": "EAST",
+    "id": 3426,
+    "position": [
+      {
+        "x": 2342,
+        "y": 3269,
+        "plane": 0
+      }
+    ],
+    "description": "Dire Wolf"
+  },
+  {
+    "facing": "WEST",
+    "id": 3021,
+    "position": [
+      {
+        "x": 2337,
+        "y": 3312,
+        "plane": 0
+      }
+    ],
+    "description": "Deadly red spider"
+  },
+  {
+    "facing": "WEST",
+    "id": 3021,
+    "position": [
+      {
+        "x": 2344,
+        "y": 3310,
+        "plane": 0
+      }
+    ],
+    "description": "Deadly red spider"
+  },
+  {
+    "facing": "EAST",
+    "id": 3021,
+    "position": [
+      {
+        "x": 2343,
+        "y": 3309,
+        "plane": 0
+      }
+    ],
+    "description": "Deadly red spider"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3021,
+    "position": [
+      {
+        "x": 2344,
+        "y": 3318,
+        "plane": 0
+      }
+    ],
+    "description": "Deadly red spider"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3021,
+    "position": [
+      {
+        "x": 2340,
+        "y": 3308,
+        "plane": 0
+      }
+    ],
+    "description": "Deadly red spider"
+  },
+  {
+    "facing": "WEST",
+    "id": 3021,
+    "position": [
+      {
+        "x": 2345,
+        "y": 3310,
+        "plane": 0
+      }
+    ],
+    "description": "Deadly red spider"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3021,
+    "position": [
+      {
+        "x": 2349,
+        "y": 3313,
+        "plane": 0
+      }
+    ],
+    "description": "Deadly red spider"
+  }
+]

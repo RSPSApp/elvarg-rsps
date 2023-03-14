@@ -1,0 +1,326 @@
+[
+  {
+    "facing": "NORTH_WEST",
+    "id": 4236,
+    "position": [
+      {
+        "x": 2571,
+        "y": 3334,
+        "plane": 0
+      }
+    ],
+    "description": "Neite"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 520,
+    "position": [
+      {
+        "x": 2563,
+        "y": 3356,
+        "plane": 0
+      }
+    ],
+    "description": "Chaos druid"
+  },
+  {
+    "facing": "EAST",
+    "id": 520,
+    "position": [
+      {
+        "x": 2562,
+        "y": 3355,
+        "plane": 0
+      }
+    ],
+    "description": "Chaos druid"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1509,
+    "position": [
+      {
+        "x": 2568,
+        "y": 3365,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "WEST",
+    "id": 520,
+    "position": [
+      {
+        "x": 2563,
+        "y": 3355,
+        "plane": 0
+      }
+    ],
+    "description": "Chaos druid"
+  },
+  {
+    "facing": "EAST",
+    "id": 520,
+    "position": [
+      {
+        "x": 2563,
+        "y": 3357,
+        "plane": 0
+      }
+    ],
+    "description": "Chaos druid"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1509,
+    "position": [
+      {
+        "x": 2562,
+        "y": 3374,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 4256,
+    "position": [
+      {
+        "x": 2570,
+        "y": 3332,
+        "plane": 0
+      }
+    ],
+    "description": "Edmond"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 11925,
+    "position": [
+      {
+        "x": 2567,
+        "y": 3388,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3260,
+    "position": [
+      {
+        "x": 2573,
+        "y": 3384,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 11928,
+    "position": [
+      {
+        "x": 2575,
+        "y": 3386,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 4249,
+    "position": [
+      {
+        "x": 2572,
+        "y": 3334,
+        "plane": 0
+      }
+    ],
+    "description": "Alrena"
+  },
+  {
+    "facing": "NORTH",
+    "id": 11926,
+    "position": [
+      {
+        "x": 2576,
+        "y": 3388,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 8971,
+    "position": [
+      {
+        "x": 2583,
+        "y": 3333,
+        "plane": 0
+      }
+    ],
+    "description": "Mourner"
+  },
+  {
+    "facing": "EAST",
+    "id": 1102,
+    "position": [
+      {
+        "x": 2592,
+        "y": 3336,
+        "plane": 0
+      }
+    ],
+    "description": "Elena"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3985,
+    "position": [
+      {
+        "x": 2593,
+        "y": 3358,
+        "plane": 0
+      }
+    ],
+    "description": "Farmer Brumty"
+  },
+  {
+    "facing": "EAST",
+    "id": 3986,
+    "position": [
+      {
+        "x": 2607,
+        "y": 3345,
+        "plane": 0
+      }
+    ],
+    "description": "Red Sheep"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3986,
+    "position": [
+      {
+        "x": 2610,
+        "y": 3342,
+        "plane": 0
+      }
+    ],
+    "description": "Red Sheep"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3986,
+    "position": [
+      {
+        "x": 2612,
+        "y": 3346,
+        "plane": 0
+      }
+    ],
+    "description": "Red Sheep"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2615,
+        "y": 3330,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 1618,
+    "position": [
+      {
+        "x": 2618,
+        "y": 3330,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1618,
+    "position": [
+      {
+        "x": 2619,
+        "y": 3330,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "EAST",
+    "id": 3987,
+    "position": [
+      {
+        "x": 2623,
+        "y": 3365,
+        "plane": 0
+      }
+    ],
+    "description": "Green Sheep"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3987,
+    "position": [
+      {
+        "x": 2623,
+        "y": 3364,
+        "plane": 0
+      }
+    ],
+    "description": "Green Sheep"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3987,
+    "position": [
+      {
+        "x": 2623,
+        "y": 3366,
+        "plane": 0
+      }
+    ],
+    "description": "Green Sheep"
+  },
+  {
+    "facing": "WEST",
+    "id": 5207,
+    "position": [
+      {
+        "x": 2571,
+        "y": 3385,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5195,
+    "position": [
+      {
+        "x": 2572,
+        "y": 3388,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  }
+]

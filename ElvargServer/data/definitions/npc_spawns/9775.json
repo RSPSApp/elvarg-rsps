@@ -1,0 +1,182 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 861,
+    "position": [
+      {
+        "x": 2441,
+        "y": 3046,
+        "plane": 0
+      }
+    ],
+    "description": "Uglug Nar"
+  },
+  {
+    "facing": "WEST",
+    "id": 865,
+    "position": [
+      {
+        "x": 2442,
+        "y": 3036,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 862,
+    "position": [
+      {
+        "x": 2443,
+        "y": 3046,
+        "plane": 0
+      }
+    ],
+    "description": "Pilg"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 860,
+    "position": [
+      {
+        "x": 2445,
+        "y": 3047,
+        "plane": 0
+      }
+    ],
+    "description": "Grish"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 863,
+    "position": [
+      {
+        "x": 2446,
+        "y": 3049,
+        "plane": 0
+      }
+    ],
+    "description": "Grug"
+  },
+  {
+    "facing": "WEST",
+    "id": 865,
+    "position": [
+      {
+        "x": 2450,
+        "y": 3030,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre guard"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 864,
+    "position": [
+      {
+        "x": 2454,
+        "y": 3047,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 872,
+    "position": [
+      {
+        "x": 2461,
+        "y": 3050,
+        "plane": 0
+      }
+    ],
+    "description": "Skogre"
+  },
+  {
+    "facing": "NORTH",
+    "id": 874,
+    "position": [
+      {
+        "x": 2463,
+        "y": 3047,
+        "plane": 0
+      }
+    ],
+    "description": "Zogre"
+  },
+  {
+    "facing": "WEST",
+    "id": 873,
+    "position": [
+      {
+        "x": 2463,
+        "y": 3049,
+        "plane": 0
+      }
+    ],
+    "description": "Zogre"
+  },
+  {
+    "facing": "EAST",
+    "id": 872,
+    "position": [
+      {
+        "x": 2466,
+        "y": 3052,
+        "plane": 0
+      }
+    ],
+    "description": "Skogre"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 875,
+    "position": [
+      {
+        "x": 2467,
+        "y": 3050,
+        "plane": 0
+      }
+    ],
+    "description": "Zogre"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 876,
+    "position": [
+      {
+        "x": 2467,
+        "y": 3048,
+        "plane": 0
+      }
+    ],
+    "description": "Zogre"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 878,
+    "position": [
+      {
+        "x": 2469,
+        "y": 3039,
+        "plane": 0
+      }
+    ],
+    "description": "Skogre"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 877,
+    "position": [
+      {
+        "x": 2470,
+        "y": 3055,
+        "plane": 0
+      }
+    ],
+    "description": "Zogre"
+  }
+]

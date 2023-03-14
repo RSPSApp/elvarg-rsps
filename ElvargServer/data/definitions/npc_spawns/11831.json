@@ -1,0 +1,98 @@
+[
+  {
+    "facing": "NORTH",
+    "id": 512,
+    "position": [
+      {
+        "x": 2977,
+        "y": 3570,
+        "plane": 0
+      }
+    ],
+    "description": "Dark wizard"
+  },
+  {
+    "facing": "EAST",
+    "id": 512,
+    "position": [
+      {
+        "x": 2976,
+        "y": 3564,
+        "plane": 0
+      }
+    ],
+    "description": "Dark wizard"
+  },
+  {
+    "facing": "EAST",
+    "id": 512,
+    "position": [
+      {
+        "x": 2983,
+        "y": 3574,
+        "plane": 0
+      }
+    ],
+    "description": "Dark wizard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 510,
+    "position": [
+      {
+        "x": 2980,
+        "y": 3565,
+        "plane": 0
+      }
+    ],
+    "description": "Dark wizard"
+  },
+  {
+    "facing": "WEST",
+    "id": 512,
+    "position": [
+      {
+        "x": 2981,
+        "y": 3568,
+        "plane": 0
+      }
+    ],
+    "description": "Dark wizard"
+  },
+  {
+    "facing": "WEST",
+    "id": 512,
+    "position": [
+      {
+        "x": 2983,
+        "y": 3573,
+        "plane": 0
+      }
+    ],
+    "description": "Dark wizard"
+  },
+  {
+    "facing": "EAST",
+    "id": 510,
+    "position": [
+      {
+        "x": 2990,
+        "y": 3567,
+        "plane": 0
+      }
+    ],
+    "description": "Dark wizard"
+  },
+  {
+    "facing": "EAST",
+    "id": 510,
+    "position": [
+      {
+        "x": 2990,
+        "y": 3564,
+        "plane": 0
+      }
+    ],
+    "description": "Dark wizard"
+  }
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2472,
+    "position": [
+      {
+        "x": 2841,
+        "y": 3543,
+        "plane": 0
+      }
+    ],
+    "description": "Jade"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2469,
+    "position": [
+      {
+        "x": 2840,
+        "y": 3552,
+        "plane": 0
+      }
+    ],
+    "description": "Lidio"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2470,
+    "position": [
+      {
+        "x": 2847,
+        "y": 3553,
+        "plane": 0
+      }
+    ],
+    "description": "Lilly"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2460,
+    "position": [
+      {
+        "x": 2851,
+        "y": 3554,
+        "plane": 0
+      }
+    ],
+    "description": "Ajjat"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2462,
+    "position": [
+      {
+        "x": 2853,
+        "y": 3540,
+        "plane": 0
+      }
+    ],
+    "description": "Shanomi"
+  },
+  {
+    "facing": "EAST",
+    "id": 2458,
+    "position": [
+      {
+        "x": 2869,
+        "y": 3543,
+        "plane": 0
+      }
+    ],
+    "description": "Harrallak Menarous"
+  },
+  {
+    "facing": "WEST",
+    "id": 2457,
+    "position": [
+      {
+        "x": 2876,
+        "y": 3549,
+        "plane": 0
+      }
+    ],
+    "description": "Ghommal"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2459,
+    "position": [
+      {
+        "x": 2839,
+        "y": 3541,
+        "plane": 1
+      }
+    ],
+    "description": "Gamfred"
+  },
+  {
+    "facing": "WEST",
+    "id": 2471,
+    "position": [
+      {
+        "x": 2853,
+        "y": 3536,
+        "plane": 1
+      }
+    ],
+    "description": "Anton"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2473,
+    "position": [
+      {
+        "x": 2853,
+        "y": 3552,
+        "plane": 1
+      }
+    ],
+    "description": "Sloane"
+  },
+  {
+    "facing": "WEST",
+    "id": 6074,
+    "position": [
+      {
+        "x": 2865,
+        "y": 3544,
+        "plane": 1
+      }
+    ],
+    "description": "Ref"
+  },
+  {
+    "facing": "WEST",
+    "id": 6073,
+    "position": [
+      {
+        "x": 2866,
+        "y": 3556,
+        "plane": 1
+      }
+    ],
+    "description": "Ref"
+  },
+  {
+    "facing": "WEST",
+    "id": 2468,
+    "position": [
+      {
+        "x": 2839,
+        "y": 3552,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2461,
+    "position": [
+      {
+        "x": 2846,
+        "y": 3538,
+        "plane": 2
+      }
+    ],
+    "description": "Kamfreena"
+  },
+  {
+    "facing": "WEST",
+    "id": 2463,
+    "position": [
+      {
+        "x": 2845,
+        "y": 3548,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2467,
+    "position": [
+      {
+        "x": 2854,
+        "y": 3535,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2466,
+    "position": [
+      {
+        "x": 2850,
+        "y": 3542,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "WEST",
+    "id": 2464,
+    "position": [
+      {
+        "x": 2851,
+        "y": 3544,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2465,
+    "position": [
+      {
+        "x": 2856,
+        "y": 3534,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "WEST",
+    "id": 2465,
+    "position": [
+      {
+        "x": 2856,
+        "y": 3550,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "WEST",
+    "id": 2466,
+    "position": [
+      {
+        "x": 2861,
+        "y": 3548,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "EAST",
+    "id": 2463,
+    "position": [
+      {
+        "x": 2866,
+        "y": 3541,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2467,
+    "position": [
+      {
+        "x": 2868,
+        "y": 3549,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "EAST",
+    "id": 2468,
+    "position": [
+      {
+        "x": 2871,
+        "y": 3541,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2464,
+    "position": [
+      {
+        "x": 2873,
+        "y": 3553,
+        "plane": 2
+      }
+    ],
+    "description": "Cyclops"
+  }
+]

@@ -1,0 +1,206 @@
+[
+  {
+    "facing": "WEST",
+    "id": 2834,
+    "position": [
+      {
+        "x": 2755,
+        "y": 3400,
+        "plane": 0
+      }
+    ],
+    "description": "Giant bat"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2834,
+    "position": [
+      {
+        "x": 2759,
+        "y": 3400,
+        "plane": 0
+      }
+    ],
+    "description": "Giant bat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3517,
+    "position": [
+      {
+        "x": 2768,
+        "y": 3395,
+        "plane": 0
+      }
+    ],
+    "description": "Renegade Knight"
+  },
+  {
+    "facing": "EAST",
+    "id": 3517,
+    "position": [
+      {
+        "x": 2769,
+        "y": 3402,
+        "plane": 0
+      }
+    ],
+    "description": "Renegade Knight"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3517,
+    "position": [
+      {
+        "x": 2773,
+        "y": 3398,
+        "plane": 0
+      }
+    ],
+    "description": "Renegade Knight"
+  },
+  {
+    "facing": "WEST",
+    "id": 3199,
+    "position": [
+      {
+        "x": 2798,
+        "y": 3439,
+        "plane": 0
+      }
+    ],
+    "description": "Candle maker"
+  },
+  {
+    "facing": "EAST",
+    "id": 11233,
+    "position": [
+      {
+        "x": 2801,
+        "y": 3444,
+        "plane": 0
+      }
+    ],
+    "description": "League Tutor"
+  },
+  {
+    "facing": "WEST",
+    "id": 3106,
+    "position": [
+      {
+        "x": 2798,
+        "y": 3431,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2807,
+        "y": 3443,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 7456,
+    "position": [
+      {
+        "x": 2808,
+        "y": 3454,
+        "plane": 0
+      }
+    ],
+    "description": "Perdu"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1618,
+    "position": [
+      {
+        "x": 2809,
+        "y": 3443,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2810,
+        "y": 3443,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1618,
+    "position": [
+      {
+        "x": 2811,
+        "y": 3443,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "WEST",
+    "id": 9337,
+    "position": [
+      {
+        "x": 2799,
+        "y": 3414,
+        "plane": 0
+      }
+    ],
+    "description": "Trader Crewmember"
+  },
+  {
+    "facing": "EAST",
+    "id": 9373,
+    "position": [
+      {
+        "x": 2800,
+        "y": 3413,
+        "plane": 0
+      }
+    ],
+    "description": "Trader Crewmember"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3200,
+    "position": [
+      {
+        "x": 2803,
+        "y": 3430,
+        "plane": 0
+      }
+    ],
+    "description": "Arhein"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3106,
+    "position": [
+      {
+        "x": 2810,
+        "y": 3432,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  }
+]

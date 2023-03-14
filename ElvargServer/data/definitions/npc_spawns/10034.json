@@ -1,0 +1,1538 @@
+[
+  {
+    "facing": "WEST",
+    "id": 5967,
+    "position": [
+      {
+        "x": 2529,
+        "y": 3227,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2534,
+        "y": 3233,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2540,
+        "y": 3202,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2532,
+        "y": 3218,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5966,
+    "position": [
+      {
+        "x": 2543,
+        "y": 3212,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5967,
+    "position": [
+      {
+        "x": 2518,
+        "y": 3234,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "WEST",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2526,
+        "y": 3244,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2546,
+        "y": 3221,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2535,
+        "y": 3201,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5967,
+    "position": [
+      {
+        "x": 2542,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5971,
+    "position": [
+      {
+        "x": 2532,
+        "y": 3211,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2517,
+        "y": 3216,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5966,
+    "position": [
+      {
+        "x": 2524,
+        "y": 3226,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "WEST",
+    "id": 5966,
+    "position": [
+      {
+        "x": 2525,
+        "y": 3226,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "WEST",
+    "id": 5967,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3228,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2527,
+        "y": 3246,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2528,
+        "y": 3219,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 5966,
+    "position": [
+      {
+        "x": 2532,
+        "y": 3206,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "WEST",
+    "id": 5967,
+    "position": [
+      {
+        "x": 2533,
+        "y": 3233,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "WEST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2540,
+        "y": 3208,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 2501,
+        "y": 3200,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2517,
+        "y": 3200,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5966,
+    "position": [
+      {
+        "x": 2539,
+        "y": 3209,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5972,
+    "position": [
+      {
+        "x": 2525,
+        "y": 3210,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2530,
+        "y": 3233,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2525,
+        "y": 3252,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3204,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2523,
+        "y": 3208,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5967,
+    "position": [
+      {
+        "x": 2526,
+        "y": 3212,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2518,
+        "y": 3212,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2539,
+        "y": 3208,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2528,
+        "y": 3248,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2529,
+        "y": 3253,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "EAST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3208,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2537,
+        "y": 3209,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 5966,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3210,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5973,
+    "position": [
+      {
+        "x": 2541,
+        "y": 3240,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2537,
+        "y": 3247,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2535,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3209,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2544,
+        "y": 3201,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5966,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3212,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "WEST",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2534,
+        "y": 3228,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2548,
+        "y": 3214,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2537,
+        "y": 3210,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5967,
+    "position": [
+      {
+        "x": 2543,
+        "y": 3211,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2539,
+        "y": 3257,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2533,
+        "y": 3224,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2534,
+        "y": 3213,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2531,
+        "y": 3246,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "WEST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2534,
+        "y": 3228,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2548,
+        "y": 3215,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2537,
+        "y": 3256,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2553,
+        "y": 3238,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2533,
+        "y": 3252,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2530,
+        "y": 3228,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2539,
+        "y": 3210,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2532,
+        "y": 3226,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2540,
+        "y": 3219,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2552,
+        "y": 3238,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3232,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2558,
+        "y": 3232,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2543,
+        "y": 3218,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2550,
+        "y": 3231,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 6095,
+    "position": [
+      {
+        "x": 2557,
+        "y": 3225,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5971,
+    "position": [
+      {
+        "x": 2499,
+        "y": 3234,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2500,
+        "y": 3236,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "WEST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2504,
+        "y": 3228,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5967,
+    "position": [
+      {
+        "x": 2507,
+        "y": 3213,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5967,
+    "position": [
+      {
+        "x": 2518,
+        "y": 3211,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2506,
+        "y": 3217,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2508,
+        "y": 3240,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 4972,
+    "position": [
+      {
+        "x": 2509,
+        "y": 3254,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard commander"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6076,
+    "position": [
+      {
+        "x": 2511,
+        "y": 3200,
+        "plane": 0
+      }
+    ],
+    "description": "Tortoise"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2496,
+        "y": 3218,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2496,
+        "y": 3219,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2513,
+        "y": 3246,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2507,
+        "y": 3241,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "EAST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2513,
+        "y": 3243,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "EAST",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2506,
+        "y": 3222,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2507,
+        "y": 3247,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6100,
+    "position": [
+      {
+        "x": 2516,
+        "y": 3203,
+        "plane": 0
+      }
+    ],
+    "description": "Lieutenant Schepbur"
+  },
+  {
+    "facing": "WEST",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2503,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2521,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2505,
+        "y": 3245,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2514,
+        "y": 3236,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2501,
+        "y": 3204,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2521,
+        "y": 3247,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "WEST",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2520,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2517,
+        "y": 3237,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2517,
+        "y": 3253,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6076,
+    "position": [
+      {
+        "x": 2520,
+        "y": 3203,
+        "plane": 0
+      }
+    ],
+    "description": "Tortoise"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2507,
+        "y": 3222,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2519,
+        "y": 3204,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2522,
+        "y": 3251,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2517,
+        "y": 3245,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2524,
+        "y": 3225,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2519,
+        "y": 3234,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2524,
+        "y": 3243,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "WEST",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2518,
+        "y": 3215,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2528,
+        "y": 3220,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2513,
+        "y": 3242,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2508,
+        "y": 3239,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 4964,
+    "position": [
+      {
+        "x": 2526,
+        "y": 3208,
+        "plane": 0
+      }
+    ],
+    "description": "Commander Montai"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2525,
+        "y": 3208,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 5972,
+    "position": [
+      {
+        "x": 2523,
+        "y": 3245,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 4976,
+    "position": [
+      {
+        "x": 2523,
+        "y": 3258,
+        "plane": 0
+      }
+    ],
+    "description": "Tracker gnome 2"
+  },
+  {
+    "facing": "EAST",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2535,
+        "y": 3206,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2519,
+        "y": 3213,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2514,
+        "y": 3201,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5968,
+    "position": [
+      {
+        "x": 2525,
+        "y": 3219,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2534,
+        "y": 3205,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2520,
+        "y": 3237,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2534,
+        "y": 3243,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2524,
+        "y": 3245,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2531,
+        "y": 3249,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5969,
+    "position": [
+      {
+        "x": 2532,
+        "y": 3216,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5970,
+    "position": [
+      {
+        "x": 2515,
+        "y": 3218,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 5966,
+    "position": [
+      {
+        "x": 2527,
+        "y": 3223,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5966,
+    "position": [
+      {
+        "x": 2527,
+        "y": 3227,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2523,
+        "y": 3244,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2531,
+        "y": 3237,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "EAST",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2516,
+        "y": 3248,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5965,
+    "position": [
+      {
+        "x": 2521,
+        "y": 3226,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 5964,
+    "position": [
+      {
+        "x": 2528,
+        "y": 3251,
+        "plane": 0
+      }
+    ],
+    "description": "Khazard trooper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5973,
+    "position": [
+      {
+        "x": 2526,
+        "y": 3219,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 5967,
+    "position": [
+      {
+        "x": 2538,
+        "y": 3228,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome troop"
+  }
+]

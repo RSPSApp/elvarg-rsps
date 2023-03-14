@@ -1,0 +1,470 @@
+[
+  {
+    "facing": "NORTH",
+    "id": 114,
+    "position": [
+      {
+        "x": 2646,
+        "y": 3328,
+        "plane": 0
+      }
+    ],
+    "description": "Guard dog"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5203,
+    "position": [
+      {
+        "x": 2632,
+        "y": 3390,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 11939,
+    "position": [
+      {
+        "x": 2636,
+        "y": 3339,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 11937,
+    "position": [
+      {
+        "x": 2633,
+        "y": 3344,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5730,
+    "position": [
+      {
+        "x": 2635,
+        "y": 3363,
+        "plane": 0
+      }
+    ],
+    "description": "Master Farmer"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 5418,
+    "position": [
+      {
+        "x": 2636,
+        "y": 3340,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "EAST",
+    "id": 3114,
+    "position": [
+      {
+        "x": 2647,
+        "y": 3357,
+        "plane": 0
+      }
+    ],
+    "description": "Farmer"
+  },
+  {
+    "facing": "EAST",
+    "id": 503,
+    "position": [
+      {
+        "x": 2646,
+        "y": 3365,
+        "plane": 0
+      }
+    ],
+    "description": "Richard"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2693,
+    "position": [
+      {
+        "x": 2651,
+        "y": 3365,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "EAST",
+    "id": 2693,
+    "position": [
+      {
+        "x": 2653,
+        "y": 3377,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "WEST",
+    "id": 2693,
+    "position": [
+      {
+        "x": 2652,
+        "y": 3360,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "NORTH",
+    "id": 11919,
+    "position": [
+      {
+        "x": 2647,
+        "y": 3354,
+        "plane": 0
+      }
+    ],
+    "description": "Farmer"
+  },
+  {
+    "facing": "EAST",
+    "id": 2693,
+    "position": [
+      {
+        "x": 2655,
+        "y": 3375,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2693,
+    "position": [
+      {
+        "x": 2653,
+        "y": 3361,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2693,
+    "position": [
+      {
+        "x": 2656,
+        "y": 3358,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2693,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3365,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "WEST",
+    "id": 1262,
+    "position": [
+      {
+        "x": 2652,
+        "y": 3359,
+        "plane": 0
+      }
+    ],
+    "description": "Ram"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2693,
+    "position": [
+      {
+        "x": 2655,
+        "y": 3365,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2693,
+    "position": [
+      {
+        "x": 2655,
+        "y": 3367,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "WEST",
+    "id": 1262,
+    "position": [
+      {
+        "x": 2654,
+        "y": 3379,
+        "plane": 0
+      }
+    ],
+    "description": "Ram"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2693,
+    "position": [
+      {
+        "x": 2653,
+        "y": 3374,
+        "plane": 0
+      }
+    ],
+    "description": "Sheep"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2790,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3341,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2790,
+    "position": [
+      {
+        "x": 2660,
+        "y": 3351,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "WEST",
+    "id": 3260,
+    "position": [
+      {
+        "x": 2658,
+        "y": 3335,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2790,
+    "position": [
+      {
+        "x": 2662,
+        "y": 3345,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "EAST",
+    "id": 221,
+    "position": [
+      {
+        "x": 2664,
+        "y": 3335,
+        "plane": 0
+      }
+    ],
+    "description": "Rick"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2790,
+    "position": [
+      {
+        "x": 2667,
+        "y": 3346,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2790,
+    "position": [
+      {
+        "x": 2659,
+        "y": 3348,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "WEST",
+    "id": 2790,
+    "position": [
+      {
+        "x": 2661,
+        "y": 3349,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "NORTH",
+    "id": 223,
+    "position": [
+      {
+        "x": 2666,
+        "y": 3331,
+        "plane": 0
+      }
+    ],
+    "description": "Maid"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2790,
+    "position": [
+      {
+        "x": 2666,
+        "y": 3345,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "EAST",
+    "id": 2665,
+    "position": [
+      {
+        "x": 2672,
+        "y": 3376,
+        "plane": 0
+      }
+    ],
+    "description": "Kragen"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 225,
+    "position": [
+      {
+        "x": 2665,
+        "y": 3333,
+        "plane": 0
+      }
+    ],
+    "description": "Cook"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2790,
+    "position": [
+      {
+        "x": 2667,
+        "y": 3350,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "NORTH",
+    "id": 227,
+    "position": [
+      {
+        "x": 2669,
+        "y": 3329,
+        "plane": 0
+      }
+    ],
+    "description": "Butler"
+  },
+  {
+    "facing": "EAST",
+    "id": 2790,
+    "position": [
+      {
+        "x": 2674,
+        "y": 3347,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 0,
+    "position": [
+      {
+        "x": 2672,
+        "y": 3381,
+        "plane": 0
+      }
+    ],
+    "description": "Tool Leprechaun"
+  },
+  {
+    "facing": "EAST",
+    "id": 2790,
+    "position": [
+      {
+        "x": 2670,
+        "y": 3354,
+        "plane": 0
+      }
+    ],
+    "description": "Cow"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1172,
+    "position": [
+      {
+        "x": 2674,
+        "y": 3351,
+        "plane": 0
+      }
+    ],
+    "description": ""
+  }
+]

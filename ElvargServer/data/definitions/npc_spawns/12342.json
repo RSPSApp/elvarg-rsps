@@ -1,0 +1,530 @@
+[
+  {
+    "facing": "WEST",
+    "id": 3443,
+    "position": [
+      {
+        "x": 3120,
+        "y": 3486,
+        "plane": 0
+      }
+    ],
+    "description": "Lucien"
+  },
+  {
+    "facing": "WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3120,
+        "y": 3486,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 4170,
+    "position": [
+      {
+        "x": 3119,
+        "y": 3476,
+        "plane": 0
+      }
+    ],
+    "description": "Outlaw"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 4172,
+    "position": [
+      {
+        "x": 3120,
+        "y": 3478,
+        "plane": 0
+      }
+    ],
+    "description": "Outlaw"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 4171,
+    "position": [
+      {
+        "x": 3123,
+        "y": 3474,
+        "plane": 0
+      }
+    ],
+    "description": "Outlaw"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3125,
+        "y": 3487,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3134,
+        "y": 3483,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "EAST",
+    "id": 1325,
+    "position": [
+      {
+        "x": 3134,
+        "y": 3509,
+        "plane": 0
+      }
+    ],
+    "description": "Hari"
+  },
+  {
+    "facing": "WEST",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3131,
+        "y": 3485,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3017,
+    "position": [
+      {
+        "x": 3133,
+        "y": 3484,
+        "plane": 0
+      }
+    ],
+    "description": "Giant spider"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 4808,
+    "position": [
+      {
+        "x": 3077,
+        "y": 3491,
+        "plane": 0
+      }
+    ],
+    "description": "Doris"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2821,
+    "position": [
+      {
+        "x": 3081,
+        "y": 3511,
+        "plane": 0
+      }
+    ],
+    "description": "Shop keeper"
+  },
+  {
+    "facing": "EAST",
+    "id": 2822,
+    "position": [
+      {
+        "x": 3083,
+        "y": 3509,
+        "plane": 0
+      }
+    ],
+    "description": "Shop assistant"
+  },
+  {
+    "facing": "WEST",
+    "id": 11923,
+    "position": [
+      {
+        "x": 3085,
+        "y": 3519,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 10656,
+    "position": [
+      {
+        "x": 3088,
+        "y": 3471,
+        "plane": 0
+      }
+    ],
+    "description": "Marley"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3108,
+    "position": [
+      {
+        "x": 3092,
+        "y": 3511,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "WEST",
+    "id": 3106,
+    "position": [
+      {
+        "x": 3091,
+        "y": 3512,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3254,
+    "position": [
+      {
+        "x": 3094,
+        "y": 3516,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1613,
+    "position": [
+      {
+        "x": 3096,
+        "y": 3489,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "WEST",
+    "id": 1618,
+    "position": [
+      {
+        "x": 3096,
+        "y": 3491,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1618,
+    "position": [
+      {
+        "x": 3096,
+        "y": 3492,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 308,
+    "position": [
+      {
+        "x": 3097,
+        "y": 3504,
+        "plane": 0
+      }
+    ],
+    "description": "Emblem Trader"
+  },
+  {
+    "facing": "EAST",
+    "id": 3108,
+    "position": [
+      {
+        "x": 3099,
+        "y": 3510,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3106,
+    "position": [
+      {
+        "x": 3100,
+        "y": 3514,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1613,
+    "position": [
+      {
+        "x": 3098,
+        "y": 3492,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "WEST",
+    "id": 2200,
+    "position": [
+      {
+        "x": 3099,
+        "y": 3516,
+        "plane": 0
+      }
+    ],
+    "description": "Richard"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3106,
+    "position": [
+      {
+        "x": 3102,
+        "y": 3506,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "WEST",
+    "id": 3107,
+    "position": [
+      {
+        "x": 3100,
+        "y": 3515,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3108,
+    "position": [
+      {
+        "x": 3101,
+        "y": 3511,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "WEST",
+    "id": 11922,
+    "position": [
+      {
+        "x": 3108,
+        "y": 3513,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 7663,
+    "position": [
+      {
+        "x": 3109,
+        "y": 3516,
+        "plane": 0
+      }
+    ],
+    "description": "Krystilia"
+  },
+  {
+    "facing": "WEST",
+    "id": 3254,
+    "position": [
+      {
+        "x": 3109,
+        "y": 3514,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 11923,
+    "position": [
+      {
+        "x": 3112,
+        "y": 3512,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 11924,
+    "position": [
+      {
+        "x": 3112,
+        "y": 3515,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 4175,
+    "position": [
+      {
+        "x": 3118,
+        "y": 3474,
+        "plane": 0
+      }
+    ],
+    "description": "Outlaw"
+  },
+  {
+    "facing": "EAST",
+    "id": 4174,
+    "position": [
+      {
+        "x": 3119,
+        "y": 3479,
+        "plane": 0
+      }
+    ],
+    "description": "Outlaw"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 4176,
+    "position": [
+      {
+        "x": 3121,
+        "y": 3468,
+        "plane": 0
+      }
+    ],
+    "description": "Outlaw"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 4167,
+    "position": [
+      {
+        "x": 3120,
+        "y": 3473,
+        "plane": 0
+      }
+    ],
+    "description": "Outlaw"
+  },
+  {
+    "facing": "NORTH",
+    "id": 4168,
+    "position": [
+      {
+        "x": 3122,
+        "y": 3471,
+        "plane": 0
+      }
+    ],
+    "description": "Outlaw"
+  },
+  {
+    "facing": "NORTH",
+    "id": 4173,
+    "position": [
+      {
+        "x": 3118,
+        "y": 3478,
+        "plane": 0
+      }
+    ],
+    "description": "Outlaw"
+  },
+  {
+    "facing": "WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 3120,
+        "y": 3487,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "EAST",
+    "id": 4169,
+    "position": [
+      {
+        "x": 3124,
+        "y": 3469,
+        "plane": 0
+      }
+    ],
+    "description": "Outlaw"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5514,
+    "position": [
+      {
+        "x": 3120,
+        "y": 3518,
+        "plane": 0
+      }
+    ],
+    "description": "Lesser Fanatic"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5515,
+    "position": [
+      {
+        "x": 3122,
+        "y": 3518,
+        "plane": 0
+      }
+    ],
+    "description": "Luna"
+  }
+]

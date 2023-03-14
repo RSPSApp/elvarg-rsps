@@ -1,0 +1,98 @@
+[
+  {
+    "facing": "WEST",
+    "id": 2888,
+    "position": [
+      {
+        "x": 2640,
+        "y": 3170,
+        "plane": 0
+      }
+    ],
+    "description": "Shop keeper"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2888,
+    "position": [
+      {
+        "x": 2654,
+        "y": 3151,
+        "plane": 0
+      }
+    ],
+    "description": "Shop keeper"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5607,
+    "position": [
+      {
+        "x": 2667,
+        "y": 3164,
+        "plane": 0
+      }
+    ],
+    "description": "Murphy"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 10707,
+    "position": [
+      {
+        "x": 2671,
+        "y": 3172,
+        "plane": 1
+      }
+    ],
+    "description": "Murphy"
+  },
+  {
+    "facing": "EAST",
+    "id": 5007,
+    "position": [
+      {
+        "x": 2632,
+        "y": 3180,
+        "plane": 0
+      }
+    ],
+    "description": "Imp"
+  },
+  {
+    "facing": "EAST",
+    "id": 9325,
+    "position": [
+      {
+        "x": 2675,
+        "y": 3144,
+        "plane": 0
+      }
+    ],
+    "description": "Trader Crewmember"
+  },
+  {
+    "facing": "NORTH",
+    "id": 9349,
+    "position": [
+      {
+        "x": 2673,
+        "y": 3145,
+        "plane": 0
+      }
+    ],
+    "description": "Trader Crewmember"
+  },
+  {
+    "facing": "EAST",
+    "id": 1358,
+    "position": [
+      {
+        "x": 2677,
+        "y": 3152,
+        "plane": 0
+      }
+    ],
+    "description": "Tindel Marchant"
+  }
+]

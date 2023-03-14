@@ -1,0 +1,350 @@
+[
+  {
+    "facing": "EAST",
+    "id": 3112,
+    "position": [
+      {
+        "x": 2692,
+        "y": 3487,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1318,
+    "position": [
+      {
+        "x": 2690,
+        "y": 3493,
+        "plane": 0
+      }
+    ],
+    "description": "Bartender"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3111,
+    "position": [
+      {
+        "x": 2691,
+        "y": 3492,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3107,
+    "position": [
+      {
+        "x": 2695,
+        "y": 3489,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3106,
+    "position": [
+      {
+        "x": 2691,
+        "y": 3497,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 4227,
+    "position": [
+      {
+        "x": 2693,
+        "y": 3493,
+        "plane": 0
+      }
+    ],
+    "description": "Poison Salesman"
+  },
+  {
+    "facing": "WEST",
+    "id": 3111,
+    "position": [
+      {
+        "x": 2697,
+        "y": 3494,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3111,
+    "position": [
+      {
+        "x": 2693,
+        "y": 3494,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3108,
+    "position": [
+      {
+        "x": 2696,
+        "y": 3489,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "EAST",
+    "id": 3112,
+    "position": [
+      {
+        "x": 2700,
+        "y": 3494,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 5231,
+    "position": [
+      {
+        "x": 2705,
+        "y": 3478,
+        "plane": 0
+      }
+    ],
+    "description": "Seer"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5231,
+    "position": [
+      {
+        "x": 2705,
+        "y": 3471,
+        "plane": 0
+      }
+    ],
+    "description": "Seer"
+  },
+  {
+    "facing": "EAST",
+    "id": 1357,
+    "position": [
+      {
+        "x": 2705,
+        "y": 3473,
+        "plane": 0
+      }
+    ],
+    "description": "Phantuwti Fanstuwi Farsight"
+  },
+  {
+    "facing": "WEST",
+    "id": 3106,
+    "position": [
+      {
+        "x": 2714,
+        "y": 3483,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5231,
+    "position": [
+      {
+        "x": 2716,
+        "y": 3472,
+        "plane": 0
+      }
+    ],
+    "description": "Seer"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5231,
+    "position": [
+      {
+        "x": 2717,
+        "y": 3484,
+        "plane": 0
+      }
+    ],
+    "description": "Seer"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2721,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 1618,
+    "position": [
+      {
+        "x": 2722,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2724,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1618,
+    "position": [
+      {
+        "x": 2726,
+        "y": 3496,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1618,
+    "position": [
+      {
+        "x": 2727,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2728,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1613,
+    "position": [
+      {
+        "x": 2729,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1618,
+    "position": [
+      {
+        "x": 2729,
+        "y": 3496,
+        "plane": 0
+      }
+    ],
+    "description": "Banker"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3097,
+    "position": [
+      {
+        "x": 2737,
+        "y": 3501,
+        "plane": 0
+      }
+    ],
+    "description": "Estate agent"
+  },
+  {
+    "facing": "EAST",
+    "id": 280,
+    "position": [
+      {
+        "x": 2740,
+        "y": 3482,
+        "plane": 0
+      }
+    ],
+    "description": "Town Crier"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3515,
+    "position": [
+      {
+        "x": 2702,
+        "y": 3475,
+        "plane": 1
+      }
+    ],
+    "description": "Sin Seer"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 4335,
+    "position": [
+      {
+        "x": 2737,
+        "y": 3474,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 4336,
+    "position": [
+      {
+        "x": 2736,
+        "y": 3469,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  }
+]

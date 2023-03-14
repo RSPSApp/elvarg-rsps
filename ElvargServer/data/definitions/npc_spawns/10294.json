@@ -1,0 +1,230 @@
+[
+  {
+    "facing": "EAST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2600,
+        "y": 3466,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5191,
+    "position": [
+      {
+        "x": 2567,
+        "y": 3459,
+        "plane": 0
+      }
+    ],
+    "description": "Captain Lawgof"
+  },
+  {
+    "facing": "WEST",
+    "id": 2834,
+    "position": [
+      {
+        "x": 2575,
+        "y": 3483,
+        "plane": 0
+      }
+    ],
+    "description": "Giant bat"
+  },
+  {
+    "facing": "EAST",
+    "id": 5186,
+    "position": [
+      {
+        "x": 2576,
+        "y": 3456,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 2834,
+    "position": [
+      {
+        "x": 2569,
+        "y": 3468,
+        "plane": 0
+      }
+    ],
+    "description": "Giant bat"
+  },
+  {
+    "facing": "EAST",
+    "id": 3364,
+    "position": [
+      {
+        "x": 2576,
+        "y": 3486,
+        "plane": 0
+      }
+    ],
+    "description": "Stankers"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2834,
+    "position": [
+      {
+        "x": 2575,
+        "y": 3474,
+        "plane": 0
+      }
+    ],
+    "description": "Giant bat"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2834,
+    "position": [
+      {
+        "x": 2583,
+        "y": 3479,
+        "plane": 0
+      }
+    ],
+    "description": "Giant bat"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2834,
+    "position": [
+      {
+        "x": 2587,
+        "y": 3473,
+        "plane": 0
+      }
+    ],
+    "description": "Giant bat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2834,
+    "position": [
+      {
+        "x": 2589,
+        "y": 3481,
+        "plane": 0
+      }
+    ],
+    "description": "Giant bat"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2834,
+    "position": [
+      {
+        "x": 2589,
+        "y": 3473,
+        "plane": 0
+      }
+    ],
+    "description": "Giant bat"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 2610,
+        "y": 3485,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "EAST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 2614,
+        "y": 3476,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "WEST",
+    "id": 4064,
+    "position": [
+      {
+        "x": 2612,
+        "y": 3474,
+        "plane": 0
+      }
+    ],
+    "description": "Galahad"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2854,
+    "position": [
+      {
+        "x": 2618,
+        "y": 3478,
+        "plane": 0
+      }
+    ],
+    "description": "Rat"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2606,
+        "y": 3466,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2602,
+        "y": 3462,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2595,
+        "y": 3462,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2587,
+        "y": 3458,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  }
+]

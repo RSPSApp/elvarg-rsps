@@ -1,0 +1,146 @@
+[
+  {
+    "facing": "EAST",
+    "id": 73,
+    "position": [
+      {
+        "x": 3080,
+        "y": 3533,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "WEST",
+    "id": 77,
+    "position": [
+      {
+        "x": 3079,
+        "y": 3552,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 71,
+    "position": [
+      {
+        "x": 3092,
+        "y": 3558,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 78,
+    "position": [
+      {
+        "x": 3100,
+        "y": 3572,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 79,
+    "position": [
+      {
+        "x": 3107,
+        "y": 3565,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 80,
+    "position": [
+      {
+        "x": 3103,
+        "y": 3563,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "EAST",
+    "id": 72,
+    "position": [
+      {
+        "x": 3112,
+        "y": 3554,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "WEST",
+    "id": 2581,
+    "position": [
+      {
+        "x": 3105,
+        "y": 3558,
+        "plane": 0
+      }
+    ],
+    "description": "Mage of Zamorak"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 81,
+    "position": [
+      {
+        "x": 3099,
+        "y": 3564,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 77,
+    "position": [
+      {
+        "x": 3106,
+        "y": 3576,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 70,
+    "position": [
+      {
+        "x": 3113,
+        "y": 3539,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  },
+  {
+    "facing": "EAST",
+    "id": 71,
+    "position": [
+      {
+        "x": 3113,
+        "y": 3536,
+        "plane": 0
+      }
+    ],
+    "description": "Skeleton"
+  }
+]

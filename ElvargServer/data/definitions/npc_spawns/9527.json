@@ -1,0 +1,14 @@
+[
+  {
+    "facing": "SOUTH_EAST",
+    "id": 6076,
+    "position": [
+      {
+        "x": 2410,
+        "y": 3528,
+        "plane": 0
+      }
+    ],
+    "description": "Tortoise"
+  }
+]

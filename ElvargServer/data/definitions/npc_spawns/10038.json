@@ -1,0 +1,50 @@
+[
+  {
+    "facing": "EAST",
+    "id": 4181,
+    "position": [
+      {
+        "x": 2524,
+        "y": 3495,
+        "plane": 0
+      }
+    ],
+    "description": "Almera"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5188,
+    "position": [
+      {
+        "x": 2554,
+        "y": 3472,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 5189,
+    "position": [
+      {
+        "x": 2554,
+        "y": 3477,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 5195,
+    "position": [
+      {
+        "x": 2556,
+        "y": 3460,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  }
+]

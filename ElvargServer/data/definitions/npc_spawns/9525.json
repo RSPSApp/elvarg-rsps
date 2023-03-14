@@ -1,0 +1,998 @@
+[
+  {
+    "facing": "EAST",
+    "id": 235,
+    "position": [
+      {
+        "x": 2381,
+        "y": 3423,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "EAST",
+    "id": 6095,
+    "position": [
+      {
+        "x": 2379,
+        "y": 3427,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2064,
+    "position": [
+      {
+        "x": 2386,
+        "y": 3433,
+        "plane": 0
+      }
+    ],
+    "description": "Terrorbird"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2067,
+    "position": [
+      {
+        "x": 2382,
+        "y": 3431,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1506,
+    "position": [
+      {
+        "x": 2388,
+        "y": 3425,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2066,
+    "position": [
+      {
+        "x": 2373,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Terrorbird"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2065,
+    "position": [
+      {
+        "x": 2382,
+        "y": 3433,
+        "plane": 0
+      }
+    ],
+    "description": "Terrorbird"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1506,
+    "position": [
+      {
+        "x": 2394,
+        "y": 3418,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6095,
+    "position": [
+      {
+        "x": 2383,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2384,
+        "y": 3455,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1506,
+    "position": [
+      {
+        "x": 2383,
+        "y": 3418,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1506,
+    "position": [
+      {
+        "x": 2389,
+        "y": 3423,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1506,
+    "position": [
+      {
+        "x": 2382,
+        "y": 3414,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1506,
+    "position": [
+      {
+        "x": 2391,
+        "y": 3421,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2388,
+        "y": 3413,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1506,
+    "position": [
+      {
+        "x": 2385,
+        "y": 3410,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "WEST",
+    "id": 2067,
+    "position": [
+      {
+        "x": 2384,
+        "y": 3405,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 237,
+    "position": [
+      {
+        "x": 2370,
+        "y": 3455,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6081,
+    "position": [
+      {
+        "x": 2388,
+        "y": 3452,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1839,
+    "position": [
+      {
+        "x": 2388,
+        "y": 3413,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "WEST",
+    "id": 2002,
+    "position": [
+      {
+        "x": 2389,
+        "y": 3413,
+        "plane": 0
+      }
+    ],
+    "description": "Ducklings"
+  },
+  {
+    "facing": "EAST",
+    "id": 6096,
+    "position": [
+      {
+        "x": 2397,
+        "y": 3440,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 235,
+    "position": [
+      {
+        "x": 2388,
+        "y": 3448,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "EAST",
+    "id": 6096,
+    "position": [
+      {
+        "x": 2391,
+        "y": 3428,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 6081,
+    "position": [
+      {
+        "x": 2395,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2396,
+        "y": 3413,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 6096,
+    "position": [
+      {
+        "x": 2399,
+        "y": 3451,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 235,
+    "position": [
+      {
+        "x": 2394,
+        "y": 3441,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "WEST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2399,
+        "y": 3409,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2402,
+        "y": 3418,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2400,
+        "y": 3423,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2402,
+        "y": 3441,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2403,
+        "y": 3428,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 6096,
+    "position": [
+      {
+        "x": 2404,
+        "y": 3430,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 1838,
+    "position": [
+      {
+        "x": 2400,
+        "y": 3407,
+        "plane": 0
+      }
+    ],
+    "description": "Duck"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 6095,
+    "position": [
+      {
+        "x": 2404,
+        "y": 3445,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 6095,
+    "position": [
+      {
+        "x": 2410,
+        "y": 3438,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2405,
+        "y": 3444,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6081,
+    "position": [
+      {
+        "x": 2403,
+        "y": 3448,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2409,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 6082,
+    "position": [
+      {
+        "x": 2412,
+        "y": 3420,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2067,
+    "position": [
+      {
+        "x": 2413,
+        "y": 3396,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2067,
+    "position": [
+      {
+        "x": 2414,
+        "y": 3401,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 234,
+    "position": [
+      {
+        "x": 2407,
+        "y": 3414,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 6096,
+    "position": [
+      {
+        "x": 2418,
+        "y": 3426,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6082,
+    "position": [
+      {
+        "x": 2422,
+        "y": 3433,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6096,
+    "position": [
+      {
+        "x": 2423,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 6082,
+    "position": [
+      {
+        "x": 2420,
+        "y": 3447,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6081,
+    "position": [
+      {
+        "x": 2420,
+        "y": 3417,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 235,
+    "position": [
+      {
+        "x": 2419,
+        "y": 3395,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2422,
+        "y": 3426,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 234,
+    "position": [
+      {
+        "x": 2424,
+        "y": 3406,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 235,
+    "position": [
+      {
+        "x": 2420,
+        "y": 3408,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "NORTH",
+    "id": 235,
+    "position": [
+      {
+        "x": 2421,
+        "y": 3408,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "EAST",
+    "id": 6082,
+    "position": [
+      {
+        "x": 2424,
+        "y": 3413,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2426,
+        "y": 3428,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 6094,
+    "position": [
+      {
+        "x": 2428,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 234,
+    "position": [
+      {
+        "x": 2423,
+        "y": 3406,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "EAST",
+    "id": 6095,
+    "position": [
+      {
+        "x": 2409,
+        "y": 3437,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 6086,
+    "position": [
+      {
+        "x": 2429,
+        "y": 3431,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6079,
+    "position": [
+      {
+        "x": 2408,
+        "y": 3438,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome child"
+  },
+  {
+    "facing": "WEST",
+    "id": 2064,
+    "position": [
+      {
+        "x": 2431,
+        "y": 3434,
+        "plane": 0
+      }
+    ],
+    "description": "Terrorbird"
+  },
+  {
+    "facing": "WEST",
+    "id": 6077,
+    "position": [
+      {
+        "x": 2413,
+        "y": 3445,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome child"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6086,
+    "position": [
+      {
+        "x": 2414,
+        "y": 3448,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6077,
+    "position": [
+      {
+        "x": 2417,
+        "y": 3433,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome child"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6087,
+    "position": [
+      {
+        "x": 2416,
+        "y": 3432,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6087,
+    "position": [
+      {
+        "x": 2422,
+        "y": 3422,
+        "plane": 1
+      }
+    ],
+    "description": "Gnome woman"
+  },
+  {
+    "facing": "EAST",
+    "id": 2103,
+    "position": [
+      {
+        "x": 2370,
+        "y": 3393,
+        "plane": 0
+      }
+    ],
+    "description": "Hill Giant"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2099,
+    "position": [
+      {
+        "x": 2369,
+        "y": 3400,
+        "plane": 0
+      }
+    ],
+    "description": "Hill Giant"
+  },
+  {
+    "facing": "EAST",
+    "id": 2098,
+    "position": [
+      {
+        "x": 2369,
+        "y": 3406,
+        "plane": 0
+      }
+    ],
+    "description": "Hill Giant"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2101,
+    "position": [
+      {
+        "x": 2372,
+        "y": 3400,
+        "plane": 0
+      }
+    ],
+    "description": "Hill Giant"
+  },
+  {
+    "facing": "EAST",
+    "id": 2102,
+    "position": [
+      {
+        "x": 2371,
+        "y": 3395,
+        "plane": 0
+      }
+    ],
+    "description": "Hill Giant"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2100,
+    "position": [
+      {
+        "x": 2371,
+        "y": 3402,
+        "plane": 0
+      }
+    ],
+    "description": "Hill Giant"
+  },
+  {
+    "facing": "WEST",
+    "id": 2064,
+    "position": [
+      {
+        "x": 2373,
+        "y": 3438,
+        "plane": 0
+      }
+    ],
+    "description": "Terrorbird"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2066,
+    "position": [
+      {
+        "x": 2375,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Terrorbird"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2064,
+    "position": [
+      {
+        "x": 2384,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Terrorbird"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6095,
+    "position": [
+      {
+        "x": 2377,
+        "y": 3443,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 235,
+    "position": [
+      {
+        "x": 2372,
+        "y": 3421,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "EAST",
+    "id": 6096,
+    "position": [
+      {
+        "x": 2380,
+        "y": 3420,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2065,
+    "position": [
+      {
+        "x": 2382,
+        "y": 3436,
+        "plane": 0
+      }
+    ],
+    "description": "Terrorbird"
+  },
+  {
+    "facing": "WEST",
+    "id": 2064,
+    "position": [
+      {
+        "x": 2373,
+        "y": 3425,
+        "plane": 0
+      }
+    ],
+    "description": "Terrorbird"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2571,
+    "position": [
+      {
+        "x": 2380,
+        "y": 3430,
+        "plane": 0
+      }
+    ],
+    "description": "Meegle"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2065,
+    "position": [
+      {
+        "x": 2373,
+        "y": 3440,
+        "plane": 0
+      }
+    ],
+    "description": "Terrorbird"
+  }
+]

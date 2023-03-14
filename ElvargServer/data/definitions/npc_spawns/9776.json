@@ -1,0 +1,38 @@
+[
+  {
+    "facing": "NORTH_WEST",
+    "id": 2095,
+    "position": [
+      {
+        "x": 2495,
+        "y": 3093,
+        "plane": 0
+      }
+    ],
+    "description": "Ogre"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 11650,
+    "position": [
+      {
+        "x": 2441,
+        "y": 3089,
+        "plane": 0
+      }
+    ],
+    "description": "Lanthus"
+  },
+  {
+    "facing": "EAST",
+    "id": 5007,
+    "position": [
+      {
+        "x": 2469,
+        "y": 3110,
+        "plane": 0
+      }
+    ],
+    "description": "Imp"
+  }
+]

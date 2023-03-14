@@ -1,0 +1,62 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 805,
+    "position": [
+      {
+        "x": 2764,
+        "y": 3603,
+        "plane": 0
+      }
+    ],
+    "description": "Golden sheep"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 806,
+    "position": [
+      {
+        "x": 2769,
+        "y": 3604,
+        "plane": 0
+      }
+    ],
+    "description": "Golden sheep"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 804,
+    "position": [
+      {
+        "x": 2771,
+        "y": 3608,
+        "plane": 0
+      }
+    ],
+    "description": "Golden sheep"
+  },
+  {
+    "facing": "NORTH",
+    "id": 807,
+    "position": [
+      {
+        "x": 2771,
+        "y": 3611,
+        "plane": 0
+      }
+    ],
+    "description": "Golden sheep"
+  },
+  {
+    "facing": "WEST",
+    "id": 803,
+    "position": [
+      {
+        "x": 2771,
+        "y": 3622,
+        "plane": 0
+      }
+    ],
+    "description": "Lalli"
+  }
+]

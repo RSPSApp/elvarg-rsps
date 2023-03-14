@@ -1,0 +1,170 @@
+[
+  {
+    "facing": "SOUTH",
+    "id": 2862,
+    "position": [
+      {
+        "x": 3264,
+        "y": 3381,
+        "plane": 0
+      }
+    ],
+    "description": "Giant rat"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2864,
+    "position": [
+      {
+        "x": 3266,
+        "y": 3383,
+        "plane": 0
+      }
+    ],
+    "description": "Giant rat"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1108,
+    "position": [
+      {
+        "x": 3267,
+        "y": 3390,
+        "plane": 0
+      }
+    ],
+    "description": "Hops"
+  },
+  {
+    "facing": "WEST",
+    "id": 1106,
+    "position": [
+      {
+        "x": 3271,
+        "y": 3388,
+        "plane": 0
+      }
+    ],
+    "description": "Chancy"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1104,
+    "position": [
+      {
+        "x": 3272,
+        "y": 3389,
+        "plane": 0
+      }
+    ],
+    "description": "Da Vinci"
+  },
+  {
+    "facing": "WEST",
+    "id": 2902,
+    "position": [
+      {
+        "x": 3277,
+        "y": 3377,
+        "plane": 0
+      }
+    ],
+    "description": "Stray dog"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 10627,
+    "position": [
+      {
+        "x": 3279,
+        "y": 3360,
+        "plane": 0
+      }
+    ],
+    "description": "null"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1109,
+    "position": [
+      {
+        "x": 3279,
+        "y": 3383,
+        "plane": 0
+      }
+    ],
+    "description": "Julie"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2837,
+    "position": [
+      {
+        "x": 3291,
+        "y": 3345,
+        "plane": 0
+      }
+    ],
+    "description": "Unicorn"
+  },
+  {
+    "facing": "WEST",
+    "id": 1110,
+    "position": [
+      {
+        "x": 3284,
+        "y": 3382,
+        "plane": 0
+      }
+    ],
+    "description": "Guidor"
+  },
+  {
+    "facing": "EAST",
+    "id": 2837,
+    "position": [
+      {
+        "x": 3277,
+        "y": 3355,
+        "plane": 0
+      }
+    ],
+    "description": "Unicorn"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2862,
+    "position": [
+      {
+        "x": 3295,
+        "y": 3381,
+        "plane": 0
+      }
+    ],
+    "description": "Giant rat"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2839,
+    "position": [
+      {
+        "x": 3296,
+        "y": 3346,
+        "plane": 0
+      }
+    ],
+    "description": "Black bear"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3073,
+    "position": [
+      {
+        "x": 3323,
+        "y": 3366,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  }
+]

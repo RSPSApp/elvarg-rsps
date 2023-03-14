@@ -1,0 +1,362 @@
+[
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2067,
+    "position": [
+      {
+        "x": 2456,
+        "y": 3390,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "WEST",
+    "id": 6082,
+    "position": [
+      {
+        "x": 2460,
+        "y": 3391,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6081,
+    "position": [
+      {
+        "x": 2459,
+        "y": 3390,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 6082,
+    "position": [
+      {
+        "x": 2464,
+        "y": 3388,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "EAST",
+    "id": 2067,
+    "position": [
+      {
+        "x": 2462,
+        "y": 3385,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "NORTH",
+    "id": 106,
+    "position": [
+      {
+        "x": 2438,
+        "y": 3332,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3490,
+    "position": [
+      {
+        "x": 2437,
+        "y": 3347,
+        "plane": 0
+      }
+    ],
+    "description": "Jorral"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 106,
+    "position": [
+      {
+        "x": 2444,
+        "y": 3332,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 106,
+    "position": [
+      {
+        "x": 2440,
+        "y": 3332,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "NORTH",
+    "id": 106,
+    "position": [
+      {
+        "x": 2439,
+        "y": 3337,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "NORTH",
+    "id": 106,
+    "position": [
+      {
+        "x": 2437,
+        "y": 3337,
+        "plane": 0
+      }
+    ],
+    "description": "Wolf"
+  },
+  {
+    "facing": "EAST",
+    "id": 2067,
+    "position": [
+      {
+        "x": 2447,
+        "y": 3384,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3050,
+    "position": [
+      {
+        "x": 2443,
+        "y": 3357,
+        "plane": 0
+      }
+    ],
+    "description": "Hobgoblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3050,
+    "position": [
+      {
+        "x": 2446,
+        "y": 3362,
+        "plane": 0
+      }
+    ],
+    "description": "Hobgoblin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3049,
+    "position": [
+      {
+        "x": 2450,
+        "y": 3367,
+        "plane": 0
+      }
+    ],
+    "description": "Hobgoblin"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3050,
+    "position": [
+      {
+        "x": 2445,
+        "y": 3359,
+        "plane": 0
+      }
+    ],
+    "description": "Hobgoblin"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3049,
+    "position": [
+      {
+        "x": 2451,
+        "y": 3364,
+        "plane": 0
+      }
+    ],
+    "description": "Hobgoblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3050,
+    "position": [
+      {
+        "x": 2451,
+        "y": 3330,
+        "plane": 0
+      }
+    ],
+    "description": "Hobgoblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3050,
+    "position": [
+      {
+        "x": 2449,
+        "y": 3328,
+        "plane": 0
+      }
+    ],
+    "description": "Hobgoblin"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3050,
+    "position": [
+      {
+        "x": 2453,
+        "y": 3328,
+        "plane": 0
+      }
+    ],
+    "description": "Hobgoblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 2067,
+    "position": [
+      {
+        "x": 2453,
+        "y": 3359,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 1431,
+    "position": [
+      {
+        "x": 2459,
+        "y": 3382,
+        "plane": 0
+      }
+    ],
+    "description": "Femi"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1252,
+    "position": [
+      {
+        "x": 2457,
+        "y": 3388,
+        "plane": 0
+      }
+    ],
+    "description": "Cute creature"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 6081,
+    "position": [
+      {
+        "x": 2459,
+        "y": 3385,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "NORTH",
+    "id": 6082,
+    "position": [
+      {
+        "x": 2461,
+        "y": 3381,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 6082,
+    "position": [
+      {
+        "x": 2460,
+        "y": 3381,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 2067,
+    "position": [
+      {
+        "x": 2464,
+        "y": 3375,
+        "plane": 0
+      }
+    ],
+    "description": "Mounted terrorbird gnome"
+  },
+  {
+    "facing": "EAST",
+    "id": 6081,
+    "position": [
+      {
+        "x": 2461,
+        "y": 3385,
+        "plane": 0
+      }
+    ],
+    "description": "Gnome guard"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 234,
+    "position": [
+      {
+        "x": 2476,
+        "y": 3370,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 234,
+    "position": [
+      {
+        "x": 2473,
+        "y": 3379,
+        "plane": 0
+      }
+    ],
+    "description": "Butterfly"
+  }
+]

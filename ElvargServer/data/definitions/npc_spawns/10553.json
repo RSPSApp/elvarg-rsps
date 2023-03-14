@@ -1,0 +1,914 @@
+[
+  {
+    "facing": "EAST",
+    "id": 1173,
+    "position": [
+      {
+        "x": 2683,
+        "y": 3662,
+        "plane": 0
+      }
+    ],
+    "description": "Chicken"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3939,
+    "position": [
+      {
+        "x": 2680,
+        "y": 3687,
+        "plane": 0
+      }
+    ],
+    "description": "Borrokar"
+  },
+  {
+    "facing": "WEST",
+    "id": 1175,
+    "position": [
+      {
+        "x": 2680,
+        "y": 3665,
+        "plane": 0
+      }
+    ],
+    "description": "Rooster"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1173,
+    "position": [
+      {
+        "x": 2679,
+        "y": 3665,
+        "plane": 0
+      }
+    ],
+    "description": "Chicken"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1174,
+    "position": [
+      {
+        "x": 2679,
+        "y": 3666,
+        "plane": 0
+      }
+    ],
+    "description": "Chicken"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3936,
+    "position": [
+      {
+        "x": 2629,
+        "y": 3693,
+        "plane": 0
+      }
+    ],
+    "description": "Sailor"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 8131,
+    "position": [
+      {
+        "x": 2641,
+        "y": 3697,
+        "plane": 0
+      }
+    ],
+    "description": "Torfinn"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3934,
+    "position": [
+      {
+        "x": 2641,
+        "y": 3699,
+        "plane": 0
+      }
+    ],
+    "description": "Fisherman"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1900,
+    "position": [
+      {
+        "x": 2644,
+        "y": 3709,
+        "plane": 0
+      }
+    ],
+    "description": "Mord Gunnars"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 1883,
+    "position": [
+      {
+        "x": 2644,
+        "y": 3710,
+        "plane": 0
+      }
+    ],
+    "description": "Maria Gunnars"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2629,
+        "y": 3656,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2629,
+        "y": 3667,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "EAST",
+    "id": 3933,
+    "position": [
+      {
+        "x": 2625,
+        "y": 3675,
+        "plane": 0
+      }
+    ],
+    "description": "Yrsa"
+  },
+  {
+    "facing": "EAST",
+    "id": 3905,
+    "position": [
+      {
+        "x": 2640,
+        "y": 3705,
+        "plane": 0
+      }
+    ],
+    "description": "Gull"
+  },
+  {
+    "facing": "EAST",
+    "id": 3945,
+    "position": [
+      {
+        "x": 2629,
+        "y": 3655,
+        "plane": 0
+      }
+    ],
+    "description": "Sassilik"
+  },
+  {
+    "facing": "WEST",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2626,
+        "y": 3680,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 3906,
+    "position": [
+      {
+        "x": 2635,
+        "y": 3702,
+        "plane": 0
+      }
+    ],
+    "description": "Gull"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3913,
+    "position": [
+      {
+        "x": 2633,
+        "y": 3693,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3913,
+    "position": [
+      {
+        "x": 2633,
+        "y": 3688,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3913,
+    "position": [
+      {
+        "x": 2633,
+        "y": 3689,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2631,
+        "y": 3649,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 3895,
+    "position": [
+      {
+        "x": 2633,
+        "y": 3667,
+        "plane": 0
+      }
+    ],
+    "description": "Peer the Seer"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3949,
+    "position": [
+      {
+        "x": 2641,
+        "y": 3683,
+        "plane": 0
+      }
+    ],
+    "description": "Market Guard"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3905,
+    "position": [
+      {
+        "x": 2640,
+        "y": 3708,
+        "plane": 0
+      }
+    ],
+    "description": "Gull"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3914,
+    "position": [
+      {
+        "x": 2642,
+        "y": 3697,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3944,
+    "position": [
+      {
+        "x": 2641,
+        "y": 3652,
+        "plane": 0
+      }
+    ],
+    "description": "Jennella"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3948,
+    "position": [
+      {
+        "x": 2641,
+        "y": 3675,
+        "plane": 0
+      }
+    ],
+    "description": "Fur trader"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3894,
+    "position": [
+      {
+        "x": 2644,
+        "y": 3681,
+        "plane": 0
+      }
+    ],
+    "description": "Sigmund The Merchant"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3905,
+    "position": [
+      {
+        "x": 2635,
+        "y": 3705,
+        "plane": 0
+      }
+    ],
+    "description": "Gull"
+  },
+  {
+    "facing": "WEST",
+    "id": 3937,
+    "position": [
+      {
+        "x": 2632,
+        "y": 3678,
+        "plane": 0
+      }
+    ],
+    "description": "Agnar"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3914,
+    "position": [
+      {
+        "x": 2642,
+        "y": 3698,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3914,
+    "position": [
+      {
+        "x": 2642,
+        "y": 3693,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3914,
+    "position": [
+      {
+        "x": 2639,
+        "y": 3693,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "WEST",
+    "id": 3915,
+    "position": [
+      {
+        "x": 2647,
+        "y": 3711,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2645,
+        "y": 3676,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3949,
+    "position": [
+      {
+        "x": 2651,
+        "y": 3672,
+        "plane": 0
+      }
+    ],
+    "description": "Market Guard"
+  },
+  {
+    "facing": "WEST",
+    "id": 3949,
+    "position": [
+      {
+        "x": 2648,
+        "y": 3684,
+        "plane": 0
+      }
+    ],
+    "description": "Market Guard"
+  },
+  {
+    "facing": "EAST",
+    "id": 3915,
+    "position": [
+      {
+        "x": 2648,
+        "y": 3708,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3925,
+    "position": [
+      {
+        "x": 2647,
+        "y": 3659,
+        "plane": 0
+      }
+    ],
+    "description": "Swensen the Navigator"
+  },
+  {
+    "facing": "EAST",
+    "id": 3947,
+    "position": [
+      {
+        "x": 2648,
+        "y": 3674,
+        "plane": 0
+      }
+    ],
+    "description": "Fish monger"
+  },
+  {
+    "facing": "WEST",
+    "id": 3915,
+    "position": [
+      {
+        "x": 2644,
+        "y": 3708,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "WEST",
+    "id": 3915,
+    "position": [
+      {
+        "x": 2641,
+        "y": 3708,
+        "plane": 0
+      }
+    ],
+    "description": "Fishing spot"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2651,
+        "y": 3653,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3949,
+    "position": [
+      {
+        "x": 2654,
+        "y": 3688,
+        "plane": 0
+      }
+    ],
+    "description": "Market Guard"
+  },
+  {
+    "facing": "EAST",
+    "id": 3943,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3653,
+        "plane": 0
+      }
+    ],
+    "description": "Lensa"
+  },
+  {
+    "facing": "EAST",
+    "id": 3916,
+    "position": [
+      {
+        "x": 2659,
+        "y": 3675,
+        "plane": 0
+      }
+    ],
+    "description": "Bjorn"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2652,
+        "y": 3691,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3928,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3663,
+        "plane": 0
+      }
+    ],
+    "description": "Guard"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 810,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3680,
+        "plane": 0
+      }
+    ],
+    "description": "Styrmir"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 8403,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3661,
+        "plane": 0
+      }
+    ],
+    "description": "Askeladden"
+  },
+  {
+    "facing": "WEST",
+    "id": 3917,
+    "position": [
+      {
+        "x": 2659,
+        "y": 3677,
+        "plane": 0
+      }
+    ],
+    "description": "Eldgrim"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 811,
+    "position": [
+      {
+        "x": 2658,
+        "y": 3679,
+        "plane": 0
+      }
+    ],
+    "description": "Torbrund"
+  },
+  {
+    "facing": "WEST",
+    "id": 3495,
+    "position": [
+      {
+        "x": 2658,
+        "y": 3697,
+        "plane": 0
+      }
+    ],
+    "description": "Dron"
+  },
+  {
+    "facing": "EAST",
+    "id": 9263,
+    "position": [
+      {
+        "x": 2659,
+        "y": 3667,
+        "plane": 0
+      }
+    ],
+    "description": "Brundt the Chieftain"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 812,
+    "position": [
+      {
+        "x": 2659,
+        "y": 3678,
+        "plane": 0
+      }
+    ],
+    "description": "Fridgeir"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 4489,
+    "position": [
+      {
+        "x": 2659,
+        "y": 3695,
+        "plane": 0
+      }
+    ],
+    "description": "Volf Olafson"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3920,
+    "position": [
+      {
+        "x": 2657,
+        "y": 3674,
+        "plane": 0
+      }
+    ],
+    "description": "Manni the Reveller"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 809,
+    "position": [
+      {
+        "x": 2660,
+        "y": 3680,
+        "plane": 0
+      }
+    ],
+    "description": "Ospak"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3932,
+    "position": [
+      {
+        "x": 2662,
+        "y": 3674,
+        "plane": 0
+      }
+    ],
+    "description": "Thora the Barkeep"
+  },
+  {
+    "facing": "WEST",
+    "id": 3935,
+    "position": [
+      {
+        "x": 2662,
+        "y": 3695,
+        "plane": 0
+      }
+    ],
+    "description": "Skulgrimen"
+  },
+  {
+    "facing": "EAST",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2674,
+        "y": 3679,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3896,
+    "position": [
+      {
+        "x": 2664,
+        "y": 3693,
+        "plane": 0
+      }
+    ],
+    "description": "Thorvald the Warrior"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 5388,
+    "position": [
+      {
+        "x": 2665,
+        "y": 3703,
+        "plane": 0
+      }
+    ],
+    "description": "Reeso"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 813,
+    "position": [
+      {
+        "x": 2667,
+        "y": 3684,
+        "plane": 0
+      }
+    ],
+    "description": "Longhall Bouncer"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3942,
+    "position": [
+      {
+        "x": 2667,
+        "y": 3702,
+        "plane": 0
+      }
+    ],
+    "description": "Freygerd"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2659,
+        "y": 3664,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2671,
+        "y": 3706,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "NORTH",
+    "id": 4490,
+    "position": [
+      {
+        "x": 2671,
+        "y": 3666,
+        "plane": 0
+      }
+    ],
+    "description": "Ingrid Hradson"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 802,
+    "position": [
+      {
+        "x": 2672,
+        "y": 3681,
+        "plane": 0
+      }
+    ],
+    "description": "Olaf the Bard"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3950,
+    "position": [
+      {
+        "x": 2672,
+        "y": 3703,
+        "plane": 0
+      }
+    ],
+    "description": "Warrior"
+  },
+  {
+    "facing": "WEST",
+    "id": 3938,
+    "position": [
+      {
+        "x": 2673,
+        "y": 3675,
+        "plane": 0
+      }
+    ],
+    "description": "Freidir"
+  },
+  {
+    "facing": "EAST",
+    "id": 3946,
+    "position": [
+      {
+        "x": 2678,
+        "y": 3678,
+        "plane": 0
+      }
+    ],
+    "description": "Inga"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3496,
+    "position": [
+      {
+        "x": 2675,
+        "y": 3670,
+        "plane": 0
+      }
+    ],
+    "description": "Blanin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3940,
+    "position": [
+      {
+        "x": 2675,
+        "y": 3667,
+        "plane": 0
+      }
+    ],
+    "description": "Lanzig"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1172,
+    "position": [
+      {
+        "x": 2678,
+        "y": 3670,
+        "plane": 0
+      }
+    ],
+    "description": ""
+  },
+  {
+    "facing": "NORTH",
+    "id": 1174,
+    "position": [
+      {
+        "x": 2680,
+        "y": 3666,
+        "plane": 0
+      }
+    ],
+    "description": "Chicken"
+  }
+]

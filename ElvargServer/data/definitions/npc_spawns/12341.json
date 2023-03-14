@@ -1,0 +1,398 @@
+[
+  {
+    "facing": "EAST",
+    "id": 3071,
+    "position": [
+      {
+        "x": 3074,
+        "y": 3416,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 10658,
+    "position": [
+      {
+        "x": 3076,
+        "y": 3440,
+        "plane": 0
+      }
+    ],
+    "description": "Atlas"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3062,
+    "position": [
+      {
+        "x": 3075,
+        "y": 3444,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3064,
+    "position": [
+      {
+        "x": 3075,
+        "y": 3406,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "WEST",
+    "id": 2872,
+    "position": [
+      {
+        "x": 3075,
+        "y": 3428,
+        "plane": 0
+      }
+    ],
+    "description": "Peksa"
+  },
+  {
+    "facing": "WEST",
+    "id": 3061,
+    "position": [
+      {
+        "x": 3083,
+        "y": 3411,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3058,
+    "position": [
+      {
+        "x": 3076,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "EAST",
+    "id": 3069,
+    "position": [
+      {
+        "x": 3076,
+        "y": 3441,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3068,
+    "position": [
+      {
+        "x": 3082,
+        "y": 3448,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "EAST",
+    "id": 3056,
+    "position": [
+      {
+        "x": 3085,
+        "y": 3405,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3057,
+    "position": [
+      {
+        "x": 3083,
+        "y": 3436,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "EAST",
+    "id": 3055,
+    "position": [
+      {
+        "x": 3083,
+        "y": 3447,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3060,
+    "position": [
+      {
+        "x": 3072,
+        "y": 3421,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "EAST",
+    "id": 3362,
+    "position": [
+      {
+        "x": 3081,
+        "y": 3421,
+        "plane": 0
+      }
+    ],
+    "description": "Litara"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 299,
+    "position": [
+      {
+        "x": 3082,
+        "y": 3439,
+        "plane": 0
+      }
+    ],
+    "description": "Gunthor the brave"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3059,
+    "position": [
+      {
+        "x": 3076,
+        "y": 3419,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "WEST",
+    "id": 1352,
+    "position": [
+      {
+        "x": 3082,
+        "y": 3407,
+        "plane": 0
+      }
+    ],
+    "description": "Tassie Slipcast"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3070,
+    "position": [
+      {
+        "x": 3089,
+        "y": 3433,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3065,
+    "position": [
+      {
+        "x": 3090,
+        "y": 3402,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "WEST",
+    "id": 3072,
+    "position": [
+      {
+        "x": 3077,
+        "y": 3420,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3067,
+    "position": [
+      {
+        "x": 3085,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "WEST",
+    "id": 10657,
+    "position": [
+      {
+        "x": 3087,
+        "y": 3415,
+        "plane": 0
+      }
+    ],
+    "description": "Checkal"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 2837,
+    "position": [
+      {
+        "x": 3093,
+        "y": 3443,
+        "plane": 0
+      }
+    ],
+    "description": "Unicorn"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3066,
+    "position": [
+      {
+        "x": 3098,
+        "y": 3435,
+        "plane": 0
+      }
+    ],
+    "description": "Barbarian"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1526,
+    "position": [
+      {
+        "x": 3110,
+        "y": 3432,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 1526,
+    "position": [
+      {
+        "x": 3104,
+        "y": 3425,
+        "plane": 0
+      }
+    ],
+    "description": "Rod Fishing spot"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1324,
+    "position": [
+      {
+        "x": 3114,
+        "y": 3413,
+        "plane": 0
+      }
+    ],
+    "description": "Sigurd"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 3075,
+    "position": [
+      {
+        "x": 3117,
+        "y": 3420,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 3076,
+    "position": [
+      {
+        "x": 3128,
+        "y": 3441,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3073,
+    "position": [
+      {
+        "x": 3117,
+        "y": 3417,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3074,
+    "position": [
+      {
+        "x": 3119,
+        "y": 3424,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3073,
+    "position": [
+      {
+        "x": 3133,
+        "y": 3445,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 11658,
+    "position": [
+      {
+        "x": 3128,
+        "y": 3400,
+        "plane": 0
+      }
+    ],
+    "description": "Gilbert"
+  }
+]

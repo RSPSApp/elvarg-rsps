@@ -1,0 +1,446 @@
+[
+  {
+    "facing": "WEST",
+    "id": 2684,
+    "position": [
+      {
+        "x": 3063,
+        "y": 3251,
+        "plane": 0
+      }
+    ],
+    "description": "Frizzy Skernip"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 0,
+    "position": [
+      {
+        "x": 3060,
+        "y": 3263,
+        "plane": 0
+      }
+    ],
+    "description": "Tool Leprechaun"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3646,
+    "position": [
+      {
+        "x": 3027,
+        "y": 3219,
+        "plane": 0
+      }
+    ],
+    "description": "Seaman Thresnor"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1338,
+    "position": [
+      {
+        "x": 3028,
+        "y": 3203,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "SOUTH_WEST",
+    "id": 1338,
+    "position": [
+      {
+        "x": 3029,
+        "y": 3202,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 3644,
+    "position": [
+      {
+        "x": 3029,
+        "y": 3216,
+        "plane": 0
+      }
+    ],
+    "description": "Captain Tobias"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3645,
+    "position": [
+      {
+        "x": 3028,
+        "y": 3222,
+        "plane": 0
+      }
+    ],
+    "description": "Seaman Lorris"
+  },
+  {
+    "facing": "NORTH_WEST",
+    "id": 1338,
+    "position": [
+      {
+        "x": 3028,
+        "y": 3231,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1338,
+    "position": [
+      {
+        "x": 3028,
+        "y": 3240,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "WEST",
+    "id": 1339,
+    "position": [
+      {
+        "x": 3028,
+        "y": 3202,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "EAST",
+    "id": 1339,
+    "position": [
+      {
+        "x": 3031,
+        "y": 3236,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1338,
+    "position": [
+      {
+        "x": 3029,
+        "y": 3237,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "EAST",
+    "id": 1770,
+    "position": [
+      {
+        "x": 3041,
+        "y": 3202,
+        "plane": 0
+      }
+    ],
+    "description": "Squire"
+  },
+  {
+    "facing": "WEST",
+    "id": 1165,
+    "position": [
+      {
+        "x": 3047,
+        "y": 3234,
+        "plane": 0
+      }
+    ],
+    "description": "Monk of Entrana"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 819,
+    "position": [
+      {
+        "x": 3046,
+        "y": 3204,
+        "plane": 0
+      }
+    ],
+    "description": "Klarense"
+  },
+  {
+    "facing": "NORTH",
+    "id": 1166,
+    "position": [
+      {
+        "x": 3041,
+        "y": 3239,
+        "plane": 0
+      }
+    ],
+    "description": "Monk of Entrana"
+  },
+  {
+    "facing": "EAST",
+    "id": 1339,
+    "position": [
+      {
+        "x": 3047,
+        "y": 3204,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 1167,
+    "position": [
+      {
+        "x": 3050,
+        "y": 3236,
+        "plane": 0
+      }
+    ],
+    "description": "Monk of Entrana"
+  },
+  {
+    "facing": "WEST",
+    "id": 1338,
+    "position": [
+      {
+        "x": 3049,
+        "y": 3203,
+        "plane": 0
+      }
+    ],
+    "description": "Seagull"
+  },
+  {
+    "facing": "NORTH",
+    "id": 8630,
+    "position": [
+      {
+        "x": 3054,
+        "y": 3245,
+        "plane": 0
+      }
+    ],
+    "description": "Veos"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 322,
+    "position": [
+      {
+        "x": 3028,
+        "y": 3214,
+        "plane": 0
+      }
+    ],
+    "description": "Drunken Dwarf"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3033,
+    "position": [
+      {
+        "x": 3008,
+        "y": 3210,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "SOUTH",
+    "id": 3036,
+    "position": [
+      {
+        "x": 3012,
+        "y": 3203,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3053,
+    "position": [
+      {
+        "x": 3008,
+        "y": 3209,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3052,
+    "position": [
+      {
+        "x": 3017,
+        "y": 3201,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "WEST",
+    "id": 3054,
+    "position": [
+      {
+        "x": 3010,
+        "y": 3202,
+        "plane": 0
+      }
+    ],
+    "description": "Goblin"
+  },
+  {
+    "facing": "EAST",
+    "id": 3111,
+    "position": [
+      {
+        "x": 3008,
+        "y": 3232,
+        "plane": 0
+      }
+    ],
+    "description": "Woman"
+  },
+  {
+    "facing": "EAST",
+    "id": 5905,
+    "position": [
+      {
+        "x": 3012,
+        "y": 3260,
+        "plane": 0
+      }
+    ],
+    "description": "Betty"
+  },
+  {
+    "facing": "NORTH_EAST",
+    "id": 2891,
+    "position": [
+      {
+        "x": 3012,
+        "y": 3226,
+        "plane": 0
+      }
+    ],
+    "description": "Gerrant"
+  },
+  {
+    "facing": "EAST",
+    "id": 2889,
+    "position": [
+      {
+        "x": 3014,
+        "y": 3248,
+        "plane": 0
+      }
+    ],
+    "description": "Grum"
+  },
+  {
+    "facing": "NORTH",
+    "id": 2890,
+    "position": [
+      {
+        "x": 3014,
+        "y": 3208,
+        "plane": 0
+      }
+    ],
+    "description": "Wydin"
+  },
+  {
+    "facing": "NORTH",
+    "id": 3252,
+    "position": [
+      {
+        "x": 3016,
+        "y": 3235,
+        "plane": 0
+      }
+    ],
+    "description": "Thief"
+  },
+  {
+    "facing": "EAST",
+    "id": 3253,
+    "position": [
+      {
+        "x": 3017,
+        "y": 3233,
+        "plane": 0
+      }
+    ],
+    "description": "Thief"
+  },
+  {
+    "facing": "EAST",
+    "id": 3106,
+    "position": [
+      {
+        "x": 3016,
+        "y": 3238,
+        "plane": 0
+      }
+    ],
+    "description": "Man"
+  },
+  {
+    "facing": "NORTH",
+    "id": 4590,
+    "position": [
+      {
+        "x": 3017,
+        "y": 3232,
+        "plane": 0
+      }
+    ],
+    "description": "The Face"
+  },
+  {
+    "facing": "WEST",
+    "id": 4573,
+    "position": [
+      {
+        "x": 3018,
+        "y": 3233,
+        "plane": 0
+      }
+    ],
+    "description": "Bellemorde"
+  },
+  {
+    "facing": "SOUTH_EAST",
+    "id": 2892,
+    "position": [
+      {
+        "x": 3030,
+        "y": 3247,
+        "plane": 0
+      }
+    ],
+    "description": "Brian"
+  }
+]
