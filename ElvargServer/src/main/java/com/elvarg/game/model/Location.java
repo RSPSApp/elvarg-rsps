@@ -1,6 +1,7 @@
 package com.elvarg.game.model;
 
 import com.elvarg.util.Misc;
+import com.google.gson.annotations.SerializedName;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
@@ -22,6 +23,7 @@ public class Location {
     /**
      * The height level of the position.
      */
+    @SerializedName("plane")
     private int z;
 
     /**
