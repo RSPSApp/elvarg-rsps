@@ -1,4 +1,4 @@
-package com.elvarg.game.definition.loader.impl;
+package com.elvarg.game.definition;
 
 import com.elvarg.game.model.Direction;
 import com.elvarg.game.model.Location;
