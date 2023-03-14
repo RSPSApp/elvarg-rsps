@@ -15,7 +15,7 @@ import java.io.FileReader;
  * @author Ynneh | 13/03/2023 - 14:43
  * <https://github.com/drhenny>
  */
-public class NPCSpawnLoader {
+public class NPCSpawnDefinitionLoader {
 
     public static int count = 0;
 
@@ -26,9 +26,9 @@ public class NPCSpawnLoader {
         for (File file : spawns.listFiles()) {
             if (file.getName().endsWith(".json")) {
                 try {
-                    JsonNPC[] s = new Gson().fromJson(new FileReader(file), JsonNPC[].class);
+                    NPCSpawnDefinition[] s = new Gson().fromJson(new FileReader(file), NPCSpawnDefinition[].class);
 
-                    for (JsonNPC sp : s) {
+                    for (NPCSpawnDefinition sp : s) {
                         if (sp == null)
                             continue;
                         Location loc = sp.position[0];

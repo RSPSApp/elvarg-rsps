@@ -1,7 +1,7 @@
 package com.elvarg.game.model.commands.impl;
 
 import com.elvarg.game.World;
-import com.elvarg.game.definition.NPCSpawnLoader;
+import com.elvarg.game.definition.NPCSpawnDefinitionLoader;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.commands.Command;
 import com.elvarg.game.model.rights.PlayerRights;
@@ -12,7 +12,7 @@ public class ReloadNPCSpawns implements Command {
     public void execute(Player player, String command, String[] parts) {
         try {
             World.getNpcs().clear();
-            NPCSpawnLoader.loadJson();
+            NPCSpawnDefinitionLoader.loadJson();
 			player.getPacketSender().sendConsoleMessage("Reloaded npc spawns.");
 		} catch (Throwable e) {
 			e.printStackTrace();

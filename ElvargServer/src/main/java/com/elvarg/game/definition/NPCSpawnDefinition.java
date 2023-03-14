@@ -7,7 +7,7 @@ import com.elvarg.game.model.Location;
  * @author Ynneh | 13/03/2023 - 16:38
  * <https://github.com/drhenny>
  */
-public class JsonNPC {
+public class NPCSpawnDefinition {
 
         public String facing;
         public int id;
@@ -15,7 +15,7 @@ public class JsonNPC {
 
         public String description;
 
-        public JsonNPC(String facing, int id, Location[] position, String description) {
+        public NPCSpawnDefinition(String facing, int id, Location[] position, String description) {
             this.facing = facing;
             this.id = id;
             this.position = position;
