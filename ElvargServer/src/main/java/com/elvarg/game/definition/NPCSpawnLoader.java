@@ -1,4 +1,4 @@
-package com.elvarg.game.definition.loader.impl;
+package com.elvarg.game.definition;
 
 import com.elvarg.game.World;
 import com.elvarg.game.entity.impl.npc.NPC;
@@ -21,7 +21,7 @@ public class NPCSpawnLoader {
 
     public static void loadJson() {
 
-        File spawns = new File("data/saves/spawns");
+        File spawns = new File("data/definitions/npc_spawns/");
         int files = spawns.listFiles().length;
         for (File file : spawns.listFiles()) {
             if (file.getName().endsWith(".json")) {
