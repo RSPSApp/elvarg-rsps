@@ -544,7 +544,6 @@ public abstract class GameEngine extends Applet implements Runnable, WindowListe
             }
         } catch (Exception exception) {
             canvas.repaint();
-            exception.printStackTrace();
         }
 
     }

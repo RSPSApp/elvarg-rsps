@@ -4197,6 +4197,7 @@ public class Client extends GameEngine implements RSClient {
 
     protected void startUp() {
         setGameState(GameState.STARTING);
+        new CacheDownloader(this).init();
 
         drawLoadingText(20, "Starting up");
         if (SignLink.cache_dat != null) {

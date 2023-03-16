@@ -7,6 +7,8 @@ package com.runescape;
  */
 public final class Configuration {
 
+    public static final String CACHE_HASH_LINK = "https://cache.rsps.app/hash";
+    public static final String CACHE_LINK = "https://cache.rsps.app/cache.zip";
     public static final int UPDATE_SERVER_PORT = 43580;
     public static final int CACHE_VERSION = 2;
     public static final int UPDATE_SERVER_VERSION = 1;
