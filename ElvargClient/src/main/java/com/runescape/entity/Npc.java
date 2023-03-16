@@ -41,7 +41,6 @@ public final class Npc extends Mob implements RSNPC {
 
     private Model getAnimatedModel() {
         if (super.emoteAnimation >= 0 && super.animationDelay == 0) {
-            int emote = Animation.animations[super.emoteAnimation].primaryFrames[super.displayedEmoteFrames];
             int current_index = super.displayedEmoteFrames;
             int movement = -1;
             if (super.movementAnimation >= 0 && super.movementAnimation != super.idleAnimation) {
