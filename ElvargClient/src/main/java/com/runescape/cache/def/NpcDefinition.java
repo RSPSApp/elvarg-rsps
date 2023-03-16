@@ -216,7 +216,7 @@ public final class NpcDefinition implements RSNPCComposition {
 		int size = idxBuf.readUShort();
 		TOTAL_NPCS = size;
 
-		offsets = new int[size];
+		offsets = new int[size + 1];
 
 		int offset = 2;
 

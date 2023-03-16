@@ -7,7 +7,7 @@ import com.elvarg.game.model.Location;
  * @author Ynneh | 13/03/2023 - 16:38
  * <https://github.com/drhenny>
  */
-public class NPCSpawnDefinition {
+public class NpcSpawnDefinition {
 
         public String facing;
         public int id;
@@ -15,7 +15,7 @@ public class NPCSpawnDefinition {
 
         public String description;
 
-        public NPCSpawnDefinition(String facing, int id, Location[] position, String description) {
+        public NpcSpawnDefinition(String facing, int id, Location[] position, String description) {
             this.facing = facing;
             this.id = id;
             this.position = position;

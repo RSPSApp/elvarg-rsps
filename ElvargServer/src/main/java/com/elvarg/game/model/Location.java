@@ -23,7 +23,6 @@ public class Location {
     /**
      * The height level of the position.
      */
-    @SerializedName("plane")
     private int z;
 
     /**
