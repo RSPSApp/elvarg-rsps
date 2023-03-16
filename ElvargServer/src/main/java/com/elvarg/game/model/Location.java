@@ -1,8 +1,6 @@
 package com.elvarg.game.model;
 
 import com.elvarg.util.Misc;
-import com.google.gson.annotations.SerializedName;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a single world tile position.
