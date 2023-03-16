@@ -4152,8 +4152,7 @@ public class Client extends GameEngine implements RSClient {
             if (added) {
                 npc.nextStepOrientation = directions[direction];
             }
-            int npcId = buffer.readBits(14);
-            npc.desc = NpcDefinition.lookup(npcId);
+            npc.desc = NpcDefinition.lookup(buffer.readBits(Configuration.npcBits));
             int updateRequired = buffer.readBits(1);
             if (updateRequired == 1)
                 mobsAwaitingUpdate[mobsAwaitingUpdateCount++] = npcIndex;
