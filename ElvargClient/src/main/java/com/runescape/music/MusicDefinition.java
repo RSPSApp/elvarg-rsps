@@ -22,7 +22,7 @@ final class MusicDefinition {
     private int anInt218;
 
 	public void method520(int i) {
-        int i_0_ = buffer.method428();
+        int i_0_ = buffer.readUByteS();
         anIntArray216[i] += i_0_;
     }
 
@@ -53,7 +53,7 @@ final class MusicDefinition {
         } else
             i_1_ = anIntArray212[i];
         if (i_1_ == 240 || i_1_ == 247) {
-            int i_2_ = buffer.method428();
+            int i_2_ = buffer.readUByteS();
             if (i_1_ == 247 && i_2_ > 0) {
                 int i_3_ = ((buffer.payload
                         [buffer.currentPosition])
@@ -148,7 +148,7 @@ final class MusicDefinition {
     private int method535(int i, int i_10_) {
         if (i_10_ == 255) {
             int i_11_ = buffer.readUnsignedByte();
-            int i_12_ = buffer.method428();
+            int i_12_ = buffer.readUByteS();
             if (i_11_ == 47) {
                 buffer.currentPosition += i_12_;
                 return 1;

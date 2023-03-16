@@ -24,7 +24,7 @@ import static com.elvarg.util.NpcIdentifiers.*;
  * @author Ynneh | 06/12/2022 - 14:47
  * <https://github.com/drhenny>
  */
-@Ids({BARRICADE, BARRICADE_BURNING, BARRICADE_3, BARRICADE_4})
+@Ids({BARRICADE, BARRICADE_4, BARRICADE_3, BARRICADE_2})
 public class Barricades extends NPC implements NPCInteraction {
 
     /**
@@ -111,7 +111,7 @@ public class Barricades extends NPC implements NPCInteraction {
         TaskManager.submit(new Task(3, player, false) {
             @Override
             protected void execute() {
-                npc.setNpcTransformationId(BARRICADE_BURNING);
+                npc.setNpcTransformationId(BARRICADE_2);
                 npc.barricadeOnFire = true;
                 player.getSkillManager().addExperience(Skill.FIREMAKING, FIREMAKING_EXPERIENCE);
                 player.performAnimation(Animation.DEFAULT_RESET_ANIMATION);

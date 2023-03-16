@@ -6,6 +6,7 @@ import java.util.Queue;
 import com.elvarg.game.collision.RegionManager;
 import com.elvarg.game.content.clan.ClanChatManager;
 import com.elvarg.game.content.minigames.MinigameHandler;
+import com.elvarg.game.definition.NpcSpawnDefinitionLoader;
 import com.elvarg.game.definition.loader.impl.*;
 import com.elvarg.game.task.impl.CombatPoisonEffect.CombatPoisonData;
 import com.elvarg.util.BackgroundLoader;
@@ -71,9 +72,9 @@ public class GameBuilder {
         tasks.add(new ShopDefinitionLoader());
         tasks.add(new NpcDefinitionLoader());
         tasks.add(new NpcDropDefinitionLoader());
-        tasks.add(new NpcSpawnDefinitionLoader());
         tasks.add(new GroundItemDefinitionLoader());
         tasks.add(MinigameHandler::init);
+        tasks.add(NpcSpawnDefinitionLoader::load);
     //    tasks.add(new NPCSpawnDumper());        
         return tasks;
     }
