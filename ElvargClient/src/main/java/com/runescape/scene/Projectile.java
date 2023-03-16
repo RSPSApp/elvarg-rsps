@@ -1,8 +1,8 @@
 package com.runescape.scene;
 
 import com.runescape.Client;
-import com.runescape.cache.anim.Frame;
-import com.runescape.cache.anim.Graphic;
+import com.runescape.cache.anim.Animation;
+import com.runescape.cache.anim.SpotAnimationDefinition;
 import com.runescape.entity.Renderable;
 import com.runescape.entity.model.Model;
 import net.runelite.api.Actor;
@@ -30,15 +30,15 @@ public final class Projectile extends Renderable implements RSProjectile {
     private final int initialSlope;
     private final int initialDistance;
     public final int target;
-    private final Graphic projectileGFX;
-    private int gfxStage;
-    private int gfxTickOfCurrentStage;
+    private final SpotAnimationDefinition projectileGFX;
+    private int currentFrameIndex;
+    private int frameLoop;
     public int turnValue;
     private int tiltAngle;
     public final int projectileZ;
 
     public void calculateIncrements(int currentCycle, int targetY, int targetCenterHeight, int targetX) {
-        if(!started) {
+        if (!started) {
             double xToGo = targetX - projectileX;
             double yToGo = targetY - projectileY;
             double distanceToGo = Math.sqrt(xToGo * xToGo + yToGo * yToGo);
@@ -47,41 +47,41 @@ public final class Projectile extends Renderable implements RSProjectile {
             cnterHeight = startHeight;
         }
         double cyclesLeft = (stopCycle + 1) - currentCycle;
-        xIncrement = ((double)targetX - xPos) / cyclesLeft;
-        yIncrement = ((double)targetY - yPos) / cyclesLeft;
+        xIncrement = ((double) targetX - xPos) / cyclesLeft;
+        yIncrement = ((double) targetY - yPos) / cyclesLeft;
         diagonalIncrement = Math.sqrt(xIncrement * xIncrement + yIncrement * yIncrement);
-        if(!started) {
+        if (!started) {
             heightIncrement = -diagonalIncrement * Math.tan((double) initialSlope * 0.02454369D);
         }
-        aDouble1578 = (2D * ((double)targetCenterHeight - cnterHeight - heightIncrement * cyclesLeft)) / (cyclesLeft * cyclesLeft);
+        aDouble1578 = (2D * ((double) targetCenterHeight - cnterHeight - heightIncrement * cyclesLeft)) / (cyclesLeft * cyclesLeft);
     }
 
     public Model getRotatedModel() {
-        Model modelGfx = projectileGFX.getModel();
-        if(modelGfx == null) {
+        Model model = projectileGFX.getModel();
+        if (model == null)
             return null;
+        int frame = -1;
+        Model projectileModel = new Model(true, Animation.noAnimationInProgress(frame), false, model);
+
+        if (projectileGFX.sequenceDefinitionSequence != null) {
+            frame = currentFrameIndex;
         }
-        int frameNumber = -1;
-        if(projectileGFX.animationSequence != null) {
-            frameNumber = projectileGFX.animationSequence.primaryFrames[gfxStage];
-        }
-        Model projectileModel = new Model(true, Frame.noAnimationInProgress(frameNumber), false, modelGfx);
-        if(frameNumber != -1) {
+        if (frame != -1) {
             projectileModel.generateBones();
-            projectileModel.animate(frameNumber);
+            projectileModel.animate(projectileGFX.sequenceDefinitionSequence, frame);
             projectileModel.faceGroups = null;
             projectileModel.vertexGroups = null;
         }
-        if(projectileGFX.resizeXY != 128 || projectileGFX.resizeZ != 128) {
-            projectileModel.scale(projectileGFX.resizeXY, projectileGFX.resizeXY, projectileGFX.resizeZ);
-        }
+        if (projectileGFX.resizeXY != 128 || projectileGFX.resizeZ != 128)
+            projectileModel.scale(projectileGFX.resizeXY, projectileGFX.resizeXY,
+                    projectileGFX.resizeZ);
         projectileModel.rotateZ(tiltAngle);
         projectileModel.light(64 + projectileGFX.modelBrightness, 850 + projectileGFX.modelShadow, -30, -50, -30, true);
         return projectileModel;
     }
 
-    public Projectile(int initialSlope, int endHeight, int creationCycle, int destructionCycle, int initialDistance, int startZ,  int startHeight, int y, int x, int target, int gfxMoving) {
-        projectileGFX = Graphic.cache[gfxMoving];
+    public Projectile(int initialSlope, int endHeight, int creationCycle, int destructionCycle, int initialDistance, int startZ, int startHeight, int y, int x, int target, int gfxMoving) {
+        projectileGFX = SpotAnimationDefinition.cache[gfxMoving];
         projectileZ = startZ;
         projectileX = x;
         projectileY = y;
@@ -97,19 +97,26 @@ public final class Projectile extends Renderable implements RSProjectile {
 
     public void progressCycles(int cyclesMissed) {
         started = true;
-        xPos += xIncrement * (double)cyclesMissed;
-        yPos += yIncrement * (double)cyclesMissed;
-        cnterHeight += heightIncrement * (double)cyclesMissed + 0.5D * aDouble1578 * (double)cyclesMissed * (double)cyclesMissed;
-        heightIncrement += aDouble1578 * (double)cyclesMissed;
+        xPos += xIncrement * (double) cyclesMissed;
+        yPos += yIncrement * (double) cyclesMissed;
+        cnterHeight += heightIncrement * (double) cyclesMissed + 0.5D * aDouble1578 * (double) cyclesMissed * (double) cyclesMissed;
+        heightIncrement += aDouble1578 * (double) cyclesMissed;
         //noinspection SuspiciousNameCombination
-        turnValue = (int)(Math.atan2(xIncrement, yIncrement) * 325.94900000000001D) + 1024 & 0x7ff;
-        tiltAngle = (int)(Math.atan2(heightIncrement, diagonalIncrement) * 325.94900000000001D) & 0x7ff;
-        if(projectileGFX.animationSequence != null) {
-            for(gfxTickOfCurrentStage += cyclesMissed; gfxTickOfCurrentStage > projectileGFX.animationSequence.duration(gfxStage);) {
-                gfxTickOfCurrentStage -= projectileGFX.animationSequence.duration(gfxStage) + 1;
-                gfxStage++;
-                if(gfxStage >= projectileGFX.animationSequence.frameCount) {
-                    gfxStage = 0;
+        turnValue = (int) (Math.atan2(xIncrement, yIncrement) * 325.94900000000001D) + 1024 & 0x7ff;
+        tiltAngle = (int) (Math.atan2(heightIncrement, diagonalIncrement) * 325.94900000000001D) & 0x7ff;
+        if (projectileGFX.sequenceDefinitionSequence != null) {
+            if (projectileGFX.sequenceDefinitionSequence.usingKeyframes()) {
+                this.currentFrameIndex += cyclesMissed;
+                int var3 = projectileGFX.sequenceDefinitionSequence.getKeyframeDuration();
+                if (this.currentFrameIndex >= var3) {
+                    this.currentFrameIndex = var3 - projectileGFX.sequenceDefinitionSequence.loopFrameCount;
+                }
+            } else {
+                for (frameLoop += cyclesMissed; frameLoop > projectileGFX.sequenceDefinitionSequence.durations[currentFrameIndex]; ) {
+                    frameLoop -= projectileGFX.sequenceDefinitionSequence.durations[currentFrameIndex] + 1;
+                    currentFrameIndex++;
+                    if (currentFrameIndex >= projectileGFX.sequenceDefinitionSequence.frameCount)
+                        currentFrameIndex = 0;
                 }
             }
         }
@@ -124,9 +131,9 @@ public final class Projectile extends Renderable implements RSProjectile {
 
     @Override
     public Actor getInteracting() {
-        if(target < 0) {
+        if (target < 0) {
             return Client.instance.players[-target - 1];
-        } else if(target > 0) {
+        } else if (target > 0) {
             return Client.instance.getNpcs().get(target - 1);
         }
         return null;

@@ -172,8 +172,8 @@ public class ModelLoader {
 
         if (var18 == 1)
         {
-            def.animayaGroups = new int[var9][];
-            def.animayaScales = new int[var9][];
+            def.skeletalBones = new int[var9][];
+            def.skeletalScales = new int[var9][];
         }
 
         def.colors = new short[var10];
@@ -236,13 +236,13 @@ public class ModelLoader {
             for (var51 = 0; var51 < var9; ++var51)
             {
                 var52 = var6.readUnsignedByte();
-                def.animayaGroups[var51] = new int[var52];
-                def.animayaScales[var51] = new int[var52];
+                def.skeletalBones[var51] = new int[var52];
+                def.skeletalScales[var51] = new int[var52];
 
                 for (var53 = 0; var53 < var52; ++var53)
                 {
-                    def.animayaGroups[var51][var53] = var6.readUnsignedByte();
-                    def.animayaScales[var51][var53] = var6.readUnsignedByte();
+                    def.skeletalBones[var51][var53] = var6.readUnsignedByte();
+                    def.skeletalScales[var51][var53] = var6.readUnsignedByte();
                 }
             }
         }
@@ -489,8 +489,8 @@ public class ModelLoader {
 
         if (var17 == 1)
         {
-            def.animayaGroups = new int[var9][];
-            def.animayaScales = new int[var9][];
+            def.skeletalBones = new int[var9][];
+            def.skeletalScales = new int[var9][];
         }
 
         def.colors = new short[var10];
@@ -546,13 +546,13 @@ public class ModelLoader {
             for (var40 = 0; var40 < var9; ++var40)
             {
                 var41 = var8.readUnsignedByte();
-                def.animayaGroups[var40] = new int[var41];
-                def.animayaScales[var40] = new int[var41];
+                def.skeletalBones[var40] = new int[var41];
+                def.skeletalScales[var40] = new int[var41];
 
                 for (var42 = 0; var42 < var41; ++var42)
                 {
-                    def.animayaGroups[var40][var42] = var8.readUnsignedByte();
-                    def.animayaScales[var40][var42] = var8.readUnsignedByte();
+                    def.skeletalBones[var40][var42] = var8.readUnsignedByte();
+                    def.skeletalScales[var40][var42] = var8.readUnsignedByte();
                 }
             }
         }

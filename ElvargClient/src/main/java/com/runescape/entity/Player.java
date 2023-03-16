@@ -1,9 +1,8 @@
 package com.runescape.entity;
 
 import com.runescape.Client;
-import com.runescape.cache.anim.Animation;
-import com.runescape.cache.anim.Frame;
-import com.runescape.cache.anim.Graphic;
+import com.runescape.cache.anim.SequenceDefinition;
+import com.runescape.cache.anim.SpotAnimationDefinition;
 import com.runescape.cache.def.ItemDefinition;
 import com.runescape.cache.def.NpcDefinition;
 import com.runescape.collection.ReferenceCache;
@@ -77,23 +76,12 @@ public final class Player extends Mob implements RSPlayer,RSPlayerComposition {
         }
 
         if (super.graphic != -1 && super.currentAnimation != -1) {
-            Graphic spotAnim = Graphic.cache[super.graphic];
-
-            Model spotAnimationModel = spotAnim.getModel();
-
-            if (spotAnimationModel != null) {
-
-                Model model_3 = new Model(true, Frame.noAnimationInProgress(super.currentAnimation), false, spotAnimationModel);
+            SpotAnimationDefinition spotAnim = SpotAnimationDefinition.cache[super.graphic];
+            Model model_3 = spotAnim.getTransformedModel(super.currentAnimation);
+            if(model_3 != null) {
                 model_3.offsetBy(0, -super.graphicHeight, 0);
-                model_3.generateBones();
-                model_3.animate(spotAnim.animationSequence.primaryFrames[super.currentAnimation]);
-                model_3.faceGroups = null;
-                model_3.vertexGroups = null;
-                if (spotAnim.resizeXY != 128 || spotAnim.resizeZ != 128)
-                    model_3.scale(spotAnim.resizeXY, spotAnim.resizeXY, spotAnim.resizeZ);
-                model_3.light(64 + spotAnim.modelShadow, 850 + spotAnim.modelBrightness, -30, -50, -30, true);
-                Model models[] = {animatedModel, model_3};
-                animatedModel = new Model(models);
+                Model aclass30_sub2_sub4_sub6_1s[] = {animatedModel, model_3};
+                animatedModel = new Model(aclass30_sub2_sub4_sub6_1s);
             }
         }
 
@@ -187,7 +175,7 @@ public final class Player extends Mob implements RSPlayer,RSPlayerComposition {
         if (super.standTurnAnimIndex == 65535) {
             super.standTurnAnimIndex = -1;
         }
-
+        super.readyanim_r = super.standTurnAnimIndex;
         super.walkAnimIndex = buffer.readUShort();
         if (super.walkAnimIndex == 65535) {
             super.walkAnimIndex = -1;
@@ -248,58 +236,50 @@ public final class Player extends Mob implements RSPlayer,RSPlayerComposition {
     }
 
     public Model getAnimatedModel() {
+
+        SequenceDefinition sequenceDefinition = super.emoteAnimation != -1 && super.animationDelay == 0 ? SequenceDefinition.sequenceDefinitions[super.emoteAnimation] : null;
+        SequenceDefinition walkSequenceDefinition = (super.movementAnimation == -1 || (super.movementAnimation == super.idleAnimation && sequenceDefinition != null)) ? null : SequenceDefinition.sequenceDefinitions[super.movementAnimation];
+
         if (npcDefinition != null) {
-            int currentFrame = -1;
-            if (super.emoteAnimation >= 0 && super.animationDelay == 0) {
-                Animation animation = Animation.animations[super.emoteAnimation];
-                currentFrame = animation.primaryFrames[super.displayedEmoteFrames];
-            } else if (super.movementAnimation >= 0) {
-                Animation animation = Animation.animations[super.movementAnimation];
-                currentFrame = animation.primaryFrames[super.displayedMovementFrames];
-            }
-            Model model = npcDefinition.method164(-1, currentFrame, null);
+            Model model = npcDefinition.getAnimatedModel(super.displayedEmoteFrames, sequenceDefinition, null, super.secondaryanimFrameindex, walkSequenceDefinition);
             return model;
         }
 
+        long uid = appearanceOffset;
 
-        long l = appearanceOffset;
-        int currentFrame = -1;
-        int i1 = -1;
-        int j1 = -1;
-        int k1 = -1;
-        if (super.emoteAnimation >= 0 && super.animationDelay == 0) {
-            Animation animation = Animation.animations[super.emoteAnimation];
-            currentFrame = animation.primaryFrames[super.displayedEmoteFrames];
-            if (super.movementAnimation >= 0 && super.movementAnimation != super.idleAnimation)
-                i1 = Animation.animations[super.movementAnimation].primaryFrames[super.displayedMovementFrames];
-            if (animation.playerOffhand >= 0) {
-                j1 = animation.playerOffhand;
-                l += j1 - equipment[5] << 40;
+
+        int[] equipment = this.equipment;
+        if (sequenceDefinition != null && (sequenceDefinition.rightHandOverride >= 0 || sequenceDefinition.leftHandOverride >= 0)) {
+            equipment = new int[12];
+
+            for(int i = 0; i < 12; ++i) {
+                equipment[i] = this.equipment[i];
             }
-            if (animation.playerMainhand >= 0) {
-                k1 = animation.playerMainhand;
-                l += k1 - equipment[3] << 48;
+
+            if (sequenceDefinition.rightHandOverride >= 0) {
+                uid += (long)(sequenceDefinition.rightHandOverride - this.equipment[5] << 40);
+                equipment[5] = sequenceDefinition.rightHandOverride;
             }
-        } else if (super.movementAnimation >= 0) {
-            Animation animation = Animation.animations[super.movementAnimation];
-            currentFrame = animation.primaryFrames[super.displayedMovementFrames];
+
+            if (sequenceDefinition.leftHandOverride >= 0) {
+                uid += (long)(sequenceDefinition.leftHandOverride - this.equipment[3] << 48);
+                equipment[3] = sequenceDefinition.leftHandOverride;
+            }
         }
-        Model model_1 = (Model) models.get(l);
+        Model model_1 = (Model) models.get(uid);
         if (model_1 == null) {
-            boolean flag = false;
-            for (int i2 = 0; i2 < 12; i2++) {
-                int k2 = equipment[i2];
-                if (k1 >= 0 && i2 == 3)
-                    k2 = k1;
-                if (j1 >= 0 && i2 == 5)
-                    k2 = j1;
-                if (k2 >= 256 && k2 < 512 && !IdentityKit.kits[k2 - 256].bodyLoaded())
-                    flag = true;
-                if (k2 >= 512 && !ItemDefinition.lookup(k2 - 512).isEquippedModelCached(gender))
-                    flag = true;
+            boolean modelsInvalid = false;
+            for (int wearpos = 0; wearpos < 12; wearpos++) {
+                int wear = equipment[wearpos];
+                if (wear >= 0x100 && wear < 512 && !IdentityKit.kits[wear - 0x100].bodyLoaded()) {
+                    modelsInvalid = true;
+                }
+                if (wear >= 0x200 && !ItemDefinition.lookup(wear - 0x200).isEquippedModelCached(gender)) {
+                    modelsInvalid = true;
+                }
             }
 
-            if (flag) {
+            if (modelsInvalid) {
                 if (cachedModel != -1L)
                     model_1 = (Model) models.get(cachedModel);
                 if (model_1 == null)
@@ -307,26 +287,23 @@ public final class Player extends Mob implements RSPlayer,RSPlayerComposition {
             }
         }
         if (model_1 == null) {
-            Model aclass30_sub2_sub4_sub6s[] = new Model[14];
-            int j2 = 0;
-            for (int l2 = 0; l2 < 12; l2++) {
-                int i3 = equipment[l2];
-                if (k1 >= 0 && l2 == 3)
-                    i3 = k1;
-                if (j1 >= 0 && l2 == 5)
-                    i3 = j1;
-                if (i3 >= 256 && i3 < 512) {
-                    Model model_3 = IdentityKit.kits[i3 - 256].bodyModel();
+            Model kitMeshes[] = new Model[12];
+            int worn = 0;
+            for (int slot = 0; slot < 12; slot++) {
+                int part = equipment[slot];
+                if (part >= 0x100 && part < 0x200) {
+                    Model model_3 = IdentityKit.kits[part - 0x100].bodyModel();
                     if (model_3 != null)
-                        aclass30_sub2_sub4_sub6s[j2++] = model_3;
+                        kitMeshes[worn++] = model_3;
                 }
-                if (i3 >= 512) {
-                    Model model_4 = ItemDefinition.lookup(i3 - 512).getEquippedModel(gender);
+                if (part >= 0x200) {
+                    Model model_4 = ItemDefinition.lookup(part - 0x200).getEquippedModel(gender);
                     if (model_4 != null)
-                        aclass30_sub2_sub4_sub6s[j2++] = model_4;
+                        kitMeshes[worn++] = model_4;
                 }
             }
-            model_1 = new Model(j2, aclass30_sub2_sub4_sub6s);
+
+            model_1 = new Model(worn, kitMeshes);
             for (int j3 = 0; j3 < 5; j3++)
                 if (appearanceColors[j3] != 0) {
                     model_1.recolor(Client.PLAYER_BODY_RECOLOURS[j3][0],
@@ -335,28 +312,28 @@ public final class Player extends Mob implements RSPlayer,RSPlayerComposition {
                         model_1.recolor(Client.anIntArray1204[0], Client.anIntArray1204[appearanceColors[j3]]);
                 }
 
-            model_1.generateBones();
             model_1.light(64, 850, -30, -50, -30, true);
-            models.put(model_1, l);
-            cachedModel = l;
+            models.put(model_1, uid);
+            cachedModel = uid;
         }
-
-        if (aBoolean1699) {
+        if (aBoolean1699)
             return model_1;
-        }
 
-        Model emptyModel = Model.emptyModel;
 
-        emptyModel.replaceModel(model_1, Frame.noAnimationInProgress(currentFrame) & Frame.noAnimationInProgress(i1));
-        if (currentFrame != -1 && i1 != -1) {
-            emptyModel.animate2(Animation.animations[super.emoteAnimation].interleaveOrder, i1, currentFrame);
-        } else if (currentFrame != -1) {
-            emptyModel.animate(currentFrame);
+        if (sequenceDefinition == null && walkSequenceDefinition == null) {
+            return model_1;
+        } else {
+            Model animatedModel;
+            if (sequenceDefinition != null && walkSequenceDefinition != null) {
+                animatedModel = sequenceDefinition.animateMultiple(model_1, super.displayedEmoteFrames, walkSequenceDefinition, super.secondaryanimFrameindex);
+            } else if (sequenceDefinition == null) {
+                animatedModel = walkSequenceDefinition.animateEither(model_1, super.secondaryanimFrameindex);
+            } else {
+                animatedModel = sequenceDefinition.animateEither(model_1, super.displayedEmoteFrames);
+            }
+            
+            return animatedModel;
         }
-        emptyModel.calculateBoundsCylinder();
-        emptyModel.faceGroups = null;
-        emptyModel.vertexGroups = null;
-        return emptyModel;
     }
 
     public Model getHeadModel() {

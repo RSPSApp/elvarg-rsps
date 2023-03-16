@@ -5,13 +5,13 @@ import com.runescape.collection.ReferenceCache;
 import com.runescape.entity.model.Model;
 import com.runescape.io.Buffer;
 
-public final class Graphic {
+public final class SpotAnimationDefinition {
 
-    public static Graphic[] cache;
+    public static SpotAnimationDefinition[] cache;
     public static ReferenceCache models = new ReferenceCache(30);
     private int[] originalModelColours;
     private int[] modifiedModelColours;
-    public Animation animationSequence;
+    public SequenceDefinition sequenceDefinitionSequence;
     public int resizeXY;
     public int resizeZ;
     public int rotation;
@@ -21,7 +21,7 @@ public final class Graphic {
     private int modelId;
     private int animationId;
 
-    private Graphic() {
+    private SpotAnimationDefinition() {
         animationId = -1;
         originalModelColours = new int[6];
         modifiedModelColours = new int[6];
@@ -33,10 +33,10 @@ public final class Graphic {
         Buffer stream = new Buffer(archive.readFile("spotanim.dat"));
         int length = stream.readUShort();
         if (cache == null)
-            cache = new Graphic[length + 1];
+            cache = new SpotAnimationDefinition[length + 1];
         for (int index = 0; index < length; index++) {
             if (cache[index] == null)
-                cache[index] = new Graphic();
+                cache[index] = new SpotAnimationDefinition();
             cache[index].id = index;
             cache[index].readValues(stream);
         }
@@ -55,8 +55,8 @@ public final class Graphic {
             } else if (opcode == 2) {
                 animationId = buffer.readUShort();
 
-                if (Animation.animations != null)
-                    animationSequence = Animation.animations[animationId];
+                if (SequenceDefinition.sequenceDefinitions != null)
+                    sequenceDefinitionSequence = SequenceDefinition.sequenceDefinitions[animationId];
             } else if (opcode == 4) {
                 resizeXY = buffer.readUShort();
             } else if (opcode == 5) {
@@ -108,4 +108,34 @@ public final class Graphic {
         models.put(model, id);
         return model;
     }
+
+    public Model getTransformedModel(int frameindex) {
+        Model model = (Model) models.get(id);
+        if(model == null) {
+            model = Model.getModel(modelId);
+            if (model == null)
+                return null;
+            for (int i = 0; i < originalModelColours.length; i++)
+                if (originalModelColours[0] != 0) //default frame id
+                    model.recolor(originalModelColours[i], modifiedModelColours[i]);
+           
+            models.put(model, id);
+        }
+        Model var6;
+        if (animationId != -1 && frameindex != -1) {
+            var6 = sequenceDefinitionSequence.animateSpotanim(model, frameindex);
+        } else {
+            var6 = model.bakeSharedModel(true);
+        }
+
+
+        var6.faceGroups = null;
+        var6.vertexGroups = null;
+        if (resizeXY != 128 || resizeZ != 128)
+            var6.scale(resizeXY, resizeXY, resizeZ);
+        var6.light(64 + modelBrightness, 850 + modelShadow, -30, -50, -30, true);
+
+        return var6;
+    }
+
 }

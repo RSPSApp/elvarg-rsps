@@ -2,7 +2,8 @@ package com.runescape.cache.def;
 
 import com.runescape.Client;
 import com.runescape.cache.FileArchive;
-import com.runescape.cache.anim.Frame;
+import com.runescape.cache.anim.Animation;
+import com.runescape.cache.anim.SequenceDefinition;
 import com.runescape.cache.config.VariableBits;
 import com.runescape.collection.ReferenceCache;
 import com.runescape.entity.model.Model;
@@ -267,7 +268,11 @@ public final class ObjectDefinition implements RSObjectComposition {
     }
 
     public Model modelAt(int type, int orientation, int aY, int bY, int cY, int dY, int frameId) {
-        Model model = model(type, frameId, orientation);
+        return modelAt(type,orientation,aY,bY,cY,dY,frameId,null);
+    }
+
+    public Model modelAt(int type, int orientation, int aY, int bY, int cY, int dY, int frameId, SequenceDefinition seqtype) {
+        Model model = model(type, frameId, orientation,seqtype);
         if (model == null)
             return null;
         if (contouredGround || mergeNormals)
@@ -315,7 +320,7 @@ public final class ObjectDefinition implements RSObjectComposition {
             return lookup(configs[i]);
     }
 
-    public Model model(int j, int k, int l) {
+    public Model model(int j, int k, int l, SequenceDefinition seqtype) {
         Model model = null;
         long l1;
         if (modelTypes == null) {
@@ -387,11 +392,11 @@ public final class ObjectDefinition implements RSObjectComposition {
         boolean flag2;
         flag2 = translateX != 0 || translateY != 0 || translateZ != 0;
         Model model_3 = new Model(recolorToFind == null,
-                Frame.noAnimationInProgress(k), l == 0 && k == -1 && !flag
+                Animation.noAnimationInProgress(k), l == 0 && k == -1 && !flag
                 && !flag2, modifiedModelTexture == null, model);
         if (k != -1) {
             model_3.generateBones();
-            model_3.animate(k);
+            model_3.animate(seqtype,k);
             model_3.faceGroups = null;
             model_3.vertexGroups = null;
         }

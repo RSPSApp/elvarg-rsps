@@ -19,6 +19,19 @@ public final class Buffer extends Cacheable {
         return new String(payload, i, currentPosition - i - 1);
     }
 
+    public float readFloat() {
+        return Float.intBitsToFloat(this.readInt());
+    }
+
+    public int readSmartByteorshort() {
+        int value = payload[currentPosition] & 0xFF;
+        if (value < 128) {
+            return readUnsignedByte() - 0x40;
+        } else {
+            return readUShort() - 0xc000;
+        }
+    }
+
     private static final int[] BIT_MASKS = {0, 1, 3, 7, 15, 31, 63, 127, 255,
             511, 1023, 2047, 4095, 8191, 16383, 32767, 65535, 0x1ffff, 0x3ffff,
             0x7ffff, 0xfffff, 0x1fffff, 0x3fffff, 0x7fffff, 0xffffff,

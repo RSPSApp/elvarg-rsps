@@ -1,9 +1,8 @@
 package com.runescape.entity;
 
 import com.runescape.Client;
-import com.runescape.cache.anim.Animation;
-import com.runescape.cache.anim.Frame;
-import com.runescape.cache.anim.Graphic;
+import com.runescape.cache.anim.SequenceDefinition;
+import com.runescape.cache.anim.SpotAnimationDefinition;
 import com.runescape.cache.def.NpcDefinition;
 import com.runescape.entity.model.Model;
 import net.runelite.api.*;
@@ -43,17 +42,19 @@ public final class Npc extends Mob implements RSNPC {
     private Model getAnimatedModel() {
         if (super.emoteAnimation >= 0 && super.animationDelay == 0) {
             int emote = Animation.animations[super.emoteAnimation].primaryFrames[super.displayedEmoteFrames];
+            int current_index = super.displayedEmoteFrames;
             int movement = -1;
-            if (super.movementAnimation >= 0 && super.movementAnimation != super.idleAnimation)
-                movement = Animation.animations[super.movementAnimation].primaryFrames[super.displayedMovementFrames];
-            return desc.getAnimatedModel(movement, emote,
-                    Animation.animations[super.emoteAnimation].interleaveOrder);
+            if (super.movementAnimation >= 0 && super.movementAnimation != super.idleAnimation) {
+                movement = super.secondaryanimFrameindex;
+            }
+            return desc.getAnimatedModel(current_index, SequenceDefinition.sequenceDefinitions[super.emoteAnimation], SequenceDefinition.sequenceDefinitions[super.emoteAnimation].mask, movement, SequenceDefinition.sequenceDefinitions[super.movementAnimation]);
         }
+
         int movement = -1;
         if (super.movementAnimation >= 0) {
-            movement = Animation.animations[super.movementAnimation].primaryFrames[super.displayedMovementFrames];
+            movement = super.secondaryanimFrameindex;
         }
-        return desc.getAnimatedModel(-1, movement, null);
+        return desc.getAnimatedModel(movement, SequenceDefinition.sequenceDefinitions[super.movementAnimation], null, -1, null);
     }
 
     public Model getRotatedModel() {
@@ -63,27 +64,18 @@ public final class Npc extends Mob implements RSNPC {
         if (animatedModel == null)
             return null;
         super.height = animatedModel.modelBaseY;
+
         if (super.graphic != -1 && super.currentAnimation != -1) {
-            Graphic spotAnim = Graphic.cache[super.graphic];
-            Model graphicModel = spotAnim.getModel();
-            if (graphicModel != null) {
-                int frame = spotAnim.animationSequence.primaryFrames[super.currentAnimation];
-                Model model = new Model(true, Frame.noAnimationInProgress(frame),
-                        false, graphicModel);
-                model.offsetBy(0, -super.graphicHeight, 0);
-                model.generateBones();
-                model.animate(frame);
-                model.faceGroups = null;
-                model.vertexGroups = null;
-                if (spotAnim.resizeXY != 128 || spotAnim.resizeZ != 128)
-                    model.scale(spotAnim.resizeXY, spotAnim.resizeXY,
-                            spotAnim.resizeZ);
-                model.light(64 + spotAnim.modelBrightness,
-                        850 + spotAnim.modelShadow, -30, -50, -30, true);
-                Model models[] = {animatedModel, model};
-                animatedModel = new Model(models);
+            SpotAnimationDefinition spotAnim = SpotAnimationDefinition.cache[super.graphic];
+            Model model_1 = spotAnim.getTransformedModel(super.currentAnimation);
+            // Added
+            if(model_1 != null) {
+                model_1.offsetBy(0, -super.graphicHeight, 0);
+                Model aModel[] = {animatedModel, model_1};
+                animatedModel = new Model(aModel);
             }
         }
+
         if (desc.size == 1)
             animatedModel.singleTile = true;
         return animatedModel;

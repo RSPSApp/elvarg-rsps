@@ -2,7 +2,7 @@ package com.runescape.cache.def;
 
 import com.runescape.Client;
 import com.runescape.cache.FileArchive;
-import com.runescape.cache.anim.Frame;
+import com.runescape.cache.anim.SequenceDefinition;
 import com.runescape.cache.config.VariableBits;
 import com.runescape.collection.ReferenceCache;
 import com.runescape.entity.model.Model;
@@ -10,7 +10,6 @@ import com.runescape.io.Buffer;
 import com.runescape.util.BufferExt;
 import net.runelite.api.HeadIcon;
 import net.runelite.api.IterableHashTable;
-import net.runelite.api.NPCComposition;
 import net.runelite.rs.api.RSIterableNodeHashTable;
 import net.runelite.rs.api.RSNPCComposition;
 
@@ -21,6 +20,7 @@ import java.util.Map;
  * http://www.rune-server.org/runescape-development/rs2-client/downloads/575183-almost-fully-refactored-317-client.html
  */
 public final class NpcDefinition implements RSNPCComposition {
+	public boolean smoothwalk;
 	public static int anInt56;
 	public static Buffer dataBuf;
 	public static int[] offsets;
@@ -322,13 +322,13 @@ public final class NpcDefinition implements RSNPCComposition {
 			return lookup(childrenIDs[child]);
 	}
 
-	public Model method164(int j, int frame, int[] ai) {
+	public Model getAnimatedModel(int primary_index, SequenceDefinition primary_seq, int[] ai, int secondary_index, SequenceDefinition secondary_seq) {
 		if (childrenIDs != null) {
 			NpcDefinition entityDef = morph();
 			if (entityDef == null)
 				return null;
 			else
-				return entityDef.method164(j, frame, ai);
+				return entityDef.getAnimatedModel(primary_index, primary_seq, ai, secondary_index, secondary_seq);
 		}
 		Model model = (Model) modelCache.get(interfaceType);
 		if (model == null) {
@@ -357,12 +357,17 @@ public final class NpcDefinition implements RSNPCComposition {
 			model.light(84 + lightModifier, 1000 + shadowModifier, -90, -580, -90, true);
 			modelCache.put(model, interfaceType);
 		}
-		Model empty = Model.emptyModel;
-		empty.replaceModel(model, Frame.noAnimationInProgress(frame) & Frame.noAnimationInProgress(j));
-		if (frame != -1 && j != -1)
-			empty.animate2(ai, j, frame);
-		else if (frame != -1)
-			empty.animate(frame);
+		Model empty;
+		if (primary_seq != null && secondary_seq != null) {
+			empty = primary_seq.animateMultiple(model, primary_index, secondary_seq, secondary_index);
+		} else if (primary_seq != null) {
+			empty = primary_seq.animateEither(model, primary_index);
+		} else if (secondary_seq != null) {
+			empty = secondary_seq.animateEither(model, secondary_index);
+		} else {
+			empty = model.bakeSharedAnimationModel(true);
+		}
+
 		if (scaleXZ != 128 || scaleY != 128)
 			empty.scale(scaleXZ, scaleXZ, scaleY);
 		empty.calculateBoundsCylinder();
@@ -371,57 +376,6 @@ public final class NpcDefinition implements RSNPCComposition {
 		if (size == 1)
 			empty.singleTile = true;
 		return empty;
-	}
-
-	public Model getAnimatedModel(int primaryFrame, int secondaryFrame, int[] interleaveOrder) {
-		if (childrenIDs != null) {
-			NpcDefinition definition = morph();
-			if (definition == null)
-				return null;
-			else
-				return definition.getAnimatedModel(primaryFrame, secondaryFrame, interleaveOrder);
-		}
-		Model model = (Model) modelCache.get(interfaceType);
-		if (model == null) {
-			boolean flag = false;
-			for (int index = 0; index < modelId.length; index++)
-				if (!Model.isCached(modelId[index]))
-					flag = true;
-			if (flag) {
-				return null;
-			}
-			Model[] models = new Model[modelId.length];
-			for (int index = 0; index < modelId.length; index++)
-				models[index] = Model.getModel(modelId[index]);
-
-			if (models.length == 1)
-				model = models[0];
-			else
-				model = new Model(models.length, models);
-			if (recolourOriginal != null) {
-				for (int index = 0; index < recolourOriginal.length; index++)
-					model.recolor(recolourOriginal[index], recolourTarget[index]);
-
-			}
-			model.generateBones();
-			model.light(64 + lightModifier, 850 + shadowModifier, -30, -50, -30, true);
-			modelCache.put(model, interfaceType);
-		}
-		Model model_1 = Model.emptyModel;
-		model_1.replaceModel(model,
-				Frame.noAnimationInProgress(secondaryFrame) & Frame.noAnimationInProgress(primaryFrame));
-		if (secondaryFrame != -1 && primaryFrame != -1)
-			model_1.animate2(interleaveOrder, primaryFrame, secondaryFrame);
-		else if (secondaryFrame != -1)
-			model_1.animate(secondaryFrame);
-		if (scaleXZ != 128 || scaleY != 128)
-			model_1.scale(scaleXZ, scaleXZ, scaleY);
-		model_1.calculateBoundsCylinder();
-		model_1.faceGroups = null;
-		model_1.vertexGroups = null;
-		if (size == 1)
-			model_1.singleTile = true;
-		return model_1;
 	}
 
 	public void readValues(Buffer buffer) {
@@ -546,7 +500,7 @@ public final class NpcDefinition implements RSNPCComposition {
 			} else if (opcode == 107)
 				clickable = false;
 			else if (opcode == 109) {
-				rotationFlag = false;
+				smoothwalk = false;
 			} else if (opcode == 111) {
 				isPet = true;
 			} else if (opcode == 114) {

@@ -63,11 +63,11 @@ public final class ItemDefinition implements RSItemComposition {
     private int maleHeadModel2;
     private int resizeX;
     private int femaleHeadModel2;
-    private int contrast;
+    public int contrast;
     private int maleModel2;
     private int resizeZ;
     private int resizeY;
-    private int ambient;
+    public int ambient;
     private byte maleOffset;
 
     private ItemDefinition() {

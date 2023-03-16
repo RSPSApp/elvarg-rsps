@@ -2,12 +2,20 @@ package com.runescape.entity.model;
 
 import java.awt.Shape;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import com.runescape.util.maths.Matrix4f;
 import com.runescape.Client;
-import com.runescape.cache.anim.Frame;
-import com.runescape.cache.anim.FrameBase;
+import com.runescape.cache.anim.Animation;
+import com.runescape.cache.anim.Skeleton;
+import com.runescape.cache.anim.Frames;
+import com.runescape.cache.anim.SequenceDefinition;
+import com.runescape.cache.anim.skeleton.AnimKeyFrameSet;
+import com.runescape.cache.anim.skeleton.AnimationBone;
+import com.runescape.cache.anim.skeleton.AnimationKeyFrame;
+import com.runescape.cache.anim.skeleton.SkeletalAnimBase;
 import com.runescape.draw.Rasterizer2D;
 import com.runescape.draw.Rasterizer3D;
 import com.runescape.engine.impl.MouseHandler;
@@ -22,7 +30,6 @@ import net.runelite.api.model.Triangle;
 import net.runelite.api.model.Vertex;
 import net.runelite.rs.api.RSFrames;
 import net.runelite.rs.api.RSModel;
-import net.runelite.rs.api.RSModelData;
 
 public class Model extends Renderable implements RSModel {
 
@@ -194,6 +201,7 @@ public class Model extends Renderable implements RSModel {
             boolean alphaFlag = false;
             boolean tSkinFlag = false;
             boolean colorFlag = false;
+            boolean bonesFlag = false;
             boolean textureFlag = false;
             boolean coordinateFlag = false;
             verticesCount = 0;
@@ -219,6 +227,7 @@ public class Model extends Renderable implements RSModel {
                             priorityFlag = true;
                     }
                     tSkinFlag |= build.triangleData != null;
+                    bonesFlag |= build.skeletalBones != null;
                     colorFlag |= build.colors != null;
                     textureFlag |= build.materials != null;
                     coordinateFlag |= build.textures != null;
@@ -252,6 +261,12 @@ public class Model extends Renderable implements RSModel {
 
             if (coordinateFlag)
                 textures = new byte[trianglesCount];
+
+
+            if (bonesFlag) {
+                this.skeletalBones = new int[this.verticesCount][];
+                this.skeletalScales = new int[this.verticesCount][];
+            }
 
             if (texturesCount > 0) {
                 textureTypes = new byte[texturesCount];
@@ -352,6 +367,7 @@ public class Model extends Renderable implements RSModel {
         boolean renderTypeFlag = false;
         boolean priorityFlag = false;
         boolean alphaFlag = false;
+        boolean bonesFlag = false;
         boolean colorFlag = false;
         boolean textureFlag = false;
         boolean coordinateFlag = false;
@@ -377,6 +393,7 @@ public class Model extends Renderable implements RSModel {
                         priorityFlag = true;
                 }
                 alphaFlag |= build.triangleAlpha != null;
+                bonesFlag |= build.skeletalBones != null;
                 colorFlag |= build.colors != null;
                 textureFlag |= build.materials != null;
                 coordinateFlag |= build.textures != null;
@@ -407,6 +424,11 @@ public class Model extends Renderable implements RSModel {
 
         if (coordinateFlag)
             textures = new byte[trianglesCount];
+
+        if (bonesFlag) {
+            this.skeletalBones = new int[this.verticesCount][];
+            this.skeletalScales = new int[this.verticesCount][];
+        }
 
         if(texturesCount > 0) {
             textureTypes = new byte[texturesCount];
@@ -553,8 +575,8 @@ public class Model extends Renderable implements RSModel {
         textureTypes = model.textureTypes;
         normals = model.normals;
         faceNormals = model.faceNormals;
-        this.animayaGroups = model.animayaGroups;
-        this.animayaScales = model.animayaScales;
+        this.skeletalBones = model.skeletalBones;
+        this.skeletalScales = model.skeletalScales;
 
         vertexNormalsOffsets = model.vertexNormalsOffsets;
     }
@@ -614,6 +636,8 @@ public class Model extends Renderable implements RSModel {
         super.modelBaseY = model.modelBaseY;
         textures = model.textures;
         materials = model.materials;
+        skeletalBones = model.skeletalBones;
+        skeletalScales = model.skeletalScales;
         diagonal2DAboveOrigin = model.diagonal2DAboveOrigin;
         diagonal3DAboveOrigin = model.diagonal3DAboveOrigin;
         diagonal3D = model.diagonal3D;
@@ -683,7 +707,8 @@ public class Model extends Renderable implements RSModel {
         textures = model.textures;
         textureTypes = model.textureTypes;
         materials = model.materials;
-
+        skeletalBones = model.skeletalBones;
+        skeletalScales = model.skeletalScales;
         //New
         vertexNormalsOffsets = model.vertexNormalsOffsets;
         vertexNormalsX = model.vertexNormalsX; //TODO uncomment
@@ -713,6 +738,10 @@ public class Model extends Renderable implements RSModel {
             this.verticesZ[this.verticesCount] = z;
             if (model.vertexData != null) {
                 this.vertexData[this.verticesCount] = model.vertexData[vertex];
+            }
+            if (model.skeletalBones != null) {
+                this.skeletalBones[this.verticesCount] = model.skeletalBones[vertex];
+                this.skeletalScales[this.verticesCount] = model.skeletalScales[vertex];
             }
             vertexId = this.verticesCount++;
 
@@ -1010,85 +1039,211 @@ public class Model extends Renderable implements RSModel {
         }
     }
 
-    public void animate(int frameId) {
+    public void animate2(Frames frame_set, int frameindex) {
         if (vertexGroups == null)
             return;
 
-        if (frameId == -1)
+        if (frameindex == -1)
             return;
-
-        Frame frame = Frame.method531(frameId);
-        if (frame == null)
+        if(frame_set == null) {
+            System.err.println("null frameset ");
             return;
+        }
+        Animation animation = frame_set.animations[frameindex];
+        if(animation == null) {
+            return;
+        }
+        Skeleton base = animation.base;
 
-        FrameBase base = frame.base;
         transformTempX = 0;
         transformTempY = 0;
         transformTempZ = 0;
-        for (int k = 0; k < frame.transformationCount; k++) {
-            int l = frame.transformationIndices[k];
-            transform(base.transformationType[l],
-                    base.skinList[l],
-                    frame.transformX[k],
-                    frame.transformY[k],
-                    frame.transformZ[k]);
+
+        for (int index = 0; index < animation.transformationCount; index++) {
+            int pos = animation.transformationIndices[index];
+            transform(base.transformationType[pos], base.skinList[pos], animation.transformX[index], animation.transformY[index], animation.transformZ[index]);
         }
 
         this.resetBounds();
         invalidate();
     }
 
+    public void animate(Frames frameSet, int frameIndex, int[] labels, boolean tweening) {
+        if (labels == null) {
+            this.animate2(frameSet, frameIndex);
+        } else {
+            Animation animation = frameSet.animations[frameIndex];
+            Skeleton base = animation.base;
+            byte var7 = 0;
+            int var11 = var7 + 1;
+            int var8 = labels[var7];
+            transformTempX = 0;
+            transformTempY = 0;
+            transformTempZ = 0;
 
-    public void animate2(int label[], int idle, int current) {
-        if (current == -1)
-            return;
+            for(int var9 = 0; var9 < animation.transformationCount; ++var9) {
+                int var10 = animation.transformationIndices[var9];
 
-        if (label == null || idle == -1) {
-            animate(current);
-            return;
+                while(var10 > var8) {
+                    var8 = labels[var11++];
+                }
+
+                if (tweening) {
+                    if (var10 == var8 || base.transformationType[var10] == 0) {
+                        this.transform(base.transformationType[var10], base.skinList[var10], animation.transformX[var9], animation.transformY[var9], animation.transformZ[var9]);
+                    }
+                } else if (var10 != var8 || base.transformationType[var10] == 0) {
+                    this.transform(base.transformationType[var10], base.skinList[var10], animation.transformX[var9], animation.transformY[var9], animation.transformZ[var9]);
+                }
+            }
+
         }
-        Frame anim = Frame.method531(current);
-        if (anim == null)
+    }
+
+    public void animate(SequenceDefinition seq, int frameindex) {
+        animate_either(seq, frameindex, false);
+    }
+
+    public Model bakeSharedAnimationModel(boolean alpha) {
+        Model model_1 = Model.emptyModel;
+        model_1.replaceModel(this, alpha);
+        //Model new_model = new Model(true, alpha, false, this);
+        model_1.generateBones();
+        return model_1;
+
+    }
+    public Model bakeSharedModel(boolean alpha) {
+        Model new_model = new Model(true, alpha, false, this);
+        new_model.generateBones();
+        return new_model;
+
+    }
+
+    public void animate_either(SequenceDefinition seq, int frameindex, boolean use_secondary_frames) {
+        if (frameindex == -1)
             return;
 
-        Frame skin = Frame.method531(idle);
-        if (skin == null) {
-            animate(current);
+        if(seq.usingKeyframes()) {
+            AnimKeyFrameSet keyframeset = seq.getKeyframeset();
+            animateSkeletalKeyframe(keyframeset, frameindex);
+        } else {
+            int frame = seq.frames[frameindex];//if anything do active ? seq.iftype_frames : seq.frames
+            int frame_index = frame & 0xffff;
+            if(frame == -1) {
+                System.out.println("-1 bad frame, index " + frame_index + ", group: " + (frame >> 16) + " in anim " + seq.id + " frame " + seq.frames[frameindex] + ", secondary " + seq.secondary_frames[frameindex]);
+                System.out.println(Arrays.toString(seq.frames));
+                return;
+            }
+            Frames frameset = Frames.getFrames(frame >> 16);
+            if(frameset == null ) {
+                System.out.println("null frame " + frame + ", index " + frame_index + ", group: " + (frame >> 16) + " in anim " + seq.id);
+            } else {
+                animate2(frameset, frame_index);
+            }
+        }
+
+    }
+
+    public void animateSkeletalKeyframe(AnimKeyFrameSet frame, int keyframeId) {
+        if (keyframeId == -1)
             return;
-        }
-        FrameBase list = anim.base;
-        transformTempX = 0;
-        transformTempY = 0;
-        transformTempZ = 0;
-        int id = 0;
-        int table = label[id++];
-        for (int index = 0; index < anim.transformationCount; index++) {
-            int condition;
-            for (condition = anim.transformationIndices[index]; condition > table; table = label[id++]) {
-            }
 
-            if (condition != table || list.transformationType[condition] == 0) {
-                this.transform(list.transformationType[condition], list.skinList[condition], anim.transformX[index], anim.transformY[index], anim.transformZ[index]);
-            }
+        if (frame == null)
+            return;
+
+        Skeleton base = frame.base;
+        SkeletalAnimBase skeletal_base = base.getSkeletalBase();
+        if (skeletal_base != null) {
+            skeletal_base.animate(frame, keyframeId);
+            this.transformSkeletal(skeletal_base, frame.getKeyframeid());
         }
 
-        transformTempX = 0;
-        transformTempY = 0;
-        transformTempZ = 0;
-        id = 0;
-        table = label[id++];
-        for (int index = 0; index < skin.transformationCount; index++) {
-            int condition;
-            for (condition = skin.transformationIndices[index]; condition > table; table = label[id++]) {
-            }
-
-            if (condition == table || list.transformationType[condition] == 0) {
-                this.transform(list.transformationType[condition], list.skinList[condition], skin.transformX[index], skin.transformY[index], skin.transformZ[index]);
-            }
+        if (frame.modifiesAlpha()) {
+            this.apply_skeletalanim_transparency(frame, keyframeId);
         }
 
         this.resetBounds();
         invalidate();
+    }
+
+    void transformSkeletal(SkeletalAnimBase skeleton, int frameID) {
+        if (this.skeletalBones != null) {
+            for(int vertex = 0; vertex < this.verticesCount; ++vertex) {
+                int[] originBones = this.skeletalBones[vertex];
+                if (originBones != null && originBones.length != 0) {
+                    int[] vertexScale = this.skeletalScales[vertex];
+                    totalSkeletalTransforms.setZero();
+                    for(int var6 = 0; var6 < originBones.length; ++var6) {
+                        int bone_index = originBones[var6];
+                        AnimationBone bone = skeleton.getBone(bone_index);
+                        if (bone != null) {
+                            skeletalScaleMatrix.setScale((float)vertexScale[var6] / 255.0F);
+                            skeletalTransformMatrix.set(bone.getSkinning(frameID));
+                            skeletalTransformMatrix.multiply(skeletalScaleMatrix);
+                            totalSkeletalTransforms.add(skeletalTransformMatrix);
+                        }
+                    }
+                    this.transformVertex(vertex, totalSkeletalTransforms);
+                }
+            }
+        }
+    }
+
+    void transformVertex(int vertex, Matrix4f matrix) {
+        float x = (float)this.verticesX[vertex];
+        float y = (float)(-this.verticesY[vertex]);
+        float z = (float)(-this.verticesZ[vertex]);
+        float weight = 1.0F;
+        this.verticesX[vertex] = (int)(matrix.values[0] * x + matrix.values[4] * y + matrix.values[8] * z + matrix.values[12] * weight);
+        this.verticesY[vertex] = -((int)(matrix.values[1] * x + matrix.values[5] * y + matrix.values[9] * z + matrix.values[13] * weight));
+        this.verticesZ[vertex] = -((int)(matrix.values[2] * x + matrix.values[6] * y + matrix.values[10] * z + matrix.values[14] * weight));
+    }
+
+    void apply_skeletalanim_transparency(AnimKeyFrameSet keyframes, int keyframe) {
+        Skeleton base = keyframes.base;
+
+        for(int var4 = 0; var4 < base.count; ++var4) {
+            int transform_type = base.transformationType[var4];
+            if (transform_type == 5 && keyframes.transforms != null && keyframes.transforms[var4] != null && keyframes.transforms[var4][0] != null && this.faceGroups != null && this.triangleAlpha != null) {
+                AnimationKeyFrame var6 = keyframes.transforms[var4][0];
+                int[] anim_labels = base.skinList[var4];
+                int anim_labels_count = anim_labels.length;
+
+                for(int var9 = 0; var9 < anim_labels_count; ++var9) {
+                    int anim_label = anim_labels[var9];
+                    if (anim_label < this.faceGroups.length) {
+                        int[] face_labels = this.faceGroups[anim_label];
+
+                        for(int i = 0; i < face_labels.length; ++i) {
+                            int face_label = face_labels[i];
+                            int alpha = (int)((float)(this.triangleAlpha[face_label] & 255) + var6.getValue(keyframe) * 255.0F);
+                            if (alpha < 0) {
+                                alpha = 0;
+                            } else if (alpha > 255) {
+                                alpha = 255;
+                            }
+
+                            this.triangleAlpha[face_label] = (byte)alpha;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    public void animateSkeletalKeyframeTweening(Skeleton base, AnimKeyFrameSet keyframeset, int keyframe_index, boolean[] bone_groups, boolean is_tweening, boolean secondaryanim_uses_frames) {
+        SkeletalAnimBase skeletal_base = base.getSkeletalBase();
+        if (skeletal_base != null) {
+            skeletal_base.animate(keyframeset, keyframe_index, bone_groups, is_tweening);
+            if (secondaryanim_uses_frames) {
+                this.transformSkeletal(skeletal_base, keyframeset.getKeyframeid());
+            }
+        }
+
+        if (!is_tweening && keyframeset.modifiesAlpha()) {
+            this.apply_skeletalanim_transparency(keyframeset, keyframe_index);
+        }
+
     }
 
     public void rotate90Degrees() {
@@ -1421,8 +1576,8 @@ public class Model extends Renderable implements RSModel {
         model.vertexGroups = this.vertexGroups;
         model.faceGroups = this.faceGroups;
         model.materials = this.materials;
-        model.animayaGroups = this.animayaGroups;
-        model.animayaScales = this.animayaScales;
+        model.skeletalBones = this.skeletalBones;
+        model.skeletalScales = this.skeletalScales;
         this.colorsX = model.colorsX;
         this.colorsY = model.colorsY;
         this.colorsZ = model.colorsZ;
@@ -2436,8 +2591,8 @@ public class Model extends Renderable implements RSModel {
     private int boundsType;
     boolean isBoundsCalculated;
 
-    public int animayaGroups[][];
-    public int animayaScales[][];
+    public int skeletalBones[][];
+    public int skeletalScales[][];
 
     private float[] faceTextureUVCoordinates;
     private int[] vertexNormalsX, vertexNormalsY, vertexNormalsZ;
@@ -2489,6 +2644,11 @@ public class Model extends Renderable implements RSModel {
     public VertexNormal vertexNormalsOffsets[];
     private FaceNormal[] faceNormals;
     static ModelHeader modelHeaders[];
+
+    static Matrix4f totalSkeletalTransforms = new Matrix4f();
+    static Matrix4f skeletalScaleMatrix = new Matrix4f();
+    static Matrix4f skeletalTransformMatrix = new Matrix4f();
+
     static boolean hasAnEdgeToRestrict[] = new boolean[6500];
     static boolean outOfReach[] = new boolean[6500];
     static int vertexScreenX[] = new int[6500];
@@ -2715,7 +2875,7 @@ public class Model extends Renderable implements RSModel {
         return null;
     }
 
-    void invalidate() {
+    public void invalidate() {
         this.vertexNormalsOffsets = null;
         this.normals = null;
         this.faceNormals = null;
