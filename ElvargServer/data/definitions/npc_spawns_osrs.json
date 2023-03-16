@@ -21600,54 +21600,6 @@
     "description": "Guard"
   },
   {
-    "facing": "EAST",
-    "id": 12113,
-    "position": [
-      {
-        "x": 3041,
-        "y": 3384,
-        "z": 0
-      }
-    ],
-    "description": "Gnome child"
-  },
-  {
-    "facing": "EAST",
-    "id": 12112,
-    "position": [
-      {
-        "x": 3043,
-        "y": 3384,
-        "z": 0
-      }
-    ],
-    "description": "King Roald"
-  },
-  {
-    "facing": "SOUTH",
-    "id": 12109,
-    "position": [
-      {
-        "x": 3046,
-        "y": 3379,
-        "z": 0
-      }
-    ],
-    "description": "Warmhandz"
-  },
-  {
-    "facing": "EAST",
-    "id": 12111,
-    "position": [
-      {
-        "x": 3046,
-        "y": 3382,
-        "z": 0
-      }
-    ],
-    "description": "Archmage Sedridor"
-  },
-  {
     "facing": "WEST",
     "id": 10417,
     "position": [
@@ -21670,42 +21622,6 @@
       }
     ],
     "description": "Man"
-  },
-  {
-    "facing": "SOUTH",
-    "id": 12115,
-    "position": [
-      {
-        "x": 3047,
-        "y": 3384,
-        "z": 0
-      }
-    ],
-    "description": "General Bentnoze"
-  },
-  {
-    "facing": "NORTH_WEST",
-    "id": 12116,
-    "position": [
-      {
-        "x": 3048,
-        "y": 3382,
-        "z": 0
-      }
-    ],
-    "description": "General Wartface"
-  },
-  {
-    "facing": "EAST",
-    "id": 12114,
-    "position": [
-      {
-        "x": 3050,
-        "y": 3384,
-        "z": 0
-      }
-    ],
-    "description": "Thurgo"
   },
   {
     "facing": "SOUTH",
@@ -31366,18 +31282,6 @@
       }
     ],
     "description": "Sheep"
-  },
-  {
-    "facing": "WEST",
-    "id": 12110,
-    "position": [
-      {
-        "x": 3211,
-        "y": 3213,
-        "z": 0
-      }
-    ],
-    "description": "Patty Seer"
   },
   {
     "facing": "SOUTH",
