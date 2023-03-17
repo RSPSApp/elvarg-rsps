@@ -25,7 +25,7 @@ public final class Configuration {
     /**
      * npcBits can be changed to what your server's bits are set to.
      */
-    public static final int npcBits = 16;
+    public static final int npcBits = 18;
     /**
      * Sends client-related debug messages to the client output stream
      */
