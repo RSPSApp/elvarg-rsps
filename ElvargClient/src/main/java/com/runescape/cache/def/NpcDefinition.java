@@ -103,6 +103,10 @@ public final class NpcDefinition implements RSNPCComposition {
 			if (cache[index].interfaceType == (long) id)
 				return cache[index];
 
+		if (id >= TOTAL_NPCS) {
+			return null;
+		}
+
 		anInt56 = (anInt56 + 1) % 20;
 		NpcDefinition definition = cache[anInt56] = new NpcDefinition();
 		dataBuf.currentPosition = offsets[id];

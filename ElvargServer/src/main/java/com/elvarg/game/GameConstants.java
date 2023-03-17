@@ -35,7 +35,7 @@ public class GameConstants {
 	/**
 	 * Total Npc Bits
 	 */
-	public static final int NPC_BITS = 16;
+	public static final int NPC_BITS = 18;
 
 	/**
 	 * The directory of the definition files.
