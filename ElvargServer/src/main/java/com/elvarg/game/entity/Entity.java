@@ -1,11 +1,15 @@
 package com.elvarg.game.entity;
 
 import com.elvarg.game.GameConstants;
+import com.elvarg.game.collision.Region;
+import com.elvarg.game.collision.RegionManager;
 import com.elvarg.game.model.Animation;
 import com.elvarg.game.model.Graphic;
 import com.elvarg.game.model.Location;
 import com.elvarg.game.model.areas.Area;
 import com.elvarg.game.model.areas.impl.PrivateArea;
+
+import java.util.Optional;
 
 public abstract class Entity {
 
@@ -75,4 +79,6 @@ public abstract class Entity {
     public PrivateArea getPrivateArea() {
         return (area instanceof PrivateArea ? ((PrivateArea) area) : null);
     }
+
+    public Optional<Region> getRegion() { return RegionManager.getRegion(this.getLocation().getRegionId()); }
 }

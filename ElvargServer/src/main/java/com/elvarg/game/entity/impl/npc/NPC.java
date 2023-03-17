@@ -484,4 +484,8 @@ public class NPC extends Mobile {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public int getWalkRadius() {
+		return this.size() + 5;
+	}
 }
