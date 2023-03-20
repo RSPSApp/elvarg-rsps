@@ -1,5 +1,6 @@
 package com.elvarg.game.model;
 
+import com.elvarg.game.collision.RegionManager;
 import com.elvarg.util.Misc;
 
 /**
@@ -394,6 +395,29 @@ public class Location {
         int rx = (int)Math.floor((this.x * Math.cos(degrees)) - (this.y * Math.sin(degrees)));
         int ry = (int)Math.floor((this.x * Math.sin(degrees)) + (this.y * Math.cos(degrees)));
         return new Location(rx, ry, this.getZ());
+    }
+
+    /**
+     * Grabs random tile for bounds
+     * @param location
+     * @param radius
+     * @return
+     */
+    public static Location randomTile(Location location, int radius) {
+        Location chosen = null;
+        int requestedX = location.getX();
+        int requestedY = location.getY();
+        int height = location.getZ();
+        while(true) {
+            int randomX = Misc.random(requestedX - radius, requestedX + radius);
+            int randomY = Misc.random(requestedY - radius, requestedY + radius);
+            Location randomLocation = new Location(randomX, randomY, height);
+            if (!RegionManager.blocked(randomLocation, null)) {
+                chosen = randomLocation;
+                break;
+            }
+        }
+        return chosen;
     }
 
 }
