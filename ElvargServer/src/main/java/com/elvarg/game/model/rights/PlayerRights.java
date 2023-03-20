@@ -1,5 +1,7 @@
 package com.elvarg.game.model.rights;
 
+import com.elvarg.game.entity.impl.player.Player;
+
 public enum PlayerRights {
     NONE(-1, ""),
     MODERATOR(618, "[<col=0000ff>Moderator@bla@]"),
@@ -23,4 +25,8 @@ public enum PlayerRights {
 	public String getYellTag() {
 		return yellTag;
 	}
+
+    public static boolean isAdmin(Player player) {
+		return player.getRights().ordinal() >= ADMINISTRATOR.ordinal();
+    }
 }
