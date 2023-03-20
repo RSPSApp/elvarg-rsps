@@ -5,6 +5,7 @@ import com.elvarg.game.content.combat.WeaponInterfaces;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.MagicSpellbook;
 import com.elvarg.game.model.Skill;
+import com.elvarg.game.model.container.impl.Equipment;
 import com.elvarg.game.model.equipment.BonusManager;
 
 import java.util.HashMap;
@@ -25,9 +26,8 @@ public class Autocasting {
     private static final int ANCIENT_AUTOCAST_TAB = 1689;
     private static final int IBANS_AUTOCAST_TAB = 12050;
 
-    public static final Set<Integer> ANCIENT_SPELL_AUTOCAST_STAFFS = Set.of(KODAI_WAND, MASTER_WAND,
-            ANCIENT_STAFF,NIGHTMARE_STAFF,VOLATILE_NIGHTMARE_STAFF,ELDRITCH_NIGHTMARE_STAFF, TOXIC_STAFF_OF_THE_DEAD, ELDER_WAND, STAFF_OF_THE_DEAD, STAFF_OF_LIGHT);
-
+    public static final Set<Integer> ANCIENT_SPELL_AUTOCAST_STAFFS = Set.of(KODAI_WAND, MASTER_WAND, TRIDENT_OF_THE_SWAMP, TRIDENT_OF_THE_SEAS, ZURIELS_STAFF,
+            ANCIENT_STAFF,NIGHTMARE_STAFF,VOLATILE_NIGHTMARE_STAFF,ELDRITCH_NIGHTMARE_STAFF, TOXIC_STAFF_OF_THE_DEAD, SANGUINESTI_STAFF, STAFF_OF_THE_DEAD, STAFF_OF_LIGHT);
     public static final HashMap<Integer, CombatSpells> AUTOCAST_SPELLS = new HashMap<>();
 
     static {
@@ -99,10 +99,21 @@ public class Autocasting {
         if (!player.getEquipment().hasStaffEquipped()) {
             return true;
         }
-
+        if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12899) {
+            player.getPacketSender().sendMessage("You cannot change your autocast spell since you're wearing a trident.");
+            return true;
+        }
+        if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 11905) {
+            player.getPacketSender().sendMessage("You cannot change your autocast spell since you're wearing a trident.");
+            return true;
+        }
+        if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 22323) {
+            player.getPacketSender().sendMessage("You cannot change your autocast spell since you're wearing a Sanguine.");
+            return true;
+        }
         switch (player.getSpellbook()) {
             case ANCIENT -> {
-                if (!ANCIENT_SPELL_AUTOCAST_STAFFS.contains(player.getEquipment().getWeapon().getId()) && player.getEquipment().getWeapon().getId() != AHRIMS_STAFF) {
+                if (!ANCIENT_SPELL_AUTOCAST_STAFFS.contains(player.getEquipment().getWeapon().getId()) && player.getEquipment().getWeapon().getId() == AHRIMS_STAFF) {
                     // Ensure this is a staff capable of casting ancients. Ahrims staff can cast both regular and ancients.
                     player.getPacketSender().sendMessage("You can only autocast regular offensive spells with this staff.");
                     return true;
@@ -135,8 +146,6 @@ public class Autocasting {
             setAutocast(player, null);
             return true;
         }
-
-
         if (player.getCombat().getAutocastSpell() != null && player.getCombat().getAutocastSpell() == cbSpell) {
 
             //Player is already autocasting this spell. Turn it off.
@@ -155,11 +164,6 @@ public class Autocasting {
     public static void setAutocast(Player player, CombatSpell spell) {
         // First, set the Player's preferred autocast spell
         player.getCombat().setAutocastSpell(spell);
-
-        if (!player.getEquipment().hasStaffEquipped() && spell != null) {
-            player.getPacketSender().sendMessage("Default spell set. Please equip a staff to use autocast.");
-            return;
-        }
 
         if (spell == null) {
             player.getPacketSender().sendAutocastId(-1).sendConfig(108, 3);

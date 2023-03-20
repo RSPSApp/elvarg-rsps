@@ -46,7 +46,24 @@ public abstract class Spell {
                 return false;
             }
         }
-
+        if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 11905) {
+            if (player.getCombat().getCastSpell() != null ){
+                Autocasting.setAutocast(player, CombatSpells.TRIDENT_OF_THE_SEAS.getSpell());
+                return true;
+            }
+        }
+        if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12899) {
+            if (player.getCombat().getCastSpell() != null ){
+            Autocasting.setAutocast(player, CombatSpells.TRIDENT_OF_THE_SWAMP.getSpell());
+            return true;
+            }
+        }
+        if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 22323) {
+            if (player.getCombat().getCastSpell() != null ){
+                Autocasting.setAutocast(player, CombatSpells.SANGUINESTI_STAFF.getSpell());
+                return true;
+            }
+        }
         // Secondly we check if they have proper magic spellbook
         // If not, reset all magic attributes such as current spell
         // Aswell as autocast spell
@@ -96,7 +113,25 @@ public abstract class Spell {
                     delete = false;
                 }
             }
-
+            //Check staff of the dead and don't delete runes at a rate of 1/8
+            if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12904) {
+                if (Misc.getRandom(7) == 1) {
+                    player.getPacketSender().sendMessage("Your Staff of the dead negated your runes for this cast.");
+                    delete = false;
+                }
+            }
+            //Check staff of light and don't delete runes at a rate of 1/8
+            if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 22296) {
+                if (Misc.getRandom(7) == 1) {
+                    delete = false;
+                }
+            }
+            //Check Kodai Wand and don't delete runes at a rate of 1/6
+            if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 21006) {
+                if (Misc.getRandom(5) == 1) {
+                    delete = false;
+                }
+            }
             // We've made it through the checks, so we have the items and can
             // remove them now.
             if (delete) {

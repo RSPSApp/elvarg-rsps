@@ -6,7 +6,7 @@ import com.elvarg.game.model.Location;
 
 public enum Teleportable {
 	
-	EDGEVILLE_DITCH(TeleportButton.WILDERNESS, 0, 0, new Location(3088, 3520)),
+	EDGEVILLE_DITCH(TeleportButton.WILDERNESS, 0, 0, new Location(3087, 3517)),
 	WEST_DRAGONS(TeleportButton.WILDERNESS, 0, 1, new Location(2979, 3592)),
 	EAST_DRAGONS(TeleportButton.WILDERNESS, 0, 2, new Location(3356, 3675)),
 	

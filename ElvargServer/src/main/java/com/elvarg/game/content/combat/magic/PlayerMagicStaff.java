@@ -14,6 +14,8 @@ public enum PlayerMagicStaff {
 
     AIR(new int[]{1381, 1397, 1405}, new int[]{556}),
     WATER(new int[]{1383, 1395, 1403}, new int[]{555}),
+    STAFF_OF_LIGHT(new int[]{22296}, new int[]{555}),
+    KODAI_WAND(new int[]{21006}, new int[]{555}),
     EARTH(new int[]{1385, 1399, 1407}, new int[]{557}),
     FIRE(new int[]{1387, 1393, 1401}, new int[]{554}),
     MUD(new int[]{6562, 6563}, new int[]{555, 557}),

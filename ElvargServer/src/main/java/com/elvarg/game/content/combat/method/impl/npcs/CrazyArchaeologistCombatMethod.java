@@ -74,6 +74,7 @@ public class CrazyArchaeologistCombatMethod extends CombatMethod {
 				@Override
 				public void execute() {
 					target.performGraphic(RANGED_END_GFX);
+					target.getCombat().getHitQueue().addPendingDamage(new HitDamage(Misc.getRandom(15), HitMask.YELLOW));
 					stop();
 				}
 			});
@@ -98,7 +99,7 @@ public class CrazyArchaeologistCombatMethod extends CombatMethod {
 						for (Player player : character.getAsNpc().getPlayersWithinDistance(10)) {
 							if (player.getLocation().equals(pos)) {
 								player.getCombat().getHitQueue()
-										.addPendingDamage(new HitDamage(Misc.getRandom(25), HitMask.RED));
+										.addPendingDamage(new HitDamage(Misc.getRandom(30), HitMask.YELLOW));
 							}
 						}
 					}

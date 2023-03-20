@@ -27,6 +27,7 @@ import com.elvarg.game.task.TaskManager;
 import com.elvarg.util.Misc;
 import com.elvarg.util.NpcIdentifiers;
 import com.elvarg.util.RandomGen;
+import com.elvarg.util.TileUtils;
 import com.elvarg.util.timers.TimerKey;
 
 /**
@@ -207,14 +208,16 @@ public final class MovementQueue {
     /**
      * Adds a step to walk to the queue.
      *
-     * @param x       X to walk to
-     * @param y       Y to walk to
+     * @param x X to walk to
+     * @param y Y to walk to
+     * @return
      */
-    public void walkStep(int x, int y) {
+    public TileUtils walkStep(int x, int y) {
         Location position = character.getLocation().clone();
         position.setX(position.getX() + x);
         position.setY(position.getY() + y);
         addStep(position);
+        return null;
     }
 
     /**

@@ -710,13 +710,24 @@ public class CombatFactory {
 		if (entity.isPoisoned()) {
 			return;
 		}
-
+        if (entity.getAsNpc().getId() == NpcIdentifiers.UNDEAD_COMBAT_DUMMY) {
+        	return;
+        }
 		// If the entity is a player, we check for poison immunity. If they have
 		// no immunity then we send them a message telling them that they are
 		// poisoned.
 		if (entity.isPlayer()) {
 			Player player = (Player) entity;
 			if (!player.getCombat().getPoisonImmunityTimer().finished()) {
+				return;
+			}
+			if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 12931) {
+				return;
+			}
+			if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13197) {
+				return;
+			}
+			if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13199) {
 				return;
 			}
 			player.getPacketSender().sendMessage("You have been poisoned!");

@@ -7,29 +7,8 @@ import java.util.stream.Collectors;
 import com.elvarg.game.content.Dueling.DuelRule;
 import com.elvarg.game.content.combat.WeaponInterfaces.WeaponInterface;
 import com.elvarg.game.content.combat.method.CombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.AbyssalBludgeonCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.AbyssalDaggerCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.AbyssalTentacleCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.AbyssalWhipCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.ArmadylCrossbowCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.ArmadylGodswordCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.BallistaCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.BandosGodswordCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.BarrelchestAnchorCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.DarkBowCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.DragonClawCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.DragonDaggerCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.DragonHalberdCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.DragonLongswordCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.DragonMaceCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.DragonScimitarCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.DragonWarhammerCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.GraniteMaulCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.MagicShortbowCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.SaradominGodswordCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.SaradominSwordCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.ShoveCombatMethod;
-import com.elvarg.game.content.combat.method.impl.specials.ZamorakGodswordCombatMethod;
+import com.elvarg.game.content.combat.method.impl.RangedCombatMethod;
+import com.elvarg.game.content.combat.method.impl.specials.*;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.container.impl.Equipment;
@@ -46,27 +25,41 @@ import com.elvarg.game.task.impl.RestoreSpecialAttackTask;
 public enum CombatSpecial {
 
     // Melee
-    ABYSSAL_WHIP(new int[]{4151, 21371, 15441, 15442, 15443, 15444}, 50, 1, 1, new AbyssalWhipCombatMethod(),
+    ABYSSAL_WHIP(new int[]{4151, 21371, 15441, 15442, 15443, 15444}, 50, 1, 1.05, new AbyssalWhipCombatMethod(),
             WeaponInterface.WHIP),
-    ABYSSAL_TENTACLE(new int[]{12006}, 50, 1, 1, new AbyssalTentacleCombatMethod(),
+    ABYSSAL_WHIPor(new int[]{26482}, 50, 1.16, 1.45, new AbyssalWhipCombatMethod(),
             WeaponInterface.WHIP),
-
-    BARRELSCHEST_ANCHOR(new int[]{10887}, 50, 1.22, 1.10, new BarrelchestAnchorCombatMethod(),
-            WeaponInterface.WARHAMMER),
-    DRAGON_SCIMITAR(new int[]{4587}, 55, 1.00, 1.25,
+    ABYSSAL_TENTACLE(new int[]{12006}, 50, 1, 1.25, new AbyssalTentacleCombatMethod(),
+            WeaponInterface.WHIP),
+    ABYSSAL_TENTACLEor(new int[]{26484}, 50, 1.175, 1.45, new FrozenTentacleCombatMethod(),
+            WeaponInterface.WHIP),
+    FROZEN_TENTACLE(new int[]{12774}, 50, 1, 1.25, new FrozenTentacleCombatMethod(),
+        WeaponInterface.WHIP),
+    VOLCANIC_TENTACLE(new int[]{12773}, 50, 1.15, 1.40, new VolcanicTentacleCombatMethod(),
+            WeaponInterface.WHIP),
+    BARRELSCHEST_ANCHOR(new int[]{10887}, 50, 1.4, 1.20, new BarrelchestAnchorCombatMethod(),
+            WeaponInterface.MAUL),
+    DRAGON_SCIMITAR(new int[]{4587}, 55, 1.05, 1.25,
             new DragonScimitarCombatMethod(), WeaponInterface.SCIMITAR),
     DRAGON_LONGSWORD(new int[]{1305},
             25, 1.15, 1.25, new DragonLongswordCombatMethod(), WeaponInterface.LONGSWORD),
+    VESTA_SPEAR(new int[]{22610},
+            50, 1.15, 1.25, new VestaSpearCombatMethod(), WeaponInterface.SPEAR),
+    VESTA_LONGSWORD(new int[]{22613},
+            25, 1.15, 1.25, new VestaLongswordCombatMethod(), WeaponInterface.LONGSWORD),
     DRAGON_MACE(
             new int[]{1434}, 25, 1.5, 1.25, new DragonMaceCombatMethod(),
             WeaponInterface.MACE),
     DRAGON_WARHAMMER(new int[]{13576}, 50, 1.5, 1.00,
             new DragonWarhammerCombatMethod(), WeaponInterface.WARHAMMER),
+    ZAMMY_SPEAR(new int[]{11824}, 50, 0, 1.00,
+            new ZamorakspearCombatMethod(), WeaponInterface.SPEAR),
 
     SARADOMIN_SWORD(new int[]{11838}, 100, 1.0, 1.0, new SaradominSwordCombatMethod(),
             WeaponInterface.SARADOMIN_SWORD),
 
     ARMADYL_GODSWORD(new int[]{11802}, 50, 1.375, 2, new ArmadylGodswordCombatMethod(), WeaponInterface.GODSWORD),
+    ARMADYL_GODSWORD_OR(new int[]{20368}, 50, 1.5, 2.175, new ArmadylGodswordCombatMethod(), WeaponInterface.GODSWORD),
     SARADOMIN_GODSWORD(new int[]{11806}, 50, 1.1, 1.5, new SaradominGodswordCombatMethod(), WeaponInterface.GODSWORD),
     BANDOS_GODSWORD(new int[]{11804}, 100, 1.21, 1.5, new BandosGodswordCombatMethod(), WeaponInterface.GODSWORD),
     ZAMORAK_GODSWORD(new int[]{11808}, 50, 1.1, 2, new ZamorakGodswordCombatMethod(), WeaponInterface.GODSWORD),
@@ -77,7 +70,7 @@ public enum CombatSpecial {
     //Dragon Spear, Zamorakian Hasta, and Zamorakian Spear
     SHOVE_SPECIAL(new int[]{1249,5730,5716,3176,1263,11824,11889}, 25, 1.0, 1.0, new ShoveCombatMethod(),
             WeaponInterface.SPEAR),
- 
+
     // Multiple hits
     DRAGON_HALBERD(new int[]{3204}, 30, 1.1, 1.35, new DragonHalberdCombatMethod(),
             WeaponInterface.HALBERD),
@@ -93,14 +86,18 @@ public enum CombatSpecial {
             new DragonClawCombatMethod(), WeaponInterface.CLAWS),
 
     // Ranged
-    MAGIC_SHORTBOW(new int[]{861}, 55, 1, 1, new MagicShortbowCombatMethod(),
+    MAGIC_SHORTBOW(new int[]{861}, 55, 1.05, 1.05, new MagicShortbowCombatMethod(),
             WeaponInterface.SHORTBOW),
-    DARK_BOW(new int[]{11235}, 55, 1.5, 1.35, new DarkBowCombatMethod(),
+    DARK_BOW(new int[]{11235}, 55, 1.5, 1.45, new DarkBowCombatMethod(),
             WeaponInterface.DARK_BOW),
     ARMADYL_CROSSBOW(new int[]{11785}, 40, 1, 2.0,
             new ArmadylCrossbowCombatMethod(), WeaponInterface.CROSSBOW),
     BALLISTA(new int[]{19481},
-            65, 1.25, 1.45, new BallistaCombatMethod(), WeaponInterface.BALLISTA),
+            65, 1.35, 2, new BallistaCombatMethod(), WeaponInterface.BALLISTA),
+    TOXIC_BLOWPIPE(new int[]{12926},
+            50, 1.5, 1.75, new BlowpipeCombatMethod(), WeaponInterface.BLOWPIPE),
+    MORRIJAVS(new int[]{22636},
+            50, 1.5, 1.75, new MorriJavCombatMethod(), WeaponInterface.SPEAR),
     ;
 
     public static final Set<Integer> SPECIAL_ATTACK_WEAPON_IDS = Arrays.stream(CombatSpecial.values()).flatMap(cs -> Arrays.stream(cs.getIdentifiers()).boxed()).collect(Collectors.toSet());

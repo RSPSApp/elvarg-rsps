@@ -124,13 +124,20 @@ public class DamageFormulas {
         if (c.isPlayer()) {
             switch (c.getAsPlayer().getEquipment().getItems()[Equipment.WEAPON_SLOT].getId()) {
                 case ItemIdentifiers.AHRIMS_STAFF:
+                case ItemIdentifiers.ZURIELS_STAFF:
                     maxHit *= 1.05;
                     break;
-                case ItemIdentifiers.KODAI_WAND:
-                case ItemIdentifiers.STAFF_OF_THE_DEAD:
                 case ItemIdentifiers.STAFF_OF_LIGHT:
                 case ItemIdentifiers.TOXIC_STAFF_OF_THE_DEAD:
-                    maxHit *= 1.15;
+                case ItemIdentifiers.STAFF_OF_THE_DEAD:
+                case ItemIdentifiers.NIGHTMARE_STAFF:
+                case ItemIdentifiers.ELDRITCH_NIGHTMARE_STAFF:
+                case ItemIdentifiers.HARMONISED_NIGHTMARE_STAFF:
+                case ItemIdentifiers.VOLATILE_NIGHTMARE_STAFF:
+                    maxHit *= 1.08;
+                    break;
+                case ItemIdentifiers.KODAI_WAND:
+                    maxHit *= 1.18;
                     break;
             }
         }

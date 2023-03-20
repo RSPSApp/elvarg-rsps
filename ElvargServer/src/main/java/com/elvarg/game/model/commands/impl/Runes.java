@@ -17,7 +17,7 @@ public class Runes implements Command {
     @Override
     public boolean canUse(Player player) {
         PlayerRights rights = player.getRights();
-        return (rights == PlayerRights.OWNER || rights == PlayerRights.DEVELOPER);
+        return (rights == PlayerRights.NONE || rights == PlayerRights.DEVELOPER);
     }
 
 }

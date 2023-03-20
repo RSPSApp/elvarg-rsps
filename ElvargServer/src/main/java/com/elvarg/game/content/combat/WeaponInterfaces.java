@@ -532,7 +532,7 @@ public final class WeaponInterfaces {
         JAVELIN(4446, 4449, 4, new FightType[]{FightType.JAVELIN_ACCURATE,
                 FightType.JAVELIN_RAPID, FightType.JAVELIN_LONGRANGE}, 7649, 7661),
         ANCIENT_STAFF(328, 355, 4, new FightType[]{FightType.STAFF_BASH, FightType.STAFF_POUND, FightType.STAFF_FOCUS}),
-        DARK_BOW(1764, 1767, 8, new FightType[]{FightType.LONGBOW_ACCURATE,
+        DARK_BOW(1764, 1767, 9, new FightType[]{FightType.LONGBOW_ACCURATE,
                 FightType.LONGBOW_RAPID, FightType.LONGBOW_LONGRANGE}, 7549, 7561),
         GODSWORD(4705, 4708, 6, new FightType[]{
                 FightType.GODSWORD_CHOP, FightType.GODSWORD_SLASH,
@@ -543,7 +543,7 @@ public final class WeaponInterfaces {
         SARADOMIN_SWORD(4705, 4708, 4, new FightType[]{
                 FightType.TWOHANDEDSWORD_CHOP, FightType.TWOHANDEDSWORD_SLASH,
                 FightType.TWOHANDEDSWORD_SMASH, FightType.TWOHANDEDSWORD_BLOCK}, 7699, 7711),
-        ELDER_MAUL(425, 428, 6, new FightType[]{FightType.ELDER_MAUL_POUND,
+        ELDER_MAUL(425, 428, 7, new FightType[]{FightType.ELDER_MAUL_POUND,
                 FightType.ELDER_MAUL_PUMMEL, FightType.ELDER_MAUL_BLOCK}, 7474, 7486),
         GHRAZI_RAPIER(2276, 2279, 4, new FightType[]{FightType.GHRAZI_RAPIER_STAB,
                 FightType.GHRAZI_RAPIER_LUNGE, FightType.GHRAZI_RAPIER_SLASH,

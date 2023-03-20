@@ -51,7 +51,20 @@ public abstract class CombatSpell extends Spell {
     }
 
     public int getAttackSpeed() {
-        return 5;
+        int speed = 6;
+        final CombatSpell spell = this;
+        if (spell instanceof CombatAncientSpell) {
+
+            if (spell == CombatSpells.SMOKE_RUSH.getSpell() || spell == CombatSpells.SHADOW_RUSH.getSpell()
+                    || spell == CombatSpells.BLOOD_RUSH.getSpell() || spell == CombatSpells.ICE_RUSH.getSpell()
+                    || spell == CombatSpells.SMOKE_BLITZ.getSpell() || spell == CombatSpells.SHADOW_BLITZ.getSpell()
+                    || spell == CombatSpells.SANGUINESTI_STAFF.getSpell() || spell == CombatSpells.TRIDENT_OF_THE_SWAMP.getSpell()
+                    || spell == CombatSpells.BLOOD_BLITZ.getSpell() || spell == CombatSpells.ICE_BLITZ.getSpell() || spell == CombatSpells.TRIDENT_OF_THE_SEAS.getSpell()) {
+                speed = 5;
+            }
+
+        }
+        return speed;
     }
 
     /**

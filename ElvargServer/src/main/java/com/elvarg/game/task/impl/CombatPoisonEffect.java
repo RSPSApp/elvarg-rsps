@@ -132,7 +132,7 @@ public class CombatPoisonEffect extends Task {
 		 * The map of all of the different weapons that poison.
 		 */
 		// Increase the capacity of the map as more elements are added.
-		private static final Map<Integer, PoisonType> types = new HashMap<>(97);
+		private static final Map<Integer, PoisonType> types = new HashMap<>(98);
 
 		/**
 		 * Default private constructor.
@@ -345,7 +345,7 @@ public class CombatPoisonEffect extends Task {
 
 			types.put(ItemIdentifiers.TOXIC_BLOWPIPE, PoisonType.VENOM);
 			types.put(ItemIdentifiers.ABYSSAL_TENTACLE, PoisonType.VENOM);
-			
+
 			types.put(ItemIdentifiers.BRONZE_HASTA_KP_, PoisonType.SUPER);
 			types.put(ItemIdentifiers.IRON_HASTA_KP_, PoisonType.SUPER);
 			types.put(ItemIdentifiers.STEEL_HASTA_KP_, PoisonType.SUPER);
@@ -363,6 +363,12 @@ public class CombatPoisonEffect extends Task {
 			types.put(ItemIdentifiers.DRAGON_HASTA_P_PLUS_, PoisonType.EXTRA);
 			types.put(ItemIdentifiers.DRAGON_HASTA_P_PLUS_PLUS_, PoisonType.SUPER);
 			types.put(ItemIdentifiers.DRAGON_HASTA_KP_, PoisonType.SUPER);
+			types.put(ItemIdentifiers.TRIDENT_OF_THE_SWAMP, PoisonType.VENOM);
+			types.put(ItemIdentifiers.TOXIC_STAFF_OF_THE_DEAD, PoisonType.VENOM);
+			types.put(ItemIdentifiers.SERPENTINE_HELM, PoisonType.VENOM);
+			types.put(ItemIdentifiers.TANZANITE_HELM, PoisonType.VENOM);
+			types.put(ItemIdentifiers.MAGMA_HELM, PoisonType.VENOM);
+
 		}
 
 		/**

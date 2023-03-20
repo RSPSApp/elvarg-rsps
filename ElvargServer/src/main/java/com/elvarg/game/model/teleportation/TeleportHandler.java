@@ -146,7 +146,7 @@ public class TeleportHandler {
 	public static boolean handleButton(Player player, int buttonId, int menuId) {
 		TeleportButton teleportButton = TeleportButton.get(buttonId);
 		if (teleportButton != null) {
-			if (player.getWildernessLevel() > 0) {
+			if (player.getWildernessLevel() > 99) {
 				player.getPacketSender().sendMessage("You can only use tablet to teleport out from wilderness.");
 				return true;
 			}

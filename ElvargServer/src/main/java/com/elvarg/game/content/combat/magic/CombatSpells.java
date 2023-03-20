@@ -931,7 +931,7 @@ public enum CombatSpells {
         public int maximumHit() {
             return 3;
         }
-        
+
         @Override
         public Optional<Graphic> startGraphic() {
             return Optional.of(new Graphic(177, GraphicHeight.HIGH));
@@ -1641,7 +1641,7 @@ public enum CombatSpells {
         public int maximumHit() {
             return 5;
         }
-        
+
         @Override
         public Optional<Graphic> startGraphic() {
             return Optional.of(new Graphic(177, GraphicHeight.HIGH));
@@ -2194,7 +2194,7 @@ public enum CombatSpells {
 
         @Override
         public int maximumHit() {
-            return 21;
+            return 24;
         }
 
         @Override
@@ -2250,7 +2250,7 @@ public enum CombatSpells {
 
         @Override
         public int maximumHit() {
-            return 22;
+            return 27;
         }
 
         @Override
@@ -2428,7 +2428,7 @@ public enum CombatSpells {
 
         @Override
         public int maximumHit() {
-            return 25;
+            return 27;
         }
 
         @Override
@@ -2484,7 +2484,7 @@ public enum CombatSpells {
 
         @Override
         public int maximumHit() {
-            return 26;
+            return 32;
         }
 
         @Override
@@ -2540,7 +2540,7 @@ public enum CombatSpells {
 
         @Override
         public int maximumHit() {
-            return 27;
+            return 30;
         }
 
         @Override
@@ -2606,7 +2606,7 @@ public enum CombatSpells {
 
         @Override
         public int maximumHit() {
-            return 28;
+            return 30;
         }
 
         @Override
@@ -2662,7 +2662,7 @@ public enum CombatSpells {
 
         @Override
         public int maximumHit() {
-            return 29;
+            return 34;
         }
 
         @Override
@@ -2769,7 +2769,7 @@ public enum CombatSpells {
 
          @Override
          public int maximumHit() {
-             return 20;
+             return 26;
          }
 
          @Override
@@ -2787,11 +2787,9 @@ public enum CombatSpells {
              return Optional.empty();
          }
 
-         @Override
          public Optional<Item[]> itemsRequired(Player player) {
-             return Optional.empty();
-         }
-
+             return Optional.of(new Item[] { new Item(11905, 1) });
+        }
          @Override
          public int levelRequired() {
              return 75;
@@ -2820,7 +2818,7 @@ public enum CombatSpells {
 
         @Override
         public int maximumHit() {
-            return 20;
+            return 32;
         }
 
         @Override
@@ -2840,7 +2838,7 @@ public enum CombatSpells {
 
         @Override
         public Optional<Item[]> itemsRequired(Player player) {
-            return Optional.empty();
+            return Optional.of(new Item[] { new Item(12889, 1) });
         }
 
         @Override
@@ -2852,7 +2850,58 @@ public enum CombatSpells {
         public int spellId() {
             return 1;
         }
-   });
+   }),
+    SANGUINESTI_STAFF(new CombatNormalSpell() {
+        @Override
+        public Optional<Animation> castAnimation() {
+            return Optional.of(new Animation(1167));
+        }
+
+        @Override
+        public Optional<Projectile> castProjectile(Mobile cast, Mobile castOn) {
+            return Optional.of(new Projectile(cast, castOn, 1539, 0, 20, 43, 9));
+        }
+
+        @Override
+        public Optional<Graphic> endGraphic() {
+            return Optional.of(new Graphic(1541, 30));
+        }
+
+        @Override
+        public int maximumHit() {
+            return 36;
+        }
+
+        @Override
+        public Optional<Graphic> startGraphic() {
+            return Optional.of(new Graphic(1540, GraphicHeight.HIGH));
+        }
+
+        @Override
+        public int baseExperience() {
+            return 50;
+        }
+
+        @Override
+        public Optional<Item[]> equipmentRequired(Player player) {
+            return Optional.empty();
+        }
+
+        @Override
+        public Optional<Item[]> itemsRequired(Player player) {
+            return Optional.of(new Item[] { new Item(22323, 1) });
+        }
+
+        @Override
+        public int levelRequired() {
+            return 85;
+        }
+
+        @Override
+        public int spellId() {
+            return 1;
+        }
+    });
 
     /**
      * The spell attached to this element.
@@ -2896,7 +2945,7 @@ public enum CombatSpells {
 		}
 		return null;
 	}
-	
+
 	//end radius is 10 for sound
 	public int getHitSoundDelay() {
 		switch (this) {

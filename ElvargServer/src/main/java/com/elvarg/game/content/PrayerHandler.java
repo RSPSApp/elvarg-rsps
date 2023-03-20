@@ -549,12 +549,12 @@ public class PrayerHandler {
         MYSTIC_MIGHT(45, 20, 19823, 705), 
         RETRIBUTION(46, 5, 683, 98, 4), 
         REDEMPTION(49, 10, 684, 99, 5), 
-        SMITE(52, 32.0, 685, 100, 100, 6), 
+        SMITE(52, 25.0, 685, 100, 100, 6),
         PRESERVE(55, 3, 28001, 708), 
-        CHIVALRY(60, 38.5, 19825, 706), 
-        PIETY(70, 38.5, 19827, 707), 
-        RIGOUR(74, 38.5, 28004, 710), 
-        AUGURY(77, 38.5, 28007, 712);
+        CHIVALRY(60, 28.5, 19825, 706),
+        PIETY(70, 28.5, 19827, 707),
+        RIGOUR(74, 28.5, 28004, 710),
+        AUGURY(77, 28.5, 28007, 712);
 
         /**
          * Contains the PrayerData with their corresponding prayerId.

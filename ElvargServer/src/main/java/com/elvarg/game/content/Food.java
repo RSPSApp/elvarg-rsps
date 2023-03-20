@@ -153,15 +153,15 @@ public class Food {
 														new Item(373),
 														14), MEAT_PIZZA(new Item(2293), 14), MONKFISH(new Item(7946),
 																16), SHARK(new Item(385), 20), SEA_TURTLE(new Item(397),
-																		21), DARK_CRAB(new Item(11936), 22), MANTA_RAY(new Item(391), 22), KARAMBWAN(
+																		21), DARK_CRAB(new Item(11936), 21), MANTA_RAY(new Item(391), 22), KARAMBWAN(
 																				new Item(3144),
-																				18), ANGLERFISH(new Item(13441), 22),
+																				18), ANGLERFISH(new Item(13441), 23),
 		/*
 		 * Baked goods food types a player can make with the cooking skill.
 		 */
 		POTATO(new Item(1942), 1), BAKED_POTATO(new Item(6701), 4), POTATO_WITH_BUTTER(new Item(6703),
 				14), CHILLI_POTATO(new Item(7054), 14), EGG_POTATO(new Item(7056), 16), POTATO_WITH_CHEESE(
-						new Item(6705), 16), MUSHROOM_POTATO(new Item(7058), 20), TUNA_POTATO(new Item(7060), 20),
+						new Item(6705), 16), MUSHROOM_POTATO(new Item(7058), 21), TUNA_POTATO(new Item(7060), 22),
 
 		/*
 		 * Fruit food types which a player can get by picking from certain trees or

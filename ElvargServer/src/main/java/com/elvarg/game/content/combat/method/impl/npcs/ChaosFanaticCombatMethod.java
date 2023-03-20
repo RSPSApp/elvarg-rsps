@@ -67,6 +67,7 @@ public class ChaosFanaticCombatMethod extends CombatMethod {
                     @Override
                     public void execute() {
                         target.performGraphic(ATTACK_END_GFX);
+                        target.getCombat().getHitQueue().addPendingDamage(new HitDamage(Misc.getRandom(8), HitMask.YELLOW));
                         stop();
                     }
                 });
