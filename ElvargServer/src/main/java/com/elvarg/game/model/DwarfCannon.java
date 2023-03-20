@@ -8,6 +8,13 @@ import com.elvarg.game.entity.impl.object.GameObject;
 
 public class DwarfCannon {
 
+    // TODO: If the player has 21015 equipped as shield AND defensive mode, stop the cannon firing
+    /*
+    FightStyle fightStyle = player.getFightType().getStyle();
+    && fightStyle == FightStyle.DEFENSIVE
+    "Your bulwark shuns your cowardliness; stopping your cannon from firing."
+     */
+
     private int ownerIndex;
     private GameObject object;
     private int cannonballs = 0;

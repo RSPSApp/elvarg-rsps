@@ -46,24 +46,36 @@ public abstract class Spell {
                 return false;
             }
         }
+
+        // Check bulwark
+        if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 21015) {
+            if (player.getCombat().getCastSpell() != null){
+                player.getPacketSender().sendMessage("Your bulwark gets in the way");
+                return false;
+            }
+        }
+
         if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 11905) {
             if (player.getCombat().getCastSpell() != null ){
                 Autocasting.setAutocast(player, CombatSpells.TRIDENT_OF_THE_SEAS.getSpell());
                 return true;
             }
         }
+
         if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12899) {
             if (player.getCombat().getCastSpell() != null ){
             Autocasting.setAutocast(player, CombatSpells.TRIDENT_OF_THE_SWAMP.getSpell());
             return true;
             }
         }
+
         if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 22323) {
             if (player.getCombat().getCastSpell() != null ){
                 Autocasting.setAutocast(player, CombatSpells.SANGUINESTI_STAFF.getSpell());
                 return true;
             }
         }
+
         // Secondly we check if they have proper magic spellbook
         // If not, reset all magic attributes such as current spell
         // Aswell as autocast spell
