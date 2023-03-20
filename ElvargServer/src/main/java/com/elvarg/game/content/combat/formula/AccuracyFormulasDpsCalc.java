@@ -56,7 +56,7 @@ public class AccuracyFormulasDpsCalc {
     }
 
     private static float effectiveAttackLevel(Mobile entity) {
-        float att = 8;
+        float att = 10;
 
         if (entity.isNpc()) {
             att += entity.getAsNpc().getCurrentDefinition().getStats()[0];
@@ -229,7 +229,7 @@ public class AccuracyFormulasDpsCalc {
 
 
     private static float effectiveRangedAttack(Mobile entity) {
-        float rngStrength = 8;
+        float rngStrength = 9;
 
         if (entity.isNpc()) {
             // Prayer bonuses don't apply to NPCs (yet)
@@ -279,7 +279,7 @@ public class AccuracyFormulasDpsCalc {
     // Magic
 
     private static float effectiveMagicLevel(Mobile entity) {
-        float mag = 8;
+        float mag = 9;
 
         if (entity.isNpc()) {
             // Prayer bonuses don't apply to NPCs (yet)
@@ -309,7 +309,7 @@ public class AccuracyFormulasDpsCalc {
         if (fightStyle == FightStyle.ACCURATE)
             mag += 3;
         else if (fightStyle == FightStyle.DEFENSIVE)
-            mag += 1;
+            mag += 3;
 
         if (CombatEquipment.wearingVoid(player, CombatType.MAGIC))
             mag = (int) (mag * 1.45f);
@@ -322,7 +322,7 @@ public class AccuracyFormulasDpsCalc {
 
         int defRange = (enemy.isNpc() ? 0 : enemy.getAsPlayer().getBonusManager().getDefenceBonus()[BonusManager.DEFENCE_MAGIC]);
 
-        defLevel *= defRange + 64;
+        defLevel *= defRange + 3;
 
         return (int) defLevel;
     }
@@ -331,7 +331,7 @@ public class AccuracyFormulasDpsCalc {
         var accuracyBonus = (entity.isNpc() ? 0 : entity.getAsPlayer().getBonusManager().getAttackBonus()[BonusManager.ATTACK_MAGIC]);
 
         float attRoll = effectiveMagicLevel(entity);
-        attRoll *= (accuracyBonus + 64);
+        attRoll *= (accuracyBonus + 5);
 
         return (int) attRoll;
     }
