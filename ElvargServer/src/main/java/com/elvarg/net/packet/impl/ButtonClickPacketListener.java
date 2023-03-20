@@ -7,6 +7,7 @@ import com.elvarg.game.content.clan.ClanChatManager;
 import com.elvarg.game.content.combat.WeaponInterfaces;
 import com.elvarg.game.content.combat.magic.Autocasting;
 import com.elvarg.game.content.combat.magic.EffectSpells;
+import com.elvarg.game.content.combat.magic.Teleports;
 import com.elvarg.game.content.minigames.MinigameHandler;
 import com.elvarg.game.content.presets.Presetables;
 import com.elvarg.game.content.quests.QuestHandler;
@@ -19,10 +20,6 @@ import com.elvarg.game.model.equipment.BonusManager;
 import com.elvarg.game.model.rights.PlayerRights;
 import com.elvarg.net.packet.Packet;
 import com.elvarg.net.packet.PacketExecutor;
-import org.apache.commons.lang.StringUtils;
-
-import java.util.Arrays;
-import java.util.Optional;
 
 /**
  * This packet listener manages a button that the player has clicked upon.
@@ -92,6 +89,9 @@ public class ButtonClickPacketListener implements PacketExecutor {
 				|| Autocasting.toggleAutocast(player, button)) {
 			return true;
 		}
+		if (Teleports.handleTeleport(player, button)) {
+			return true;
+		}
 		if (WeaponInterfaces.changeCombatSettings(player, button)) {
 			BonusManager.update(player);
 			return true;
@@ -143,8 +143,8 @@ public class ButtonClickPacketListener implements PacketExecutor {
 			return;
 		}
 
-		if (player.getRights() == PlayerRights.DEVELOPER) {
-			player.getPacketSender().sendMessage("Button clicked: " + Integer.toString(button) + ".");
+		if (PlayerRights.isAdmin(player)) {
+			player.getPacketSender().sendMessage("WidgetId="+button);
 		}
 
 
