@@ -13,7 +13,6 @@ import com.runescape.graphics.RSFont;
 import com.runescape.graphics.Slider;
 import com.runescape.graphics.sprite.Sprite;
 import com.runescape.collection.ReferenceCache;
-import com.runescape.draw.teleports.TeleportButton;
 import com.runescape.entity.model.Model;
 import com.runescape.io.Buffer;
 import com.runescape.model.content.Keybinding;
@@ -427,7 +426,6 @@ public class Widget {
 		// questTab(textDrawingAreas);
 		teleportTab();
 		presets();
-		magicInterfaces();
 		editSkillTab();
 		
 		clanSetup();
@@ -505,79 +503,6 @@ public class Widget {
 		createTooltip(27656, 62, 30, fonts, "Total XP: 0");
 		
 		widget.child(55, 27656, 127, 220);
-	}
-
-	public static void magicInterfaces() {
-		// Remove unused spells
-		interfaceCache[18470].hidden = true;
-		interfaceCache[19207].hidden = true;
-		interfaceCache[19208].hidden = true;
-		interfaceCache[24127].hidden = true;
-		interfaceCache[13095].hidden = true;
-		int[] removeLunarTeleports = { 30170, 30226, 30234, 30250, 30258, 30266, 30274, };
-		for (int teleport : removeLunarTeleports) {
-			interfaceCache[teleport].hidden = true;
-		}
-
-		// Configure teleport buttons
-		for (TeleportButton button : TeleportButton.values()) {
-
-			// Adjust tooltip
-			// Add previous teleport option
-			for (int buttonId : button.buttonIds) {
-				try {
-					interfaceCache[buttonId].tooltip = null;
-					interfaceCache[buttonId].actions = new String[] {"Cast @gre@" + button.name, "Previous teleport"};
-
-					// Edit sprites
-					int spriteId = button.modernSpriteId;
-					if (interfaceCache[buttonId].parent == 12855 || buttonId == 12856) {
-						spriteId = button.ancientSpriteId;
-					}
-					interfaceCache[buttonId].enabledSprite = interfaceCache[buttonId].disabledSprite = Client.spriteCache.lookup(spriteId);
-				} catch (Exception e) {
-					System.out.println("Failed updating: " + buttonId);
-				}
-
-			}
-
-			// Adjust names
-			for (int nameId : button.nameFrames) {
-				interfaceCache[nameId].defaultText = button.name;
-			}
-
-			// Adjust box hover tooltips
-			for (int tooltipId : button.tooltipFrames) {
-				interfaceCache[tooltipId].defaultText = button.tooltip;
-			}
-
-			// Remove required runes
-			for (int runeFrame : button.requiredRunesFrames) {
-				interfaceCache[runeFrame].defaultText = "@gre@Free";
-			}
-		}
-		modernSpellbook();
-	}
-
-	public static void modernSpellbook() {
-		Widget r = interfaceCache[12424];
-		Widget modern = interfaceCache[1151];
-
-		// Remove children from modern
-		removeChild(modern, 1); // Removes 12424 child
-		removeChild(modern, 1); // Removes home teleport, needs child index change
-
-		int offsetX = 13;
-		int offsetY = 9;
-
-		// Put back all spells
-		for (int i = 0; i < r.children.length; i++) {
-			insertNewChild(modern, i + 1, r.children[i], r.childX[i] + offsetX, r.childY[i] + offsetY);
-			interfaceCache[r.children[i]].parent = 1151;
-		}
-
-		// Put back home teleport
-		// insertNewChild(modern, 0, 1195, offsetX, offsetY);
 	}
 
 	private static void clanSetup() {
