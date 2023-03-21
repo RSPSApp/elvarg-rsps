@@ -15,6 +15,7 @@ import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
 import com.elvarg.game.model.BarrowsSet;
 import com.elvarg.game.model.areas.impl.WildernessArea;
+import com.elvarg.game.model.item.AmuletOfGlory;
 import com.elvarg.game.model.teleportation.TeleportHandler;
 import com.elvarg.game.model.teleportation.TeleportTablets;
 import com.elvarg.game.model.teleportation.TeleportType;
@@ -216,6 +217,9 @@ public class ItemActionPacketListener implements PacketExecutor {
 		int interfaceId = packet.readLEShortA();
 		int slot = packet.readLEShort();
 		int itemId = packet.readShortA();
+
+		System.err.println(interfaceId+","+itemId+","+slot+"");
+
 		if (slot < 0 || slot >= player.getInventory().capacity())
 			return;
 		if (player.getInventory().getItems()[slot].getId() != itemId)
@@ -225,6 +229,11 @@ public class ItemActionPacketListener implements PacketExecutor {
 			return;
 		}
 		if (Runecrafting.handlePouch(player, itemId, 2)) {
+			return;
+		}
+
+		if (AmuletOfGlory.isGlory(itemId)) {
+			player.getDialogueManager().start(new AmuletOfGlory(slot, true));
 			return;
 		}
 
