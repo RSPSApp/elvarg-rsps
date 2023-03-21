@@ -17,6 +17,7 @@ import com.elvarg.game.model.container.impl.PriceChecker;
 import com.elvarg.game.model.container.shop.Shop;
 import com.elvarg.game.model.container.shop.ShopManager;
 import com.elvarg.game.model.equipment.BonusManager;
+import com.elvarg.game.model.item.AmuletOfGlory;
 import com.elvarg.net.packet.Packet;
 import com.elvarg.net.packet.PacketConstants;
 import com.elvarg.net.packet.PacketExecutor;
@@ -29,7 +30,6 @@ public class ItemContainerActionPacketListener implements PacketExecutor {
         int containerId = packet.readInt();
         int slot = packet.readShortA();
         int id = packet.readShortA();
-
         // Bank withdrawal..
         if (containerId >= Bank.CONTAINER_START && containerId < Bank.CONTAINER_START + Bank.TOTAL_BANK_TABS) {
             Bank.withdraw(player, id, slot, 1, containerId - Bank.CONTAINER_START);
@@ -137,6 +137,11 @@ public class ItemContainerActionPacketListener implements PacketExecutor {
         // Bank withdrawal..
         if (interfaceId >= Bank.CONTAINER_START && interfaceId < Bank.CONTAINER_START + Bank.TOTAL_BANK_TABS) {
             Bank.withdraw(player, id, slot, 5, interfaceId - Bank.CONTAINER_START);
+            return;
+        }
+
+        if (AmuletOfGlory.isGlory(id)) {
+            player.getDialogueManager().start(new AmuletOfGlory(slot, false));
             return;
         }
 
