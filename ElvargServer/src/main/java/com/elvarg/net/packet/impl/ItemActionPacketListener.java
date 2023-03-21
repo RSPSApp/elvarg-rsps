@@ -218,8 +218,6 @@ public class ItemActionPacketListener implements PacketExecutor {
 		int slot = packet.readLEShort();
 		int itemId = packet.readShortA();
 
-		System.err.println(interfaceId+","+itemId+","+slot+"");
-
 		if (slot < 0 || slot >= player.getInventory().capacity())
 			return;
 		if (player.getInventory().getItems()[slot].getId() != itemId)
