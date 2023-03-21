@@ -25,8 +25,4 @@ public enum PlayerRights {
 	public String getYellTag() {
 		return yellTag;
 	}
-
-    public static boolean isAdmin(Player player) {
-		return player.getRights().ordinal() >= ADMINISTRATOR.ordinal();
-    }
 }

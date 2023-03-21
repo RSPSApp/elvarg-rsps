@@ -143,10 +143,6 @@ public class ButtonClickPacketListener implements PacketExecutor {
 			return;
 		}
 
-		if (PlayerRights.isAdmin(player)) {
-			player.getPacketSender().sendMessage("WidgetId="+button);
-		}
-
 
 		if (handlers(player, button)) {
 			return;
