@@ -302,6 +302,44 @@ public class Location {
         return move(new Location(direction.getX(), direction.getY(), 0));
     }
 
+		return Math.max(Math.abs(deltaX), Math.abs(deltaY));
+	}
+
+    /**
+     * Gets the ID of the region containing this Location.
+     *
+     * @return the region ID
+     */
+    public int getRegionId()
+    {
+        return ((x >> 6) << 8) | (y >> 6);
+    }
+	
+	/**
+	 * Increments the {@code X}, {@code Y}, and {@code Z} coordinate values
+	 * within this container by {@code amountX}, {@code amountY}, and
+	 * {@code amountZ}.
+	 * @param position the position to gather the amount to increment the coordinate by.
+	 * @return an instance of this position.
+	 */
+	public final Location move(Location position) {
+		int x = (this.x + position.getX());
+		int y = (this.y + position.getY());
+		int z = (this.z + position.getZ());
+		return new Location(x, y, z);
+	}
+	
+	/**
+	 * Increments the {@code X} and {@code Y} coordinate values within this
+	 * container by deltas of the set {@code Direction}.
+	 * @param direction the direction to move.
+	 * @return an instance of this position.
+	 */
+	public final Location move(Direction direction) {
+		return move(new Location(direction.getX(), direction.getY(), 0));
+	}
+
+
     /**
      * Get the delta from location a to location b (for example [-1, 0, 0])
      *

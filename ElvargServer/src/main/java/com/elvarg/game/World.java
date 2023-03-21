@@ -1,6 +1,8 @@
 package com.elvarg.game;
 
 import com.elvarg.Server;
+import com.elvarg.game.collision.Region;
+import com.elvarg.game.collision.RegionManager;
 import com.elvarg.game.content.minigames.MinigameHandler;
 import com.elvarg.game.entity.impl.MobileList;
 import com.elvarg.game.entity.impl.grounditem.ItemOnGround;
@@ -164,7 +166,9 @@ public class World {
 			public void execute(int index) {
 				NPC npc = npcs.get(index);
 				try {
-					npc.process();
+					if (npc.getRegion().map(Region::isActive).orElse(false)) {
+						npc.process();
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
