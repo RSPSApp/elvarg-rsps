@@ -207,11 +207,11 @@ public class Location {
         this.y += y;
         return this;
     }
-    
+
     public Location transform(int x, int y) {
         return clone().addX(x).addY(y);
     }
-    
+
     public boolean isPerpendicularTo(Location other) {
         Location delta = Misc.delta(this, other);
         return delta.getX() != delta.getY() && delta.getX() == 0 || delta.getY() == 0;
@@ -226,7 +226,7 @@ public class Location {
      */
     public boolean isWithinDistance(Location other, int distance) {
         if (z != other.getZ()) {
-        	return false;
+            return false;
         }
         int deltaX = Math.abs(x - other.x);
         int deltaY = Math.abs(y - other.y);
@@ -260,60 +260,64 @@ public class Location {
         int deltaY = y - other.y;
         return (int) Math.ceil(Math.sqrt(deltaX * deltaX + deltaY * deltaY));
     }
-    
+
     /**
      * Gets the distance between this and another location.
      * <br>
      * https://en.wikipedia.org/wiki/Chebyshev_distance
      * <br>
+     *
      * @param other The other position.
      * @return The chebyshev distance.
      */
-	public int getChebyshevDistance(Location other) {
+    public int getChebyshevDistance(Location other) {
         int deltaX = x - other.x;
         int deltaY = y - other.y;
-		return Math.max(Math.abs(deltaX), Math.abs(deltaY));
-	}
-	
-	/**
-	 * Increments the {@code X}, {@code Y}, and {@code Z} coordinate values
-	 * within this container by {@code amountX}, {@code amountY}, and
-	 * {@code amountZ}.
-	 * @param position the position to gather the amount to increment the coordinate by.
-	 * @return an instance of this position.
-	 */
-	public final Location move(Location position) {
-		int x = (this.x + position.getX());
-		int y = (this.y + position.getY());
-		int z = (this.z + position.getZ());
-		return new Location(x, y, z);
-	}
-	
-	/**
-	 * Increments the {@code X} and {@code Y} coordinate values within this
-	 * container by deltas of the set {@code Direction}.
-	 * @param direction the direction to move.
-	 * @return an instance of this position.
-	 */
-	public final Location move(Direction direction) {
-		return move(new Location(direction.getX(), direction.getY(), 0));
-	}
+        return Math.max(Math.abs(deltaX), Math.abs(deltaY));
+    }
+
+    /**
+     * Increments the {@code X}, {@code Y}, and {@code Z} coordinate values
+     * within this container by {@code amountX}, {@code amountY}, and
+     * {@code amountZ}.
+     *
+     * @param position the position to gather the amount to increment the coordinate by.
+     * @return an instance of this position.
+     */
+    public final Location move(Location position) {
+        int x = (this.x + position.getX());
+        int y = (this.y + position.getY());
+        int z = (this.z + position.getZ());
+        return new Location(x, y, z);
+    }
+
+    /**
+     * Increments the {@code X} and {@code Y} coordinate values within this
+     * container by deltas of the set {@code Direction}.
+     *
+     * @param direction the direction to move.
+     * @return an instance of this position.
+     */
+    public final Location move(Direction direction) {
+        return move(new Location(direction.getX(), direction.getY(), 0));
+    }
 
     /**
      * Get the delta from location a to location b (for example [-1, 0, 0])
+     *
      * @param a
      * @param b
      * @return {Location} delta
      */
-	public static Location delta(Location a, Location b) {
-		return new Location(b.x - a.x, b.y - a.y);
-	}
+    public static Location delta(Location a, Location b) {
+        return new Location(b.x - a.x, b.y - a.y);
+    }
 
     public double distanceToPoint(int pointX, int pointY) {
         return Math.sqrt(Math.pow(x - pointX, 2)
                 + Math.pow(y - pointY, 2));
     }
-    
+
     public int calculateDistance(Location other) {
         // Calculate the differences in the x and y coordinates
         int xDiff = this.x - other.getX();
@@ -325,7 +329,7 @@ public class Location {
         // Round down to the nearest integer and return the result
         return (int) Math.floor(distance);
     }
-    
+
     public static int calculateDistance(Location[] tiles, Location[] otherTiles) {
         int lowestCount = Integer.MAX_VALUE;
 
@@ -345,7 +349,7 @@ public class Location {
 
         return lowestCount;
     }
-    
+
     @Override
     public Location clone() {
         return new Location(x, y, z);
@@ -392,13 +396,14 @@ public class Location {
      * @return {Location}
      */
     public Location rotate(double degrees) {
-        int rx = (int)Math.floor((this.x * Math.cos(degrees)) - (this.y * Math.sin(degrees)));
-        int ry = (int)Math.floor((this.x * Math.sin(degrees)) + (this.y * Math.cos(degrees)));
+        int rx = (int) Math.floor((this.x * Math.cos(degrees)) - (this.y * Math.sin(degrees)));
+        int ry = (int) Math.floor((this.x * Math.sin(degrees)) + (this.y * Math.cos(degrees)));
         return new Location(rx, ry, this.getZ());
     }
 
     /**
      * Grabs random tile for bounds
+     *
      * @param location
      * @param radius
      * @return
@@ -408,7 +413,11 @@ public class Location {
         int requestedX = location.getX();
         int requestedY = location.getY();
         int height = location.getZ();
-        while(true) {
+        final int size = radius * 8;
+        if (radius == 0) {
+            return location;
+        }
+        for (int i = 0; i < size; i++) {
             int randomX = Misc.random(requestedX - radius, requestedX + radius);
             int randomY = Misc.random(requestedY - radius, requestedY + radius);
             Location randomLocation = new Location(randomX, randomY, height);
@@ -419,5 +428,4 @@ public class Location {
         }
         return chosen;
     }
-
 }
