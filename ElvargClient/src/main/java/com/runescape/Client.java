@@ -9862,26 +9862,20 @@ public class Client extends GameEngine implements RSClient {
                         text = "Please wait...";
                         colour = childInterface.textColor;
                     }
-                    if (Rasterizer2D.width == 519) {
-                        if (colour == 0xffff00)
+
+                    if ((backDialogueId != -1 || dialogueId != -1
+                            || childInterface.defaultText
+                            .contains("Click here to continue"))
+                            && (rsInterface.id == backDialogueId
+                            || rsInterface.id == dialogueId)) {
+                        if (colour == 0xffff00) {
                             colour = 255;
-                        if (colour == 49152)
+                        }
+                        if (colour == 49152) {
                             colour = 0xffffff;
-                    }
-                    if (isResized()) {
-                        if ((backDialogueId != -1 || dialogueId != -1
-                                || childInterface.defaultText
-                                .contains("Click here to continue"))
-                                && (rsInterface.id == backDialogueId
-                                || rsInterface.id == dialogueId)) {
-                            if (colour == 0xffff00) {
-                                colour = 255;
-                            }
-                            if (colour == 49152) {
-                                colour = 0xffffff;
-                            }
                         }
                     }
+
                     if ((childInterface.parent == 1151) || (childInterface.parent == 12855)) {
                         switch (colour) {
                             case 16773120:
