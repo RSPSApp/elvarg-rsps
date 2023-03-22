@@ -3647,7 +3647,7 @@ public class Widget {
 		return model;
 	}
 
-	public Model getAnimatedModel(SequenceDefinition seq, int primary_index, boolean active) {
+	public Model getAnimatedModel(SequenceDefinition seq, int primaryIndex, boolean active) {
 		Model model;
 		if (active)
 			model = getModel(anInt255, anInt256);
@@ -3655,9 +3655,6 @@ public class Widget {
 			model = getModel(defaultMediaType, defaultMedia);
 		if (model == null)
 			return null;
-		if(seq != null) {
-			model = seq.animateInterfaceModel(model, primary_index);
-		}
 
 		return model;
 	}

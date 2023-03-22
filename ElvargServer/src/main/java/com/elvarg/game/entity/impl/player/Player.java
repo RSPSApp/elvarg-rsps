@@ -11,6 +11,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.elvarg.game.GameConstants;
+import com.elvarg.game.collision.Region;
 import com.elvarg.game.collision.RegionManager;
 import com.elvarg.game.content.sound.Sound;
 import com.elvarg.game.World;
@@ -237,6 +238,7 @@ public class Player extends Mobile {
 	private String loyaltyTitle = "empty";
 	private boolean spawnedBarrows;
 	private Location oldPosition;
+	private Region previousRegion;
 	
 	/**
 	 * Creates this player.
@@ -547,6 +549,10 @@ public class Player extends Mobile {
 				"[World] Deregistering player - [username, host] : [" + getUsername() + ", " + getHostAddress() + "]");
 
 		getPacketSender().sendInterfaceRemoval();
+
+		if (previousRegion != null) {
+			previousRegion.players.remove(this.getIndex());
+		}
 
 		// Leave area
 		if (getArea() != null) {
@@ -1708,4 +1714,17 @@ public class Player extends Mobile {
     public void setCurrentInterfaceTab(int currentInterfaceTabId) {
 		this.currentInterfaceTabId = currentInterfaceTabId;
     }
+
+	public void handleRegionChange() {
+		if (previousRegion != null) {
+			// If the previous region is set, remove this player
+			previousRegion.players.remove(this.getIndex());
+		}
+
+		if (getRegion().isPresent()) {
+			// Set the previous region and add this player to it
+			previousRegion = getRegion().get();
+			previousRegion.players.put(this.getIndex(), this);
+		}
+	}
 }

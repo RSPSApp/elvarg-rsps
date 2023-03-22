@@ -29,7 +29,6 @@ public class NpcDefinition {
      */
     private static final int[] DEFAULT_STATS = new int[] { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-    private int walkRadius;
     private boolean attackable;
     private boolean retreats;
     private boolean aggressiveTolerance = true;
@@ -79,10 +78,6 @@ public class NpcDefinition {
 
     public int getSize() {
         return size;
-    }
-
-    public int getWalkRadius() {
-        return walkRadius;
     }
 
     public boolean isAttackable() {

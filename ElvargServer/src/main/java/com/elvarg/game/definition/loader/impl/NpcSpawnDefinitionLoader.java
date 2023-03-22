@@ -30,7 +30,7 @@ public class NpcSpawnDefinitionLoader {
                 if (sp == null)
                     continue;
                 Location loc = sp.position[0];
-                NPC npc = new NPC(sp.id, loc);
+                NPC npc = NPC.create(sp.id, loc);
                 npc.setFace(sp.dir());
                 npc.setDescription(sp.description);
                 World.getAddNPCQueue().add(npc);
