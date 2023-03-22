@@ -1,6 +1,8 @@
 package com.runescape.net;
 
+import com.runescape.Client;
 import com.runescape.engine.GameEngine;
+import net.runelite.api.GameState;
 
 import java.io.IOException;
 import java.io.InputStream;

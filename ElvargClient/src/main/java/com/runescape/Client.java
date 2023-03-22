@@ -5321,6 +5321,7 @@ public class Client extends GameEngine implements RSClient {
         if (!loggedIn)
             resetLogout();
         try {
+            setGameState(GameState.LOGIN_SCREEN);
             rsSocket.close();
         } catch (Exception _ex) {
         }
@@ -8248,11 +8249,13 @@ public class Client extends GameEngine implements RSClient {
                 if (name.length() < 3) {
                     firstLoginMessage = "";
                     secondLoginMessage = "Your username is too short.";
+                    setGameState(GameState.LOGIN_SCREEN);
                     return;
                 }
                 if (password.length() < 3) {
                     firstLoginMessage = "";
                     secondLoginMessage = "Your password is too short.";
+                    setGameState(GameState.LOGIN_SCREEN);
                     return;
                 }
             }
@@ -8275,6 +8278,10 @@ public class Client extends GameEngine implements RSClient {
             int response = socketStream.read();
 
             int copy = response;
+
+            if(response <= 4) {
+                setGameState(GameState.LOGIN_SCREEN);
+            }
 
             if (response == 0) {
                 socketStream.flushInputStream(incoming.payload, 8);
