@@ -3655,9 +3655,6 @@ public class Widget {
 			model = getModel(defaultMediaType, defaultMedia);
 		if (model == null)
 			return null;
-		if(seq != null) {
-			model = seq.animateInterfaceModel(model, primaryIndex);
-		}
 
 		return model;
 	}
