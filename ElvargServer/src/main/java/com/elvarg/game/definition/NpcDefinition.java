@@ -3,6 +3,8 @@ package com.elvarg.game.definition;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.elvarg.game.definition.loader.impl.NpcDefinitionLoader.OSRSBoxNPCDefinition;
+
 /**
  * Represents an npc's definition.
  * Holds its information, such as
@@ -27,28 +29,30 @@ public class NpcDefinition {
      */
     private static final int[] DEFAULT_STATS = new int[] { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
+    private int walkRadius;
+    private boolean attackable;
+    private boolean retreats;
+    private boolean aggressiveTolerance = true;
+    private boolean fightsBack = true;
+    private int respawn;
+    private int attackAnim;
+    private int defenceAnim;
+    private int deathAnim;
+    private int combatFollowDistance;
+    
+    //VALUES from OSRSBOX
     private int id;
     private String name;
     private String examine;
     private int size;
-    private int walkRadius;
-    private boolean attackable;
-    private boolean retreats;
     private boolean aggressive;
-    private boolean aggressiveTolerance = true;
     private boolean poisonous;
-    private boolean fightsBack = true;
-    private int respawn;
     private int maxHit;
     private int hitpoints = 10;
     private int attackSpeed;
-    private int attackAnim;
-    private int defenceAnim;
-    private int deathAnim;
     private int combatLevel;
     private int[] stats;
     private int slayerLevel;
-    private int combatFollowDistance;
 
     /**
      * Attempts to get the {@link ItemDefinition} for the
@@ -161,4 +165,23 @@ public class NpcDefinition {
     public int getCombatFollowDistance() {
         return combatFollowDistance;
     }
+    
+	public void update(OSRSBoxNPCDefinition o) {
+		/*TODO extrapolated from data, should be from cache if has attack tooltip. */
+		this.attackable = o.hitpoints > 0;
+		
+		//REAL
+		this.id = o.id;
+		this.name = o.name;
+		this.examine = o.examine;
+		this.size = o.size;
+		this.aggressive = o.aggressive;
+		this.poisonous = o.poisonous;
+		this.maxHit = o.max_hit;
+		this.hitpoints = o.hitpoints;
+		this.attackSpeed = o.attack_speed;
+		this.combatLevel = o.combat_level;
+		this.stats = o.getStats();
+		this.slayerLevel = o.slayer_level;
+	}
 }
