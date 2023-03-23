@@ -16,7 +16,7 @@ import com.elvarg.util.ElvargNpcDefinitions;
 public class NpcDefinition {
 
     /**
-     * The map containing all our {@link ItemDefinition}s.
+     * The map containing all our {@link NpcDefinition}s.
      */
     public static final Map<Integer, NpcDefinition> definitions = new HashMap<Integer, NpcDefinition>();
 
@@ -34,7 +34,6 @@ public class NpcDefinition {
     private int attackAnim;
     private int defenceAnim;
     private int deathAnim;
-    private int combatFollowDistance;
     
     //VALUES from OSRSBOX
     private int id;
@@ -56,6 +55,7 @@ public class NpcDefinition {
     private boolean aggressiveTolerance = true;
     private boolean fightsBack = true;
     private int respawn;
+    private int combatFollowDistance;
 
     /**
      * Attempts to get the {@link ItemDefinition} for the
