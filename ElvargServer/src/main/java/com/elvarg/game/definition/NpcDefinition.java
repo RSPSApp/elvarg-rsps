@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.elvarg.game.definition.loader.impl.NpcDefinitionLoader.OSRSBoxNPCDefinition;
 import com.elvarg.util.ElvargNpcDefinitions;
+import com.elvarg.util.SuppliedHashMap;
 
 /**
  * Represents an npc's definition.
@@ -18,7 +19,7 @@ public class NpcDefinition {
     /**
      * The map containing all our {@link NpcDefinition}s.
      */
-    public static final Map<Integer, NpcDefinition> definitions = new HashMap<Integer, NpcDefinition>();
+	public static final SuppliedHashMap<Integer, NpcDefinition> definitions = new SuppliedHashMap<>(NpcDefinition::new);
 
     /**
      * The default {@link ItemDefinition} that will be used.

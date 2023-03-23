@@ -25,12 +25,7 @@ public class NpcDefinitionLoader extends DefinitionLoader {
         Type type = new TypeToken<Map<Integer, OSRSBoxNPCDefinition>>() {}.getType();
         Map<Integer, OSRSBoxNPCDefinition> boxDefs = gson.fromJson(new FileReader(GameConstants.DEFINITIONS_DIRECTORY + "monsters-complete.json"), type);
         for (Integer key: boxDefs.keySet()) {
-        	NpcDefinition def = NpcDefinition.definitions.get(key);
-        	if(def == null) {
-        		def = new NpcDefinition();
-        		NpcDefinition.definitions.put(key, def);
-        	}
-        	def.update(boxDefs.get(key));
+        	NpcDefinition.definitions.getAndCreate(key).update(boxDefs.get(key));
         }
         reader.close();
     }

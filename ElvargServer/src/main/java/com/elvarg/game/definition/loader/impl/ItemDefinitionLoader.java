@@ -26,13 +26,8 @@ public class ItemDefinitionLoader extends DefinitionLoader {
         Type type = new TypeToken<Map<Integer, OSRSBoxItemDefinition>>() {}.getType();
         Map<Integer, OSRSBoxItemDefinition> boxDefs = gson.fromJson(new FileReader(GameConstants.DEFINITIONS_DIRECTORY + "items-complete.json"), type);
         for (Integer key: boxDefs.keySet()) {
-        	ItemDefinition def = ItemDefinition.definitions.get(key);
-        	if(def == null) {
-        		def = new ItemDefinition();
-        		ItemDefinition.definitions.put(key, def);
-        	}
-        	def.update(boxDefs.get(key));
-        }        
+        	ItemDefinition.definitions.getAndCreate(key).update(boxDefs.get(key));
+        }
         reader.close();
     }
 

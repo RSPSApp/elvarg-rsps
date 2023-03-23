@@ -3,9 +3,7 @@ package com.elvarg.game.definition;
 import com.elvarg.game.content.combat.WeaponInterfaces.WeaponInterface;
 import com.elvarg.game.definition.loader.impl.ItemDefinitionLoader.OSRSBoxItemDefinition;
 import com.elvarg.game.model.EquipmentType;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.elvarg.util.SuppliedHashMap;
 
 /**
  * Represents the definition of an item.
@@ -17,7 +15,7 @@ public class ItemDefinition {
     /**
      * The map containing all our {@link ItemDefinition}s.
      */
-    public static final Map<Integer, ItemDefinition> definitions = new HashMap<Integer, ItemDefinition>();
+    public static final SuppliedHashMap<Integer, ItemDefinition> definitions = new SuppliedHashMap<>(ItemDefinition::new);
 
     /**
      * The default {@link ItemDefinition} that will be used.
