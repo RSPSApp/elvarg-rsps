@@ -8,33 +8,46 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.Objects;
 
 public class NpcDefinitionLoader extends DefinitionLoader {
 
     @Override
     public void load() throws Throwable {
     	NpcDefinition.definitions.clear();
-        FileReader reader = new FileReader(file());
-        NpcDefinition[] defs = new Gson().fromJson(reader, NpcDefinition[].class);
-        for (NpcDefinition def : defs) {
-            NpcDefinition.definitions.put(def.getId(), def);
-        }
-        
         Gson gson = new Gson();
-        Type type = new TypeToken<Map<Integer, OSRSBoxNPCDefinition>>() {}.getType();
+
+        FileReader reader = new FileReader(GameConstants.DEFINITIONS_DIRECTORY + "npc_anims.json");
+        NPCAnimSet[] anims = gson.fromJson(reader, NPCAnimSet[].class);
+
+		//Arrays.stream(anims).forEach(anim -> Arrays.stream(anim.ids).forEach(id -> NpcDefinition.definitions.getAndCreate(id).update(anim)));
+		for (NPCAnimSet anim : anims) {
+			for (int id : anim.ids) {
+				NpcDefinition.definitions.getAndCreate(id).update(anim);
+			}
+		}
+
+		Type type = new TypeToken<Map<Integer, OSRSBoxNPCDefinition>>() {}.getType();
         Map<Integer, OSRSBoxNPCDefinition> boxDefs = gson.fromJson(new FileReader(GameConstants.DEFINITIONS_DIRECTORY + "monsters-complete.json"), type);
-        for (Integer key: boxDefs.keySet()) {
-        	NpcDefinition.definitions.getAndCreate(key).update(boxDefs.get(key));
-        }
+		boxDefs.keySet().forEach(key -> NpcDefinition.definitions.getAndCreate(key).update(boxDefs.get(key)));
         reader.close();
     }
 
     @Override
     public String file() {
-        return GameConstants.DEFINITIONS_DIRECTORY + "npc_defs.json";
+        return "Npcs";
     }
 
+	public static class NPCAnimSet {
+		int[] ids;
+		public int attackAnim;
+		public int defenceAnim;
+		public int deathAnim;
+		String[] description;
+	}
+    
     public static class OSRSBoxNPCDefinition {
     	public int id;
     	public String name;
