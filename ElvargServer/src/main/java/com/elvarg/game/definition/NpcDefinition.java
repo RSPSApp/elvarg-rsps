@@ -1,8 +1,5 @@
 package com.elvarg.game.definition;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.elvarg.game.definition.loader.impl.NpcDefinitionLoader.NPCAnimSet;
 import com.elvarg.game.definition.loader.impl.NpcDefinitionLoader.OSRSBoxNPCDefinition;
 import com.elvarg.util.ElvargNpcDefinitions;
@@ -194,7 +191,8 @@ public class NpcDefinition {
         this.fightsBack = ElvargNpcDefinitions.fightsBack(id, attackable);
     }
 
-	public void update(NPCAnimSet set) {
+	public void update(int id, NPCAnimSet set) {
+		this.id = id;
 	    this.attackAnim = set.attackAnim;
 	    this.defenceAnim = set.defenceAnim;
 	    this.deathAnim = set.deathAnim;

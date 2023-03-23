@@ -25,7 +25,7 @@ public class NpcDefinitionLoader extends DefinitionLoader {
 		//Arrays.stream(anims).forEach(anim -> Arrays.stream(anim.ids).forEach(id -> NpcDefinition.definitions.getAndCreate(id).update(anim)));
 		for (NPCAnimSet anim : anims) {
 			for (int id : anim.ids) {
-				NpcDefinition.definitions.getAndCreate(id).update(anim);
+				NpcDefinition.definitions.getAndCreate(id).update(id, anim);
 			}
 		}
 
@@ -45,7 +45,6 @@ public class NpcDefinitionLoader extends DefinitionLoader {
 		public int attackAnim;
 		public int defenceAnim;
 		public int deathAnim;
-		String[] description;
 	}
     
     public static class OSRSBoxNPCDefinition {

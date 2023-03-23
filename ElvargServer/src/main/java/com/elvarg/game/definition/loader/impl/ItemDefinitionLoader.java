@@ -47,8 +47,8 @@ public class ItemDefinitionLoader extends DefinitionLoader {
         }
 
         public int id;
-        public String name;
-        public String examine;
+        public String name = "";
+        public String examine = "";
         public boolean tradeable;
         public boolean stackable;
         public boolean noted;
