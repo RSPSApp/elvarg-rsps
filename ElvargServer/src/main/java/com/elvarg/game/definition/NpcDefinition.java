@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.elvarg.game.definition.loader.impl.NpcDefinitionLoader.OSRSBoxNPCDefinition;
+import com.elvarg.util.ElvargNpcDefinitions;
 
 /**
  * Represents an npc's definition.
@@ -28,12 +29,8 @@ public class NpcDefinition {
      * A fallback set of stats for NPCs.
      */
     private static final int[] DEFAULT_STATS = new int[] { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-
-    private boolean attackable;
-    private boolean retreats;
-    private boolean aggressiveTolerance = true;
-    private boolean fightsBack = true;
-    private int respawn;
+    
+    //VALUES from original Elvarg Definitions
     private int attackAnim;
     private int defenceAnim;
     private int deathAnim;
@@ -52,6 +49,13 @@ public class NpcDefinition {
     private int combatLevel;
     private int[] stats;
     private int slayerLevel;
+    
+    //VALUES Calculated from OSRSBOX definitions
+    private boolean attackable;
+    private boolean retreats;
+    private boolean aggressiveTolerance = true;
+    private boolean fightsBack = true;
+    private int respawn;
 
     /**
      * Attempts to get the {@link ItemDefinition} for the
@@ -161,22 +165,30 @@ public class NpcDefinition {
         return combatFollowDistance;
     }
     
-	public void update(OSRSBoxNPCDefinition o) {
-		/*TODO extrapolated from data, should be from cache if has attack tooltip. */
-		this.attackable = o.hitpoints > 0;
-		
-		//REAL
-		this.id = o.id;
-		this.name = o.name;
-		this.examine = o.examine;
-		this.size = o.size;
-		this.aggressive = o.aggressive;
-		this.poisonous = o.poisonous;
-		this.maxHit = o.max_hit;
-		this.hitpoints = o.hitpoints;
-		this.attackSpeed = o.attack_speed;
-		this.combatLevel = o.combat_level;
-		this.stats = o.getStats();
-		this.slayerLevel = o.slayer_level;
-	}
+    public void update(OSRSBoxNPCDefinition o) {
+        /*TODO extrapolated from data, should be from cache if has attack tooltip. */
+        //right now set to if hitpoints > 0. There are no exceptions in old elvarg data to this approach.
+        this.attackable = o.hitpoints > 0;
+        
+        //REAL
+        this.id = o.id;
+        this.name = o.name;
+        this.examine = o.examine;
+        this.size = o.size;
+        this.aggressive = o.aggressive;
+        this.poisonous = o.poisonous;
+        this.maxHit = o.max_hit;
+        this.hitpoints = o.hitpoints;
+        this.attackSpeed = o.attack_speed;
+        this.combatLevel = o.combat_level;
+        this.stats = o.getStats();
+        this.slayerLevel = o.slayer_level;
+        
+        /* TODO placeholder values */
+        this.combatFollowDistance = ElvargNpcDefinitions.combatFollowDistance(id, attackable);
+        this.respawn = ElvargNpcDefinitions.respawnTime(id, attackable);
+        this.aggressiveTolerance = ElvargNpcDefinitions.aggressionTolerance(id);
+        this.retreats = ElvargNpcDefinitions.retreats(id, attackable);
+        this.fightsBack = ElvargNpcDefinitions.fightsBack(id, attackable);
+    }
 }
