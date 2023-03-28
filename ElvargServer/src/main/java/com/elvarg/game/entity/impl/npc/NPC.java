@@ -479,4 +479,13 @@ public class NPC extends Mobile {
 
 				}).collect(Collectors.toMap(ImmutablePair::getLeft, ImmutablePair::getRight));
 	}
+
+	public String description;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getWalkRadius() {
+		return this.size() + 5;
+	}
 }

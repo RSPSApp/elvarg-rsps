@@ -2,17 +2,25 @@ package com.runescape.cache.def;
 
 import com.runescape.Client;
 import com.runescape.cache.FileArchive;
-import com.runescape.cache.anim.Frame;
+import com.runescape.cache.anim.SequenceDefinition;
 import com.runescape.cache.config.VariableBits;
 import com.runescape.collection.ReferenceCache;
 import com.runescape.entity.model.Model;
 import com.runescape.io.Buffer;
+import com.runescape.util.BufferExt;
+import net.runelite.api.HeadIcon;
+import net.runelite.api.IterableHashTable;
+import net.runelite.rs.api.RSIterableNodeHashTable;
+import net.runelite.rs.api.RSNPCComposition;
+
+import java.util.Map;
 
 /**
  * Refactored reference:
  * http://www.rune-server.org/runescape-development/rs2-client/downloads/575183-almost-fully-refactored-317-client.html
  */
-public final class NpcDefinition {
+public final class NpcDefinition implements RSNPCComposition {
+	public boolean smoothwalk;
 	public static int anInt56;
 	public static Buffer dataBuf;
 	public static int[] offsets;
@@ -47,6 +55,23 @@ public final class NpcDefinition {
 	public boolean priorityRender;
 	public int[] modelId;
 	public int id;
+	private Map<Integer, Object> params = null;
+	public boolean rotationFlag = true;
+	public int rotateLeftAnimation = -1;
+	public int rotateRightAnimation = -1;
+	public boolean isPet;
+	private int category;
+
+	public int runRotate180Animation = -1;
+	public int runRotateLeftAnimation = -1;
+	public int runRotateRightAnimation = -1;
+	public int crawlAnimation = -1;
+	public int crawlRotate180Animation = -1;
+	public int runAnimation = -1;
+	public int crawlRotateLeftAnimation = -1;
+	public int crawlRotateRightAnimation = -1;
+	private short[] textureFind;
+	private short[] textureReplace;
 
 	public NpcDefinition() {
 		turn90CCWAnimIndex = -1;
@@ -77,6 +102,10 @@ public final class NpcDefinition {
 		for (int index = 0; index < 20; index++)
 			if (cache[index].interfaceType == (long) id)
 				return cache[index];
+
+		if (id >= TOTAL_NPCS) {
+			return null;
+		}
 
 		anInt56 = (anInt56 + 1) % 20;
 		NpcDefinition definition = cache[anInt56] = new NpcDefinition();
@@ -297,13 +326,13 @@ public final class NpcDefinition {
 			return lookup(childrenIDs[child]);
 	}
 
-	public Model method164(int j, int frame, int[] ai) {
+	public Model getAnimatedModel(int primary_index, SequenceDefinition primary_seq, int[] ai, int secondary_index, SequenceDefinition secondary_seq) {
 		if (childrenIDs != null) {
 			NpcDefinition entityDef = morph();
 			if (entityDef == null)
 				return null;
 			else
-				return entityDef.method164(j, frame, ai);
+				return entityDef.getAnimatedModel(primary_index, primary_seq, ai, secondary_index, secondary_seq);
 		}
 		Model model = (Model) modelCache.get(interfaceType);
 		if (model == null) {
@@ -327,76 +356,30 @@ public final class NpcDefinition {
 					model.recolor(recolourOriginal[k1], recolourTarget[k1]);
 
 			}
-			model.skin();
+			model.generateBones();
 			model.scale(132, 132, 132);
 			model.light(84 + lightModifier, 1000 + shadowModifier, -90, -580, -90, true);
 			modelCache.put(model, interfaceType);
 		}
-		Model empty = Model.EMPTY_MODEL;
-		empty.method464(model, Frame.noAnimationInProgress(frame) & Frame.noAnimationInProgress(j));
-		if (frame != -1 && j != -1)
-			empty.applyAnimationFrames(ai, j, frame);
-		else if (frame != -1)
-			empty.applyTransform(frame);
+		Model empty;
+		if (primary_seq != null && secondary_seq != null) {
+			empty = primary_seq.animateMultiple(model, primary_index, secondary_seq, secondary_index);
+		} else if (primary_seq != null) {
+			empty = primary_seq.animateEither(model, primary_index);
+		} else if (secondary_seq != null) {
+			empty = secondary_seq.animateEither(model, secondary_index);
+		} else {
+			empty = model.bakeSharedAnimationModel(true);
+		}
+
 		if (scaleXZ != 128 || scaleY != 128)
 			empty.scale(scaleXZ, scaleXZ, scaleY);
-		empty.calculateDistances();
+		empty.calculateBoundsCylinder();
 		empty.faceGroups = null;
 		empty.vertexGroups = null;
 		if (size == 1)
-			empty.fits_on_single_square = true;
+			empty.singleTile = true;
 		return empty;
-	}
-
-	public Model getAnimatedModel(int primaryFrame, int secondaryFrame, int[] interleaveOrder) {
-		if (childrenIDs != null) {
-			NpcDefinition definition = morph();
-			if (definition == null)
-				return null;
-			else
-				return definition.getAnimatedModel(primaryFrame, secondaryFrame, interleaveOrder);
-		}
-		Model model = (Model) modelCache.get(interfaceType);
-		if (model == null) {
-			boolean flag = false;
-			for (int index = 0; index < modelId.length; index++)
-				if (!Model.isCached(modelId[index]))
-					flag = true;
-			if (flag) {
-				return null;
-			}
-			Model[] models = new Model[modelId.length];
-			for (int index = 0; index < modelId.length; index++)
-				models[index] = Model.getModel(modelId[index]);
-
-			if (models.length == 1)
-				model = models[0];
-			else
-				model = new Model(models.length, models);
-			if (recolourOriginal != null) {
-				for (int index = 0; index < recolourOriginal.length; index++)
-					model.recolor(recolourOriginal[index], recolourTarget[index]);
-
-			}
-			model.skin();
-			model.light(64 + lightModifier, 850 + shadowModifier, -30, -50, -30, true);
-			modelCache.put(model, interfaceType);
-		}
-		Model model_1 = Model.EMPTY_MODEL;
-		model_1.method464(model,
-				Frame.noAnimationInProgress(secondaryFrame) & Frame.noAnimationInProgress(primaryFrame));
-		if (secondaryFrame != -1 && primaryFrame != -1)
-			model_1.applyAnimationFrames(interleaveOrder, primaryFrame, secondaryFrame);
-		else if (secondaryFrame != -1)
-			model_1.applyTransform(secondaryFrame);
-		if (scaleXZ != 128 || scaleY != 128)
-			model_1.scale(scaleXZ, scaleXZ, scaleY);
-		model_1.calculateDistances();
-		model_1.faceGroups = null;
-		model_1.vertexGroups = null;
-		if (size == 1)
-			model_1.fits_on_single_square = true;
-		return model_1;
 	}
 
 	public void readValues(Buffer buffer) {
@@ -420,9 +403,9 @@ public final class NpcDefinition {
             } else if (opcode == 14) {
                 walkAnim = buffer.readUShort();
             } else if (opcode == 15) {
-                buffer.readUShort();
+				rotateLeftAnimation  = buffer.readUShort();
             } else if (opcode == 16) {
-                buffer.readUShort();
+				rotateRightAnimation = buffer.readUShort();
             } else if (opcode == 17) {
                 walkAnim = buffer.readUShort();
                 turn180AnimIndex = buffer.readUShort();
@@ -437,6 +420,8 @@ public final class NpcDefinition {
                 if (turn90CCWAnimIndex == 65535) {
                     turn90CCWAnimIndex = walkAnim;
                 }
+			} else if (opcode == 18) {
+				category = buffer.readUShort();
             } else if (opcode >= 30 && opcode < 35) {
                 if (actions == null) {
                     actions = new String[5];
@@ -456,13 +441,14 @@ public final class NpcDefinition {
                     recolourTarget[i] = buffer.readUShort();
                 }
 
-            } else if (opcode == 41) {
-                int len = buffer.readUnsignedByte();
-
-                for (int i = 0; i < len; i++) {
-                    buffer.readUShort(); // textures
-                    buffer.readUShort();
-                }
+			} else if (opcode == 41) {
+				int length = buffer.readUnsignedByte();
+				textureFind = new short[length];
+				textureReplace = new short[length];
+				for (int index = 0; index < length; index++) {
+					textureFind[index] = (short) buffer.readUShort();
+					textureReplace[index] = (short) buffer.readUShort();
+				}
             } else if (opcode == 60) {
                 int len = buffer.readUnsignedByte();
                 additionalModels = new int[len];
@@ -515,13 +501,143 @@ public final class NpcDefinition {
                     }
                 }
                 childrenIDs[len + 1] = value;
-            } else if (opcode == 109) {
-                clickable = false;
-            } else if (opcode == 107 || opcode == 111) {
-                
-            } else {
-                System.out.println(String.format("npc def invalid opcode: %d", opcode));
-            }
+			} else if (opcode == 107)
+				clickable = false;
+			else if (opcode == 109) {
+				smoothwalk = false;
+			} else if (opcode == 111) {
+				isPet = true;
+			} else if (opcode == 114) {
+				runAnimation = buffer.readUShort();
+			} else if (opcode == 115) {
+				runAnimation = buffer.readUShort();
+				runRotate180Animation = buffer.readUShort();
+				runRotateLeftAnimation = buffer.readUShort();
+				runRotateRightAnimation = buffer.readUShort();
+			} else if (opcode == 116) {
+				crawlAnimation = buffer.readUShort();
+			} else if (opcode == 117) {
+				crawlAnimation = buffer.readUShort();
+				crawlRotate180Animation = buffer.readUShort();
+				crawlRotateLeftAnimation = buffer.readUShort();
+				crawlRotateRightAnimation = buffer.readUShort();
+			} else if (opcode == 249) {
+				params = BufferExt.readStringIntParameters(buffer);
+			} else {
+				System.err.printf("Error unrecognised {NPC} opcode: %d%n%n", opcode);
+			}
         }
 	}
+
+	@Override
+	public HeadIcon getOverheadIcon() {
+		return null;
+	}
+
+	@Override
+	public int getIntValue(int paramID) {
+		return 0;
+	}
+
+	@Override
+	public void setValue(int paramID, int value) {
+
+	}
+
+	@Override
+	public String getStringValue(int paramID) {
+		return null;
+	}
+
+	@Override
+	public void setValue(int paramID, String value) {
+
+	}
+
+	@Override
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public int[] getModels() {
+		return modelId;
+	}
+
+	@Override
+	public String[] getActions() {
+		return actions;
+	}
+
+	@Override
+	public boolean isClickable() {
+		return clickable;
+	}
+
+	@Override
+	public boolean isFollower() {
+		return isPet;
+	}
+
+	@Override
+	public boolean isInteractible() {
+		return true;
+	}
+
+	@Override
+	public boolean isMinimapVisible() {
+		return drawMinimapDot;
+	}
+
+	@Override
+	public boolean isVisible() {
+		return false;
+	}
+
+	@Override
+	public int getId() {
+		return id;
+	}
+
+	@Override
+	public int getCombatLevel() {
+		return combatLevel;
+	}
+
+	@Override
+	public int[] getConfigs() {
+		return childrenIDs;
+	}
+
+	@Override
+	public RSNPCComposition transform() {
+		return morph();
+	}
+
+	@Override
+	public int getSize() {
+		return size;
+	}
+
+	@Override
+	public int getRsOverheadIcon() {
+		return 0;
+	}
+
+	@Override
+	public RSIterableNodeHashTable getParams() {
+		return null;
+	}
+
+	@Override
+	public void setParams(IterableHashTable params) {
+
+	}
+
+	@Override
+	public void setParams(RSIterableNodeHashTable params) {
+
+	}
+
+
 }

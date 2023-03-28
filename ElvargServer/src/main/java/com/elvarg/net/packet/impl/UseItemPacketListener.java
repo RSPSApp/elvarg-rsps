@@ -150,7 +150,7 @@ public class UseItemPacketListener extends ItemIdentifiers implements PacketExec
     @SuppressWarnings("unused")
     private static void itemOnObject(Player player, Packet packet) {
         int interfaceType = packet.readShort();
-        final int objectId = packet.readShort();
+        final int objectId = packet.readInt();
         final int objectY = packet.readLEShortA();
         final int itemSlot = packet.readLEShort();
         final int objectX = packet.readLEShortA();

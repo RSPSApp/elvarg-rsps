@@ -31,7 +31,6 @@ public class NpcDefinition {
     private String name;
     private String examine;
     private int size;
-    private int walkRadius;
     private boolean attackable;
     private boolean retreats;
     private boolean aggressive;
@@ -75,10 +74,6 @@ public class NpcDefinition {
 
     public int getSize() {
         return size;
-    }
-
-    public int getWalkRadius() {
-        return walkRadius;
     }
 
     public boolean isAttackable() {

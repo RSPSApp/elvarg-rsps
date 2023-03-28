@@ -49,6 +49,8 @@ public class Buffer {
         return val;
     }
 
+
+
     public int readUShort() {
         return (readUnsignedByte() << 8) + readUnsignedByte();
     }
@@ -64,6 +66,19 @@ public class Buffer {
     public int readUnsignedWord() {
         offset += 2;
         return ((buffer[offset - 2] & 0xff) << 8) + (buffer[offset - 1] & 0xff);
+    }
+
+    public int readInt() {
+        offset += 4;
+        return ((buffer[offset - 4] & 0xff) << 24)
+                + ((buffer[offset - 3] & 0xff) << 16)
+                + ((buffer[offset - 2] & 0xff) << 8)
+                + (buffer[offset - 1] & 0xff);
+    }
+
+    public int read24Int() {
+        offset += 3;
+        return ((buffer[offset - 3] & 0xff) << 16) + ((buffer[offset - 2] & 0xff) << 8) + (buffer[offset - 1] & 0xff);
     }
 
     public int getUSmart() {

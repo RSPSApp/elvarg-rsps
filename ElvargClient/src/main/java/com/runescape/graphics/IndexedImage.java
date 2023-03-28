@@ -8,19 +8,19 @@ public final class IndexedImage extends Rasterizer2D {
 
     public final int[] palette;
     public byte[] palettePixels;
+    public int subWidth;
+    public int subHeight;
+    public int xOffset;
+    public int yOffset;
     public int width;
-    public int height;
-    public int drawOffsetX;
-    public int drawOffsetY;
-    public int resizeWidth;
-    private int resizeHeight;
+    private int height;
 
     public IndexedImage(FileArchive archive, String s, int i) {
         Buffer image = new Buffer(archive.readFile(s + ".dat"));
         Buffer meta = new Buffer(archive.readFile("index.dat"));
         meta.currentPosition = image.readUShort();
-        resizeWidth = meta.readUShort();
-        resizeHeight = meta.readUShort();
+        width = meta.readUShort();
+        height = meta.readUShort();
 
         int colorLength = meta.readUnsignedByte();
         palette = new int[colorLength];
@@ -34,12 +34,12 @@ public final class IndexedImage extends Rasterizer2D {
             image.currentPosition += meta.readUShort() * meta.readUShort();
             meta.currentPosition++;
         }
-        drawOffsetX = meta.readUnsignedByte();
-        drawOffsetY = meta.readUnsignedByte();
-        width = meta.readUShort();
-        height = meta.readUShort();
+        xOffset = meta.readUnsignedByte();
+        yOffset = meta.readUnsignedByte();
+        subWidth = meta.readUShort();
+        subHeight = meta.readUShort();
         int type = meta.readUnsignedByte();
-        int pixels = width * height;
+        int pixels = subWidth * subHeight;
         palettePixels = new byte[pixels];
 
         if (type == 0) {
@@ -47,49 +47,75 @@ public final class IndexedImage extends Rasterizer2D {
                 palettePixels[index] = image.readSignedByte();
             }
         } else if (type == 1) {
-            for (int x = 0; x < width; x++) {
-                for (int y = 0; y < height; y++) {
-                    palettePixels[x + y * width] = image.readSignedByte();
+            for (int x = 0; x < subWidth; x++) {
+                for (int y = 0; y < subHeight; y++) {
+                    palettePixels[x + y * subWidth] = image.readSignedByte();
                 }
             }
         }
+        setTransparency(255, 0, 255);
+    }
+
+    public void normalize() {
+        if (subWidth != width || subHeight != height) { // L: 18
+            byte[] pixels = new byte[width * height]; // L: 19
+            int var2 = 0; // L: 20
+
+            for (int var3 = 0; var3 < subHeight; ++var3) { // L: 21
+                for (int var4 = 0; var4 < subWidth; ++var4) { // L: 22
+                    pixels[var4 + (var3 + yOffset) * width + xOffset] = palettePixels[var2++]; // L: 23
+                }
+            }
+
+            palettePixels = pixels; // L: 26
+            subWidth = width; // L: 27
+            subHeight = height; // L: 28
+            xOffset = 0; // L: 29
+            yOffset = 0; // L: 30
+        }
+    }
+
+    public void setTransparency(int transRed, int transGreen, int transBlue) {
+        for (int index = 0; index < palette.length; index++)
+            if (((palette[index] >> 16) & 255) == transRed && ((palette[index] >> 8) & 255) == transGreen && (palette[index] & 255) == transBlue)
+                palette[index] = 0;
     }
 
     public void downscale() {
-        resizeWidth /= 2;
-        resizeHeight /= 2;
-        byte[] raster = new byte[resizeWidth * resizeHeight];
+        width /= 2;
+        height /= 2;
+        byte[] raster = new byte[width * height];
         int sourceIndex = 0;
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                raster[(x + drawOffsetX >> 1) + (y + drawOffsetY >> 1) * resizeWidth] = raster[sourceIndex++];
+        for (int y = 0; y < subHeight; y++) {
+            for (int x = 0; x < subWidth; x++) {
+                raster[(x + xOffset >> 1) + (y + yOffset >> 1) * width] = raster[sourceIndex++];
             }
         }
         this.palettePixels = raster;
-        width = resizeWidth;
-        height = resizeHeight;
-        drawOffsetX = 0;
-        drawOffsetY = 0;
+        subWidth = width;
+        subHeight = height;
+        xOffset = 0;
+        yOffset = 0;
     }
 
     public void resize() {
-        if (width == resizeWidth && height == resizeHeight) {
+        if (subWidth == width && subHeight == height) {
             return;
         }
 
-        byte[] raster = new byte[resizeWidth * resizeHeight];
+        byte[] raster = new byte[width * height];
 
         int i = 0;
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                raster[x + drawOffsetX + (y + drawOffsetY) * resizeWidth] = raster[i++];
+        for (int y = 0; y < subHeight; y++) {
+            for (int x = 0; x < subWidth; x++) {
+                raster[x + xOffset + (y + yOffset) * width] = raster[i++];
             }
         }
         this.palettePixels = raster;
-        width = resizeWidth;
-        height = resizeHeight;
-        drawOffsetX = 0;
-        drawOffsetY = 0;
+        subWidth = width;
+        subHeight = height;
+        xOffset = 0;
+        yOffset = 0;
     }
 
     public void offsetColor(int redOffset, int greenOffset, int blueOffset) {
@@ -125,12 +151,12 @@ public final class IndexedImage extends Rasterizer2D {
     }
 
     public void draw(int x, int y) {
-        x += drawOffsetX;
-        y += drawOffsetY;
+        x += xOffset;
+        y += yOffset;
         int destOffset = x + y * Rasterizer2D.width;
         int sourceOffset = 0;
-        int height = this.height;
-        int width = this.width;
+        int height = this.subHeight;
+        int width = this.subWidth;
         int destStep = Rasterizer2D.width - width;
         int sourceStep = 0;
 

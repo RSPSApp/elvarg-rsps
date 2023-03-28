@@ -364,12 +364,12 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
 		switch (packet.getOpcode()) {
 		case PacketConstants.OBJECT_FIRST_CLICK_OPCODE:		    
 		    x = packet.readLEShortA();
-	        id = packet.readUnsignedShort();
+	        id = packet.readInt();
 	        y = packet.readUnsignedShortA();	        
 			objectInteract(player, id, x, y, 1);
 			break;
 		case PacketConstants.OBJECT_SECOND_CLICK_OPCODE:		    
-		    id = packet.readLEShortA();
+		    id = packet.readInt();
 	        y = packet.readLEShort();
 	        x = packet.readUnsignedShortA();	        
 	        objectInteract(player, id, x, y, 2);
@@ -377,12 +377,12 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
 		case PacketConstants.OBJECT_THIRD_CLICK_OPCODE:
 		    x = packet.readLEShort();
 	        y = packet.readShort();
-	        id = packet.readLEShortA();
+	        id = packet.readInt();
 	        objectInteract(player, id, x, y, 3);
 			break;
 		case PacketConstants.OBJECT_FOURTH_CLICK_OPCODE:
 		    x = packet.readLEShortA();
-            id = packet.readUnsignedShortA();
+            id = packet.readInt();
             y = packet.readLEShortA();
             objectInteract(player, id, x, y, 4);
 			break;

@@ -295,31 +295,31 @@ public final class GameFont extends Rasterizer2D {
         }
     }
 
-    private void method393(int[] ai, byte[] abyte0, int i, int j, int k, int l, int i1, int j1, int k1) {
+    private void method393(int ai[], byte abyte0[], int i, int j, int k, int l, int i1, int j1, int k1) {
         int l1 = -(l >> 2);
         l = -(l & 3);
-        for (int i2 = -i1; i2 < 0; i2++) {
-            for (int j2 = l1; j2 < 0; j2++) {
-                if (abyte0[j++] != 0)
-                    ai[k++] = i;
+        for(int i2 = -i1; i2 < 0; i2++) {
+            for(int j2 = l1; j2 < 0; j2++) {
+                if(abyte0[j++] != 0)
+                    drawAlpha(ai, k++, i, 255);
                 else
                     k++;
-                if (abyte0[j++] != 0)
-                    ai[k++] = i;
+                if(abyte0[j++] != 0)
+                    drawAlpha(ai, k++, i, 255);
                 else
                     k++;
-                if (abyte0[j++] != 0)
-                    ai[k++] = i;
+                if(abyte0[j++] != 0)
+                    drawAlpha(ai, k++, i, 255);
                 else
                     k++;
-                if (abyte0[j++] != 0)
-                    ai[k++] = i;
+                if(abyte0[j++] != 0)
+                    drawAlpha(ai, k++, i, 255);
                 else
                     k++;
             }
-            for (int k2 = l; k2 < 0; k2++)
-                if (abyte0[j++] != 0)
-                    ai[k++] = i;
+            for(int k2 = l; k2 < 0; k2++)
+                if(abyte0[j++] != 0)
+                    drawAlpha(ai, k++, i, 255);
                 else
                     k++;
 
@@ -363,14 +363,15 @@ public final class GameFont extends Rasterizer2D {
         method395(abyte0, i1, k1, pixels, j2, k, i2, l1, j1, i);
     }
 
-    private void method395(byte[] abyte0, int i, int j, int[] ai, int l, int i1, int j1, int k1, int l1, int i2) {
+    private void method395(byte abyte0[], int i, int j, int ai[], int l, int i1, int j1, int k1, int l1, int i2) {
         l1 = ((l1 & 0xff00ff) * i2 & 0xff00ff00) + ((l1 & 0xff00) * i2 & 0xff0000) >> 8;
         i2 = 256 - i2;
-        for (int j2 = -i; j2 < 0; j2++) {
-            for (int k2 = -i1; k2 < 0; k2++)
-                if (abyte0[l++] != 0) {
+        for(int j2 = -i; j2 < 0; j2++) {
+            for(int k2 = -i1; k2 < 0; k2++)
+                if(abyte0[l++] != 0) {
                     int l2 = ai[j];
-                    ai[j++] = (((l2 & 0xff00ff) * i2 & 0xff00ff00) + ((l2 & 0xff00) * i2 & 0xff0000) >> 8) + l1;
+                    drawAlpha(ai, j++, (((l2 & 0xff00ff) * i2 & 0xff00ff00) + ((l2 & 0xff00) * i2 & 0xff0000) >> 8)
+                            + l1, 255);
                 } else {
                     j++;
                 }
@@ -378,4 +379,5 @@ public final class GameFont extends Rasterizer2D {
             l += j1;
         }
     }
+
 }

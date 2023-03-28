@@ -1,63 +1,74 @@
 package com.runescape.cache.def;
 
 import com.runescape.cache.FileArchive;
-import com.runescape.graphics.sprite.Sprite;
 import com.runescape.collection.ReferenceCache;
 import com.runescape.draw.Rasterizer2D;
 import com.runescape.draw.Rasterizer3D;
 import com.runescape.entity.model.Model;
+import com.runescape.graphics.sprite.Sprite;
 import com.runescape.io.Buffer;
-import com.runescape.sign.SignLink;
-import com.runescape.util.FileUtils;
+import com.runescape.util.BufferExt;
+import net.runelite.api.IterableHashTable;
+import net.runelite.rs.api.RSItemComposition;
+import net.runelite.rs.api.RSIterableNodeHashTable;
 
-public final class ItemDefinition {
+import java.util.HashMap;
+
+public final class ItemDefinition implements RSItemComposition {
 
     public static ReferenceCache sprites = new ReferenceCache(100);
     public static ReferenceCache models = new ReferenceCache(50);
     public static boolean isMembers = true;
     public static int totalItems;
-    private static ItemDefinition[] cache;
+    public static ItemDefinition[] cache;
     private static int cacheIndex;
     private static Buffer item_data;
     private static int[] streamIndices;
-    public int value;
-    public int[] modified_model_colors;
+    public int cost;
+    public int[] colorReplace;
+    private short[] textureReplace;
+    private short[] textureFind;
+
     public int id;
-    public int[] original_model_colors;
-    public boolean is_members_only;
+    public int[] colorFind;
+    public boolean members;
     public int noted_item_id;
-    public int equipped_model_female_2;
-    public int equipped_model_male_1;
-    public String[] groundActions;
-    public int translate_x;
+    public int weight;
+    public int wearPos1;
+    public int wearPos2;
+    public int wearPos3;
+    public int femaleModel1;
+    public int maleModel0;
+    public String options[];
+    public int xOffset2d;
     public String name;
     public int inventory_model;
-    public int equipped_model_male_dialogue_1;
+    public int maleHeadModel;
     public boolean stackable;
     public int unnoted_item_id;
-    public int modelZoom;
-    public int equipped_model_male_2;
-    public String[] actions;
-    public int rotation_y;
-    public int[] stack_variant_id;
-    public int translate_yz;//
-    public int equipped_model_female_dialogue_1;
-    public int rotation_x;
-    public int equipped_model_female_1;
-    public int[] stack_variant_size;
+    public int zoom2d;
+    public int maleModel1;
+    public String actions[];
+    public int xan2d;
+    public int[] countObj;
+    public int yOffset2d;//
+    public int femaleHeadModel;
+    public int yan2d;
+    public int femaleModel0;
+    public int[] countCo;
     public int team;
-    public int rotation_z;
-    private byte equipped_model_female_translation_y;
-    private int equipped_model_female_3;
-    private int equipped_model_male_dialogue_2;
-    private int model_scale_x;
-    private int equipped_model_female_dialogue_2;
-    private int light_mag;
-    private int equipped_model_male_3;
-    private int model_scale_z;
-    private int model_scale_y;
-    private int light_intensity;
-    private byte equipped_model_male_translation_y;
+    public int zan2d;
+    private byte femaleOffset;
+    private int femaleModel2;
+    private int maleHeadModel2;
+    private int resizeX;
+    private int femaleHeadModel2;
+    public int contrast;
+    private int maleModel2;
+    private int resizeZ;
+    private int resizeY;
+    public int ambient;
+    private byte maleOffset;
 
     private ItemDefinition() {
         id = -1;
@@ -72,8 +83,8 @@ public final class ItemDefinition {
     }
 
     public static void init(FileArchive archive) {
-        item_data = new Buffer(FileUtils.readFile(SignLink.findcachedir() + "obj.dat"));
-        Buffer stream = new Buffer(FileUtils.readFile(SignLink.findcachedir() + "obj.idx"));
+        item_data = new Buffer(archive.readFile("obj.dat"));
+        Buffer stream = new Buffer(archive.readFile("obj.idx"));
 
         totalItems = stream.readUShort();
         streamIndices = new int[totalItems];
@@ -104,7 +115,7 @@ public final class ItemDefinition {
             item_data.currentPosition = streamIndices[itemId];
         itemDef.id = itemId;
         itemDef.setDefaults();
-        itemDef.readValues(item_data);
+        itemDef.decode(item_data);
 
         if (itemDef.noted_item_id != -1)
             itemDef.toNote();
@@ -114,21 +125,19 @@ public final class ItemDefinition {
             itemDef.actions[2] = "Set";
         }
 
-        //System.out.println("Item: "+itemDef.name+", equip models: "+itemDef.equipped_model_male_1+", "+itemDef.equipped_model_male_2+", "+itemDef.equipped_model_male_3);
-
         /**
          * Place customs here
          */
         switch (itemId) {
             case 13302:
                 itemDef.name = "Crate key";
-                itemDef.original_model_colors = new int[]{8128};
-                itemDef.modified_model_colors = new int[]{5231};
+                itemDef.colorFind = new int[]{8128};
+                itemDef.colorReplace = new int[]{5231};
                 break;
             case 5022:
                 itemDef.name = "Spin ticket";
-                itemDef.original_model_colors = new int[]{100};
-                itemDef.modified_model_colors = new int[]{10562};
+                itemDef.colorFind = new int[]{100};
+                itemDef.colorReplace = new int[]{10562};
                 //[10458,0,0],"newModelColor":[10562
                 break;
             case 5509:
@@ -207,13 +216,13 @@ public final class ItemDefinition {
                 return sprite;
         }
         ItemDefinition itemDef = lookup(itemId);
-        if (itemDef.stack_variant_id == null)
+        if (itemDef.countObj == null)
             stackSize = -1;
         if (stackSize > 1) {
             int stack_item_id = -1;
             for (int j1 = 0; j1 < 10; j1++)
-                if (stackSize >= itemDef.stack_variant_size[j1] && itemDef.stack_variant_size[j1] != 0)
-                    stack_item_id = itemDef.stack_variant_id[j1];
+                if (stackSize >= itemDef.countCo[j1] && itemDef.countCo[j1] != 0)
+                    stack_item_id = itemDef.countObj[j1];
 
             if (stack_item_id != -1)
                 itemDef = lookup(stack_item_id);
@@ -230,27 +239,30 @@ public final class ItemDefinition {
         Sprite enabledSprite = new Sprite(32, 32);
         int centerX = Rasterizer3D.originViewX;
         int centerY = Rasterizer3D.originViewY;
-        int[] lineOffsets = Rasterizer3D.scanOffsets;
-        int[] pixels = Rasterizer2D.pixels;
+        int lineOffsets[] = Rasterizer3D.scanOffsets;
+        int pixels[] = Rasterizer2D.pixels;
         int width = Rasterizer2D.width;
         int height = Rasterizer2D.height;
         int vp_left = Rasterizer2D.leftX;
         int vp_right = Rasterizer2D.bottomX;
         int vp_top = Rasterizer2D.topY;
         int vp_bottom = Rasterizer2D.bottomY;
+        Rasterizer3D.world = false;
         Rasterizer3D.aBoolean1464 = false;
         Rasterizer2D.initDrawingArea(32, 32, enabledSprite.myPixels);
-        Rasterizer2D.drawBox(0, 0, 32, 32, 0);
+        Rasterizer2D.drawItemBox(0, 0, 32, 32, 0);
         Rasterizer3D.useViewport();
-        int k3 = itemDef.modelZoom;
+        int k3 = itemDef.zoom2d;
         if (outlineColor == -1)
             k3 = (int) ((double) k3 * 1.5D);
         if (outlineColor > 0)
             k3 = (int) ((double) k3 * 1.04D);
-        int l3 = Rasterizer3D.anIntArray1470[itemDef.rotation_y] * k3 >> 16;
-        int i4 = Rasterizer3D.COSINE[itemDef.rotation_y] * k3 >> 16;
-        model.method482(itemDef.rotation_x, itemDef.rotation_z, itemDef.rotation_y, itemDef.translate_x,
-                l3 + model.modelBaseY / 2 + itemDef.translate_yz, i4 + itemDef.translate_yz);
+        int l3 = Rasterizer3D.SINE[itemDef.xan2d] * k3 >> 16;
+        int i4 = Rasterizer3D.COSINE[itemDef.xan2d] * k3 >> 16;
+        Rasterizer3D.renderOnGpu = true;
+        model.renderModel(itemDef.yan2d, itemDef.zan2d, itemDef.xan2d, itemDef.xOffset2d,
+                l3 + model.modelBaseY / 2 + itemDef.yOffset2d, i4 + itemDef.yOffset2d);
+        Rasterizer3D.renderOnGpu = false;
 
         enabledSprite.outline(1);
         if (outlineColor > 0) {
@@ -279,6 +291,7 @@ public final class ItemDefinition {
         Rasterizer3D.originViewY = centerY;
         Rasterizer3D.scanOffsets = lineOffsets;
         Rasterizer3D.aBoolean1464 = true;
+        Rasterizer3D.world = true;
         if (itemDef.stackable)
             enabledSprite.maxWidth = 33;
         else
@@ -289,13 +302,13 @@ public final class ItemDefinition {
 
     public static Sprite getSprite(int itemId, int stackSize, int zoom, int outlineColor) {
         ItemDefinition itemDef = lookup(itemId);
-        if (itemDef.stack_variant_id == null)
+        if (itemDef.countObj == null)
             stackSize = -1;
         if (stackSize > 1) {
             int stack_item_id = -1;
             for (int j1 = 0; j1 < 10; j1++)
-                if (stackSize >= itemDef.stack_variant_size[j1] && itemDef.stack_variant_size[j1] != 0)
-                    stack_item_id = itemDef.stack_variant_id[j1];
+                if (stackSize >= itemDef.countCo[j1] && itemDef.countCo[j1] != 0)
+                    stack_item_id = itemDef.countObj[j1];
 
             if (stack_item_id != -1)
                 itemDef = lookup(stack_item_id);
@@ -306,23 +319,28 @@ public final class ItemDefinition {
         Sprite sprite = new Sprite(90, 90);
         int centerX = Rasterizer3D.originViewX;
         int centerY = Rasterizer3D.originViewY;
-        int[] lineOffsets = Rasterizer3D.scanOffsets;
-        int[] pixels = Rasterizer2D.pixels;
+        int lineOffsets[] = Rasterizer3D.scanOffsets;
+        int pixels[] = Rasterizer2D.pixels;
         int width = Rasterizer2D.width;
         int height = Rasterizer2D.height;
         int vp_left = Rasterizer2D.leftX;
         int vp_right = Rasterizer2D.bottomX;
         int vp_top = Rasterizer2D.topY;
         int vp_bottom = Rasterizer2D.bottomY;
+        Rasterizer3D.world = false;
         Rasterizer3D.aBoolean1464 = false;
         Rasterizer2D.initDrawingArea(90, 90, sprite.myPixels);
-        Rasterizer2D.drawBox(0, 0, 90, 90, 0);
+        Rasterizer2D.drawItemBox(0, 0, 90, 90, 0);
         Rasterizer3D.useViewport();
-        int l3 = Rasterizer3D.anIntArray1470[itemDef.rotation_y] * zoom >> 15;
-        int i4 = Rasterizer3D.COSINE[itemDef.rotation_y] * zoom >> 15;
-        model.method482(itemDef.rotation_x, itemDef.rotation_z, itemDef.rotation_y, itemDef.translate_x,
-                l3 + model.modelBaseY / 2 + itemDef.translate_yz, i4 + itemDef.translate_yz);
+        int l3 = Rasterizer3D.SINE[itemDef.xan2d] * zoom >> 15;
+        int i4 = Rasterizer3D.COSINE[itemDef.xan2d] * zoom >> 15;
+        Rasterizer3D.renderOnGpu = true;
+
+        model.renderModel(itemDef.yan2d, itemDef.zan2d, itemDef.xan2d, itemDef.xOffset2d,
+                l3 + model.modelBaseY / 2 + itemDef.yOffset2d, i4 + itemDef.yOffset2d);
         sprite.outline(1);
+        Rasterizer3D.renderOnGpu = false;
+
         if (outlineColor > 0) {
             sprite.outline(16777215);
         }
@@ -336,6 +354,7 @@ public final class ItemDefinition {
         Rasterizer3D.originViewY = centerY;
         Rasterizer3D.scanOffsets = lineOffsets;
         Rasterizer3D.aBoolean1464 = true;
+        Rasterizer3D.world = true;
         if (itemDef.stackable)
             sprite.maxWidth = 33;
         else
@@ -343,57 +362,61 @@ public final class ItemDefinition {
         sprite.maxHeight = stackSize;
         return sprite;
     }
-    
+
     public boolean isDialogueModelCached(int gender) {
-        int model_1 = equipped_model_male_dialogue_1;
-        int model_2 = equipped_model_male_dialogue_2;
+        int model_1 = maleHeadModel;
+        int model_2 = maleHeadModel2;
         if (gender == 1) {
-            model_1 = equipped_model_female_dialogue_1;
-            model_2 = equipped_model_female_dialogue_2;
+            model_1 = femaleHeadModel;
+            model_2 = femaleHeadModel2;
         }
         if (model_1 == -1)
             return true;
-        boolean cached = Model.isCached(model_1);
+        boolean cached = true;
+        if (!Model.isCached(model_1))
+            cached = false;
         if (model_2 != -1 && !Model.isCached(model_2))
             cached = false;
         return cached;
     }
 
     public Model getChatEquipModel(int gender) {
-        int dialogueModel = equipped_model_male_dialogue_1;
-        int dialogueHatModel = equipped_model_male_dialogue_2;
+        int dialogueModel = maleHeadModel;
+        int dialogueHatModel = maleHeadModel2;
         if (gender == 1) {
-            dialogueModel = equipped_model_female_dialogue_1;
-            dialogueHatModel = equipped_model_female_dialogue_2;
+            dialogueModel = femaleHeadModel;
+            dialogueHatModel = femaleHeadModel2;
         }
         if (dialogueModel == -1)
             return null;
         Model dialogueModel_ = Model.getModel(dialogueModel);
         if (dialogueHatModel != -1) {
             Model hatModel_ = Model.getModel(dialogueHatModel);
-            Model[] models = {dialogueModel_, hatModel_};
+            Model models[] = {dialogueModel_, hatModel_};
             dialogueModel_ = new Model(2, models);
         }
-        if (modified_model_colors != null) {
-            for (int i1 = 0; i1 < modified_model_colors.length; i1++)
-                dialogueModel_.recolor(modified_model_colors[i1], original_model_colors[i1]);
+        if (colorReplace != null) {
+            for (int i1 = 0; i1 < colorReplace.length; i1++)
+                dialogueModel_.recolor(colorReplace[i1], colorFind[i1]);
 
         }
         return dialogueModel_;
     }
 
     public boolean isEquippedModelCached(int gender) {
-        int primaryModel = equipped_model_male_1;
-        int secondaryModel = equipped_model_male_2;
-        int emblem = equipped_model_male_3;
+        int primaryModel = maleModel0;
+        int secondaryModel = maleModel1;
+        int emblem = maleModel2;
         if (gender == 1) {
-            primaryModel = equipped_model_female_1;
-            secondaryModel = equipped_model_female_2;
-            emblem = equipped_model_female_3;
+            primaryModel = femaleModel0;
+            secondaryModel = femaleModel1;
+            emblem = femaleModel2;
         }
         if (primaryModel == -1)
             return true;
-        boolean cached = Model.isCached(primaryModel);
+        boolean cached = true;
+        if (!Model.isCached(primaryModel))
+            cached = false;
         if (secondaryModel != -1 && !Model.isCached(secondaryModel))
             cached = false;
         if (emblem != -1 && !Model.isCached(emblem))
@@ -402,14 +425,14 @@ public final class ItemDefinition {
     }
 
     public Model getEquippedModel(int gender) {
-        int primaryModel = equipped_model_male_1;
-        int secondaryModel = equipped_model_male_2;
-        int emblem = equipped_model_male_3;
+        int primaryModel = maleModel0;
+        int secondaryModel = maleModel1;
+        int emblem = maleModel2;
 
         if (gender == 1) {
-            primaryModel = equipped_model_female_1;
-            secondaryModel = equipped_model_female_2;
-            emblem = equipped_model_female_3;
+            primaryModel = femaleModel0;
+            secondaryModel = femaleModel1;
+            emblem = femaleModel2;
         }
 
         if (primaryModel == -1)
@@ -419,21 +442,21 @@ public final class ItemDefinition {
             if (emblem != -1) {
                 Model secondaryModel_ = Model.getModel(secondaryModel);
                 Model emblemModel = Model.getModel(emblem);
-                Model[] models = {primaryModel_, secondaryModel_, emblemModel};
+                Model models[] = {primaryModel_, secondaryModel_, emblemModel};
                 primaryModel_ = new Model(3, models);
             } else {
                 Model model_2 = Model.getModel(secondaryModel);
-                Model[] models = {primaryModel_, model_2};
+                Model models[] = {primaryModel_, model_2};
                 primaryModel_ = new Model(2, models);
             }
-        if (gender == 0 && equipped_model_male_translation_y != 0)
-            primaryModel_.translate(0, equipped_model_male_translation_y, 0);
-        if (gender == 1 && equipped_model_female_translation_y != 0)
-            primaryModel_.translate(0, equipped_model_female_translation_y, 0);
+        if (gender == 0 && maleOffset != 0)
+            primaryModel_.offsetBy(0, maleOffset, 0);
+        if (gender == 1 && femaleOffset != 0)
+            primaryModel_.offsetBy(0, femaleOffset, 0);
 
-        if (modified_model_colors != null) {
-            for (int i1 = 0; i1 < modified_model_colors.length; i1++)
-                primaryModel_.recolor(modified_model_colors[i1], original_model_colors[i1]);
+        if (colorReplace != null) {
+            for (int i1 = 0; i1 < colorReplace.length; i1++)
+                primaryModel_.recolor(colorReplace[i1], colorFind[i1]);
 
         }
         return primaryModel_;
@@ -442,84 +465,165 @@ public final class ItemDefinition {
     private void setDefaults() {
         inventory_model = 0;
         name = null;
-        modified_model_colors = null;
-        original_model_colors = null;
-        modelZoom = 2000;
-        rotation_y = 0;
-        rotation_x = 0;
-        rotation_z = 0;
-        translate_x = 0;
-        translate_yz = 0;
+        colorReplace = null;
+        colorFind = null;
+        textureReplace = null;
+        textureFind = null;
+
+        zoom2d = 2000;
+        xan2d = 0;
+        yan2d = 0;
+        zan2d = 0;
+        xOffset2d = 0;
+        yOffset2d = 0;
         stackable = false;
-        value = 1;
-        is_members_only = false;
-        groundActions = null;
+        cost = 1;
+        members = false;
+        options = null;
         actions = null;
-        equipped_model_male_1 = -1;
-        equipped_model_male_2 = -1;
-        equipped_model_male_translation_y = 0;
-        equipped_model_female_1 = -1;
-        equipped_model_female_2 = -1;
-        equipped_model_female_translation_y = 0;
-        equipped_model_male_3 = -1;
-        equipped_model_female_3 = -1;
-        equipped_model_male_dialogue_1 = -1;
-        equipped_model_male_dialogue_2 = -1;
-        equipped_model_female_dialogue_1 = -1;
-        equipped_model_female_dialogue_2 = -1;
-        stack_variant_id = null;
-        stack_variant_size = null;
+        maleModel0 = -1;
+        maleModel1 = -1;
+        maleOffset = 0;
+        femaleModel0 = -1;
+        femaleModel1 = -1;
+        femaleOffset = 0;
+        maleModel2 = -1;
+        femaleModel2 = -1;
+        maleHeadModel = -1;
+        maleHeadModel2 = -1;
+        femaleHeadModel = -1;
+        femaleHeadModel2 = -1;
+        countObj = null;
+        countCo = null;
         unnoted_item_id = -1;
         noted_item_id = -1;
-        model_scale_x = 128;
-        model_scale_y = 128;
-        model_scale_z = 128;
-        light_intensity = 0;
-        light_mag = 0;
+        resizeX = 128;
+        resizeY = 128;
+        resizeZ = 128;
+        ambient = 0;
+        contrast = 0;
         team = 0;
     }
 
     private void copy(ItemDefinition copy) {
-        rotation_x = copy.rotation_x;
-        rotation_y = copy.rotation_y;
-        rotation_z = copy.rotation_z;
-        model_scale_x = copy.model_scale_x;
-        model_scale_y = copy.model_scale_y;
-        model_scale_z = copy.model_scale_z;
-        modelZoom = copy.modelZoom;
-        translate_x = copy.translate_x;
-        translate_yz = copy.translate_yz;
+        yan2d = copy.yan2d;
+        xan2d = copy.xan2d;
+        zan2d = copy.zan2d;
+        resizeX = copy.resizeX;
+        resizeY = copy.resizeY;
+        resizeZ = copy.resizeZ;
+        zoom2d = copy.zoom2d;
+        xOffset2d = copy.xOffset2d;
+        yOffset2d = copy.yOffset2d;
         inventory_model = copy.inventory_model;
         stackable = copy.stackable;
-        modified_model_colors = copy.modified_model_colors;
-        original_model_colors = copy.original_model_colors;
+
     }
 
     private void toNote() {
         ItemDefinition itemDef = lookup(noted_item_id);
         inventory_model = itemDef.inventory_model;
-        modelZoom = itemDef.modelZoom;
-        rotation_y = itemDef.rotation_y;
-        rotation_x = itemDef.rotation_x;
+        zoom2d = itemDef.zoom2d;
+        xan2d = itemDef.xan2d;
+        yan2d = itemDef.yan2d;
 
-        rotation_z = itemDef.rotation_z;
-        translate_x = itemDef.translate_x;
-        translate_yz = itemDef.translate_yz;
-        modified_model_colors = itemDef.modified_model_colors;
-        original_model_colors = itemDef.original_model_colors;
+        zan2d = itemDef.zan2d;
+        xOffset2d = itemDef.xOffset2d;
+        yOffset2d = itemDef.yOffset2d;
+
         ItemDefinition itemDef_1 = lookup(unnoted_item_id);
         name = itemDef_1.name;
-        is_members_only = itemDef_1.is_members_only;
-        value = itemDef_1.value;
+        members = itemDef_1.members;
+        cost = itemDef_1.cost;
         stackable = true;
     }
 
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public void setName(String name) {
+
+    }
+
+    @Override
+    public int getId() {
+        return 0;
+    }
+
+    @Override
+    public int getNote() {
+        return 0;
+    }
+
+    @Override
+    public int getLinkedNoteId() {
+        return 0;
+    }
+
+    @Override
+    public int getPlaceholderId() {
+        return 0;
+    }
+
+    @Override
+    public int getPlaceholderTemplateId() {
+        return 0;
+    }
+
+    @Override
+    public int getPrice() {
+        return 0;
+    }
+
+    @Override
+    public boolean isMembers() {
+        return false;
+    }
+
+    @Override
+    public boolean isTradeable() {
+        return false;
+    }
+
+    @Override
+    public void setTradeable(boolean yes) {
+
+    }
+
+    @Override
+    public int getIsStackable() {
+        return 0;
+    }
+
+    @Override
+    public int getMaleModel() {
+        return 0;
+    }
+
+    @Override
+    public String[] getInventoryActions() {
+        return new String[0];
+    }
+
+    @Override
+    public String[] getGroundActions() {
+        return new String[0];
+    }
+
+    @Override
+    public int getShiftClickActionIndex() {
+        return 0;
+    }
+
     public Model getModel(int stack_size) {
-        if (stack_variant_id != null && stack_size > 1) {
+        if (countObj != null && stack_size > 1) {
             int stack_item_id = -1;
             for (int k = 0; k < 10; k++)
-                if (stack_size >= stack_variant_size[k] && stack_variant_size[k] != 0)
-                    stack_item_id = stack_variant_id[k];
+                if (stack_size >= countCo[k] && countCo[k] != 0)
+                    stack_item_id = countObj[k];
 
             if (stack_item_id != -1)
                 return lookup(stack_item_id).getModel(1);
@@ -530,27 +634,57 @@ public final class ItemDefinition {
         model = Model.getModel(inventory_model);
         if (model == null)
             return null;
-        if (model_scale_x != 128 || model_scale_y != 128 || model_scale_z != 128)
-            model.scale(model_scale_x, model_scale_z, model_scale_y);
-        if (modified_model_colors != null) {
-            for (int l = 0; l < modified_model_colors.length; l++)
-                model.recolor(modified_model_colors[l], original_model_colors[l]);
+        if (resizeX != 128 || resizeY != 128 || resizeZ != 128)
+            model.scale(resizeX, resizeZ, resizeY);
+        if (colorReplace != null) {
+            for (int l = 0; l < colorReplace.length; l++)
+                model.recolor(colorReplace[l], colorFind[l]);
 
         }
-        int lightInt = 64 + light_intensity;
-        int lightMag = 768 + light_mag;
+        int lightInt = 64 + ambient;
+        int lightMag = 768 + contrast;
         model.light(lightInt, lightMag, -50, -10, -50, true);
-        model.fits_on_single_square = true;
+        model.singleTile = true;
         models.put(model, id);
         return model;
     }
 
+    @Override
+    public int getInventoryModel() {
+        return 0;
+    }
+
+    @Override
+    public short[] getColorToReplaceWith() {
+        return new short[0];
+    }
+
+    @Override
+    public short[] getTextureToReplaceWith() {
+        return new short[0];
+    }
+
+    @Override
+    public RSIterableNodeHashTable getParams() {
+        return null;
+    }
+
+    @Override
+    public void setParams(IterableHashTable params) {
+
+    }
+
+    @Override
+    public void setParams(RSIterableNodeHashTable params) {
+
+    }
+
     public Model getUnshadedModel(int stack_size) {
-        if (stack_variant_id != null && stack_size > 1) {
+        if (countObj != null && stack_size > 1) {
             int stack_item_id = -1;
             for (int count = 0; count < 10; count++)
-                if (stack_size >= stack_variant_size[count] && stack_variant_size[count] != 0)
-                    stack_item_id = stack_variant_id[count];
+                if (stack_size >= countCo[count] && countCo[count] != 0)
+                    stack_item_id = countObj[count];
 
             if (stack_item_id != -1)
                 return lookup(stack_item_id).getUnshadedModel(1);
@@ -558,113 +692,192 @@ public final class ItemDefinition {
         Model model = Model.getModel(inventory_model);
         if (model == null)
             return null;
-        if (modified_model_colors != null) {
-            for (int colorPtr = 0; colorPtr < modified_model_colors.length; colorPtr++)
-                model.recolor(modified_model_colors[colorPtr], original_model_colors[colorPtr]);
+        if (colorReplace != null) {
+            for (int colorPtr = 0; colorPtr < colorReplace.length; colorPtr++)
+                model.recolor(colorReplace[colorPtr], colorFind[colorPtr]);
 
         }
         return model;
     }
 
-    public void readValues(Buffer buffer) {
-        do {
-            int opCode = buffer.readUnsignedByte();
-            if (opCode == 0)
+    private int shiftClickIndex = -2;
+    private int category;
+    private boolean tradeable;
+    private int bought_id;
+    private int bought_template_id;
+    private int placeholder_id;
+    private int placeholder_template_id;
+    public HashMap<Integer,Object> params;
+
+    private void decode(Buffer buffer) {
+        while (true) {
+            int opcode = buffer.readUnsignedByte();
+            if (opcode == 0)
                 return;
-            if (opCode == 1)
+            if (opcode == 1)
                 inventory_model = buffer.readUShort();
-            else if (opCode == 2)
-                name = buffer.readString();
-            else if (opCode == 3)
-                /*description = */buffer.readString();
-            else if (opCode == 4)
-                modelZoom = buffer.readUShort();
-            else if (opCode == 5)
-                rotation_y = buffer.readUShort();
-            else if (opCode == 6)
-                rotation_x = buffer.readUShort();
-            else if (opCode == 7) {
-                translate_x = buffer.readUShort();
-                if (translate_x > 32767)
-                    translate_x -= 0x10000;
-            } else if (opCode == 8) {
-                translate_yz = buffer.readUShort();
-                if (translate_yz > 32767)
-                    translate_yz -= 0x10000;
-            } else if (opCode == 10)
-                buffer.readUShort();
-            else if (opCode == 11)
+            else if (opcode == 2)
+                name = buffer.readJagexString();
+            else if (opcode == 4)
+                zoom2d = buffer.readUShort();
+            else if (opcode == 5)
+                xan2d = buffer.readUShort();
+            else if (opcode == 6)
+                yan2d = buffer.readUShort();
+            else if (opcode == 7) {
+                xOffset2d = buffer.readUShort();
+                if (xOffset2d > 32767)
+                    xOffset2d -= 0x10000;
+            } else if (opcode == 8) {
+                yOffset2d = buffer.readUShort();
+                if (yOffset2d > 32767)
+                    yOffset2d -= 0x10000;
+            } else if (opcode == 11)
                 stackable = true;
-            else if (opCode == 12) {
-                value = buffer.readInt();
-            } else if (opCode == 16)
-                is_members_only = true;
-            else if (opCode == 23) {
-                equipped_model_male_1 = buffer.readUShort();
-                equipped_model_male_translation_y = buffer.readSignedByte();
-            } else if (opCode == 24)
-                equipped_model_male_2 = buffer.readUShort();
-            else if (opCode == 25) {
-                equipped_model_female_1 = buffer.readUShort();
-                equipped_model_female_translation_y = buffer.readSignedByte();
-            } else if (opCode == 26)
-                equipped_model_female_2 = buffer.readUShort();
-            else if (opCode >= 30 && opCode < 35) {
-                if (groundActions == null)
-                    groundActions = new String[5];
-                groundActions[opCode - 30] = buffer.readString();
-                if (groundActions[opCode - 30].equalsIgnoreCase("hidden"))
-                    groundActions[opCode - 30] = null;
-            } else if (opCode >= 35 && opCode < 40) {
+            else if (opcode == 12)
+                cost = buffer.readInt();
+            else if (opcode == 13)
+                wearPos1 = buffer.readUnsignedByte();
+            else if (opcode == 14)
+                wearPos2 = buffer.readUnsignedByte();
+            else if (opcode == 16)
+                members = true;
+            else if (opcode == 23) {
+                maleModel0 = buffer.readUShort();
+                maleOffset = buffer.readSignedByte();
+            } else if (opcode == 24)
+                maleModel1 = buffer.readUShort();
+            else if (opcode == 25) {
+                femaleModel0 = buffer.readUShort();
+                femaleOffset = buffer.readSignedByte();
+            } else if (opcode == 27) {
+                wearPos3 = buffer.readUnsignedByte();
+            } else if (opcode == 26)
+                femaleModel1 = buffer.readUShort();
+            else if (opcode >= 30 && opcode < 35) {
+                if (options == null)
+                    options = new String[5];
+                options[opcode - 30] = buffer.readString();
+                if (options[opcode - 30].equalsIgnoreCase("hidden"))
+                    options[opcode - 30] = null;
+            } else if (opcode >= 35 && opcode < 40) {
                 if (actions == null)
                     actions = new String[5];
-                actions[opCode - 35] = buffer.readString();
-            } else if (opCode == 40) {
-                int j = buffer.readUnsignedByte();
-                modified_model_colors = new int[j];
-                original_model_colors = new int[j];
-                for (int k = 0; k < j; k++) {
-                    original_model_colors[k] = buffer.readUShort();
-                    modified_model_colors[k] = buffer.readUShort();
+                actions[opcode - 35] = buffer.readString();
+            } else if (opcode == 40) {
+                int length = buffer.readUnsignedByte();
+                colorReplace = new int[length];
+                colorFind = new int[length];
+                for (int index = 0; index < length; index++) {
+                    colorReplace[index] = buffer.readUShort();
+                    colorFind[index] = buffer.readUShort();
                 }
-            } else if (opCode == 78)
-                equipped_model_male_3 = buffer.readUShort();
-            else if (opCode == 79)
-                equipped_model_female_3 = buffer.readUShort();
-            else if (opCode == 90)
-                equipped_model_male_dialogue_1 = buffer.readUShort();
-            else if (opCode == 91)
-                equipped_model_female_dialogue_1 = buffer.readUShort();
-            else if (opCode == 92)
-                equipped_model_male_dialogue_2 = buffer.readUShort();
-            else if (opCode == 93)
-                equipped_model_female_dialogue_2 = buffer.readUShort();
-            else if (opCode == 95)
-                rotation_z = buffer.readUShort();
-            else if (opCode == 97)
+            } else if (opcode == 41) {
+                int length = buffer.readUnsignedByte();
+                textureFind = new short[length];
+                textureReplace = new short[length];
+                for (int index = 0; index < length; index++) {
+                    textureFind[index] = (short) buffer.readUShort();
+                    textureReplace[index] = (short) buffer.readUShort();
+                }
+            } else if (opcode == 42) {
+                shiftClickIndex = buffer.readUnsignedByte();
+            } else if (opcode == 65) {
+                tradeable = true;
+            } else if (opcode == 75)
+                weight = buffer.readUShort();
+            else if (opcode == 78)
+                maleModel2 = buffer.readUShort();
+            else if (opcode == 79)
+                femaleModel2 = buffer.readUShort();
+            else if (opcode == 90)
+                maleHeadModel = buffer.readUShort();
+            else if (opcode == 91)
+                femaleHeadModel = buffer.readUShort();
+            else if (opcode == 92)
+                maleHeadModel2 = buffer.readUShort();
+            else if (opcode == 93)
+                femaleHeadModel2 = buffer.readUShort();
+            else if (opcode == 94)
+                category = buffer.readUShort();
+            else if (opcode == 95)
+                zan2d = buffer.readUShort();
+            else if (opcode == 97)
                 unnoted_item_id = buffer.readUShort();
-            else if (opCode == 98)
+            else if (opcode == 98)
                 noted_item_id = buffer.readUShort();
-            else if (opCode >= 100 && opCode < 110) {
-
-                if (stack_variant_id == null) {
-                    stack_variant_id = new int[10];
-                    stack_variant_size = new int[10];
+            else if (opcode == 110)
+                resizeX = buffer.readUShort();
+            else if (opcode == 111)
+                resizeY = buffer.readUShort();
+            else if (opcode == 112)
+                resizeZ = buffer.readUShort();
+            else if (opcode == 113)
+                ambient = buffer.readSignedByte();
+            else if (opcode == 114)
+                contrast = buffer.readSignedByte() * 5;
+            else if (opcode >= 100 && opcode < 110) {
+                if (countObj == null) {
+                    countObj = new int[10];
+                    countCo = new int[10];
                 }
-                stack_variant_id[opCode - 100] = buffer.readUShort();
-                stack_variant_size[opCode - 100] = buffer.readUShort();
-            } else if (opCode == 110)
-                model_scale_x = buffer.readUShort();
-            else if (opCode == 111)
-                model_scale_y = buffer.readUShort();
-            else if (opCode == 112)
-                model_scale_z = buffer.readUShort();
-            else if (opCode == 113)
-                light_intensity = buffer.readSignedByte();
-            else if (opCode == 114)
-                light_mag = buffer.readSignedByte() * 5;
-            else if (opCode == 115)
+                countObj[opcode - 100] = buffer.readUShort();
+                countCo[opcode - 100] = buffer.readUShort();
+            } else if (opcode == 115)
                 team = buffer.readUnsignedByte();
-        } while (true);
+            else if (opcode == 139)
+                bought_id = buffer.readUShort();
+            else if (opcode == 140)
+                bought_template_id = buffer.readUShort();
+            else if (opcode == 148)
+                placeholder_id = buffer.readUShort();
+            else if (opcode == 149) {
+                placeholder_template_id = buffer.readUShort();
+            } else if (opcode == 249) {
+                params = BufferExt.readStringIntParameters(buffer);
+            } else {
+                System.err.printf("Error unrecognised {Items} opcode: %d%n%n", opcode);
+            }
+        }
+    }
+
+    @Override
+    public int getHaPrice() {
+        return 0;
+    }
+
+    @Override
+    public boolean isStackable() {
+        return false;
+    }
+
+    @Override
+    public void setShiftClickActionIndex(int shiftClickActionIndex) {
+
+    }
+
+    @Override
+    public void resetShiftClickActionIndex() {
+
+    }
+
+    @Override
+    public int getIntValue(int paramID) {
+        return 0;
+    }
+
+    @Override
+    public void setValue(int paramID, int value) {
+
+    }
+
+    @Override
+    public String getStringValue(int paramID) {
+        return null;
+    }
+
+    @Override
+    public void setValue(int paramID, String value) {
+
     }
 }

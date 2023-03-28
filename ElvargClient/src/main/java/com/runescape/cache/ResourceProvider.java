@@ -429,53 +429,18 @@ public final class ResourceProvider implements Runnable {
         return resource;
     }
 
-    public int resolve(int landscapeOrObject, int regionY, int regionX) {
-        /*int code = (regionX << 8) + regionY;
+    public int resolve(int regionX, int regionY, int type) {
+        int code = (type << 8) + regionY;
         for (int area = 0; area < areas.length; area++) {
-			if (areas[area] == code) {
-				if (landscapeOrObject == 0) {
-					return mapFiles[area] > 3535 ? -1 : mapFiles[area];
-				} else {
-					return landscapes[area] > 3535 ? -1 : landscapes[area];
-				}
-			}
-		}
-*/
-        int mapNigga2;
-        int mapNigga3;
-        int regionId = (regionX << 8) + regionY;
-        for (int j1 = 0; j1 < areas.length; j1++)
-            if (areas[j1] == regionId) {
-                if (landscapeOrObject == 0) {
-                    //Soulwars
-                    if (mapFiles[j1] >= 3700 && mapFiles[j1] <= 3840)
-                        return mapFiles[j1];
-                    for (int cheapHax : mapFiles)
-                        if (mapFiles[j1] == cheapHax)
-                            return mapFiles[j1];
-                    mapNigga2 = mapFiles[j1] > 3535 ? -1 : mapFiles[j1];
-                    return mapNigga2;
+            if (areas[area] == code) {
+                if (regionX == 0) {
+                    return mapFiles[area];
                 } else {
-                    if (landscapes[j1] >= 3700 && landscapes[j1] <= 3840)
-                        return landscapes[j1];
-                    for (int cheapHax : cheapHaxValues)
-                        if (landscapes[j1] == cheapHax)
-                            return landscapes[j1];
-                    mapNigga3 = landscapes[j1] > 3535 ? -1 : landscapes[j1];
-                    return mapNigga3;
+                    return landscapes[area];
                 }
             }
+        }
         return -1;
-
-		/*int regionId = (regionX << 8) + regionY;
-		for(int j1 = 0; j1 < areas.length; j1++)
-			if(areas[j1] == regionId) {
-				if(landscapeOrObject == 0) {
-					return mapFiles[j1];
-				} else {
-					return landscapes[j1];
-				}
-			}*/
     }
 
     public boolean landscapePresent(int landscape) {

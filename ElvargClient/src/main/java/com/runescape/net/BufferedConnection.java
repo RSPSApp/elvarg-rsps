@@ -1,6 +1,8 @@
 package com.runescape.net;
 
-import com.runescape.GameApplet;
+import com.runescape.Client;
+import com.runescape.engine.GameEngine;
+import net.runelite.api.GameState;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,9 +12,8 @@ import java.net.Socket;
 public final class BufferedConnection implements Runnable {
 
     private final Socket socket;
-    private final GameApplet rsApplet;
-    private final InputStream inputStream;
-    private final OutputStream outputStream;
+    private InputStream inputStream;
+    private OutputStream outputStream;
     private boolean closed;
     private byte[] buffer;
     private int writeIndex;
@@ -20,12 +21,11 @@ public final class BufferedConnection implements Runnable {
     private boolean isWriter;
     private boolean hasIOError;
 
-    public BufferedConnection(GameApplet RSApplet_, Socket socket1)
+    public BufferedConnection(Socket socket1)
             throws IOException {
         closed = false;
         isWriter = false;
         hasIOError = false;
-        rsApplet = RSApplet_;
         socket = socket1;
         socket.setSoTimeout(30000);
         socket.setTcpNoDelay(true);
@@ -66,7 +66,7 @@ public final class BufferedConnection implements Runnable {
             return inputStream.available();
     }
 
-    public void flushInputStream(byte[] abyte0, int j) throws IOException {
+    public void flushInputStream(byte abyte0[], int j) throws IOException {
         int i = 0;// was parameter
         if (closed)
             return;
@@ -80,7 +80,7 @@ public final class BufferedConnection implements Runnable {
 
     }
 
-    public void queueBytes(int i, byte[] abyte0) throws IOException {
+    public void queueBytes(int i, byte abyte0[]) throws IOException {
         if (closed)
             return;
         if (hasIOError) {
@@ -99,7 +99,7 @@ public final class BufferedConnection implements Runnable {
 
             if (!isWriter) {
                 isWriter = true;
-                rsApplet.startRunnable(this, 3);
+                GameEngine.taskHandler.newThreadTask(this, 3);
             }
             notify();
         }
@@ -140,4 +140,15 @@ public final class BufferedConnection implements Runnable {
         }
     }
 
+    public void printDebug() {
+        System.out.println("dummy:" + closed);
+        System.out.println("tcycl:" + writeIndex);
+        System.out.println("tnum:" + buffIndex);
+        System.out.println("writer:" + isWriter);
+        System.out.println("ioerror:" + hasIOError);
+        try {
+            System.out.println("available:" + available());
+        } catch (IOException _ex) {
+        }
+    }
 }
