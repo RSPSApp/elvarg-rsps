@@ -30,7 +30,7 @@ public class Jewellery extends ItemType {
         this.destinations = destinations;
         this.charges = charges;
         if (charges instanceof Limited) {
-            itemIds = ((Limited) charges).itemIds;
+            itemIds = ((Limited) charges).getItemIds();
         } else if (charges instanceof Unlimited) {
             itemIds = ((Unlimited) charges).itemIds();
         }

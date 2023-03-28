@@ -4,10 +4,13 @@ import java.util.List;
 
 public class Limited extends ChargeType {
 
+    public List<Integer> getItemIds() {
+        return itemIds;
+    }
 
-    public List<Integer> itemIds;
+    private List<Integer> itemIds;
 
-    public LastCharge lastCharge;
+    private LastCharge lastCharge;
 
     public Limited(List<Integer> itemIds, LastCharge lastCharge) {
         this.itemIds = itemIds;

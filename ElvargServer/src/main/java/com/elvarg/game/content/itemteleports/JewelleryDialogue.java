@@ -4,13 +4,13 @@ import com.elvarg.game.content.itemteleports.handlers.Jewellery;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Item;
 import com.elvarg.game.model.Location;
+import com.elvarg.game.model.container.ItemContainer;
 import com.elvarg.game.model.dialogues.DialogueOption;
 import com.elvarg.game.model.dialogues.builders.DynamicDialogueBuilder;
 import com.elvarg.game.model.dialogues.entries.impl.OptionDialogue;
 import com.elvarg.game.model.teleportation.TeleportHandler;
 
 import java.util.ArrayList;
-
 
 public class JewelleryDialogue extends DynamicDialogueBuilder {
 
@@ -37,26 +37,17 @@ public class JewelleryDialogue extends DynamicDialogueBuilder {
     private void handleOption(Player player, int slot, Item item, DialogueOption option) {
         int index = option.ordinal();
 
-
         Location destination = jewellery.getDestinations().get(index).getRight();
 
         if(TeleportHandler.checkReqs(player, destination)) {
             int nextItemId = jewellery.getCharges().getNextItem(item.getId());
+            ItemContainer container = inventory ? player.getInventory() : player.getEquipment();
             if(nextItemId  == -1) {
                 player.sendMessage("<col=800080>Your " + item.getDefinition().getName() + " crumbles to dust.");
-                if (inventory) {
-                    player.getInventory().delete(item);
-                } else {
-                    player.getEquipment().delete(item);
-                }
+                container.delete(item);
             } else {
-                if (inventory) {
-                    player.getInventory().setItem(slot, new Item(nextItemId));
-                    player.getInventory().refreshItems();
-                } else {
-                    player.getEquipment().setItem(slot, new Item(nextItemId));
-                    player.getEquipment().refreshItems();
-                }
+                container.setItem(slot, new Item(nextItemId));
+                container.refreshItems();
             }
             TeleportHandler.teleport(player, destination, jewellery.teleportType(),false);
             if(nextItemId != -1) {
