@@ -64,8 +64,7 @@ public class MovementInteraction {
             return;
         }
 
-        // Generate a location within radius of the original spawn location
-        Location destination = this.playerBot.getDefinition().getSpawnLocation().transform(Misc.random(-radius, radius), Misc.random(-radius, radius));
+        Location destination = this.playerBot.getDefinition().getSpawnLocation().clone().transform(Misc.random(-radius, radius), Misc.random(-radius, radius));
 
         this.playerBot.getMovementQueue().addStep(destination);
     }
