@@ -3,47 +3,41 @@ package com.elvarg.game.definition;
 import com.elvarg.game.model.Direction;
 import com.elvarg.game.model.Location;
 
-/**
- * @author Ynneh | 13/03/2023 - 16:38
- * <https://github.com/drhenny>
- */
-public class NpcSpawnDefinition {
+public class NpcSpawnDefinition extends DefaultSpawnDefinition {
 
-        public String facing;
-        public int id;
-        public Location[] position;
+    public NpcSpawnDefinition(int id, Location position, Direction facing, int radius) {
+		super(id, position);
+		this.facing = facing;
+		this.radius = radius;
+	}
 
-        public String description;
+    public NpcSpawnDefinition(int id, Location position, Direction facing, int radius, String descripton) {
+        super(id, position);
+        this.facing = facing;
+        this.radius = radius;
+        this.description = descripton;
+    }
 
-        public NpcSpawnDefinition(String facing, int id, Location[] position, String description) {
-            this.facing = facing;
-            this.id = id;
-            this.position = position;
-            this.description = description;
-        }
+	private Direction facing;
+    private int radius;
+    private String description;
 
-        public Direction dir() {
-            if (facing != null) {
-                switch (facing) {
-                    case "NORTH":
-                        return Direction.NORTH;
-                    case "NORTH_EAST":
-                        return Direction.NORTH_EAST;
-                    case "NORTH_WEST":
-                        return Direction.NORTH_WEST;
-                    case "SOUTH":
-                        return Direction.SOUTH;
-                    case "SOUTH_EAST":
-                        return Direction.SOUTH_EAST;
-                    case "SOUTH_WEST":
-                        return Direction.SOUTH_WEST;
-                    case "EAST":
-                        return Direction.EAST;
-                    case "WEST":
-                        return Direction.WEST;
-                }
-            }
-            return Direction.SOUTH;
-        }
+    public Direction getFacing() {
+        return facing;
+    }
 
+    public int getRadius() {
+        return radius;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof NpcSpawnDefinition))
+            return false;
+        NpcSpawnDefinition def = (NpcSpawnDefinition) o;
+        return def.getPosition().equals(getPosition())
+                && def.getId() == getId()
+                && def.getFacing() == getFacing()
+                && def.getRadius() == getRadius();
+    }
 }

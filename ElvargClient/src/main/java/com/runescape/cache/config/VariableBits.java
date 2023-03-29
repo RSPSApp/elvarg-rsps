@@ -37,6 +37,9 @@ public final class VariableBits {
 
         }
 
+        if (stream.currentPosition != stream.payload.length) {
+            System.out.println("varbit load mismatch");
+        }
 
     }
 

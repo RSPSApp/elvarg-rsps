@@ -134,8 +134,7 @@ public class NPCOptionPacketListener extends NpcIdentifiers implements PacketExe
                 case TZHAAR_KET_ZUH:
                     player.getBank(player.getCurrentBankTab()).open();
                     break;
-                case MAKEOVER_MAGE:
-                case MAKEOVER_MAGE_2:
+                case MAKE_OVER_MAGE:
                     player.getPacketSender().sendInterfaceRemoval().sendInterface(3559);
                     player.getAppearance().setCanChangeAppearance(true);
                     break;
@@ -144,6 +143,7 @@ public class NPCOptionPacketListener extends NpcIdentifiers implements PacketExe
                     break;
                 case EMBLEM_TRADER:
                 case EMBLEM_TRADER_2:
+                case EMBLEM_TRADER_3:
                     player.getDialogueManager().start(new EmblemTraderDialogue());
                     break;
 
@@ -151,6 +151,10 @@ public class NPCOptionPacketListener extends NpcIdentifiers implements PacketExe
                     player.getDialogueManager().start(new ParduDialogue());
                     break;
 
+                case FINANCIAL_ADVISOR:
+                    //DialogueManager.start(player, 15);
+                    // Removed
+                    break;
                 case NIEVE:
                     player.getDialogueManager().start(new NieveDialogue());
                     break;
@@ -198,6 +202,7 @@ public class NPCOptionPacketListener extends NpcIdentifiers implements PacketExe
                     break;
                 case EMBLEM_TRADER:
                 case EMBLEM_TRADER_2:
+                case EMBLEM_TRADER_3:
                     ShopManager.open(player, ShopIdentifiers.PVP_SHOP);
                     break;
                 case MAGIC_INSTRUCTOR:

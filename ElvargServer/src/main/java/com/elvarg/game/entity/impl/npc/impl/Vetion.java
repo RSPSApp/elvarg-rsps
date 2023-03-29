@@ -65,9 +65,9 @@ public class Vetion extends NPC {
 	
 	private void spawnHellhounds(Mobile target) {
 		for (int i = 0; i < 2; i++) {
-			int hellhoundId = SKELETON_HELLHOUND_3;
+			int hellhoundId = VETION_HELLHOUND;
 			if (getNpcTransformationId() == VETION_REBORN) {
-				hellhoundId = GREATER_SKELETON_HELLHOUND;
+				hellhoundId = GREATER_VETION_HELLHOUND;
 			}
 			VetionHellhound hellhound = (VetionHellhound) NPC.create(hellhoundId, getLocation());
 			hellhound.setVetion(this);

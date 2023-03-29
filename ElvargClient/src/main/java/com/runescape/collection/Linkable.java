@@ -1,8 +1,6 @@
 package com.runescape.collection;
 
-import net.runelite.rs.api.RSNode;
-
-public class Linkable implements RSNode {
+public class Linkable {
 
     public long key;
     public Linkable previous;
@@ -17,25 +15,4 @@ public class Linkable implements RSNode {
             next = null;
         }
     }
-
-    @Override
-    public RSNode getNext() {
-        return next;
-    }
-
-    @Override
-    public long getHash() {
-        return key;
-    }
-
-    @Override
-    public RSNode getPrevious() {
-        return previous;
-    }
-
-    @Override
-    public void onUnlink() {
-
-    }
-
 }

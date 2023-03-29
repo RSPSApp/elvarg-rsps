@@ -1,7 +1,6 @@
 package com.runescape.sign;
 
 import com.runescape.Configuration;
-import net.runelite.client.RuneLite;
 
 import java.applet.Applet;
 import java.awt.EventQueue;
@@ -87,12 +86,9 @@ public final class SignLink {
     }
 
     public static String findcachedir() {
-        return RuneLite.CACHE_DIR.getAbsolutePath() + "/";
+        final File cacheDirectory = new File(Configuration.CACHE_DIRECTORY);
+        if (!cacheDirectory.exists())
+            cacheDirectory.mkdir();
+        return Configuration.CACHE_DIRECTORY;
     }
-
-    public static String indexLocation(int cacheIndex, int index) {
-        return SignLink.findcachedir() + "index" + cacheIndex + "/"
-                + (index != -1 ? index + ".gz" : "");
-    }
-
 }

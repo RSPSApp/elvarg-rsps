@@ -33,11 +33,6 @@ public class GameConstants {
 	public static final int CLIENT_UID = 8784521;
 
 	/**
-	 * Total Npc Bits
-	 */
-	public static final int NPC_BITS = 18;
-
-	/**
 	 * The directory of the definition files.
 	 */
 	public static final String DEFINITIONS_DIRECTORY = "./data/definitions/";

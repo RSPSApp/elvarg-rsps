@@ -1,6 +1,7 @@
 package com.elvarg.game.model;
 
 import com.elvarg.util.Misc;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 /**
  * Represents a single world tile position.
@@ -260,16 +261,6 @@ public class Location {
         int deltaY = y - other.y;
 		return Math.max(Math.abs(deltaX), Math.abs(deltaY));
 	}
-
-    /**
-     * Gets the ID of the region containing this Location.
-     *
-     * @return the region ID
-     */
-    public int getRegionId()
-    {
-        return ((x >> 6) << 8) | (y >> 6);
-    }
 	
 	/**
 	 * Increments the {@code X}, {@code Y}, and {@code Z} coordinate values

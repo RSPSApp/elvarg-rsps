@@ -2,10 +2,8 @@ package com.runescape.graphics.sprite;
 
 import com.runescape.cache.FileArchive;
 import com.runescape.draw.Rasterizer2D;
-import com.runescape.engine.impl.MouseHandler;
 import com.runescape.io.Buffer;
 import com.runescape.sign.SignLink;
-import net.runelite.rs.api.RSSpritePixels;
 
 import javax.swing.ImageIcon;
 import java.awt.Color;
@@ -20,7 +18,7 @@ import java.awt.image.ImageProducer;
 import java.awt.image.PixelGrabber;
 import java.awt.image.RGBImageFilter;
 
-public final class Sprite extends Rasterizer2D implements RSSpritePixels {
+public final class Sprite extends Rasterizer2D {
 
     public static int SETTINGS_FIXED_ACTIVE = 185,
             SETTINGS_FIXED_INACTIVE = 186,
@@ -361,41 +359,22 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
         }
     }
 
-    public void drawHoverSprite(int x, int y, Sprite hover) {
-        drawHoverSprite(x,y,0,0,hover);
-    }
-
-    public void drawHoverSprite(int x, int y, int offsetX, int offsetY, Sprite hover) {
+    private void method347(int i, int j, int k, int l, int i1, int k1, int[] ai, int[] ai1) {
         if (this == EMPTY_SPRITE) {
             return;
         }
-        if (MouseHandler.mouseX >= offsetX + x && MouseHandler.mouseX <= offsetX + x + this.myWidth
-                && MouseHandler.mouseY >= offsetY + y && MouseHandler.mouseY <= offsetY + y + this.myHeight) {
-            hover.drawSprite(x, y);
-        } else {
-            this.drawSprite(x, y);
-        }
-    }
-
-    private void method347(int i, int j, int k, int l, int i1, int k1, int ai[], int ai1[]) {
         int l1 = -(j >> 2);
         j = -(j & 3);
         for (int i2 = -k; i2 < 0; i2++) {
             for (int j2 = l1; j2 < 0; j2++) {
-                int val = ai[i1++];
-                drawAlpha(ai1, i++, val, 255);
-                val = ai[i1++];
-                drawAlpha(ai1, i++, val, 255);
-                val = ai[i1++];
-                drawAlpha(ai1, i++, val, 255);
-                val = ai[i1++];
-                drawAlpha(ai1, i++, val, 255);
+                ai1[i++] = ai[i1++];
+                ai1[i++] = ai[i1++];
+                ai1[i++] = ai[i1++];
+                ai1[i++] = ai[i1++];
             }
 
-            for (int k2 = j; k2 < 0; k2++) {
-                int val = ai[i1++];
-                drawAlpha(ai1, i++, val, 255);
-            }
+            for (int k2 = j; k2 < 0; k2++)
+                ai1[i++] = ai[i1++];
 
             i += k1;
             i1 += l;
@@ -489,6 +468,9 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
     }
 
     public void drawSprite(int i, int k, int color) {
+        if (this == EMPTY_SPRITE) {
+            return;
+        }
         int tempWidth = myWidth + 2;
         int tempHeight = myHeight + 2;
         int[] tempArray = new int[tempWidth * tempHeight];
@@ -502,16 +484,16 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
             for (int y = 0; y < tempHeight; y++) {
                 if (tempArray[(x) + (y) * tempWidth] == 0) {
                     if (x < tempWidth - 1 && tempArray[(x + 1) + ((y) * tempWidth)] > 0 && tempArray[(x + 1) + ((y) * tempWidth)] != 0xffffff) {
-                        drawAlpha(tempArray, (x) + (y) * tempWidth, color, 255);
+                        tempArray[(x) + (y) * tempWidth] = color;
                     }
                     if (x > 0 && tempArray[(x - 1) + ((y) * tempWidth)] > 0 && tempArray[(x - 1) + ((y) * tempWidth)] != 0xffffff) {
-                        drawAlpha(tempArray, (x) + (y) * tempWidth, color, 255);
+                        tempArray[(x) + (y) * tempWidth] = color;
                     }
                     if (y < tempHeight - 1 && tempArray[(x) + ((y + 1) * tempWidth)] > 0 && tempArray[(x) + ((y + 1) * tempWidth)] != 0xffffff) {
-                        drawAlpha(tempArray, (x) + (y) * tempWidth, color, 255);
+                        tempArray[(x) + (y) * tempWidth] = color;
                     }
                     if (y > 0 && tempArray[(x) + ((y - 1) * tempWidth)] > 0 && tempArray[(x) + ((y - 1) * tempWidth)] != 0xffffff) {
-                        drawAlpha(tempArray, (x) + (y) * tempWidth, color, 255);
+                        tempArray[(x) + (y) * tempWidth] = color;
                     }
                 }
             }
@@ -556,7 +538,10 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
         }
     }
 
-    private void method349(int ai[], int ai1[], int j, int k, int l, int i1, int j1, int k1) {
+    private void method349(int[] ai, int[] ai1, int j, int k, int l, int i1, int j1, int k1) {
+        if (this == EMPTY_SPRITE) {
+            return;
+        }
         int i;// was parameter
         int l1 = -(l >> 2);
         l = -(l & 3);
@@ -564,25 +549,25 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
             for (int j2 = l1; j2 < 0; j2++) {
                 i = ai1[j++];
                 if (i != 0 && i != -1) {
-                    drawAlpha(ai, k++, i, 255);
+                    ai[k++] = i;
                 } else {
                     k++;
                 }
                 i = ai1[j++];
                 if (i != 0 && i != -1) {
-                    drawAlpha(ai, k++, i, 255);
+                    ai[k++] = i;
                 } else {
                     k++;
                 }
                 i = ai1[j++];
                 if (i != 0 && i != -1) {
-                    drawAlpha(ai, k++, i, 255);
+                    ai[k++] = i;
                 } else {
                     k++;
                 }
                 i = ai1[j++];
                 if (i != 0 && i != -1) {
-                    drawAlpha(ai, k++, i, 255);
+                    ai[k++] = i;
                 } else {
                     k++;
                 }
@@ -591,7 +576,7 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
             for (int k2 = l; k2 < 0; k2++) {
                 i = ai1[j++];
                 if (i != 0 && i != -1) {
-                    drawAlpha(ai, k++, i, 255);
+                    ai[k++] = i;
                 } else {
                     k++;
                 }
@@ -601,7 +586,10 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
         }
     }
 
-    private void method351(int i, int j, int ai[], int ai1[], int l, int i1, int j1, int k1, int l1) {
+    private void method351(int i, int j, int[] ai, int[] ai1, int l, int i1, int j1, int k1, int l1) {
+        if (this == EMPTY_SPRITE) {
+            return;
+        }
         int k;// was parameter
         int j2 = 256 - k1;
         for (int k2 = -i1; k2 < 0; k2++) {
@@ -609,7 +597,7 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
                 k = ai1[i++];
                 if (k != 0) {
                     int i3 = ai[l1];
-                    drawAlpha(ai, l1++, ((k & 0xff00ff) * k1 + (i3 & 0xff00ff) * j2 & 0xff00ff00) + ((k & 0xff00) * k1 + (i3 & 0xff00) * j2 & 0xff0000) >> 8, k1);
+                    ai[l1++] = ((k & 0xff00ff) * k1 + (i3 & 0xff00ff) * j2 & 0xff00ff00) + ((k & 0xff00) * k1 + (i3 & 0xff00) * j2 & 0xff0000) >> 8;
                 } else {
                     l1++;
                 }
@@ -620,7 +608,10 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
         }
     }
 
-    public void rotate(int i, int j, int ai[], int k, int ai1[], int i1, int j1, int k1, int l1, int i2) {
+    public void rotate(int i, int j, int[] ai, int k, int[] ai1, int i1, int j1, int k1, int l1, int i2) {
+        if (this == EMPTY_SPRITE) {
+            return;
+        }
         try {
             int j2 = -l1 / 2;
             int k2 = -i / 2;
@@ -637,26 +628,7 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
                 int k4 = j3 + i3 * i4;
                 int l4 = k3 - l2 * i4;
                 for (k1 = -ai[j1]; k1 < 0; k1++) {
-                    int x1 = k4 >> 16;
-                    int y1 = l4 >> 16;
-                    int x2 = x1 + 1;
-                    int y2 = y1 + 1;
-                    int c1 = myPixels[x1 + y1 * myWidth];
-                    int c2 = myPixels[x2 + y1 * myWidth];
-                    int c3 = myPixels[x1 + y2 * myWidth];
-                    int c4 = myPixels[x2 + y2 * myWidth];
-                    int u1 = (k4 >> 8) - (x1 << 8);
-                    int v1 = (l4 >> 8) - (y1 << 8);
-                    int u2 = (x2 << 8) - (k4 >> 8);
-                    int v2 = (y2 << 8) - (l4 >> 8);
-                    int a1 = u2 * v2;
-                    int a2 = u1 * v2;
-                    int a3 = u2 * v1;
-                    int a4 = u1 * v1;
-                    int r = (c1 >> 16 & 0xff) * a1 + (c2 >> 16 & 0xff) * a2 + (c3 >> 16 & 0xff) * a3 + (c4 >> 16 & 0xff) * a4 & 0xff0000;
-                    int g = (c1 >> 8 & 0xff) * a1 + (c2 >> 8 & 0xff) * a2 + (c3 >> 8 & 0xff) * a3 + (c4 >> 8 & 0xff) * a4 >> 8 & 0xff00;
-                    int b = (c1 & 0xff) * a1 + (c2 & 0xff) * a2 + (c3 & 0xff) * a3 + (c4 & 0xff) * a4 >> 16;
-                    drawAlpha(Rasterizer2D.pixels, j4++, r | g | b, 255);
+                    Rasterizer2D.pixels[j4++] = myPixels[(k4 >> 16) + (l4 >> 16) * myWidth];
                     k4 += i3;
                     l4 -= l2;
                 }
@@ -667,6 +639,7 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
             }
 
         } catch (Exception _ex) {
+            _ex.printStackTrace();
         }
     }
 
@@ -716,7 +689,7 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
         }
     }
 
-    private void renderARGBPixels(int spriteWidth, int spriteHeight, int spritePixels[], int renderAreaPixels[], int pixel, int alphaValue, int i, int l, int j1) {
+    private void renderARGBPixels(int spriteWidth, int spriteHeight, int[] spritePixels, int[] renderAreaPixels, int pixel, int alphaValue, int i, int l, int j1) {
         if (this == EMPTY_SPRITE) {
             return;
         }
@@ -737,10 +710,7 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
                 pixelColor = spritePixels[i++];
                 if (pixelColor != 0) {
                     int pixelValue = renderAreaPixels[pixel];
-                    drawAlpha(renderAreaPixels, pixel++, ((pixelColor & 0xff00ff) * alphaValue
-                            + (pixelValue & 0xff00ff) * alphaLevel & 0xff00ff00)
-                            + ((pixelColor & 0xff00) * alphaValue + (pixelValue & 0xff00) * alphaLevel
-                            & 0xff0000) >> 8, alphaValue);
+                    renderAreaPixels[pixel++] = ((pixelColor & 0xff00ff) * alphaValue + (pixelValue & 0xff00ff) * alphaLevel & 0xff00ff00) + ((pixelColor & 0xff00) * alphaValue + (pixelValue & 0xff00) * alphaLevel & 0xff0000) >> 8;
                 } else {
                     pixel++;
                 }
@@ -814,208 +784,5 @@ public final class Sprite extends Rasterizer2D implements RSSpritePixels {
         // Create image
         ImageProducer ip = new FilteredImageSource(bufferedimage.getSource(), filter);
         return Toolkit.getDefaultToolkit().createImage(ip);
-    }
-
-    public int getId() {
-        return identifier;
-    }
-
-    public void setId(int id) {
-        this.identifier = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int[] getMyPixels() {
-        return myPixels;
-    }
-
-    public void setMyPixels(int[] myPixels) {
-        this.myPixels = myPixels;
-    }
-
-    public int getMyWidth() {
-        return myWidth;
-    }
-
-    public void setMyWidth(int myWidth) {
-        this.myWidth = myWidth;
-    }
-
-    public int getMyHeight() {
-        return myHeight;
-    }
-
-    public void setMyHeight(int myHeight) {
-        this.myHeight = myHeight;
-    }
-
-    public int getDrawOffsetX() {
-        return drawOffsetX;
-    }
-
-    public void setDrawOffsetX(int drawOffsetX) {
-        this.drawOffsetX = drawOffsetX;
-    }
-
-    public int getDrawOffsetY() {
-        return drawOffsetY;
-    }
-
-    public void setDrawOffsetY(int drawOffsetY) {
-        this.drawOffsetY = drawOffsetY;
-    }
-
-    @Override
-    public void drawAt(int x, int y) {
-        drawSprite(x, y);
-    }
-
-    @Override
-    public int getWidth() {
-        return myWidth;
-    }
-
-    @Override
-    public int getHeight() {
-        return myHeight;
-    }
-
-    @Override
-    public int getMaxWidth() {
-        return maxWidth;
-    }
-
-    @Override
-    public int getMaxHeight() {
-        return maxHeight;
-    }
-
-    @Override
-    public int getOffsetX() {
-        return drawOffsetX;
-    }
-
-    @Override
-    public int getOffsetY() {
-        return drawOffsetY;
-    }
-
-    @Override
-    public void setMaxWidth(int maxWidth) {
-        this.maxWidth = maxWidth;
-    }
-
-    @Override
-    public void setMaxHeight(int maxHeight) {
-        this.maxHeight = maxHeight;
-    }
-
-    @Override
-    public void setOffsetX(int offsetX) {
-        drawOffsetX = offsetX;
-    }
-
-    @Override
-    public void setOffsetY(int offsetY) {
-        drawOffsetY = offsetY;
-    }
-
-    @Override
-    public int[] getPixels() {
-        return myPixels;
-    }
-
-    @Override
-    public void setRaster() {
-        init();
-    }
-
-    @Override
-    public BufferedImage toBufferedImage() {
-        BufferedImage image = new BufferedImage(this.myWidth, this.myHeight, 2);
-        toBufferedImage(image);
-        return image;
-    }
-
-    @Override
-    public void toBufferedImage(BufferedImage img) throws IllegalArgumentException {
-        int width = getWidth();
-        int height = getHeight();
-        int[] pixels = getPixels();
-        int[] palette = new int[pixels.length];
-        for (int pixel = 0; pixel < pixels.length; pixel++) {
-            if (pixels[pixel] != 0) {
-                palette[pixel] = pixels[pixel] | 0xFF000000;
-            }
-        }
-        img.setRGB(0, 0, width, height, palette, 0, width);
-    }
-
-    @Override
-    public BufferedImage toBufferedOutline(Color color)
-    {
-        BufferedImage img = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
-        toBufferedOutline(img, color.getRGB());
-        return img;
-    }
-
-
-    @Override
-    public void toBufferedOutline(BufferedImage img, int color)
-    {
-        int width = getWidth();
-        int height = getHeight();
-
-        if (img.getWidth() != width || img.getHeight() != height)
-        {
-            throw new IllegalArgumentException("Image bounds do not match Sprite");
-        }
-
-        int[] pixels = getPixels();
-        int[] newPixels = new int[width * height];
-        int pixelIndex = 0;
-
-        for (int y = 0; y < height; ++y)
-        {
-            for (int x = 0; x < width; ++x)
-            {
-                int pixel = pixels[pixelIndex];
-                if (pixel == 16777215 || pixel == 0)
-                {
-                    // W
-                    if (x > 0 && pixels[pixelIndex - 1] != 0)
-                    {
-                        pixel = color;
-                    }
-                    // N
-                    else if (y > 0 && pixels[pixelIndex - width] != 0)
-                    {
-                        pixel = color;
-                    }
-                    // E
-                    else if (x < width - 1 && pixels[pixelIndex + 1] != 0)
-                    {
-                        pixel = color;
-                    }
-                    // S
-                    else if (y < height - 1 && pixels[pixelIndex + width] != 0)
-                    {
-                        pixel = color;
-                    }
-                    newPixels[pixelIndex] = pixel;
-                }
-
-                pixelIndex++;
-            }
-        }
-
-        img.setRGB(0, 0, width, height, newPixels, 0, width);
     }
 }

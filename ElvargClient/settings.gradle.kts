@@ -3,12 +3,3 @@
  */
 
 rootProject.name = "Elvarg-Game-Client"
-
-dependencyResolutionManagement {
-    @Suppress("UnstableApiUsage")
-    repositories {
-        mavenCentral()
-        maven("https://repo.runelite.net")
-    }
-}
-

@@ -50,14 +50,14 @@ public final class SpriteCache implements Closeable {
 
             if (!dataChannel.isOpen() || !metaChannel.isOpen()) {
                 System.out.println("Sprite channels are closed!");
-                return null;
+                return Sprite.EMPTY_SPRITE;
             }
 
             final int entries = Math.toIntExact(metaChannel.size() / 10);
 
             if (id > entries) {
                 System.out.println(String.format("id=%d > size=%d", id, entries));
-                return null;
+                return Sprite.EMPTY_SPRITE;
             }
 
             metaChannel.position(id * 10);
@@ -83,7 +83,7 @@ public final class SpriteCache implements Closeable {
 
                 if (bimage == null) {
                     System.out.println(String.format("Could not read image at %d", id));
-                    return null;
+                    return Sprite.EMPTY_SPRITE;
                 }
 
                 if (bimage.getType() != BufferedImage.TYPE_INT_ARGB) {
@@ -104,7 +104,7 @@ public final class SpriteCache implements Closeable {
         }
 
         System.out.println(String.format("No sprite found for id=%d", id));
-        return null;
+        return Sprite.EMPTY_SPRITE;
     }
     
     public void draw(int id, int x, int y) {

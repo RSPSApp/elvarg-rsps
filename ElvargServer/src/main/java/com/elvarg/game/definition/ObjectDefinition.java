@@ -2,11 +2,9 @@ package com.elvarg.game.definition;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.util.Map;
 
 import com.elvarg.game.GameConstants;
 import com.elvarg.game.collision.Buffer;
-import com.elvarg.util.BufferExt;
 import com.elvarg.util.FileUtil;
 import com.elvarg.util.ObjectIdentifiers;
 
@@ -58,14 +56,6 @@ public final class ObjectDefinition extends ObjectIdentifiers {
     public String interactions[];
     private short[] originalModelTexture;
     private short[] modifiedModelTexture;
-    private int category;
-    private int ambientSoundId;
-    private int anInt2112;
-    private int anInt2113;
-    private int anInt2083;
-    public int[] ambientSoundIds;
-    public boolean randomAnimStart;
-    private Map<Integer, Object> params = null;
     public int clipType = 2;
     
 
@@ -314,7 +304,7 @@ public final class ObjectDefinition extends ObjectIdentifiers {
                     animation = -1;
                 }
             } else if (opcode == 27) {
-                solid = true;
+                //clipType = 1;
             } else if (opcode == 28) {
                 decorDisplacement = buffer.readUnsignedByte();
             } else if (opcode == 29) {
@@ -345,8 +335,7 @@ public final class ObjectDefinition extends ObjectIdentifiers {
                     modifiedModelTexture[i] = (short) buffer.readUShort();
                     originalModelTexture[i] = (short) buffer.readUShort();
                 }
-            } else if (opcode == 61) {
-                category = buffer.readUShort();
+
             } else if (opcode == 62) {
                 inverted = true;
             } else if (opcode == 64) {
@@ -373,32 +362,26 @@ public final class ObjectDefinition extends ObjectIdentifiers {
                 removeClipping = true;
             } else if (opcode == 75) {
                 supportItems = buffer.readUnsignedByte();
-            } else if(opcode == 78) {
-                ambientSoundId = buffer.readUShort();
-                anInt2083 = buffer.readUnsignedByte();
-            } else if(opcode == 79) {
-                anInt2112 = buffer.readUShort();
-                anInt2113 = buffer.readUShort();
-                anInt2083 = buffer.readUnsignedByte();
+            } else if (opcode == 78) {
+                buffer.readUShort(); // ambient sound id
+                buffer.readUnsignedByte();
+            } else if (opcode == 79) {
+                buffer.readUShort();
+                buffer.readUShort();
+                buffer.readUnsignedByte();
+                int len = buffer.readUnsignedByte();
 
-                int length = buffer.readUnsignedByte();
-                int[] anims = new int[length];
-
-                for (int index = 0; index < length; ++index)
-                {
-                    anims[index] = buffer.readUShort();
+                for (int i = 0; i < len; i++) {
+                    buffer.readUShort();
                 }
-                ambientSoundIds = anims;
             } else if (opcode == 81) {
-                int clipType = buffer.readUnsignedByte(); //YOU WILL NEED THIS FOR CORRECT CLIPPING TO TILES
+                buffer.readUnsignedByte();
             } else if (opcode == 82) {
                 minimapFunction = buffer.readUShort();
 
                 if (minimapFunction == 0xFFFF) {
                     minimapFunction = -1;
                 }
-            } else if(opcode == 89) {
-                randomAnimStart = false;
             } else if (opcode == 77 || opcode == 92) {
                 varp = buffer.readUShort();
 
@@ -432,8 +415,6 @@ public final class ObjectDefinition extends ObjectIdentifiers {
                     }
                 }
                 childrenIDs[len + 1] = value;
-            } else if (opcode == 249) {
-                this.params = BufferExt.readStringIntParameters(buffer);
             } else {
                 System.out.println("invalid opcode: " + opcode);
             }

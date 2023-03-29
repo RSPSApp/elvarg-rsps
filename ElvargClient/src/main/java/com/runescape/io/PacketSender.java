@@ -267,7 +267,7 @@ public class PacketSender {
     public void sendUseItemOnObject(int interfaceId, int objectId, int objectY, int itemSlot, int objectX, int itemId) {
         buffer.writeOpcode(192);
         buffer.writeShort(interfaceId);
-        buffer.writeInt(objectId);
+        buffer.writeShort(objectId);
         buffer.writeLEShortA(objectY);
         buffer.writeLEShort(itemSlot);
         buffer.writeLEShortA(objectX);
@@ -359,13 +359,13 @@ public class PacketSender {
     public void sendObjectOption1(int x, int id, int y) {
         buffer.writeOpcode(132);
         buffer.writeLEShortA(x);
-        buffer.writeInt(id);
+        buffer.writeShort(id);
         buffer.writeShortA(y);
     }
 
     public void sendObjectOption2(int id, int y, int x) {
         buffer.writeOpcode(252);
-        buffer.writeInt(id);
+        buffer.writeLEShortA(id);
         buffer.writeLEShort(y);
         buffer.writeShortA(x);
     }
@@ -373,21 +373,21 @@ public class PacketSender {
     public void sendObjectOption3(int x, int y, int id) {
         buffer.writeOpcode(70);
         buffer.writeLEShort(x);
-        buffer.writeInt(y);
+        buffer.writeShort(y);
         buffer.writeLEShortA(id);
     }
 
     public void sendObjectOption4(int x, int id, int y) {
         buffer.writeOpcode(234);
         buffer.writeLEShortA(x);
-        buffer.writeInt(id);
+        buffer.writeShortA(id);
         buffer.writeLEShortA(y);
     }
 
     public void sendObjectOption5(int id, int x, int y) {
         buffer.writeOpcode(228);
         buffer.writeShortA(x);
-        buffer.writeInt(id);
+        buffer.writeShortA(id);
         buffer.writeShort(y);
     }
 
@@ -410,6 +410,7 @@ public class PacketSender {
     public void sendInterfaceTab(int tabId) {
         buffer.writeOpcode(239);
         buffer.writeByte(tabId);
+        System.err.println("setTabId="+tabId);
     }
 
     public void sendGroundItemOption1(int y, int itemId, int x) {

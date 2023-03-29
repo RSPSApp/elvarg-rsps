@@ -1,9 +1,6 @@
 package com.elvarg.game.collision;
 
-import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Location;
-
-import java.util.HashMap;
 
 /**
  * Represents a region.
@@ -36,11 +33,6 @@ public class Region {
      * Has this region been loaded?
      */
     private boolean loaded;
-
-    /**
-     * The players currently in this region
-     */
-    public HashMap<Integer, Player> players = new HashMap<>();
 
     /**
      * Creates a new region.
@@ -146,9 +138,5 @@ public class Region {
 
     public void setLoaded(boolean loaded) {
         this.loaded = loaded;
-    }
-
-    public boolean isActive() {
-        return this.players.size() > 0;
     }
 }
