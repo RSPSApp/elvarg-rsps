@@ -1,0 +1,9755 @@
+[
+  {
+    "ids": [
+      1694,
+      1695,
+      1696,
+      1697,
+      1698,
+      1699,
+      1700,
+      1701,
+      1702,
+      1703
+    ],
+    "attackAnim": 3901,
+    "defenceAnim": 3902,
+    "deathAnim": 3903,
+    "description": [
+      "Shifter"
+    ]
+  },
+  {
+    "ids": [
+      4188
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1019,
+    "description": []
+  },
+  {
+    "ids": [
+      963
+    ],
+    "attackAnim": 6241,
+    "defenceAnim": -1,
+    "deathAnim": 6242,
+    "description": [
+      "Kalphite Queen"
+    ]
+  },
+  {
+    "ids": [
+      1747
+    ],
+    "attackAnim": 3936,
+    "defenceAnim": -1,
+    "deathAnim": 3935,
+    "description": [
+      "Portal"
+    ]
+  },
+  {
+    "ids": [
+      2206,
+      2837,
+      4544,
+      7024
+    ],
+    "attackAnim": 6376,
+    "defenceAnim": 6375,
+    "deathAnim": 6377,
+    "description": [
+      "Reanimated unicorn",
+      "Starlight",
+      "Unicorn"
+    ]
+  },
+  {
+    "ids": [
+      3517
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 6932,
+    "description": [
+      "Renegade Knight"
+    ]
+  },
+  {
+    "ids": [
+      2154,
+      2155,
+      2156,
+      2157,
+      2158,
+      2160
+    ],
+    "attackAnim": 2609,
+    "defenceAnim": 2603,
+    "deathAnim": 2607,
+    "description": [
+      "TzHaar-Mej"
+    ]
+  },
+  {
+    "ids": [
+      2159,
+      7679
+    ],
+    "attackAnim": 2609,
+    "defenceAnim": 2602,
+    "deathAnim": 2607,
+    "description": [
+      "TzHaar-Ket",
+      "TzHaar-Mej"
+    ]
+  },
+  {
+    "ids": [
+      2790,
+      2791,
+      2792,
+      2793,
+      2794,
+      2795,
+      2801,
+      2807,
+      2808,
+      2809,
+      2810,
+      2992,
+      3601,
+      5842,
+      6340,
+      6401
+    ],
+    "attackAnim": 5849,
+    "defenceAnim": 5850,
+    "deathAnim": 5851,
+    "description": [
+      "Unicow",
+      "Undead cow",
+      "Cow calf",
+      "Cow",
+      "Cow (hard)"
+    ]
+  },
+  {
+    "ids": [
+      414,
+      7272
+    ],
+    "attackAnim": 1523,
+    "defenceAnim": 1521,
+    "deathAnim": 1524,
+    "description": [
+      "Banshee",
+      "Twisted Banshee"
+    ]
+  },
+  {
+    "ids": [
+      5237
+    ],
+    "attackAnim": 5519,
+    "defenceAnim": 5520,
+    "deathAnim": 5521,
+    "description": [
+      "Skeleton"
+    ]
+  },
+  {
+    "ids": [
+      787,
+      788,
+      789,
+      790,
+      791,
+      792,
+      793
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 4389,
+    "description": [
+      "Suqah"
+    ]
+  },
+  {
+    "ids": [
+      795,
+      796,
+      800,
+      801
+    ],
+    "attackAnim": 5450,
+    "defenceAnim": 5448,
+    "deathAnim": 5449,
+    "description": [
+      "Locust rider"
+    ]
+  },
+  {
+    "ids": [
+      1173,
+      1174,
+      2062,
+      2692,
+      2693,
+      2694,
+      2804,
+      2805,
+      2806,
+      2819,
+      2820,
+      2821,
+      2993,
+      3316,
+      3603,
+      3661,
+      3662,
+      3663
+    ],
+    "attackAnim": 5387,
+    "defenceAnim": 5388,
+    "deathAnim": 5389,
+    "description": [
+      "Oomlie bird",
+      "Undead chicken",
+      "Chicken",
+      "Rooster",
+      "Swordchick"
+    ]
+  },
+  {
+    "ids": [
+      3137
+    ],
+    "attackAnim": 1264,
+    "defenceAnim": 424,
+    "deathAnim": 836,
+    "description": [
+      "Feral Vampyre"
+    ]
+  },
+  {
+    "ids": [
+      481,
+      483
+    ],
+    "attackAnim": 6079,
+    "defenceAnim": 6080,
+    "deathAnim": 6081,
+    "description": [
+      "Cave bug"
+    ]
+  },
+  {
+    "ids": [
+      1734,
+      1735,
+      1736,
+      1737
+    ],
+    "attackAnim": 3897,
+    "defenceAnim": 3895,
+    "deathAnim": 3894,
+    "description": [
+      "Brawler"
+    ]
+  },
+  {
+    "ids": [
+      525
+    ],
+    "attackAnim": 386,
+    "defenceAnim": 388,
+    "deathAnim": 836,
+    "description": [
+      "Thug"
+    ]
+  },
+  {
+    "ids": [
+      571,
+      572,
+      573,
+      574,
+      575,
+      614,
+      615,
+      616,
+      621,
+      622
+    ],
+    "attackAnim": 5651,
+    "defenceAnim": 5653,
+    "deathAnim": 5654,
+    "description": [
+      "Zombie swab",
+      "Zombie pirate"
+    ]
+  },
+  {
+    "ids": [
+      3474,
+      6120,
+      6351
+    ],
+    "attackAnim": 6345,
+    "defenceAnim": 6346,
+    "deathAnim": 6347,
+    "description": [
+      "The Everlasting (hard)",
+      "The Everlasting"
+    ]
+  },
+  {
+    "ids": [
+      891,
+      2090,
+      2091,
+      2092,
+      2093,
+      3851,
+      3852,
+      6386,
+      7262,
+      8736
+    ],
+    "attackAnim": 4658,
+    "defenceAnim": 4657,
+    "deathAnim": 4659,
+    "description": [
+      "Moss Guardian",
+      "Moss giant",
+      "Moss Giant"
+    ]
+  },
+  {
+    "ids": [
+      6325
+    ],
+    "attackAnim": 4658,
+    "defenceAnim": 4655,
+    "deathAnim": 4659,
+    "description": [
+      "Moss Guardian (hard)"
+    ]
+  },
+  {
+    "ids": [
+      5816
+    ],
+    "attackAnim": 5782,
+    "defenceAnim": 5783,
+    "deathAnim": 5784,
+    "description": [
+      "Yak"
+    ]
+  },
+  {
+    "ids": [
+      139,
+      239,
+      252,
+      253,
+      254,
+      255,
+      256,
+      257,
+      258,
+      259,
+      260,
+      261,
+      262,
+      263,
+      264,
+      270,
+      271,
+      272,
+      273,
+      274,
+      275,
+      2918,
+      2919,
+      6118,
+      6502,
+      6593,
+      7039,
+      7253,
+      7254,
+      7255,
+      7273,
+      7274,
+      7275,
+      7861,
+      7862,
+      7863,
+      7868,
+      7869,
+      7870,
+      7940,
+      8027,
+      8030,
+      8031,
+      8090,
+      8091
+    ],
+    "attackAnim": 80,
+    "defenceAnim": 89,
+    "deathAnim": 92,
+    "description": [
+      "Brutal black dragon",
+      "Black dragon",
+      "Lava dragon",
+      "Green dragon",
+      "Rune dragon",
+      "Adamant dragon",
+      "Elvarg (hard)",
+      "King Black Dragon",
+      "Mithril dragon",
+      "Brutal blue dragon",
+      "Iron dragon",
+      "Revenant dragon",
+      "Bronze dragon",
+      "Brutal green dragon",
+      "Reanimated dragon",
+      "Brutal red dragon",
+      "Steel dragon"
+    ]
+  },
+  {
+    "ids": [
+      3058,
+      3062,
+      6868
+    ],
+    "attackAnim": 2569,
+    "defenceAnim": -1,
+    "deathAnim": -1,
+    "description": [
+      "Barbarian"
+    ]
+  },
+  {
+    "ids": [
+      5645
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 3729,
+    "description": [
+      "Head"
+    ]
+  },
+  {
+    "ids": [
+      2210
+    ],
+    "attackAnim": 386,
+    "defenceAnim": 410,
+    "deathAnim": 836,
+    "description": [
+      "Spiritual warrior"
+    ]
+  },
+  {
+    "ids": [
+      2838,
+      2839,
+      6503,
+      6609,
+      9046
+    ],
+    "attackAnim": 4925,
+    "defenceAnim": 4927,
+    "deathAnim": 4929,
+    "description": [
+      "Black bear",
+      "Callisto",
+      "Corrupted Bear",
+      "Grizzly bear"
+    ]
+  },
+  {
+    "ids": [
+      7602,
+      7603
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 7497,
+    "description": []
+  },
+  {
+    "ids": [
+      5263,
+      5271,
+      7119
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1384,
+    "description": [
+      "Padulah",
+      "Maniacal Monkey Archer",
+      "Monkey Guard"
+    ]
+  },
+  {
+    "ids": [
+      14647,
+      14648,
+      14649,
+      14650
+    ],
+    "attackAnim": 10841,
+    "defenceAnim": 10843,
+    "deathAnim": 10849,
+    "description": []
+  },
+  {
+    "ids": [
+      1060,
+      3423,
+      3998,
+      4692,
+      6335,
+      6396,
+      7318
+    ],
+    "attackAnim": 4925,
+    "defenceAnim": 4920,
+    "deathAnim": 4929,
+    "description": [
+      "Angry bear",
+      "Grizzly bear",
+      "Witch's experiment (third form) (hard)",
+      "Witch's experiment (third form)"
+    ]
+  },
+  {
+    "ids": [
+      6477
+    ],
+    "attackAnim": 5617,
+    "defenceAnim": 5618,
+    "deathAnim": 5619,
+    "description": [
+      "Mutant tarn"
+    ]
+  },
+  {
+    "ids": [
+      1676
+    ],
+    "attackAnim": 2068,
+    "defenceAnim": 2063,
+    "deathAnim": 4167,
+    "description": [
+      "Torag the Corrupted"
+    ]
+  },
+  {
+    "ids": [
+      2910,
+      2911,
+      2912
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 5183,
+    "description": [
+      "Chinchompa",
+      "Carnivorous chinchompa",
+      "Black chinchompa"
+    ]
+  },
+  {
+    "ids": [
+      84
+    ],
+    "attackAnim": 5487,
+    "defenceAnim": 5489,
+    "deathAnim": 5491,
+    "description": [
+      "Skeleton Mage"
+    ]
+  },
+  {
+    "ids": [
+      3270
+    ],
+    "attackAnim": 4230,
+    "defenceAnim": 4227,
+    "deathAnim": 4233,
+    "description": [
+      "Guard"
+    ]
+  },
+  {
+    "ids": [
+      3424,
+      3425,
+      3908,
+      3909
+    ],
+    "attackAnim": 4925,
+    "defenceAnim": 4921,
+    "deathAnim": 4929,
+    "description": [
+      "Grizzly bear cub",
+      "Bear Cub"
+    ]
+  },
+  {
+    "ids": [
+      2846,
+      3996,
+      6333,
+      6394,
+      7546,
+      7547
+    ],
+    "attackAnim": 260,
+    "defenceAnim": 256,
+    "deathAnim": 255,
+    "description": [
+      "Witch's experiment",
+      "Witch's experiment (hard)"
+    ]
+  },
+  {
+    "ids": [
+      1612
+    ],
+    "attackAnim": 198,
+    "defenceAnim": 193,
+    "deathAnim": 197,
+    "description": [
+      "Battle mage"
+    ]
+  },
+  {
+    "ids": [
+      581,
+      582,
+      583,
+      584,
+      585,
+      586,
+      587,
+      588,
+      589
+    ],
+    "attackAnim": 5884,
+    "defenceAnim": 5885,
+    "deathAnim": 5886,
+    "description": [
+      "Zombie pirate"
+    ]
+  },
+  {
+    "ids": [
+      7939
+    ],
+    "attackAnim": 386,
+    "defenceAnim": 424,
+    "deathAnim": 836,
+    "description": [
+      "Revenant knight"
+    ]
+  },
+  {
+    "ids": [
+      3134,
+      3355,
+      5007,
+      5008,
+      7881
+    ],
+    "attackAnim": 169,
+    "defenceAnim": 170,
+    "deathAnim": 172,
+    "description": [
+      "Imp Champion",
+      "Revenant imp",
+      "Imp"
+    ]
+  },
+  {
+    "ids": [
+      3477
+    ],
+    "attackAnim": 6313,
+    "defenceAnim": 6314,
+    "deathAnim": 6315,
+    "description": [
+      "A Doubt"
+    ]
+  },
+  {
+    "ids": [
+      14660,
+      14661,
+      14662
+    ],
+    "attackAnim": 10864,
+    "defenceAnim": 10863,
+    "deathAnim": 10865,
+    "description": []
+  },
+  {
+    "ids": [
+      1673
+    ],
+    "attackAnim": 2067,
+    "defenceAnim": 2079,
+    "deathAnim": 4167,
+    "description": [
+      "Dharok the Wretched"
+    ]
+  },
+  {
+    "ids": [
+      4004
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2739,
+    "description": [
+      "Shadow"
+    ]
+  },
+  {
+    "ids": [
+      763
+    ],
+    "attackAnim": 5025,
+    "defenceAnim": 5026,
+    "deathAnim": 5027,
+    "description": [
+      "Giant Roc"
+    ]
+  },
+  {
+    "ids": [
+      3902,
+      3903
+    ],
+    "attackAnim": 1251,
+    "defenceAnim": 1244,
+    "deathAnim": 1246,
+    "description": [
+      "Bunny"
+    ]
+  },
+  {
+    "ids": [
+      5240
+    ],
+    "attackAnim": 6775,
+    "defenceAnim": 6773,
+    "deathAnim": 6777,
+    "description": [
+      "Bird"
+    ]
+  },
+  {
+    "ids": [
+      5241
+    ],
+    "attackAnim": 6775,
+    "defenceAnim": 6772,
+    "deathAnim": 6777,
+    "description": [
+      "Bird"
+    ]
+  },
+  {
+    "ids": [
+      2634,
+      2645,
+      2646,
+      2647,
+      2648,
+      2649,
+      2650,
+      2651,
+      2652
+    ],
+    "attackAnim": 1283,
+    "defenceAnim": 1284,
+    "deathAnim": 1277,
+    "description": [
+      "Myre Blamish Snail",
+      "Bark Blamish Snail",
+      "Blood Blamish Snail",
+      "Ochre Blamish Snail",
+      "Bruise Blamish Snail"
+    ]
+  },
+  {
+    "ids": [
+      3125,
+      3126
+    ],
+    "attackAnim": 2644,
+    "defenceAnim": 2645,
+    "deathAnim": 2646,
+    "description": [
+      "Ket-Zek"
+    ]
+  },
+  {
+    "ids": [
+      9756,
+      9757,
+      9758,
+      9759,
+      9760,
+      9761,
+      9762,
+      9763
+    ],
+    "attackAnim": 8705,
+    "defenceAnim": 0,
+    "deathAnim": 8710,
+    "description": [
+      "Vyrewatch Sentinel"
+    ]
+  },
+  {
+    "ids": [
+      505,
+      506,
+      507,
+      508,
+      509,
+      515,
+      527,
+      529,
+      530,
+      532,
+      537,
+      1024,
+      1026,
+      1037,
+      1038,
+      1041,
+      1042,
+      1043,
+      1044,
+      1045,
+      1046,
+      1175,
+      1743,
+      1744,
+      1745,
+      1746,
+      1751,
+      1752,
+      1753,
+      1754,
+      2115,
+      3113,
+      3243,
+      3244,
+      3253,
+      3254,
+      3261,
+      3262,
+      3294,
+      3296,
+      3298,
+      3299,
+      3300,
+      3301,
+      5421,
+      5729,
+      5732,
+      5914,
+      7288,
+      7289,
+      7290,
+      7291,
+      7292,
+      7293,
+      7294,
+      7295,
+      7371,
+      7372,
+      7533,
+      7550,
+      7552,
+      7568,
+      7750,
+      7751,
+      7796,
+      7797,
+      7802,
+      7804,
+      7817,
+      7851,
+      7852,
+      7882,
+      7883,
+      7884,
+      7888,
+      7894,
+      7895,
+      7903,
+      7916,
+      7955,
+      7964,
+      7989,
+      7990,
+      7991,
+      7992,
+      7996,
+      7997,
+      8000,
+      8033,
+      8056,
+      8057,
+      8060,
+      8062,
+      8064,
+      8065,
+      8066,
+      8067,
+      8068,
+      8069,
+      8070,
+      8071,
+      8072,
+      8079,
+      8080,
+      8081,
+      8082,
+      8083,
+      8085,
+      8086,
+      8087,
+      8089,
+      8137,
+      8138,
+      8194,
+      8195,
+      8244,
+      8248,
+      8256,
+      8257,
+      8258,
+      8259,
+      8262,
+      8297,
+      8298,
+      8303,
+      8304,
+      8305,
+      8306,
+      8307,
+      8342,
+      8343,
+      8344,
+      8345,
+      8346,
+      8347,
+      8348,
+      8349,
+      8350,
+      8351,
+      8352,
+      8353,
+      8370,
+      8372,
+      8381,
+      8382,
+      8383,
+      8384,
+      8385,
+      8400,
+      8401,
+      8428,
+      8429,
+      8430,
+      8439,
+      8496,
+      8512,
+      8513,
+      8514,
+      8563,
+      8564,
+      8578,
+      8583,
+      8584,
+      8633,
+      8635,
+      8636,
+      8637,
+      8698,
+      8700,
+      8703,
+      8709,
+      8714,
+      8759,
+      8760,
+      8844,
+      8845,
+      8846,
+      8849,
+      8850,
+      8851,
+      8852,
+      8854,
+      8865,
+      8922,
+      8923,
+      8950,
+      8953,
+      8954,
+      8955,
+      8956,
+      8978,
+      8987,
+      8988,
+      8989,
+      8993,
+      8994,
+      8995,
+      8996,
+      8997,
+      9008,
+      9013,
+      9017,
+      9026,
+      9027,
+      9028,
+      9029,
+      9030,
+      9031,
+      9032,
+      9033,
+      9034,
+      9035,
+      9036,
+      9037,
+      9040,
+      9041,
+      9042,
+      9043,
+      9045,
+      9051,
+      9118,
+      9181,
+      9182,
+      9183,
+      9184,
+      9185,
+      9186,
+      9187,
+      9188,
+      9189,
+      9248,
+      9249,
+      9258,
+      9282,
+      9283,
+      9284,
+      9285,
+      9286,
+      9287,
+      9288,
+      9291,
+      9296,
+      9416,
+      9417,
+      9418,
+      9419,
+      9420,
+      9421,
+      9422,
+      9433,
+      9434,
+      9437,
+      9440,
+      9441,
+      9443,
+      9444,
+      9445,
+      9452,
+      9453,
+      9454,
+      9455,
+      9465,
+      9468,
+      9469,
+      9470,
+      9483,
+      9488,
+      9502,
+      9503,
+      9560,
+      9564,
+      9569,
+      9571,
+      9573,
+      9609,
+      9611,
+      9612,
+      9613,
+      9614,
+      9615,
+      9616,
+      9617,
+      9727,
+      9728,
+      9729,
+      9730,
+      9731,
+      9732,
+      9733,
+      9734,
+      9735,
+      9736,
+      9737,
+      9738,
+      9739,
+      9740,
+      9741,
+      9742,
+      10374,
+      10375,
+      10376,
+      10398,
+      10399,
+      10400,
+      10435,
+      10436,
+      10492,
+      10493,
+      10494,
+      10495,
+      10496,
+      10497,
+      10498,
+      10499,
+      10506,
+      10522,
+      10523,
+      10524,
+      10525,
+      10526,
+      10533,
+      10534,
+      10535,
+      10536,
+      10537,
+      10541,
+      10544,
+      10545,
+      10561,
+      10589,
+      10591,
+      10592,
+      10623,
+      10624,
+      10654,
+      10689,
+      10691,
+      10693,
+      10717,
+      10718,
+      10719,
+      10720,
+      10721,
+      10722,
+      10728,
+      10768,
+      10772,
+      10774,
+      10775,
+      10776,
+      10777,
+      10778,
+      10779,
+      10780,
+      10781,
+      10782,
+      10783,
+      10784,
+      10785,
+      10787,
+      10788,
+      10789,
+      10791,
+      10792,
+      10793,
+      10794,
+      10795,
+      10796,
+      10797,
+      10798,
+      10799,
+      10804,
+      10805,
+      10806,
+      10808,
+      10809,
+      10810,
+      10814,
+      10815,
+      10816,
+      10817,
+      10818,
+      10819,
+      10820,
+      10821,
+      10822,
+      10823,
+      10824,
+      10825,
+      10826,
+      10827,
+      10828,
+      10829,
+      10831,
+      10833,
+      10835,
+      10841,
+      10842,
+      10843,
+      10844,
+      10845,
+      10848,
+      10850,
+      10852,
+      10858,
+      10859,
+      10860,
+      10861,
+      10862,
+      10888,
+      10940,
+      10941,
+      10947,
+      10955,
+      10956,
+      10957,
+      10958,
+      10984,
+      10985,
+      10986,
+      10987,
+      10988,
+      10989,
+      11057,
+      11058,
+      11063,
+      11064,
+      11065,
+      11066,
+      11067,
+      11068,
+      11069,
+      11070,
+      11071,
+      11073,
+      11075,
+      11077,
+      11079,
+      11081,
+      11083,
+      11084,
+      11085,
+      11087,
+      11088,
+      11092,
+      11093,
+      11095,
+      11097,
+      11099,
+      11101,
+      11102,
+      11103,
+      11105,
+      11107,
+      11109,
+      11110,
+      11111,
+      11153,
+      11154,
+      11155,
+      11169,
+      11170,
+      11171,
+      11172,
+      11175,
+      11176,
+      11192,
+      11193,
+      11199,
+      11200,
+      11201,
+      11202,
+      11203,
+      11204,
+      11206,
+      11207,
+      11208,
+      11209,
+      11210,
+      11227,
+      11238,
+      11239,
+      11240,
+      11241,
+      11242,
+      11243,
+      11244,
+      11245,
+      11246,
+      11268,
+      11269,
+      11270,
+      11271,
+      11272,
+      11273,
+      11278,
+      11280,
+      11281,
+      11282,
+      11283,
+      11284,
+      11285,
+      11286,
+      11293,
+      11294,
+      11462,
+      11463,
+      11483,
+      11484,
+      11492,
+      11493,
+      11508,
+      11509,
+      11529,
+      11581,
+      11582,
+      11583,
+      11584,
+      11585,
+      11586,
+      11697,
+      11705,
+      11709,
+      11710,
+      11711,
+      11712,
+      11713,
+      11714,
+      11715,
+      11716,
+      11717,
+      11718,
+      11719,
+      11721,
+      11723,
+      11724,
+      11725,
+      11726,
+      11727,
+      11730,
+      11732,
+      11753,
+      11754,
+      11756,
+      11757,
+      11761,
+      11762,
+      11763,
+      11764,
+      11778,
+      11779,
+      11780,
+      11781,
+      11789,
+      11790,
+      11791,
+      11792,
+      11793,
+      11794,
+      11795,
+      11796,
+      11797,
+      11894,
+      11901,
+      11902,
+      11911,
+      11912,
+      11913,
+      11914,
+      11915,
+      11916,
+      11917,
+      11918,
+      11919,
+      11920,
+      11921,
+      11922,
+      11923,
+      11924,
+      11925,
+      11926,
+      11927,
+      11928,
+      11929,
+      11930,
+      11931,
+      11932,
+      11933,
+      11934,
+      11935,
+      11936,
+      11937,
+      11938,
+      11939,
+      11942,
+      11943,
+      11944,
+      11945,
+      11946,
+      11947,
+      11948,
+      11949,
+      11950,
+      11951,
+      11952,
+      11953,
+      11954,
+      11955,
+      11956,
+      11989,
+      11990,
+      11992,
+      11993,
+      11994,
+      11998,
+      11999,
+      12000,
+      12001,
+      12003,
+      12004,
+      12019,
+      12020,
+      12021,
+      12025,
+      12047,
+      12062,
+      12073,
+      12074,
+      12075,
+      12076,
+      12077,
+      12078,
+      12079,
+      12080,
+      12081,
+      12082,
+      12084,
+      12093,
+      12107,
+      12108,
+      12452,
+      14651,
+      14652,
+      14653,
+      14654
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 0,
+    "description": [
+      "Growthling",
+      "Robert the Strong",
+      "Holthion",
+      "Spindel's Spiderling",
+      "Swamp frog",
+      "Enraged Boar",
+      "Nail beast",
+      "Golem",
+      "Mourner",
+      "Lynx",
+      "Dawn",
+      "Armoured Foe",
+      "Essyllt",
+      "Forester",
+      "Zygomite",
+      "Disciple of Iban",
+      "Paladin",
+      "Reanimated hellhound",
+      "General Khazard",
+      "Thing under the bed",
+      "Arianwyn",
+      "Small Lizard",
+      "Plague frog",
+      "Typhor",
+      "Body Golem",
+      "Baby black dragon",
+      "Hero",
+      "Chicken",
+      "Glacies",
+      "Othainian",
+      "Tribesman",
+      "Vyrewatch",
+      "Third Age Ranger",
+      "Nylocas Athanatos",
+      "Vampyre Juvinate",
+      "Monkey",
+      "Headless Beast",
+      "Cursed Baboon",
+      "Barbarian",
+      "Xarpus",
+      "Well-armed Foe",
+      "Abomination",
+      "Headless Beast (hard)",
+      "Wolf",
+      "Phantom Muspah",
+      "Necromancer",
+      "Verzik Vitur",
+      "Skeleton Hellhound",
+      "Husk",
+      "Bandit",
+      "Barbarian Warlord",
+      "Ogress Warrior",
+      "Fumus",
+      "Soldier Scarab",
+      "Iron dragon",
+      "Tar Monster",
+      "Ghost",
+      "Sir Jerro",
+      "Baboon Thrower",
+      "Elvarg",
+      "Champion of Scabaras",
+      "Crystalline Dragon",
+      "Corrupt Lizardman",
+      "Ranis Drakan",
+      "Market Guard",
+      "Greater Nechryael",
+      "Basilisk",
+      "Phantom Hand",
+      "Baboon Brawler",
+      "Respiratory system",
+      "Ancient Zygomite",
+      "Giant rat",
+      "Blessed spider",
+      "Ancient Guardian",
+      "The Maiden of Sugadinti",
+      "Arcane Scarab",
+      "Elidinis' Warden",
+      "Don't Know What",
+      "Mutated Bloodveld",
+      "Blue dragon",
+      "Guard",
+      "Shaeded Beast",
+      "Calvar'ion",
+      "Venenatis' Spiderling",
+      "Dust devil",
+      "Ice spider",
+      "Hill Giant",
+      "Swamp Crab",
+      "Tribeswoman",
+      "Giant frog",
+      "Third Age Warrior",
+      "Umbra",
+      "Black Knight",
+      "Gnome guard",
+      "Spitting Scarab",
+      "Archer",
+      "Sand Snake (hard)",
+      "The Nightmare",
+      "Bird",
+      "Assassin",
+      "Head Guard",
+      "Sir Carl",
+      "Crystalline Unicorn",
+      "Lava beast",
+      "Sir Harry",
+      "Death wing",
+      "Infernal pyrelord",
+      "Mithril dragon",
+      "Crystalline Spider",
+      "Menaphite Akh",
+      "Skeleton",
+      "Nylocas Matomenos",
+      "Sleepwalker",
+      "Black dragon",
+      "Blood spawn",
+      "White Knight",
+      "Parasite",
+      "Greater Skeleton Hellhound",
+      "Dusk",
+      "Dark warrior",
+      "Third Age Mage",
+      "Yt-HurKot",
+      "Monk of Zamorak",
+      "Tumeken's Warden",
+      "Nylocas Ischyros",
+      "Spider",
+      "Red dragon",
+      "Monstrous Basilisk",
+      "Rooster",
+      "Chaos druid warrior",
+      "Strange Creature",
+      "Acidic Bloodveld",
+      "Temple Spider",
+      "Strongbones",
+      "Crystalline Dark Beast",
+      "Ithoi the Navigator",
+      "Scarab Swarm",
+      "Brutal green dragon",
+      "Kephri",
+      "Vampyre Juvenile",
+      "Seagull",
+      "Trapped Soul",
+      "Menaphite Shadow",
+      "Spawn of Sarachnis",
+      "Kalrag",
+      "Chaos Golem",
+      "Shadow Wyrm",
+      "JalTok-Jad",
+      "Akkha's Shadow",
+      "Crystalline Bear",
+      "Sourhog",
+      "Sergeant",
+      "Revenant maledictus",
+      "Dwarf",
+      "Steel dragon",
+      "Man",
+      "Lynx Tamer",
+      "Boar",
+      "Basilisk Sentinel",
+      "Ba-Ba",
+      "Corrupted Hunllef",
+      "Green dragon",
+      "Rabbit",
+      "Blood Reaver",
+      "Poison spider",
+      "Mind Golem",
+      "Soldier",
+      "Alomone",
+      "Mother",
+      "Hoop Snake",
+      "Witch",
+      "Head Menaphite Guard",
+      "Artio",
+      "Warrior",
+      "Corrupt Lizardman (hard)",
+      "Jungle horror",
+      "Thief",
+      "Bryophyta",
+      "Sand Snake",
+      "Snailfeet",
+      "Snothead",
+      "Nylocas Vasilias",
+      "Scarab Mage",
+      "Shipyard worker",
+      "Evelot",
+      "Volatile Baboon",
+      "Corrupted Wolf",
+      "Agile Scarab",
+      "Baboon Shaman",
+      "Farmer",
+      "Damien Leucurte",
+      "The Jormungand",
+      "Doomion",
+      "Nex",
+      "Nylocas Toxobolos",
+      "Lizardman",
+      "Soulless",
+      "Locust",
+      "Baboon Thrall",
+      "Nylocas Prinkipas",
+      "Kroy",
+      "Desert Lizard",
+      "Forgotten Soul",
+      "Phosani's Nightmare",
+      "Redeyes",
+      "Woman",
+      "Lobstrosity",
+      "Spawn",
+      "Grizzly bear",
+      "Giant mosquito",
+      "Iorwerth Warrior",
+      "Mosschin",
+      "Zombie",
+      "Jackal",
+      "Ogress Shaman",
+      "Dire Wolf",
+      "The Mimic",
+      "Knight of Ardougne",
+      "Abyssal demon",
+      "Vorkath",
+      "Basilisk Youngling",
+      "Scarab",
+      "Zebak",
+      "Corrupted Unicorn",
+      "Awakened Altar",
+      "Corrupted Bat",
+      "Guardian Drake",
+      "Xamphur",
+      "Baboon Mage",
+      "Cruor",
+      "Hespori",
+      "Khazard Guard",
+      "Urium Shade",
+      "Corrupted Rat",
+      "Brutal red dragon",
+      "Spindel",
+      "Crocodile",
+      "Akkha",
+      "Crystalline Bat",
+      "Undead Zealot",
+      "Tormented Soul",
+      "Skoblin",
+      "Flower",
+      "Snake",
+      "Lizardman brute",
+      "Vanstrom Klause",
+      "Crystalline Scorpion",
+      "Crystalline Wolf",
+      "Iorwerth Archer",
+      "Stone Guardian",
+      "Crystalline Rat",
+      "Baboon",
+      "Corrupted Spider",
+      "Bat",
+      "Nylocas Hagios",
+      "Jelly",
+      "Zombified Spawn"
+    ]
+  },
+  {
+    "ids": [
+      1738
+    ],
+    "attackAnim": 3896,
+    "defenceAnim": 3897,
+    "deathAnim": 3894,
+    "description": [
+      "Brawler"
+    ]
+  },
+  {
+    "ids": [
+      4186
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2013,
+    "description": []
+  },
+  {
+    "ids": [
+      6075,
+      6076
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 3962,
+    "description": [
+      "Tortoise"
+    ]
+  },
+  {
+    "ids": [
+      5889,
+      5890,
+      5891,
+      5908
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 7100,
+    "description": [
+      "Abyssal Sire"
+    ]
+  },
+  {
+    "ids": [
+      7700,
+      7704
+    ],
+    "attackAnim": 7590,
+    "defenceAnim": -1,
+    "deathAnim": 7594,
+    "description": [
+      "JalTok-Jad"
+    ]
+  },
+  {
+    "ids": [
+      4594
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2707,
+    "description": [
+      "Rat"
+    ]
+  },
+  {
+    "ids": [
+      437,
+      438,
+      439,
+      440,
+      441,
+      442,
+      7277,
+      7399,
+      7400
+    ],
+    "attackAnim": 1586,
+    "defenceAnim": 1585,
+    "deathAnim": 1587,
+    "description": [
+      "Vitreous warped Jelly",
+      "Vitreous Jelly",
+      "Warped Jelly",
+      "Jelly"
+    ]
+  },
+  {
+    "ids": [
+      6506
+    ],
+    "attackAnim": 2655,
+    "defenceAnim": -1,
+    "deathAnim": 2654,
+    "description": [
+      "TzTok-Jad"
+    ]
+  },
+  {
+    "ids": [
+      4303,
+      6500
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 6242,
+    "description": [
+      "Kalphite Queen"
+    ]
+  },
+  {
+    "ids": [
+      2214,
+      4276,
+      4277,
+      4278,
+      4279
+    ],
+    "attackAnim": 401,
+    "defenceAnim": 403,
+    "deathAnim": 836,
+    "description": [
+      "Knight of Saradomin",
+      "Jail guard"
+    ]
+  },
+  {
+    "ids": [
+      1741,
+      1742
+    ],
+    "attackAnim": 3931,
+    "defenceAnim": 3936,
+    "deathAnim": 3930,
+    "description": [
+      "Portal"
+    ]
+  },
+  {
+    "ids": [
+      9,
+      21,
+      120,
+      121,
+      122,
+      123,
+      124,
+      128,
+      129,
+      222,
+      224,
+      226,
+      228,
+      230,
+      312,
+      318,
+      320,
+      384,
+      385,
+      388,
+      413,
+      471,
+      476,
+      479,
+      490,
+      539,
+      542,
+      543,
+      544,
+      545,
+      553,
+      554,
+      555,
+      556,
+      636,
+      642,
+      644,
+      698,
+      716,
+      718,
+      719,
+      734,
+      735,
+      739,
+      743,
+      744,
+      745,
+      746,
+      747,
+      748,
+      749,
+      761,
+      764,
+      798,
+      817,
+      818,
+      843,
+      865,
+      866,
+      867,
+      868,
+      869,
+      870,
+      871,
+      873,
+      874,
+      875,
+      876,
+      877,
+      878,
+      879,
+      882,
+      883,
+      884,
+      913,
+      914,
+      915,
+      916,
+      919,
+      920,
+      945,
+      976,
+      977,
+      978,
+      980,
+      981,
+      982,
+      990,
+      998,
+      999,
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1020,
+      1021,
+      1022,
+      1057,
+      1058,
+      1059,
+      1099,
+      1100,
+      1111,
+      1112,
+      1113,
+      1121,
+      1122,
+      1123,
+      1124,
+      1125,
+      1138,
+      1147,
+      1151,
+      1153,
+      1159,
+      1160,
+      1171,
+      1180,
+      1194,
+      1196,
+      1200,
+      1205,
+      1212,
+      1225,
+      1236,
+      1242,
+      1245,
+      1248,
+      1251,
+      1254,
+      1265,
+      1327,
+      1360,
+      1364,
+      1371,
+      1372,
+      1394,
+      1398,
+      1399,
+      1425,
+      1427,
+      1430,
+      1433,
+      1449,
+      1450,
+      1451,
+      1452,
+      1455,
+      1456,
+      1457,
+      1458,
+      1459,
+      1463,
+      1464,
+      1465,
+      1466,
+      1467,
+      1468,
+      1469,
+      1475,
+      1476,
+      1551,
+      1552,
+      1553,
+      1554,
+      1555,
+      1603,
+      1604,
+      1667,
+      1668,
+      1669,
+      1670,
+      1763,
+      1785,
+      1786,
+      1787,
+      1825,
+      1826,
+      1830,
+      1858,
+      1859,
+      1868,
+      1889,
+      1890,
+      1891,
+      1892,
+      1923,
+      1924,
+      1925,
+      1926,
+      1946,
+      1947,
+      1948,
+      1949,
+      1950,
+      1965,
+      1966,
+      1967,
+      1969,
+      1970,
+      1971,
+      1972,
+      1975,
+      1976,
+      1977,
+      1978,
+      1984,
+      1985,
+      1986,
+      1987,
+      1988,
+      1994,
+      1995,
+      1996,
+      2003,
+      2004,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2047,
+      2061,
+      2104,
+      2105,
+      2106,
+      2107,
+      2109,
+      2127,
+      2128,
+      2129,
+      2130,
+      2131,
+      2132,
+      2186,
+      2187,
+      2188,
+      2232,
+      2233,
+      2316,
+      2317,
+      2417,
+      2418,
+      2432,
+      2449,
+      2493,
+      2494,
+      2495,
+      2496,
+      2497,
+      2642,
+      2659,
+      2660,
+      2661,
+      2662,
+      2690,
+      2706,
+      2816,
+      2818,
+      2828,
+      2832,
+      2907,
+      2908,
+      2909,
+      2934,
+      2935,
+      2936,
+      2937,
+      2938,
+      2939,
+      2940,
+      2941,
+      2942,
+      2943,
+      2944,
+      2945,
+      2964,
+      2965,
+      2966,
+      2967,
+      2968,
+      2969,
+      2970,
+      2971,
+      2973,
+      2979,
+      3008,
+      3009,
+      3089,
+      3090,
+      3091,
+      3103,
+      3186,
+      3187,
+      3188,
+      3202,
+      3228,
+      3229,
+      3230,
+      3232,
+      3235,
+      3236,
+      3238,
+      3290,
+      3307,
+      3363,
+      3365,
+      3366,
+      3367,
+      3368,
+      3399,
+      3400,
+      3431,
+      3435,
+      3436,
+      3444,
+      3462,
+      3463,
+      3464,
+      3478,
+      3510,
+      3516,
+      3519,
+      3520,
+      3521,
+      3522,
+      3523,
+      3524,
+      3525,
+      3526,
+      3545,
+      3549,
+      3552,
+      3553,
+      3554,
+      3555,
+      3556,
+      3557,
+      3558,
+      3559,
+      3560,
+      3564,
+      3584,
+      3617,
+      3650,
+      3669,
+      3672,
+      3690,
+      3691,
+      3692,
+      3693,
+      3694,
+      3695,
+      3696,
+      3697,
+      3698,
+      3699,
+      3700,
+      3709,
+      3710,
+      3711,
+      3712,
+      3713,
+      3714,
+      3715,
+      3716,
+      3717,
+      3718,
+      3719,
+      3720,
+      3721,
+      3722,
+      3723,
+      3724,
+      3725,
+      3726,
+      3727,
+      3728,
+      3729,
+      3730,
+      3731,
+      3732,
+      3733,
+      3734,
+      3735,
+      3736,
+      3737,
+      3738,
+      3739,
+      3748,
+      3749,
+      3750,
+      3751,
+      3752,
+      3753,
+      3754,
+      3755,
+      3756,
+      3757,
+      3758,
+      3759,
+      3760,
+      3761,
+      3762,
+      3763,
+      3764,
+      3765,
+      3766,
+      3767,
+      3768,
+      3769,
+      3770,
+      3771,
+      3853,
+      3928,
+      3929,
+      3941,
+      3945,
+      3946,
+      3968,
+      3990,
+      3991,
+      3992,
+      3993,
+      4000,
+      4006,
+      4023,
+      4024,
+      4025,
+      4026,
+      4027,
+      4028,
+      4029,
+      4030,
+      4031,
+      4032,
+      4033,
+      4034,
+      4035,
+      4036,
+      4037,
+      4038,
+      4039,
+      4040,
+      4041,
+      4042,
+      4076,
+      4148,
+      4149,
+      4150,
+      4151,
+      4152,
+      4153,
+      4154,
+      4155,
+      4156,
+      4177,
+      4218,
+      4259,
+      4260,
+      4261,
+      4268,
+      4269,
+      4270,
+      4271,
+      4272,
+      4273,
+      4285,
+      4297,
+      4300,
+      4312,
+      4313,
+      4315,
+      4318,
+      4321,
+      4327,
+      4328,
+      4332,
+      4335,
+      4336,
+      4339,
+      4341,
+      4342,
+      4343,
+      4344,
+      4345,
+      4346,
+      4347,
+      4348,
+      4349,
+      4350,
+      4351,
+      4352,
+      4362,
+      4363,
+      4367,
+      4373,
+      4381,
+      4382,
+      4383,
+      4384,
+      4385,
+      4386,
+      4387,
+      4388,
+      4389,
+      4390,
+      4391,
+      4392,
+      4393,
+      4394,
+      4395,
+      4396,
+      4398,
+      4399,
+      4400,
+      4415,
+      4418,
+      4419,
+      4420,
+      4421,
+      4432,
+      4433,
+      4434,
+      4439,
+      4479,
+      4481,
+      4482,
+      4483,
+      4485,
+      4505,
+      4507,
+      4511,
+      4512,
+      4515,
+      4516,
+      4517,
+      4518,
+      4519,
+      4520,
+      4521,
+      4548,
+      4562,
+      4563,
+      4566,
+      4567,
+      4569,
+      4570,
+      4571,
+      4593,
+      4610,
+      4611,
+      4612,
+      4613,
+      4614,
+      4615,
+      4616,
+      4617,
+      4618,
+      4709,
+      4728,
+      4729,
+      4730,
+      4731,
+      4732,
+      4763,
+      4764,
+      4765,
+      4770,
+      4798,
+      4815,
+      4849,
+      4856,
+      4857,
+      4864,
+      4872,
+      4873,
+      4874,
+      4875,
+      4876,
+      4877,
+      4879,
+      4880,
+      4883,
+      4902,
+      4903,
+      4904,
+      4905,
+      4906,
+      4930,
+      4933,
+      4934,
+      4939,
+      4940,
+      4941,
+      4942,
+      4943,
+      4944,
+      4945,
+      4946,
+      4947,
+      4948,
+      4949,
+      4950,
+      4951,
+      4952,
+      4953,
+      4954,
+      4955,
+      4956,
+      4957,
+      4958,
+      4960,
+      4971,
+      5005,
+      5055,
+      5056,
+      5058,
+      5059,
+      5060,
+      5064,
+      5065,
+      5080,
+      5092,
+      5121,
+      5124,
+      5127,
+      5128,
+      5139,
+      5140,
+      5152,
+      5153,
+      5154,
+      5161,
+      5162,
+      5170,
+      5171,
+      5172,
+      5173,
+      5174,
+      5175,
+      5183,
+      5215,
+      5227,
+      5239,
+      5244,
+      5257,
+      5279,
+      5280,
+      5312,
+      5322,
+      5323,
+      5329,
+      5368,
+      5376,
+      5377,
+      5425,
+      5429,
+      5430,
+      5431,
+      5432,
+      5442,
+      5446,
+      5457,
+      5490,
+      5494,
+      5495,
+      5496,
+      5508,
+      5509,
+      5512,
+      5546,
+      5563,
+      5564,
+      5565,
+      5566,
+      5618,
+      5622,
+      5623,
+      5624,
+      5637,
+      5638,
+      5639,
+      5664,
+      5726,
+      5727,
+      5728,
+      5748,
+      5749,
+      5750,
+      5751,
+      5752,
+      5753,
+      5754,
+      5755,
+      5756,
+      5766,
+      5767,
+      5768,
+      5769,
+      5770,
+      5771,
+      5772,
+      5773,
+      5774,
+      5791,
+      5833,
+      5849,
+      5850,
+      5851,
+      5852,
+      5859,
+      5865,
+      5867,
+      5868,
+      5869,
+      5909,
+      5910,
+      5911,
+      5912,
+      5913,
+      5928,
+      5936,
+      5977,
+      6104,
+      6105,
+      6106,
+      6107,
+      6108,
+      6109,
+      6110,
+      6111,
+      6112,
+      6113,
+      6114,
+      6115,
+      6116,
+      6117,
+      6122,
+      6123,
+      6138,
+      6139,
+      6140,
+      6141,
+      6142,
+      6143,
+      6144,
+      6147,
+      6148,
+      6149,
+      6150,
+      6151,
+      6152,
+      6153,
+      6162,
+      6164,
+      6165,
+      6166,
+      6167,
+      6168,
+      6169,
+      6170,
+      6171,
+      6172,
+      6173,
+      6174,
+      6175,
+      6176,
+      6177,
+      6179,
+      6180,
+      6181,
+      6182,
+      6183,
+      6184,
+      6185,
+      6187,
+      6188,
+      6189,
+      6190,
+      6191,
+      6192,
+      6193,
+      6194,
+      6195,
+      6196,
+      6197,
+      6198,
+      6199,
+      6200,
+      6201,
+      6202,
+      6203,
+      6206,
+      6207,
+      6208,
+      6209,
+      6210,
+      6211,
+      6212,
+      6213,
+      6214,
+      6215,
+      6216,
+      6217,
+      6218,
+      6219,
+      6220,
+      6221,
+      6222,
+      6223,
+      6224,
+      6225,
+      6226,
+      6227,
+      6228,
+      6229,
+      6235,
+      6236,
+      6237,
+      6238,
+      6239,
+      6240,
+      6241,
+      6242,
+      6243,
+      6244,
+      6245,
+      6246,
+      6247,
+      6248,
+      6249,
+      6250,
+      6251,
+      6252,
+      6253,
+      6254,
+      6255,
+      6259,
+      6260,
+      6261,
+      6262,
+      6263,
+      6264,
+      6269,
+      6270,
+      6277,
+      6278,
+      6279,
+      6280,
+      6281,
+      6282,
+      6283,
+      6284,
+      6286,
+      6288,
+      6289,
+      6290,
+      6308,
+      6311,
+      6369,
+      6372,
+      6405,
+      6408,
+      6410,
+      6412,
+      6434,
+      6435,
+      6436,
+      6437,
+      6475,
+      6481,
+      6483,
+      6486,
+      6507,
+      6508,
+      6511,
+      6520,
+      6521,
+      6522,
+      6523,
+      6528,
+      6529,
+      6534,
+      6535,
+      6537,
+      6548,
+      6549,
+      6550,
+      6551,
+      6552,
+      6553,
+      6554,
+      6555,
+      6556,
+      6557,
+      6558,
+      6559,
+      6560,
+      6561,
+      6563,
+      6573,
+      6574,
+      6575,
+      6576,
+      6577,
+      6578,
+      6579,
+      6580,
+      6581,
+      6582,
+      6583,
+      6595,
+      6639,
+      6640,
+      6655,
+      6656,
+      6698,
+      6699,
+      6700,
+      6701,
+      6702,
+      6704,
+      6705,
+      6706,
+      6707,
+      6708,
+      6709,
+      6710,
+      6711,
+      6712,
+      6713,
+      6714,
+      6760,
+      6761,
+      6762,
+      6763,
+      6764,
+      6768,
+      6776,
+      6792,
+      6794,
+      6795,
+      6804,
+      6807,
+      6808,
+      6809,
+      6810,
+      6811,
+      6910,
+      6947,
+      6948,
+      6949,
+      6950,
+      6951,
+      6952,
+      6959,
+      6960,
+      6961,
+      6997,
+      6998,
+      7064,
+      7065,
+      7066,
+      7067,
+      7096,
+      7098,
+      7099,
+      7100,
+      7103,
+      7104,
+      7105,
+      7106,
+      7108,
+      7109,
+      7110,
+      7115,
+      7122,
+      7123,
+      7124,
+      7125,
+      7126,
+      7127,
+      7128,
+      7129,
+      7130,
+      7131,
+      7132,
+      7133,
+      7134,
+      7135,
+      7136,
+      7137,
+      7138,
+      7139,
+      7140,
+      7141,
+      7142,
+      7143,
+      7175,
+      7179,
+      7180,
+      7207,
+      7212,
+      7213,
+      7214,
+      7215,
+      7216,
+      7235,
+      7281,
+      7282,
+      7329,
+      7373,
+      7428,
+      7429,
+      7430,
+      7431,
+      7432,
+      7433,
+      7434,
+      7435,
+      7436,
+      7437,
+      7438,
+      7473,
+      7477,
+      7515,
+      7518,
+      7551,
+      7553,
+      7554,
+      7555,
+      7556,
+      7557,
+      7575,
+      7586,
+      7634,
+      7639,
+      7709,
+      7712,
+      7713,
+      7714,
+      7715,
+      7721,
+      7735
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": -1,
+    "description": [
+      "Dessourt",
+      "Khazard Ogre",
+      "Vampyre Juvinate",
+      "Agrith-Na-Na",
+      "Gargoyle",
+      "Menaphite Thug",
+      "Agrith-Na-Na (hard)",
+      "Zogre",
+      "Angry barbarian spirit",
+      "Ogre",
+      "Great Olm (Right claw)",
+      "Chompy bird",
+      "Cave goblin",
+      "Slash Bash",
+      "Gorad",
+      "Ghost guard",
+      "Dessourt (hard)",
+      "Great Olm",
+      "Dark energy core",
+      "Urium Shadow",
+      "Ogre shaman",
+      "Guard",
+      "Vampyre Juvenile",
+      "Sea Troll Queen",
+      "Wall beast",
+      "Ogre chieftain",
+      "Great Olm (Left claw)",
+      "Snake",
+      "Enraged barbarian spirit",
+      "Vanstrom Klause",
+      "Berserk barbarian spirit",
+      "Bandit",
+      "Pyrelord",
+      "Prifddinas guard",
+      "Shipyard worker",
+      "City guard",
+      "Mouse",
+      "Keef",
+      "Skogre",
+      "Ferocious barbarian spirit",
+      "Enclave guard",
+      "Ram",
+      "Vyrewatch",
+      "Gnome guard"
+    ]
+  },
+  {
+    "ids": [
+      9446,
+      9447,
+      9448,
+      9449,
+      9450,
+      9451
+    ],
+    "attackAnim": 1077,
+    "defenceAnim": 0,
+    "deathAnim": 836,
+    "description": [
+      "Sleepwalker"
+    ]
+  },
+  {
+    "ids": [
+      4797
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 4822,
+    "description": [
+      "Slug Prince"
+    ]
+  },
+  {
+    "ids": [
+      8360,
+      8361,
+      8362,
+      8363,
+      8364,
+      8365,
+      8367
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 8094,
+    "description": [
+      "The Maiden of Sugadinti",
+      "Blood spawn"
+    ]
+  },
+  {
+    "ids": [
+      4308,
+      4309,
+      4310,
+      4311
+    ],
+    "attackAnim": 3991,
+    "defenceAnim": 3992,
+    "deathAnim": 3988,
+    "description": [
+      "Sea troll"
+    ]
+  },
+  {
+    "ids": [
+      106,
+      2490,
+      2491,
+      3912
+    ],
+    "attackAnim": 6568,
+    "defenceAnim": 6569,
+    "deathAnim": 6567,
+    "description": [
+      "Wolf"
+    ]
+  },
+  {
+    "ids": [
+      3600
+    ],
+    "attackAnim": 5842,
+    "defenceAnim": 5843,
+    "deathAnim": 5841,
+    "description": [
+      "Frogeel"
+    ]
+  },
+  {
+    "ids": [
+      880
+    ],
+    "attackAnim": 299,
+    "defenceAnim": 300,
+    "deathAnim": 302,
+    "description": [
+      "Zombie"
+    ]
+  },
+  {
+    "ids": [
+      9424,
+      9425,
+      9426,
+      9427,
+      9428,
+      9429,
+      9430,
+      9431,
+      9432
+    ],
+    "attackAnim": 8595,
+    "defenceAnim": 0,
+    "deathAnim": 8612,
+    "description": [
+      "The Nightmare"
+    ]
+  },
+  {
+    "ids": [
+      247,
+      248,
+      249,
+      250,
+      251,
+      816,
+      6349
+    ],
+    "attackAnim": 80,
+    "defenceAnim": -1,
+    "deathAnim": -1,
+    "description": [
+      "Elvarg",
+      "Red dragon"
+    ]
+  },
+  {
+    "ids": [
+      4820,
+      4821
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 3435,
+    "description": [
+      "Mudskipper"
+    ]
+  },
+  {
+    "ids": [
+      433,
+      434,
+      435,
+      436,
+      2916,
+      2917,
+      3139,
+      3140,
+      4813,
+      7394,
+      7932
+    ],
+    "attackAnim": 1582,
+    "defenceAnim": 1581,
+    "deathAnim": 1580,
+    "description": [
+      "Pyrefiend",
+      "Flaming pyrelord",
+      "Revenant pyrefiend",
+      "Waterfiend",
+      "Icefiend"
+    ]
+  },
+  {
+    "ids": [
+      7708
+    ],
+    "attackAnim": 2868,
+    "defenceAnim": 2863,
+    "deathAnim": 2865,
+    "description": [
+      "Jal-MejJak"
+    ]
+  },
+  {
+    "ids": [
+      484,
+      485,
+      486,
+      487,
+      3138,
+      7032,
+      7034,
+      7276,
+      7397,
+      7398
+    ],
+    "attackAnim": 1552,
+    "defenceAnim": 1550,
+    "deathAnim": 1553,
+    "description": [
+      "Reanimated kalphite",
+      "Insatiable mutated Bloodveld",
+      "Mutated Bloodveld",
+      "Bloodveld",
+      "Reanimated bloodveld",
+      "Insatiable Bloodveld"
+    ]
+  },
+  {
+    "ids": [
+      563,
+      564,
+      565,
+      566,
+      567,
+      568,
+      569,
+      570,
+      613,
+      617,
+      618,
+      619,
+      620,
+      623,
+      624
+    ],
+    "attackAnim": 5647,
+    "defenceAnim": 5648,
+    "deathAnim": 5649,
+    "description": [
+      "Zombie swab",
+      "Zombie pirate"
+    ]
+  },
+  {
+    "ids": [
+      8374
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 8128,
+    "description": [
+      "Verzik Vitur"
+    ]
+  },
+  {
+    "ids": [
+      412,
+      1543
+    ],
+    "attackAnim": 1519,
+    "defenceAnim": 1517,
+    "deathAnim": 1520,
+    "description": [
+      "Gargoyle"
+    ]
+  },
+  {
+    "ids": [
+      5946,
+      5947,
+      5948,
+      5961,
+      5962,
+      5963
+    ],
+    "attackAnim": 2868,
+    "defenceAnim": 2869,
+    "deathAnim": 2865,
+    "description": [
+      "Spinolyp"
+    ]
+  },
+  {
+    "ids": [
+      694,
+      6605
+    ],
+    "attackAnim": 417,
+    "defenceAnim": 424,
+    "deathAnim": 836,
+    "description": [
+      "Bandit"
+    ]
+  },
+  {
+    "ids": [
+      1362,
+      4881,
+      6309,
+      6324,
+      6370,
+      6385
+    ],
+    "attackAnim": 1750,
+    "defenceAnim": 1751,
+    "deathAnim": 1752,
+    "description": [
+      "Slagilith",
+      "Flambeed",
+      "Flambeed (hard)",
+      "Slagilith (hard)"
+    ]
+  },
+  {
+    "ids": [
+      1685,
+      1686,
+      1687,
+      1688,
+      2520,
+      2523,
+      2524,
+      2525,
+      2526,
+      3964,
+      3965,
+      5343,
+      5345,
+      6442,
+      6443,
+      6444,
+      6445,
+      6446,
+      6468
+    ],
+    "attackAnim": 5485,
+    "defenceAnim": 5482,
+    "deathAnim": 5491,
+    "description": [
+      "San Tojalon",
+      "Skeleton",
+      "Irvig Senay",
+      "Undead one"
+    ]
+  },
+  {
+    "ids": [
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      130,
+      3565,
+      3966,
+      3972,
+      3973,
+      3974,
+      7265,
+      8300,
+      8301,
+      8302
+    ],
+    "attackAnim": 5485,
+    "defenceAnim": 5489,
+    "deathAnim": 5491,
+    "description": [
+      "Skeleton",
+      "Ranalph Devere",
+      "Vyrewatch"
+    ]
+  },
+  {
+    "ids": [
+      3612,
+      7268
+    ],
+    "attackAnim": 190,
+    "defenceAnim": 182,
+    "deathAnim": 185,
+    "description": [
+      "Possessed pickaxe"
+    ]
+  },
+  {
+    "ids": [
+      2205,
+      6493
+    ],
+    "attackAnim": 6967,
+    "defenceAnim": 6969,
+    "deathAnim": 6968,
+    "description": [
+      "Commander Zilyana"
+    ]
+  },
+  {
+    "ids": [
+      729,
+      1782,
+      4192
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1950,
+    "description": [
+      "Scarabs",
+      "Scarab Swarm"
+    ]
+  },
+  {
+    "ids": [
+      1
+    ],
+    "attackAnim": 6012,
+    "defenceAnim": 6013,
+    "deathAnim": 6014,
+    "description": [
+      "Molanisk"
+    ]
+  },
+  {
+    "ids": [
+      290,
+      291,
+      292,
+      293,
+      294,
+      295,
+      296,
+      1354,
+      1355,
+      1356,
+      1401,
+      1402,
+      1403,
+      1404,
+      1405,
+      1406,
+      1407,
+      1408,
+      1409,
+      1410,
+      1411,
+      1412,
+      2423,
+      5185,
+      5186,
+      5187,
+      6046,
+      6047,
+      6048,
+      6049,
+      6050,
+      6051,
+      6052
+    ],
+    "attackAnim": 99,
+    "defenceAnim": 100,
+    "deathAnim": 102,
+    "description": [
+      "Black Guard Berserker",
+      "Chaos dwarf",
+      "Dwarf gang member",
+      "Dwarf",
+      "Guard",
+      "Black Guard"
+    ]
+  },
+  {
+    "ids": [
+      3329
+    ],
+    "attackAnim": 6375,
+    "defenceAnim": 6373,
+    "deathAnim": 6377,
+    "description": [
+      "Giant Champion"
+    ]
+  },
+  {
+    "ids": [
+      1061,
+      1845,
+      2849,
+      3910,
+      3911,
+      4688
+    ],
+    "attackAnim": 6375,
+    "defenceAnim": 6376,
+    "deathAnim": 6377,
+    "description": [
+      "Stag",
+      "Unicorn Foal",
+      "Black unicorn Foal",
+      "Black unicorn",
+      "Angry unicorn"
+    ]
+  },
+  {
+    "ids": [
+      8340
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 8063,
+    "description": [
+      "Xarpus"
+    ]
+  },
+  {
+    "ids": [
+      5336,
+      5337,
+      5338,
+      5339
+    ],
+    "attackAnim": 6012,
+    "defenceAnim": 6006,
+    "deathAnim": 6014,
+    "description": [
+      "Cave goblin miner"
+    ]
+  },
+  {
+    "ids": [
+      5330,
+      5331,
+      5332,
+      5333,
+      5334,
+      5335
+    ],
+    "attackAnim": 6012,
+    "defenceAnim": 6007,
+    "deathAnim": 6014,
+    "description": [
+      "Cave goblin miner",
+      "Cave goblin guard"
+    ]
+  },
+  {
+    "ids": [
+      3443
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 6476,
+    "description": [
+      "Lucien"
+    ]
+  },
+  {
+    "ids": [
+      134,
+      626,
+      1607,
+      3021,
+      4554,
+      6504,
+      6610
+    ],
+    "attackAnim": 5319,
+    "defenceAnim": 5320,
+    "deathAnim": 5321,
+    "description": [
+      "Venenatis",
+      "Huge spider",
+      "Kolodion",
+      "Fever spider",
+      "Deadly red spider"
+    ]
+  },
+  {
+    "ids": [
+      1224,
+      3508,
+      3509,
+      6293,
+      6355
+    ],
+    "attackAnim": 6581,
+    "defenceAnim": -1,
+    "deathAnim": -1,
+    "description": [
+      "Bouncer",
+      "Bouncer (hard)"
+    ]
+  },
+  {
+    "ids": [
+      7526
+    ],
+    "attackAnim": 7431,
+    "defenceAnim": 7433,
+    "deathAnim": 7432,
+    "description": [
+      "Vanguard"
+    ]
+  },
+  {
+    "ids": [
+      6323,
+      6384
+    ],
+    "attackAnim": 5023,
+    "defenceAnim": 5024,
+    "deathAnim": 5027,
+    "description": [
+      "Giant Roc",
+      "Giant Roc (hard)"
+    ]
+  },
+  {
+    "ids": [
+      7545
+    ],
+    "attackAnim": 7474,
+    "defenceAnim": -1,
+    "deathAnim": 7495,
+    "description": [
+      "Tekton"
+    ]
+  },
+  {
+    "ids": [
+      7697
+    ],
+    "attackAnim": 7597,
+    "defenceAnim": 7598,
+    "deathAnim": 7599,
+    "description": [
+      "Jal-ImKot"
+    ]
+  },
+  {
+    "ids": [
+      8366
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 8097,
+    "description": [
+      "Nylocas Matomenos"
+    ]
+  },
+  {
+    "ids": [
+      625
+    ],
+    "attackAnim": 2804,
+    "defenceAnim": 2806,
+    "deathAnim": 2805,
+    "description": [
+      "Evil spirit"
+    ]
+  },
+  {
+    "ids": [
+      132,
+      2241,
+      3049,
+      3050,
+      3286,
+      3287,
+      3288,
+      3289,
+      4805,
+      7933
+    ],
+    "attackAnim": 164,
+    "defenceAnim": 165,
+    "deathAnim": 167,
+    "description": [
+      "Hobgoblin",
+      "Revenant hobgoblin"
+    ]
+  },
+  {
+    "ids": [
+      1749,
+      1750
+    ],
+    "attackAnim": 3931,
+    "defenceAnim": -1,
+    "deathAnim": 3930,
+    "description": [
+      "Portal"
+    ]
+  },
+  {
+    "ids": [
+      1689,
+      1690,
+      1691,
+      1692,
+      1693
+    ],
+    "attackAnim": 3891,
+    "defenceAnim": 3890,
+    "deathAnim": 3888,
+    "description": [
+      "Splatter"
+    ]
+  },
+  {
+    "ids": [
+      5916,
+      5917
+    ],
+    "attackAnim": 4522,
+    "defenceAnim": 4523,
+    "deathAnim": 4521,
+    "description": [
+      "Spawn"
+    ]
+  },
+  {
+    "ids": [
+      1274
+    ],
+    "attackAnim": 1616,
+    "defenceAnim": 1617,
+    "deathAnim": 1618,
+    "description": [
+      "Experiment"
+    ]
+  },
+  {
+    "ids": [
+      2584
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2183,
+    "description": [
+      "Abyssal leech"
+    ]
+  },
+  {
+    "ids": [
+      3358
+    ],
+    "attackAnim": 5512,
+    "defenceAnim": 5513,
+    "deathAnim": 5510,
+    "description": [
+      "Skeleton Champion"
+    ]
+  },
+  {
+    "ids": [
+      15088,
+      15089,
+      15090,
+      15091,
+      15092,
+      15093
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 4167,
+    "description": []
+  },
+  {
+    "ids": [
+      142,
+      240,
+      1432,
+      1443,
+      1609,
+      2005,
+      2006,
+      2007,
+      2008,
+      2018,
+      2025,
+      2026,
+      2027,
+      2028,
+      2029,
+      2030,
+      2031,
+      2032,
+      2048,
+      2049,
+      2050,
+      2051,
+      2052,
+      3962,
+      3982,
+      4555,
+      4556,
+      4557,
+      4987,
+      5079,
+      5874,
+      5875,
+      5876,
+      5877,
+      6292,
+      6295,
+      6318,
+      6321,
+      6354,
+      6357,
+      6379,
+      6382,
+      7036,
+      7242,
+      7243,
+      7244,
+      7245,
+      7246,
+      7247,
+      7248,
+      7287,
+      7656,
+      7657,
+      7664,
+      7865,
+      7866,
+      7867,
+      7871,
+      7872,
+      7873,
+      7874,
+      7875,
+      7876,
+      7936
+    ],
+    "attackAnim": 64,
+    "defenceAnim": 65,
+    "deathAnim": 67,
+    "description": [
+      "Chronozon (hard)",
+      "Chronozon",
+      "Reanimated demon",
+      "Demon",
+      "Nezikchened",
+      "Reanimated demon spawn",
+      "Kolodion",
+      "Greater demon",
+      "Lesser demon",
+      "Black demon",
+      "Revenant demon",
+      "Jungle Demon (hard)",
+      "Black demon (hard)",
+      "Jungle Demon",
+      "Delrith"
+    ]
+  },
+  {
+    "ids": [
+      7403,
+      7411
+    ],
+    "attackAnim": 6368,
+    "defenceAnim": 6370,
+    "deathAnim": 6369,
+    "description": [
+      "Repugnant spectre",
+      "Nechryarch"
+    ]
+  },
+  {
+    "ids": [
+      3123,
+      3124,
+      3128,
+      7701,
+      7705
+    ],
+    "attackAnim": 2637,
+    "defenceAnim": 2635,
+    "deathAnim": 2638,
+    "description": [
+      "Yt-HurKot",
+      "Yt-MejKot"
+    ]
+  },
+  {
+    "ids": [
+      10938
+    ],
+    "attackAnim": 4680,
+    "defenceAnim": 4676,
+    "deathAnim": 4677,
+    "description": [
+      "Judge of Yama"
+    ]
+  },
+  {
+    "ids": [
+      458,
+      459,
+      460,
+      461,
+      462,
+      463,
+      2264,
+      3263
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2778,
+    "description": [
+      "Desert Lizard",
+      "Lizard",
+      "Drunken man",
+      "Dagannoth fledgeling",
+      "Small Lizard"
+    ]
+  },
+  {
+    "ids": [
+      7543,
+      7544
+    ],
+    "attackAnim": 7492,
+    "defenceAnim": 7487,
+    "deathAnim": 7495,
+    "description": [
+      "Tekton (enraged)"
+    ]
+  },
+  {
+    "ids": [
+      1075,
+      1076,
+      1077
+    ],
+    "attackAnim": 3829,
+    "defenceAnim": 3830,
+    "deathAnim": 3833,
+    "description": [
+      "Tolna"
+    ]
+  },
+  {
+    "ids": [
+      1276,
+      1279,
+      1281,
+      1283,
+      1285
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1292,
+    "description": [
+      "Asyn Shadow",
+      "Fiyr Shadow",
+      "Phrin Shadow",
+      "Loar Shadow",
+      "Riyl Shadow"
+    ]
+  },
+  {
+    "ids": [
+      5054,
+      6326,
+      6387
+    ],
+    "attackAnim": 6578,
+    "defenceAnim": -1,
+    "deathAnim": -1,
+    "description": [
+      "Skeleton Hellhound (hard)",
+      "Skeleton Hellhound"
+    ]
+  },
+  {
+    "ids": [
+      946,
+      5625,
+      5626,
+      5627
+    ],
+    "attackAnim": 1087,
+    "defenceAnim": 1093,
+    "deathAnim": 1089,
+    "description": [
+      "Ghast"
+    ]
+  },
+  {
+    "ids": [
+      5886,
+      5887,
+      5888
+    ],
+    "attackAnim": 4530,
+    "defenceAnim": -1,
+    "deathAnim": 7100,
+    "description": [
+      "Abyssal Sire"
+    ]
+  },
+  {
+    "ids": [
+      1275
+    ],
+    "attackAnim": 1612,
+    "defenceAnim": 1613,
+    "deathAnim": 1611,
+    "description": [
+      "Experiment"
+    ]
+  },
+  {
+    "ids": [
+      1674
+    ],
+    "attackAnim": 2080,
+    "defenceAnim": 2079,
+    "deathAnim": 4167,
+    "description": [
+      "Guthan the Infested"
+    ]
+  },
+  {
+    "ids": [
+      3132
+    ],
+    "attackAnim": 4630,
+    "defenceAnim": 65,
+    "deathAnim": 67,
+    "description": [
+      "Balfrug Kreeyath"
+    ]
+  },
+  {
+    "ids": [
+      8354,
+      8355,
+      8356,
+      8357,
+      10800,
+      10801,
+      10802
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 8000,
+    "description": [
+      "Nylocas Toxobolos",
+      "Nylocas Ischyros",
+      "Nylocas Hagios",
+      "Nylocas Vasilias"
+    ]
+  },
+  {
+    "ids": [
+      3130
+    ],
+    "attackAnim": 64,
+    "defenceAnim": 65,
+    "deathAnim": 68,
+    "description": [
+      "Tstanon Karlak"
+    ]
+  },
+  {
+    "ids": [
+      3354
+    ],
+    "attackAnim": 163,
+    "defenceAnim": 164,
+    "deathAnim": 167,
+    "description": [
+      "Hobgoblin Champion"
+    ]
+  },
+  {
+    "ids": [
+      3476
+    ],
+    "attackAnim": 6340,
+    "defenceAnim": 6341,
+    "deathAnim": 6347,
+    "description": [
+      "The Illusive"
+    ]
+  },
+  {
+    "ids": [
+      523,
+      526,
+      1461,
+      1541,
+      6996
+    ],
+    "attackAnim": 422,
+    "defenceAnim": 404,
+    "deathAnim": 2304,
+    "description": [
+      "Skeleton thug",
+      "Mugger",
+      "Pirate",
+      "Rogue"
+    ]
+  },
+  {
+    "ids": [
+      136,
+      2095,
+      2096,
+      2592,
+      7028
+    ],
+    "attackAnim": 359,
+    "defenceAnim": 360,
+    "deathAnim": 361,
+    "description": [
+      "Mogre",
+      "Reanimated ogre",
+      "Ogre"
+    ]
+  },
+  {
+    "ids": [
+      7025
+    ],
+    "attackAnim": 6565,
+    "defenceAnim": 6563,
+    "deathAnim": 6564,
+    "description": [
+      "Reanimated dog"
+    ]
+  },
+  {
+    "ids": [
+      2237,
+      2238,
+      2239,
+      2240,
+      2242,
+      2243,
+      2244,
+      6588,
+      7937
+    ],
+    "attackAnim": 4320,
+    "defenceAnim": 4322,
+    "deathAnim": 4321,
+    "description": [
+      "Revenant ork",
+      "Bandosian guard",
+      "Ork",
+      "Spiritual ranger",
+      "Spiritual warrior",
+      "Spiritual mage"
+    ]
+  },
+  {
+    "ids": [
+      2492,
+      2513,
+      2854,
+      2855
+    ],
+    "attackAnim": 2705,
+    "defenceAnim": 2706,
+    "deathAnim": 2707,
+    "description": [
+      "Rat"
+    ]
+  },
+  {
+    "ids": [
+      5644,
+      5646
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 3737,
+    "description": [
+      "Head",
+      "Tentacle"
+    ]
+  },
+  {
+    "ids": [
+      2847
+    ],
+    "attackAnim": 294,
+    "defenceAnim": 295,
+    "deathAnim": 297,
+    "description": [
+      "Yeti"
+    ]
+  },
+  {
+    "ids": [
+      5129,
+      6297,
+      6358
+    ],
+    "attackAnim": 6501,
+    "defenceAnim": 6503,
+    "deathAnim": 6502,
+    "description": [
+      "Glod (hard)",
+      "Glod"
+    ]
+  },
+  {
+    "ids": [
+      492,
+      493,
+      494,
+      496
+    ],
+    "attackAnim": 3992,
+    "defenceAnim": 3990,
+    "deathAnim": 3993,
+    "description": [
+      "Kraken",
+      "Cave kraken"
+    ]
+  },
+  {
+    "ids": [
+      2514,
+      2515,
+      2516,
+      2517,
+      2518,
+      2519,
+      6608
+    ],
+    "attackAnim": 422,
+    "defenceAnim": 424,
+    "deathAnim": 2304,
+    "description": [
+      "Ankou"
+    ]
+  },
+  {
+    "ids": [
+      521
+    ],
+    "attackAnim": 707,
+    "defenceAnim": 390,
+    "deathAnim": 836,
+    "description": [
+      "Pirate"
+    ]
+  },
+  {
+    "ids": [
+      3131
+    ],
+    "attackAnim": 4630,
+    "defenceAnim": 65,
+    "deathAnim": 68,
+    "description": [
+      "Zakl'n Gritch"
+    ]
+  },
+  {
+    "ids": [
+      3204,
+      3205,
+      3206,
+      3207,
+      3208,
+      3209,
+      3210,
+      3211,
+      3212,
+      3213
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 4233,
+    "description": []
+  },
+  {
+    "ids": [
+      99,
+      1039,
+      2827,
+      2834,
+      3201,
+      4504,
+      6824
+    ],
+    "attackAnim": 4915,
+    "defenceAnim": 4916,
+    "deathAnim": 4917,
+    "description": [
+      "Giant bat",
+      "Bat",
+      "Ghost",
+      "Albino bat"
+    ]
+  },
+  {
+    "ids": [
+      1606,
+      2094,
+      4067,
+      6299,
+      6360
+    ],
+    "attackAnim": 128,
+    "defenceAnim": 129,
+    "deathAnim": 131,
+    "description": [
+      "Black Knight Titan",
+      "Jogre",
+      "Kolodion",
+      "Black Knight Titan (hard)"
+    ]
+  },
+  {
+    "ids": [
+      5862,
+      5863,
+      5866
+    ],
+    "attackAnim": 4491,
+    "defenceAnim": 4489,
+    "deathAnim": 4495,
+    "description": [
+      "Cerberus"
+    ]
+  },
+  {
+    "ids": [
+      7566
+    ],
+    "attackAnim": 7420,
+    "defenceAnim": 7412,
+    "deathAnim": 7415,
+    "description": [
+      "Vasa Nistirio"
+    ]
+  },
+  {
+    "ids": [
+      7567
+    ],
+    "attackAnim": 7420,
+    "defenceAnim": 7414,
+    "deathAnim": 7415,
+    "description": [
+      "Vasa Nistirio"
+    ]
+  },
+  {
+    "ids": [
+      576,
+      577,
+      578,
+      579,
+      580
+    ],
+    "attackAnim": 5880,
+    "defenceAnim": 5881,
+    "deathAnim": 5886,
+    "description": [
+      "Zombie pirate"
+    ]
+  },
+  {
+    "ids": [
+      1097,
+      1098,
+      2978,
+      5615,
+      5616,
+      5617
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 3540,
+    "description": [
+      "Big Snake",
+      "Swamp snake",
+      "Sea Snake Hatchling",
+      "Sea Snake Young"
+    ]
+  },
+  {
+    "ids": [
+      5848,
+      5853,
+      5854,
+      6291,
+      6353
+    ],
+    "attackAnim": 3262,
+    "defenceAnim": 3260,
+    "deathAnim": 3263,
+    "description": [
+      "Baby tanglefoot",
+      "Tanglefoot (hard)",
+      "Tanglefoot"
+    ]
+  },
+  {
+    "ids": [
+      2499,
+      2500
+    ],
+    "attackAnim": 1184,
+    "defenceAnim": 1185,
+    "deathAnim": 1187,
+    "description": [
+      "Flesh Crawler"
+    ]
+  },
+  {
+    "ids": [
+      2218
+    ],
+    "attackAnim": 7073,
+    "defenceAnim": 6155,
+    "deathAnim": 6156,
+    "description": [
+      "Sergeant Grimspike"
+    ]
+  },
+  {
+    "ids": [
+      7424
+    ],
+    "attackAnim": 7328,
+    "defenceAnim": 7326,
+    "deathAnim": 7330,
+    "description": [
+      "Cave lizard"
+    ]
+  },
+  {
+    "ids": [
+      464
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 3111,
+    "description": [
+      "Harpie Bug Swarm"
+    ]
+  },
+  {
+    "ids": [
+      443,
+      444,
+      445,
+      446,
+      447
+    ],
+    "attackAnim": 1162,
+    "defenceAnim": 420,
+    "deathAnim": 836,
+    "description": [
+      "Infernal Mage"
+    ]
+  },
+  {
+    "ids": [
+      1267
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2021,
+    "description": [
+      "Vulture"
+    ]
+  },
+  {
+    "ids": [
+      1861,
+      1862,
+      1863,
+      1864,
+      1865,
+      1866
+    ],
+    "attackAnim": 94,
+    "defenceAnim": 95,
+    "deathAnim": 97,
+    "description": [
+      "Tree spirit"
+    ]
+  },
+  {
+    "ids": [
+      4742,
+      4743,
+      4744
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1922,
+    "description": [
+      "Grey golem",
+      "Black golem",
+      "White golem"
+    ]
+  },
+  {
+    "ids": [
+      472,
+      510,
+      511,
+      512,
+      5086,
+      5087,
+      5088,
+      5089,
+      6607,
+      7560
+    ],
+    "attackAnim": 1162,
+    "defenceAnim": 424,
+    "deathAnim": 836,
+    "description": [
+      "Ghost",
+      "Dark wizard",
+      "Invrigar the Necromancer",
+      "Elder Chaos druid",
+      "Deathly mage"
+    ]
+  },
+  {
+    "ids": [
+      8614
+    ],
+    "attackAnim": 8283,
+    "defenceAnim": 0,
+    "deathAnim": 8284,
+    "description": [
+      "Sulphur Lizard"
+    ]
+  },
+  {
+    "ids": [
+      2593,
+      2594,
+      2595,
+      2596,
+      2597,
+      2598,
+      2599,
+      2600,
+      2601,
+      2602,
+      2603,
+      2604,
+      2605,
+      2606,
+      2607,
+      2608,
+      2609,
+      2610,
+      2611,
+      2612,
+      3135,
+      3136
+    ],
+    "attackAnim": 6536,
+    "defenceAnim": 6538,
+    "deathAnim": 6537,
+    "description": [
+      "Werewolf"
+    ]
+  },
+  {
+    "ids": [
+      1277,
+      1280,
+      1282,
+      1284,
+      1286,
+      5631,
+      5632
+    ],
+    "attackAnim": 1283,
+    "defenceAnim": 1284,
+    "deathAnim": 1287,
+    "description": [
+      "Phrin Shade",
+      "Fiyr Shade",
+      "Riyl Shade",
+      "Riyl shadow",
+      "Asyn Shade",
+      "Asyn shadow",
+      "Loar Shade"
+    ]
+  },
+  {
+    "ids": [
+      2067,
+      2068,
+      5971,
+      5972,
+      5973
+    ],
+    "attackAnim": 6800,
+    "defenceAnim": 6794,
+    "deathAnim": 6801,
+    "description": [
+      "Mounted terrorbird gnome"
+    ]
+  },
+  {
+    "ids": [
+      2097,
+      2098,
+      2099,
+      2100,
+      2101,
+      2102,
+      2103,
+      2137,
+      2138,
+      2139,
+      2140,
+      2141,
+      2142,
+      2235,
+      2236,
+      2463,
+      2464,
+      2465,
+      2466,
+      2467,
+      2468,
+      7027,
+      7101,
+      7102,
+      7261,
+      7270,
+      7271,
+      7416,
+      7934,
+      12269
+    ],
+    "attackAnim": 4652,
+    "defenceAnim": 4651,
+    "deathAnim": 4653,
+    "description": [
+      "Cyclops",
+      "Glough",
+      "Obor",
+      "Hill Giant",
+      "Reanimated giant",
+      "Revenant cyclops"
+    ]
+  },
+  {
+    "ids": [
+      717,
+      720,
+      721,
+      722,
+      723,
+      724,
+      725,
+      726,
+      727,
+      728
+    ],
+    "attackAnim": 5549,
+    "defenceAnim": 5550,
+    "deathAnim": 5555,
+    "description": [
+      "Mummy"
+    ]
+  },
+  {
+    "ids": [
+      415,
+      416,
+      7038,
+      7241,
+      7410
+    ],
+    "attackAnim": 1537,
+    "defenceAnim": 2309,
+    "deathAnim": 1538,
+    "description": [
+      "Greater abyssal demon",
+      "Abyssal demon",
+      "Reanimated abyssal"
+    ]
+  },
+  {
+    "ids": [
+      4491,
+      4492,
+      4493,
+      4494,
+      4495,
+      4496,
+      4497,
+      4498,
+      4499,
+      4500,
+      4501
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 6118,
+    "description": [
+      "Ulfric",
+      "Skeleton fremennik",
+      "Brine rat"
+    ]
+  },
+  {
+    "ids": [
+      265,
+      266,
+      267,
+      268,
+      269,
+      5878,
+      5879,
+      5880,
+      5881,
+      5882
+    ],
+    "attackAnim": 91,
+    "defenceAnim": 89,
+    "deathAnim": 92,
+    "description": [
+      "Blue dragon"
+    ]
+  },
+  {
+    "ids": [
+      1365
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1031,
+    "description": [
+      "Fire elemental"
+    ]
+  },
+  {
+    "ids": [
+      1740,
+      1748
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 3938,
+    "description": [
+      "Portal"
+    ]
+  },
+  {
+    "ids": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      2501,
+      2502,
+      2503,
+      2507,
+      2508,
+      3980,
+      3981,
+      6449,
+      6450,
+      6451,
+      6452,
+      6453,
+      6454,
+      6596,
+      6597,
+      6598,
+      6741,
+      7486,
+      8528,
+      8529
+    ],
+    "attackAnim": 5578,
+    "defenceAnim": 5579,
+    "deathAnim": 5580,
+    "description": [
+      "Zombie",
+      "Trapped Soul (hard)",
+      "Trapped Soul"
+    ]
+  },
+  {
+    "ids": [
+      2234,
+      3356
+    ],
+    "attackAnim": 2935,
+    "defenceAnim": 2933,
+    "deathAnim": 2938,
+    "description": [
+      "Jogre Champion",
+      "Jogre"
+    ]
+  },
+  {
+    "ids": [
+      410,
+      411
+    ],
+    "attackAnim": 1512,
+    "defenceAnim": 1514,
+    "deathAnim": 1513,
+    "description": [
+      "Kurask"
+    ]
+  },
+  {
+    "ids": [
+      417,
+      418,
+      7395
+    ],
+    "attackAnim": 1546,
+    "defenceAnim": 1547,
+    "deathAnim": 1548,
+    "description": [
+      "Basilisk",
+      "Monstrous basilisk"
+    ]
+  },
+  {
+    "ids": [
+      6469
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 5590,
+    "description": [
+      "Possessed pickaxe"
+    ]
+  },
+  {
+    "ids": [
+      5942,
+      7033
+    ],
+    "attackAnim": 1343,
+    "defenceAnim": 1340,
+    "deathAnim": 1342,
+    "description": [
+      "Dagannoth",
+      "Reanimated dagannoth"
+    ]
+  },
+  {
+    "ids": [
+      965
+    ],
+    "attackAnim": 1178,
+    "defenceAnim": 6237,
+    "deathAnim": 6233,
+    "description": [
+      "Kalphite Queen"
+    ]
+  },
+  {
+    "ids": [
+      1261
+    ],
+    "attackAnim": 5341,
+    "defenceAnim": 5342,
+    "deathAnim": 5343,
+    "description": [
+      "Ram"
+    ]
+  },
+  {
+    "ids": [
+      474
+    ],
+    "attackAnim": 3326,
+    "defenceAnim": 3323,
+    "deathAnim": 3327,
+    "description": [
+      "Ghost"
+    ]
+  },
+  {
+    "ids": [
+      561,
+      562
+    ],
+    "attackAnim": 5643,
+    "defenceAnim": 5644,
+    "deathAnim": 5649,
+    "description": [
+      "Sorebones"
+    ]
+  },
+  {
+    "ids": [
+      5354,
+      6338,
+      6399
+    ],
+    "attackAnim": 5507,
+    "defenceAnim": 5508,
+    "deathAnim": 5509,
+    "description": [
+      "Nazastarool (hard)",
+      "Nazastarool"
+    ]
+  },
+  {
+    "ids": [
+      85,
+      3518,
+      3616,
+      3625,
+      3975,
+      5370,
+      6298,
+      6359,
+      6815
+    ],
+    "attackAnim": 5540,
+    "defenceAnim": 5541,
+    "deathAnim": 5542,
+    "description": [
+      "Ghost",
+      "Treus Dayth",
+      "Man",
+      "Thrantax the Mighty"
+    ]
+  },
+  {
+    "ids": [
+      6766,
+      6767,
+      6914,
+      6915,
+      6916,
+      6917,
+      6918,
+      6919,
+      7573,
+      7574,
+      7744,
+      7745,
+      8565
+    ],
+    "attackAnim": 7192,
+    "defenceAnim": 7194,
+    "deathAnim": 7196,
+    "description": [
+      "Lizardman",
+      "Lizardman brute",
+      "Lizardman shaman"
+    ]
+  },
+  {
+    "ids": [
+      13192
+    ],
+    "attackAnim": 9638,
+    "defenceAnim": 9639,
+    "deathAnim": 9636,
+    "description": []
+  },
+  {
+    "ids": [
+      114,
+      131,
+      6613,
+      6614,
+      7209
+    ],
+    "attackAnim": 6559,
+    "defenceAnim": 6557,
+    "deathAnim": 6558,
+    "description": [
+      "Skeleton Hellhound",
+      "Greater Skeleton Hellhound",
+      "Guard dog"
+    ]
+  },
+  {
+    "ids": [
+      2994,
+      4800
+    ],
+    "attackAnim": 6265,
+    "defenceAnim": 6266,
+    "deathAnim": 6267,
+    "description": [
+      "Giant lobster"
+    ]
+  },
+  {
+    "ids": [
+      1494
+    ],
+    "attackAnim": 5304,
+    "defenceAnim": 5305,
+    "deathAnim": 5303,
+    "description": [
+      "Kebbit"
+    ]
+  },
+  {
+    "ids": [
+      2498
+    ],
+    "attackAnim": 1184,
+    "defenceAnim": 1186,
+    "deathAnim": 1190,
+    "description": [
+      "Flesh Crawler"
+    ]
+  },
+  {
+    "ids": [
+      100,
+      102,
+      5935,
+      7206,
+      7266,
+      7799
+    ],
+    "attackAnim": 1312,
+    "defenceAnim": 1313,
+    "deathAnim": 1314,
+    "description": [
+      "Ammonite Crab",
+      "King Sand Crab",
+      "Rock Crab",
+      "Sand Crab"
+    ]
+  },
+  {
+    "ids": [
+      872
+    ],
+    "attackAnim": 368,
+    "defenceAnim": -1,
+    "deathAnim": -1,
+    "description": [
+      "Skogre"
+    ]
+  },
+  {
+    "ids": [
+      2585
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2189,
+    "description": [
+      "Abyssal guardian"
+    ]
+  },
+  {
+    "ids": [
+      2668,
+      7413,
+      10508
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 6482,
+    "deathAnim": 0,
+    "description": []
+  },
+  {
+    "ids": [
+      1677
+    ],
+    "attackAnim": 2062,
+    "defenceAnim": 2063,
+    "deathAnim": 4167,
+    "description": [
+      "Verac the Defiled"
+    ]
+  },
+  {
+    "ids": [
+      137,
+      241,
+      242,
+      243,
+      244,
+      245,
+      246,
+      1871,
+      1872,
+      5194,
+      5872,
+      5873,
+      9047
+    ],
+    "attackAnim": 25,
+    "defenceAnim": 26,
+    "deathAnim": 28,
+    "description": [
+      "Baby blue dragon",
+      "Baby red dragon",
+      "Baby black dragon",
+      "Baby green dragon",
+      "Corrupted Dragon"
+    ]
+  },
+  {
+    "ids": [
+      5918
+    ],
+    "attackAnim": 7126,
+    "defenceAnim": 7128,
+    "deathAnim": 7129,
+    "description": [
+      "Scion"
+    ]
+  },
+  {
+    "ids": [
+      2208
+    ],
+    "attackAnim": 7026,
+    "defenceAnim": 7027,
+    "deathAnim": 7028,
+    "description": [
+      "Bree"
+    ]
+  },
+  {
+    "ids": [
+      5258,
+      5259,
+      5260,
+      5261,
+      5262,
+      6805
+    ],
+    "attackAnim": 1392,
+    "defenceAnim": -1,
+    "deathAnim": -1,
+    "description": [
+      "Oipuis",
+      "Uodai",
+      "Ouhai",
+      "Duke",
+      "Uyoro",
+      "Kruk"
+    ]
+  },
+  {
+    "ids": [
+      4005,
+      7250,
+      7409,
+      7938,
+      9048
+    ],
+    "attackAnim": 2731,
+    "defenceAnim": 2732,
+    "deathAnim": 2733,
+    "description": [
+      "Corrupted Dark Beast",
+      "Revenant dark beast",
+      "Night beast",
+      "Dark beast"
+    ]
+  },
+  {
+    "ids": [
+      911,
+      3357,
+      6327,
+      6388
+    ],
+    "attackAnim": 4679,
+    "defenceAnim": 4676,
+    "deathAnim": 4677,
+    "description": [
+      "Agrith Naar",
+      "Agrith Naar (hard)",
+      "Lesser Demon Champion"
+    ]
+  },
+  {
+    "ids": [
+      7528
+    ],
+    "attackAnim": 7446,
+    "defenceAnim": -1,
+    "deathAnim": 7447,
+    "description": [
+      "Vanguard"
+    ]
+  },
+  {
+    "ids": [
+      1072,
+      1073,
+      1074,
+      4695,
+      4696,
+      4697
+    ],
+    "attackAnim": 3823,
+    "defenceAnim": 3824,
+    "deathAnim": 3827,
+    "description": [
+      "Hopeless creature"
+    ]
+  },
+  {
+    "ids": [
+      3359
+    ],
+    "attackAnim": 5574,
+    "defenceAnim": 5576,
+    "deathAnim": 5575,
+    "description": [
+      "Zombies Champion"
+    ]
+  },
+  {
+    "ids": [
+      15108
+    ],
+    "attackAnim": 9277,
+    "defenceAnim": 9282,
+    "deathAnim": 9280,
+    "description": []
+  },
+  {
+    "ids": [
+      1724,
+      1725,
+      1726,
+      1727,
+      1728,
+      1729,
+      1730,
+      1731,
+      1732,
+      1733
+    ],
+    "attackAnim": 3920,
+    "defenceAnim": 3921,
+    "deathAnim": 3922,
+    "description": [
+      "Defiler"
+    ]
+  },
+  {
+    "ids": [
+      2217
+    ],
+    "attackAnim": 7071,
+    "defenceAnim": 6155,
+    "deathAnim": 6156,
+    "description": [
+      "Sergeant Steelwill"
+    ]
+  },
+  {
+    "ids": [
+      5353,
+      6337,
+      6398
+    ],
+    "attackAnim": 5574,
+    "defenceAnim": 5573,
+    "deathAnim": 5575,
+    "description": [
+      "Nazastarool (hard)",
+      "Nazastarool"
+    ]
+  },
+  {
+    "ids": [
+      7548,
+      7549
+    ],
+    "attackAnim": 255,
+    "defenceAnim": 256,
+    "deathAnim": 258,
+    "description": [
+      "Scavenger beast"
+    ]
+  },
+  {
+    "ids": [
+      302,
+      304,
+      736,
+      737,
+      785,
+      786,
+      794,
+      799,
+      991,
+      992,
+      993,
+      994,
+      995,
+      1118,
+      1119,
+      1130,
+      1131,
+      1139,
+      1140,
+      1141,
+      1142,
+      1144,
+      1150,
+      1207,
+      1213,
+      1379,
+      1380,
+      1381,
+      1382,
+      1383,
+      1556,
+      1557,
+      1558,
+      1559,
+      1605,
+      2120,
+      2868,
+      2869,
+      2870,
+      2871,
+      2872,
+      2873,
+      2874,
+      2875,
+      2876,
+      2877,
+      2878,
+      2879,
+      2880,
+      2881,
+      2882,
+      2883,
+      2884,
+      2885,
+      2886,
+      2887,
+      2888,
+      2889,
+      2890,
+      2891,
+      2892,
+      2893,
+      2894,
+      2950,
+      2953,
+      3069,
+      3072,
+      3080,
+      3084,
+      3086,
+      3087,
+      3088,
+      3096,
+      3097,
+      3098,
+      3102,
+      3104,
+      3105,
+      3106,
+      3108,
+      3112,
+      3239,
+      3245,
+      3251,
+      3252,
+      3259,
+      3273,
+      3274,
+      3283,
+      3284,
+      3285,
+      3361,
+      3446,
+      3550,
+      3566,
+      3674,
+      3678,
+      3679,
+      3682,
+      3897,
+      3898,
+      3899,
+      3900,
+      3942,
+      3943,
+      3959,
+      4088,
+      4095,
+      4096,
+      4097,
+      4098,
+      4099,
+      4100,
+      4104,
+      4107,
+      4110,
+      4111,
+      4163,
+      4195,
+      4196,
+      4197,
+      4198,
+      4247,
+      4354,
+      4355,
+      4356,
+      4357,
+      4358,
+      4359,
+      4360,
+      4361,
+      4427,
+      4428,
+      4429,
+      4430,
+      4431,
+      4436,
+      4437,
+      4438,
+      4487,
+      4522,
+      4523,
+      4524,
+      4525,
+      4526,
+      4643,
+      4654,
+      4660,
+      4661,
+      4662,
+      4663,
+      4664,
+      4665,
+      4666,
+      4667,
+      4668,
+      4669,
+      4757,
+      4758,
+      4759,
+      4772,
+      4773,
+      4774,
+      4775,
+      4776,
+      4959,
+      4962,
+      5141,
+      5142,
+      5143,
+      5144,
+      5145,
+      5146,
+      5158,
+      5311,
+      5640,
+      5641,
+      5642,
+      6065,
+      6066,
+      6067,
+      6068,
+      6320,
+      6381,
+      6438,
+      6476,
+      6802,
+      6869,
+      6870,
+      6871,
+      6898,
+      6899,
+      6900,
+      6901,
+      6911,
+      7323,
+      7396,
+      7422,
+      7423
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 836,
+    "description": [
+      "Sir Bedivere",
+      "Me (hard)",
+      "Zamorak mage",
+      "Market Guard",
+      "Malevolent Mage",
+      "Halla",
+      "Servant",
+      "Sir Palomedes",
+      "Feral Vampyre",
+      "Fortress Guard",
+      "Salarin the twisted",
+      "Tormented Warrior",
+      "Apparition",
+      "Guard",
+      "Thora",
+      "Vampyre Juvenile",
+      "Paladin",
+      "Woman",
+      "Rowdy Guard",
+      "Sir Tristram",
+      "Hengel",
+      "Camp dweller",
+      "Fire wizard",
+      "Sir Pelleas",
+      "Tarik",
+      "Tarn",
+      "Sir Lancelot",
+      "Soldier (tier 4)",
+      "Sir Lucan",
+      "Earth wizard",
+      "Eadburg",
+      "Animated steel armour",
+      "Me",
+      "King Roald",
+      "Man",
+      "Black Knight",
+      "Tower Archer",
+      "Sigmund",
+      "Solus Dellagar",
+      "Archer",
+      "Vampyre Juvinate",
+      "Gangster",
+      "Kolodion",
+      "Menaphite Thug",
+      "Barbarian",
+      "Guardian of Armadyl",
+      "Soldier",
+      "Shantay Guard",
+      "Ragnar",
+      "Gang boss",
+      "Water wizard",
+      "Radat",
+      "Anja",
+      "Lensa",
+      "Koschei the deathless",
+      "Thief",
+      "Sir Gawain",
+      "Ceolburg",
+      "Bandit",
+      "Hygd",
+      "Yrsa",
+      "Breoca",
+      "Scarab Mage",
+      "Air wizard",
+      "Sir Kay",
+      "Poltenip",
+      "Donny the lad",
+      "H.A.M. Mage"
+    ]
+  },
+  {
+    "ids": [
+      3429,
+      5293,
+      5294
+    ],
+    "attackAnim": 412,
+    "defenceAnim": 424,
+    "deathAnim": 836,
+    "description": [
+      "Iorwerth Warrior",
+      "Elf Warrior"
+    ]
+  },
+  {
+    "ids": [
+      7144,
+      7145,
+      7146,
+      7147,
+      7148,
+      7149,
+      7152
+    ],
+    "attackAnim": 7226,
+    "defenceAnim": 7224,
+    "deathAnim": 7229,
+    "description": [
+      "Demonic gorilla"
+    ]
+  },
+  {
+    "ids": [
+      1377,
+      1378,
+      2019,
+      6322,
+      6383
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1761,
+    "description": [
+      "The Kendal",
+      "The Kendal (hard)"
+    ]
+  },
+  {
+    "ids": [
+      2064,
+      2065,
+      2066
+    ],
+    "attackAnim": 1012,
+    "defenceAnim": 1009,
+    "deathAnim": 1013,
+    "description": [
+      "Terrorbird"
+    ]
+  },
+  {
+    "ids": [
+      6603
+    ],
+    "attackAnim": 386,
+    "defenceAnim": 388,
+    "deathAnim": 2304,
+    "description": [
+      "Rogue"
+    ]
+  },
+  {
+    "ids": [
+      1678
+    ],
+    "attackAnim": 2070,
+    "defenceAnim": 2079,
+    "deathAnim": 2072,
+    "description": [
+      "Bloodworm"
+    ]
+  },
+  {
+    "ids": [
+      4304,
+      6501
+    ],
+    "attackAnim": 6237,
+    "defenceAnim": 6238,
+    "deathAnim": 6242,
+    "description": [
+      "Kalphite Queen"
+    ]
+  },
+  {
+    "ids": [
+      5651,
+      5655,
+      5659,
+      5663,
+      5668,
+      5672,
+      5676,
+      5680,
+      5684,
+      5688,
+      5692,
+      5696,
+      5700,
+      5704,
+      5708,
+      5712,
+      5716,
+      5720
+    ],
+    "attackAnim": 5970,
+    "defenceAnim": 5971,
+    "deathAnim": 5972,
+    "description": [
+      "Undead Lumberjack"
+    ]
+  },
+  {
+    "ids": [
+      1262,
+      1263,
+      1264
+    ],
+    "attackAnim": 5338,
+    "defenceAnim": 5337,
+    "deathAnim": 5336,
+    "description": [
+      "Ram"
+    ]
+  },
+  {
+    "ids": [
+      5275,
+      5276
+    ],
+    "attackAnim": 1405,
+    "defenceAnim": 1400,
+    "deathAnim": 1403,
+    "description": [
+      "Monkey Guard"
+    ]
+  },
+  {
+    "ids": [
+      5648,
+      5652,
+      5656,
+      5660,
+      5665,
+      5669,
+      5673,
+      5677,
+      5681,
+      5685,
+      5689,
+      5693,
+      5697,
+      5701,
+      5705,
+      5709,
+      5713,
+      5717
+    ],
+    "attackAnim": 5970,
+    "defenceAnim": 5966,
+    "deathAnim": 5972,
+    "description": [
+      "Undead Lumberjack"
+    ]
+  },
+  {
+    "ids": [
+      1268
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2026,
+    "description": [
+      "Vulture"
+    ]
+  },
+  {
+    "ids": [
+      5649,
+      5653,
+      5657,
+      5661,
+      5666,
+      5670,
+      5674,
+      5678,
+      5682,
+      5686,
+      5690,
+      5694,
+      5698,
+      5702,
+      5706,
+      5710,
+      5714,
+      5718
+    ],
+    "attackAnim": 5970,
+    "defenceAnim": 5967,
+    "deathAnim": 5972,
+    "description": [
+      "Undead Lumberjack"
+    ]
+  },
+  {
+    "ids": [
+      5650,
+      5654,
+      5658,
+      5662,
+      5667,
+      5671,
+      5675,
+      5679,
+      5683,
+      5687,
+      5691,
+      5695,
+      5699,
+      5703,
+      5707,
+      5711,
+      5715,
+      5719
+    ],
+    "attackAnim": 5970,
+    "defenceAnim": 5968,
+    "deathAnim": 5972,
+    "description": [
+      "Undead Lumberjack"
+    ]
+  },
+  {
+    "ids": [
+      406,
+      407,
+      408,
+      409,
+      7389
+    ],
+    "attackAnim": 227,
+    "defenceAnim": 1504,
+    "deathAnim": 228,
+    "description": [
+      "Cave crawler",
+      "Chasm Crawler"
+    ]
+  },
+  {
+    "ids": [
+      7576,
+      7577,
+      7578,
+      7579
+    ],
+    "attackAnim": 2368,
+    "defenceAnim": 1313,
+    "deathAnim": 1314,
+    "description": []
+  },
+  {
+    "ids": [
+      3164
+    ],
+    "attackAnim": 6956,
+    "defenceAnim": 6958,
+    "deathAnim": 6959,
+    "description": [
+      "Flockleader Geerin"
+    ]
+  },
+  {
+    "ids": [
+      3233
+    ],
+    "attackAnim": 1273,
+    "defenceAnim": 1271,
+    "deathAnim": 1272,
+    "description": [
+      "Leech"
+    ]
+  },
+  {
+    "ids": [
+      8612,
+      8613
+    ],
+    "attackAnim": 8275,
+    "defenceAnim": 0,
+    "deathAnim": 8279,
+    "description": [
+      "Drake"
+    ]
+  },
+  {
+    "ids": [
+      3184
+    ],
+    "attackAnim": 1341,
+    "defenceAnim": 1339,
+    "deathAnim": 1342,
+    "description": [
+      "Dagannoth spawn"
+    ]
+  },
+  {
+    "ids": [
+      7693
+    ],
+    "attackAnim": 7582,
+    "defenceAnim": 7585,
+    "deathAnim": 7584,
+    "description": [
+      "Jal-Ak"
+    ]
+  },
+  {
+    "ids": [
+      140,
+      970,
+      971,
+      972,
+      973,
+      974,
+      975,
+      979,
+      983,
+      984,
+      985,
+      986,
+      987,
+      988,
+      2259,
+      3185,
+      4884,
+      4885,
+      4886,
+      4887,
+      4888,
+      4889,
+      5943,
+      6300,
+      6301,
+      6302,
+      6303,
+      6304,
+      6305,
+      6312,
+      6313,
+      6314,
+      6315,
+      6316,
+      6317,
+      6361,
+      6362,
+      6363,
+      6364,
+      6365,
+      6366,
+      6373,
+      6374,
+      6375,
+      6376,
+      6377,
+      6378,
+      7259,
+      7260
+    ],
+    "attackAnim": 1341,
+    "defenceAnim": 1340,
+    "deathAnim": 1342,
+    "description": [
+      "Dagannoth",
+      "Gelatinnoth Mother (hard)",
+      "Gelatinnoth Mother",
+      "Dagannoth mother",
+      "Dagannoth mother (hard)"
+    ]
+  },
+  {
+    "ids": [
+      3167,
+      3168,
+      3169,
+      3170,
+      3171,
+      3172,
+      3173,
+      3174,
+      3175,
+      3176,
+      3177,
+      3178,
+      3179,
+      3180,
+      3181,
+      3182,
+      3183
+    ],
+    "attackAnim": 6956,
+    "defenceAnim": 6955,
+    "deathAnim": 6959,
+    "description": [
+      "Spiritual ranger",
+      "Spiritual mage",
+      "Aviansie"
+    ]
+  },
+  {
+    "ids": [
+      10,
+      6716,
+      6723,
+      7649
+    ],
+    "attackAnim": 1540,
+    "defenceAnim": 1542,
+    "deathAnim": 1541,
+    "description": [
+      "Death spawn",
+      "Chaotic death spawn"
+    ]
+  },
+  {
+    "ids": [
+      1714,
+      1715,
+      1716,
+      1717,
+      1718,
+      1719,
+      1720,
+      1721,
+      1722,
+      1723
+    ],
+    "attackAnim": 3882,
+    "defenceAnim": 3880,
+    "deathAnim": 3881,
+    "description": [
+      "Torcher"
+    ]
+  },
+  {
+    "ids": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      7279,
+      7402
+    ],
+    "attackAnim": 1507,
+    "defenceAnim": 1509,
+    "deathAnim": 1508,
+    "description": [
+      "Aberrant spectre",
+      "Abhorrent spectre",
+      "Deviant spectre"
+    ]
+  },
+  {
+    "ids": [
+      64,
+      65,
+      66,
+      67,
+      68,
+      2504,
+      2505,
+      2506,
+      2509,
+      5349,
+      5350,
+      5351,
+      5647,
+      6455,
+      6456,
+      6457,
+      6458,
+      6459,
+      6460,
+      6461,
+      6462,
+      6463,
+      6464,
+      6465,
+      6466,
+      7485,
+      7487,
+      7488
+    ],
+    "attackAnim": 5571,
+    "defenceAnim": 5573,
+    "deathAnim": 5575,
+    "description": [
+      "Zombie",
+      "Undead one"
+    ]
+  },
+  {
+    "ids": [
+      7019
+    ],
+    "attackAnim": 220,
+    "defenceAnim": 222,
+    "deathAnim": 223,
+    "description": [
+      "Reanimated monkey"
+    ]
+  },
+  {
+    "ids": [
+      1870,
+      3605,
+      6306,
+      6367,
+      6739
+    ],
+    "attackAnim": 2299,
+    "defenceAnim": 2300,
+    "deathAnim": 2301,
+    "description": [
+      "Evil Chicken",
+      "Evil Chicken (hard)",
+      "Newtroost"
+    ]
+  },
+  {
+    "ids": [
+      2848,
+      3200,
+      6803
+    ],
+    "attackAnim": 220,
+    "defenceAnim": 221,
+    "deathAnim": 223,
+    "description": [
+      "Maniacal monkey",
+      "Monkey"
+    ]
+  },
+  {
+    "ids": [
+      2830,
+      4973,
+      4974,
+      5966,
+      5967,
+      5968,
+      5969,
+      5970,
+      6077,
+      6078,
+      6079,
+      6081,
+      6082,
+      6086,
+      6087,
+      6094,
+      6095,
+      6096,
+      6097,
+      6098,
+      6099
+    ],
+    "attackAnim": 190,
+    "defenceAnim": 191,
+    "deathAnim": 196,
+    "description": [
+      "Gnome child",
+      "Gnome Archer",
+      "Gnome Mage",
+      "Gnome troop",
+      "Gnome woman",
+      "Gnome",
+      "Gnome Driver",
+      "Gnome guard"
+    ]
+  },
+  {
+    "ids": [
+      6619
+    ],
+    "attackAnim": 1979,
+    "defenceAnim": 425,
+    "deathAnim": 2304,
+    "description": [
+      "Chaos Fanatic"
+    ]
+  },
+  {
+    "ids": [
+      107,
+      108,
+      109,
+      110,
+      115,
+      116,
+      117,
+      231,
+      232,
+      645,
+      646,
+      647,
+      710,
+      711,
+      712,
+      713,
+      714,
+      715,
+      3426,
+      3999,
+      4649,
+      4650,
+      4651,
+      6336,
+      6397
+    ],
+    "attackAnim": 6557,
+    "defenceAnim": 6559,
+    "deathAnim": 6558,
+    "description": [
+      "Witch's experiment (fourth form) (hard)",
+      "Witch's experiment (fourth form)",
+      "Ice wolf",
+      "Jungle Wolf",
+      "Big Wolf",
+      "Wolf",
+      "White wolf",
+      "Dire Wolf",
+      "Desert Wolf"
+    ]
+  },
+  {
+    "ids": [
+      5938,
+      5939
+    ],
+    "attackAnim": 2365,
+    "defenceAnim": 2366,
+    "deathAnim": 2367,
+    "description": [
+      "Wallasalki"
+    ]
+  },
+  {
+    "ids": [
+      7561,
+      7563
+    ],
+    "attackAnim": 7421,
+    "defenceAnim": 7418,
+    "deathAnim": 7426,
+    "description": [
+      "Muttadile"
+    ]
+  },
+  {
+    "ids": [
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      69,
+      5346,
+      5347,
+      5348
+    ],
+    "attackAnim": 5567,
+    "defenceAnim": 5568,
+    "deathAnim": 5569,
+    "description": [
+      "Summoned Zombie",
+      "Zombie",
+      "Undead one"
+    ]
+  },
+  {
+    "ids": [
+      5757,
+      5758,
+      5759,
+      5760,
+      5761,
+      5762,
+      5763,
+      5764,
+      5765
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 5397,
+    "description": [
+      "Penance Ranger"
+    ]
+  },
+  {
+    "ids": [
+      7527
+    ],
+    "attackAnim": 7441,
+    "defenceAnim": -1,
+    "deathAnim": 7442,
+    "description": [
+      "Vanguard"
+    ]
+  },
+  {
+    "ids": [
+      1066,
+      4693
+    ],
+    "attackAnim": 3816,
+    "defenceAnim": 3818,
+    "deathAnim": 3814,
+    "description": [
+      "Fear reaper"
+    ]
+  },
+  {
+    "ids": [
+      2836,
+      6600,
+      6725,
+      6726,
+      6727,
+      6728,
+      6729,
+      6730
+    ],
+    "attackAnim": 153,
+    "defenceAnim": 154,
+    "deathAnim": 156,
+    "description": [
+      "Golem",
+      "Rock Golem",
+      "Runite Golem"
+    ]
+  },
+  {
+    "ids": [
+      7859
+    ],
+    "attackAnim": 7848,
+    "defenceAnim": 7846,
+    "deathAnim": 7850,
+    "description": [
+      "Derwen"
+    ]
+  },
+  {
+    "ids": [
+      8059,
+      8061
+    ],
+    "attackAnim": 7951,
+    "defenceAnim": 0,
+    "deathAnim": 7949,
+    "description": [
+      "Vorkath"
+    ]
+  },
+  {
+    "ids": [
+      2521,
+      2522,
+      3615,
+      4319,
+      5342,
+      5344,
+      6441,
+      6447,
+      6448,
+      6467
+    ],
+    "attackAnim": 5485,
+    "defenceAnim": -1,
+    "deathAnim": -1,
+    "description": [
+      "Skeletal miner",
+      "Skeleton",
+      "Skeleton Mage",
+      "Undead one"
+    ]
+  },
+  {
+    "ids": [
+      6103
+    ],
+    "attackAnim": 280,
+    "defenceAnim": 279,
+    "deathAnim": 278,
+    "description": [
+      "Bush snake"
+    ]
+  },
+  {
+    "ids": [
+      3166
+    ],
+    "attackAnim": 6957,
+    "defenceAnim": 6955,
+    "deathAnim": 6959,
+    "description": [
+      "Spiritual warrior"
+    ]
+  },
+  {
+    "ids": [
+      3165
+    ],
+    "attackAnim": 6957,
+    "defenceAnim": 6958,
+    "deathAnim": 6959,
+    "description": [
+      "Flight Kilisa"
+    ]
+  },
+  {
+    "ids": [
+      6470
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 5596,
+    "description": [
+      "Animated spade"
+    ]
+  },
+  {
+    "ids": [
+      5272,
+      5273,
+      5274
+    ],
+    "attackAnim": 1394,
+    "defenceAnim": 1384,
+    "deathAnim": 1384,
+    "description": [
+      "Monkey Archer"
+    ]
+  },
+  {
+    "ids": [
+      3328
+    ],
+    "attackAnim": 2951,
+    "defenceAnim": 2948,
+    "deathAnim": 2946,
+    "description": [
+      "Earth Warrior Champion"
+    ]
+  },
+  {
+    "ids": [
+      2045,
+      2046
+    ],
+    "attackAnim": 1741,
+    "defenceAnim": 1742,
+    "deathAnim": 2408,
+    "description": [
+      "Snakeling"
+    ]
+  },
+  {
+    "ids": [
+      5534,
+      5535
+    ],
+    "attackAnim": 3618,
+    "defenceAnim": 3617,
+    "deathAnim": 3620,
+    "description": [
+      "Enormous Tentacle"
+    ]
+  },
+  {
+    "ids": [
+      8063
+    ],
+    "attackAnim": 7890,
+    "defenceAnim": 0,
+    "deathAnim": 7891,
+    "description": [
+      "Zombified Spawn"
+    ]
+  },
+  {
+    "ids": [
+      141,
+      2193,
+      2194,
+      3121,
+      3122
+    ],
+    "attackAnim": 2628,
+    "defenceAnim": 2629,
+    "deathAnim": 2630,
+    "description": [
+      "Tok-Xil"
+    ]
+  },
+  {
+    "ids": [
+      7565
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 7415,
+    "description": []
+  },
+  {
+    "ids": [
+      2844,
+      7269
+    ],
+    "attackAnim": 185,
+    "defenceAnim": 186,
+    "deathAnim": 188,
+    "description": [
+      "Magic axe"
+    ]
+  },
+  {
+    "ids": [
+      3475,
+      6121,
+      6352
+    ],
+    "attackAnim": 6329,
+    "defenceAnim": 6330,
+    "deathAnim": 6331,
+    "description": [
+      "The Untouchable",
+      "The Untouchable (hard)"
+    ]
+  },
+  {
+    "ids": [
+      133,
+      643,
+      648,
+      649,
+      651,
+      653,
+      654,
+      699,
+      700,
+      702,
+      704,
+      705,
+      926,
+      936,
+      937,
+      938,
+      939,
+      940,
+      941,
+      942,
+      1874,
+      1875,
+      1876,
+      1877,
+      2833,
+      4123,
+      4124,
+      4126,
+      4128,
+      4129,
+      4131,
+      4132,
+      4133,
+      4134,
+      4135,
+      4136,
+      4137,
+      4138,
+      4139,
+      4143,
+      5822,
+      5823,
+      5824,
+      5825,
+      5826,
+      5828,
+      5829,
+      5830,
+      5831,
+      6294,
+      6331,
+      6356,
+      6392,
+      6732,
+      6733,
+      6734,
+      6735,
+      6736,
+      6737
+    ],
+    "attackAnim": 284,
+    "defenceAnim": 285,
+    "deathAnim": 287,
+    "description": [
+      "Ice Troll King (hard)",
+      "Ice Troll",
+      "River troll",
+      "Troll",
+      "Troll spectator",
+      "Ice Troll King",
+      "Twig",
+      "Berry",
+      "Ice troll female",
+      "Ice troll male",
+      "Mountain troll",
+      "Ice troll runt",
+      "Ice troll grunt",
+      "Stick",
+      "Arrg (hard)",
+      "Arrg",
+      "Ice troll",
+      "Thrower troll"
+    ]
+  },
+  {
+    "ids": [
+      7030
+    ],
+    "attackAnim": 284,
+    "defenceAnim": 286,
+    "deathAnim": 287,
+    "description": [
+      "Reanimated troll"
+    ]
+  },
+  {
+    "ids": [
+      4708
+    ],
+    "attackAnim": 1203,
+    "defenceAnim": 1199,
+    "deathAnim": 1201,
+    "description": [
+      "The Shaikahan"
+    ]
+  },
+  {
+    "ids": [
+      112,
+      113,
+      3449,
+      3901,
+      4185,
+      7322
+    ],
+    "attackAnim": 6562,
+    "defenceAnim": 6563,
+    "deathAnim": 6564,
+    "description": [
+      "Jackal",
+      "Wild dog",
+      "Shadow Hound",
+      "Fox"
+    ]
+  },
+  {
+    "ids": [
+      2145
+    ],
+    "attackAnim": 5568,
+    "defenceAnim": 5567,
+    "deathAnim": 5569,
+    "description": [
+      "Undead Druid"
+    ]
+  },
+  {
+    "ids": [
+      2211,
+      3160,
+      3428,
+      5295,
+      5296,
+      7559,
+      11291
+    ],
+    "attackAnim": 426,
+    "defenceAnim": 424,
+    "deathAnim": 836,
+    "description": [
+      "Spiritual Ranger",
+      "Spiritual ranger",
+      "Iorwerth Archer",
+      "Elf Archer",
+      "Deathly ranger"
+    ]
+  },
+  {
+    "ids": [
+      7530,
+      7531,
+      7538
+    ],
+    "attackAnim": 7455,
+    "defenceAnim": 7456,
+    "deathAnim": 7459,
+    "description": [
+      "Vespula",
+      "Vespine soldier"
+    ]
+  },
+  {
+    "ids": [
+      6740
+    ],
+    "attackAnim": 18,
+    "defenceAnim": 14,
+    "deathAnim": 20,
+    "description": [
+      "Shade"
+    ]
+  },
+  {
+    "ids": [
+      3487,
+      7620
+    ],
+    "attackAnim": 18,
+    "defenceAnim": 19,
+    "deathAnim": 20,
+    "description": [
+      "Temple guardian"
+    ]
+  },
+  {
+    "ids": [
+      8615,
+      8616,
+      8617,
+      8618,
+      8619,
+      8620,
+      8621,
+      8622
+    ],
+    "attackAnim": 8234,
+    "defenceAnim": 0,
+    "deathAnim": 0,
+    "description": [
+      "Alchemical Hydra"
+    ]
+  },
+  {
+    "ids": [
+      1792,
+      1793,
+      1794,
+      1795,
+      1796,
+      1797
+    ],
+    "attackAnim": 250,
+    "defenceAnim": 251,
+    "deathAnim": 253,
+    "description": [
+      "Billy Goat",
+      "Goat"
+    ]
+  },
+  {
+    "ids": [
+      2063
+    ],
+    "attackAnim": 5669,
+    "defenceAnim": 5667,
+    "deathAnim": 5671,
+    "description": [
+      "Penguin"
+    ]
+  },
+  {
+    "ids": [
+      10531
+    ],
+    "attackAnim": 8844,
+    "defenceAnim": 0,
+    "deathAnim": 8845,
+    "description": [
+      "Avatar of Creation"
+    ]
+  },
+  {
+    "ids": [
+      7792,
+      7793,
+      7794,
+      7795
+    ],
+    "attackAnim": 7651,
+    "defenceAnim": 7659,
+    "deathAnim": 7652,
+    "description": [
+      "Spitting Wyvern",
+      "Ancient Wyvern",
+      "Taloned Wyvern",
+      "Long-tailed Wyvern"
+    ]
+  },
+  {
+    "ids": [
+      9021,
+      9022,
+      9023,
+      9024
+    ],
+    "attackAnim": 8754,
+    "defenceAnim": 0,
+    "deathAnim": 8753,
+    "description": [
+      "Crystalline Hunllef"
+    ]
+  },
+  {
+    "ids": [
+      7692
+    ],
+    "attackAnim": 7578,
+    "defenceAnim": 7579,
+    "deathAnim": 7580,
+    "description": [
+      "Jal-MejRah"
+    ]
+  },
+  {
+    "ids": [
+      7529
+    ],
+    "attackAnim": 7436,
+    "defenceAnim": -1,
+    "deathAnim": 7437,
+    "description": [
+      "Vanguard"
+    ]
+  },
+  {
+    "ids": [
+      6813
+    ],
+    "attackAnim": 1394,
+    "defenceAnim": 1384,
+    "deathAnim": -1,
+    "description": []
+  },
+  {
+    "ids": [
+      3527
+    ],
+    "attackAnim": 6488,
+    "defenceAnim": 6489,
+    "deathAnim": 6490,
+    "description": [
+      "Sir Mordred"
+    ]
+  },
+  {
+    "ids": [
+      3127
+    ],
+    "attackAnim": 2655,
+    "defenceAnim": 2653,
+    "deathAnim": 2654,
+    "description": [
+      "TzTok-Jad"
+    ]
+  },
+  {
+    "ids": [
+      2191,
+      2192,
+      3118,
+      3119,
+      3120
+    ],
+    "attackAnim": 2625,
+    "defenceAnim": 2626,
+    "deathAnim": 2627,
+    "description": [
+      "Tz-Kek"
+    ]
+  },
+  {
+    "ids": [
+      7020
+    ],
+    "attackAnim": 511,
+    "defenceAnim": 513,
+    "deathAnim": 512,
+    "description": [
+      "Reanimated imp"
+    ]
+  },
+  {
+    "ids": [
+      7286
+    ],
+    "attackAnim": 4680,
+    "defenceAnim": 4676,
+    "deathAnim": 4624,
+    "description": [
+      "Skotizo"
+    ]
+  },
+  {
+    "ids": [
+      9466,
+      9467
+    ],
+    "attackAnim": 8564,
+    "defenceAnim": 0,
+    "deathAnim": 8566,
+    "description": [
+      "Husk"
+    ]
+  },
+  {
+    "ids": [
+      2455
+    ],
+    "attackAnim": 406,
+    "defenceAnim": 410,
+    "deathAnim": 4167,
+    "description": [
+      "Animated Adamant Armour"
+    ]
+  },
+  {
+    "ids": [
+      8610,
+      8611
+    ],
+    "attackAnim": 8270,
+    "defenceAnim": 0,
+    "deathAnim": 8272,
+    "description": [
+      "Wyrm"
+    ]
+  },
+  {
+    "ids": [
+      680,
+      681,
+      6440
+    ],
+    "attackAnim": 5499,
+    "defenceAnim": 5494,
+    "deathAnim": 5503,
+    "description": [
+      "Giant skeleton"
+    ]
+  },
+  {
+    "ids": [
+      2215,
+      6494
+    ],
+    "attackAnim": 7018,
+    "defenceAnim": 7019,
+    "deathAnim": 7020,
+    "description": [
+      "General Graardor"
+    ]
+  },
+  {
+    "ids": [
+      421,
+      422,
+      7392
+    ],
+    "attackAnim": 1567,
+    "defenceAnim": 1565,
+    "deathAnim": 1568,
+    "description": [
+      "Giant rockslug",
+      "Rockslug"
+    ]
+  },
+  {
+    "ids": [
+      5944
+    ],
+    "attackAnim": 2859,
+    "defenceAnim": 2860,
+    "deathAnim": 2862,
+    "description": [
+      "Rock lobster"
+    ]
+  },
+  {
+    "ids": [
+      7858
+    ],
+    "attackAnim": 7853,
+    "defenceAnim": 0,
+    "deathAnim": 7854,
+    "description": [
+      "Justiciar Zachariah"
+    ]
+  },
+  {
+    "ids": [
+      82,
+      83
+    ],
+    "attackAnim": 5499,
+    "defenceAnim": 5501,
+    "deathAnim": 5503,
+    "description": [
+      "Skeleton"
+    ]
+  },
+  {
+    "ids": [
+      6611,
+      6612
+    ],
+    "attackAnim": 5499,
+    "defenceAnim": 5508,
+    "deathAnim": 5503,
+    "description": [
+      "Vet'ion"
+    ]
+  },
+  {
+    "ids": [
+      3162,
+      6492
+    ],
+    "attackAnim": 6981,
+    "defenceAnim": 6980,
+    "deathAnim": 6979,
+    "description": [
+      "Kree'arra"
+    ]
+  },
+  {
+    "ids": [
+      1129,
+      1608,
+      2853,
+      3458,
+      6345
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 843,
+    "description": [
+      "Kamil",
+      "Kamil (hard)",
+      "Kolodion",
+      "Shadow warrior"
+    ]
+  },
+  {
+    "ids": [
+      1704,
+      1705,
+      1706,
+      1707,
+      1708
+    ],
+    "attackAnim": 3915,
+    "defenceAnim": 3916,
+    "deathAnim": 3917,
+    "description": [
+      "Ravager"
+    ]
+  },
+  {
+    "ids": [
+      3133,
+      7877,
+      11747,
+      11749,
+      11751
+    ],
+    "attackAnim": 6581,
+    "defenceAnim": 6578,
+    "deathAnim": 6576,
+    "description": [
+      "Hellhound"
+    ]
+  },
+  {
+    "ids": [
+      5643
+    ],
+    "attackAnim": 3618,
+    "defenceAnim": 3619,
+    "deathAnim": 3620,
+    "description": [
+      "Tentacle"
+    ]
+  },
+  {
+    "ids": [
+      9293
+    ],
+    "attackAnim": 8499,
+    "defenceAnim": 0,
+    "deathAnim": 8501,
+    "description": [
+      "Basilisk Knight"
+    ]
+  },
+  {
+    "ids": [
+      3163
+    ],
+    "attackAnim": 6955,
+    "defenceAnim": 6958,
+    "deathAnim": 6959,
+    "description": [
+      "Wingman Skree"
+    ]
+  },
+  {
+    "ids": [
+      465,
+      466,
+      467,
+      468
+    ],
+    "attackAnim": 2986,
+    "defenceAnim": 2983,
+    "deathAnim": 2987,
+    "description": [
+      "Skeletal Wyvern"
+    ]
+  },
+  {
+    "ids": [
+      7390,
+      7391
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1108,
+    "description": [
+      "Screaming banshee",
+      "Screaming twisted banshee"
+    ]
+  },
+  {
+    "ids": [
+      1369,
+      6624
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1042,
+    "description": [
+      "Energy sprite",
+      "Air elemental"
+    ]
+  },
+  {
+    "ids": [
+      4652
+    ],
+    "attackAnim": 49,
+    "defenceAnim": 46,
+    "deathAnim": 52,
+    "description": [
+      "Ugthanki"
+    ]
+  },
+  {
+    "ids": [
+      7699,
+      7703
+    ],
+    "attackAnim": 7612,
+    "defenceAnim": 7610,
+    "deathAnim": 7613,
+    "description": [
+      "Jal-Zek"
+    ]
+  },
+  {
+    "ids": [
+      3026,
+      5372
+    ],
+    "attackAnim": 6259,
+    "defenceAnim": 6261,
+    "deathAnim": 6260,
+    "description": [
+      "Grave scorpion",
+      "Pit Scorpion"
+    ]
+  },
+  {
+    "ids": [
+      6587,
+      7037
+    ],
+    "attackAnim": 6955,
+    "defenceAnim": 6954,
+    "deathAnim": 6959,
+    "description": [
+      "Reanimated aviansie",
+      "Armadylean guard"
+    ]
+  },
+  {
+    "ids": [
+      398,
+      400,
+      3272,
+      6056
+    ],
+    "attackAnim": 426,
+    "defenceAnim": 6488,
+    "deathAnim": 6490,
+    "description": [
+      "Guard"
+    ]
+  },
+  {
+    "ids": [
+      7694,
+      7695,
+      7696
+    ],
+    "attackAnim": 7581,
+    "defenceAnim": 7585,
+    "deathAnim": 7584,
+    "description": [
+      "Jal-AkRek-Ket",
+      "Jal-AkRek-Xil",
+      "Jal-AkRek-Mej"
+    ]
+  },
+  {
+    "ids": [
+      8713,
+      8715
+    ],
+    "attackAnim": 8147,
+    "defenceAnim": 0,
+    "deathAnim": 8318,
+    "description": [
+      "Sarachnis",
+      "Spawn of Sarachnis"
+    ]
+  },
+  {
+    "ids": [
+      8095,
+      8096,
+      8097,
+      8098
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 7915,
+    "description": [
+      "Galvek"
+    ]
+  },
+  {
+    "ids": [
+      7407,
+      7408
+    ],
+    "attackAnim": 7811,
+    "defenceAnim": 7814,
+    "deathAnim": 7812,
+    "description": [
+      "Marble gargoyle"
+    ]
+  },
+  {
+    "ids": [
+      1546,
+      1547,
+      1548,
+      1549,
+      1550,
+      3010,
+      3011,
+      3269,
+      3271,
+      5188,
+      5189,
+      5418,
+      11072,
+      11074,
+      11076,
+      11078,
+      11080,
+      11082,
+      11086,
+      11094,
+      11096,
+      11098,
+      11100,
+      11104,
+      11106
+    ],
+    "attackAnim": 6489,
+    "defenceAnim": 6488,
+    "deathAnim": 6490,
+    "description": [
+      "Soldier",
+      "Guard"
+    ]
+  },
+  {
+    "ids": [
+      1338,
+      1339,
+      1838,
+      1839,
+      2001
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 6823,
+    "description": [
+      "Duckling",
+      "Duck",
+      "Seagull"
+    ]
+  },
+  {
+    "ids": [
+      1067,
+      1068,
+      1069,
+      1070,
+      1071,
+      4694
+    ],
+    "attackAnim": 3816,
+    "defenceAnim": 3817,
+    "deathAnim": 3821,
+    "description": [
+      "Confusion beast"
+    ]
+  },
+  {
+    "ids": [
+      5281,
+      5282,
+      5283,
+      7118
+    ],
+    "attackAnim": 1392,
+    "defenceAnim": 1383,
+    "deathAnim": 1384,
+    "description": [
+      "Maniacal monkey",
+      "Monkey Zombie"
+    ]
+  },
+  {
+    "ids": [
+      7562
+    ],
+    "attackAnim": 7420,
+    "defenceAnim": 7418,
+    "deathAnim": 7426,
+    "description": [
+      "Muttadile"
+    ]
+  },
+  {
+    "ids": [
+      2265,
+      6496
+    ],
+    "attackAnim": 2855,
+    "defenceAnim": 2852,
+    "deathAnim": 2856,
+    "description": [
+      "Dagannoth Supreme"
+    ]
+  },
+  {
+    "ids": [
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      1163,
+      2527,
+      2528,
+      2529,
+      2530,
+      2531,
+      2532,
+      2533,
+      2534,
+      3976,
+      3977,
+      3978,
+      3979,
+      5355,
+      6319,
+      6339,
+      6380,
+      6400,
+      6816,
+      6817,
+      6818,
+      6819,
+      6820,
+      6821,
+      6822,
+      7263,
+      7264
+    ],
+    "attackAnim": 5532,
+    "defenceAnim": 5533,
+    "deathAnim": 5534,
+    "description": [
+      "Nazastarool (hard)",
+      "Ghost",
+      "Tree spirit",
+      "Tree spirit (hard)",
+      "Man",
+      "Nazastarool"
+    ]
+  },
+  {
+    "ids": [
+      1537,
+      1539,
+      2920,
+      3055,
+      3057,
+      4484
+    ],
+    "attackAnim": 2066,
+    "defenceAnim": 2070,
+    "deathAnim": 2072,
+    "description": [
+      "Barbarian",
+      "Gadderanks",
+      "Skeleton warlord",
+      "Confused barbarian",
+      "Skeleton hero"
+    ]
+  },
+  {
+    "ids": [
+      2189,
+      2190,
+      3116,
+      3117
+    ],
+    "attackAnim": 2621,
+    "defenceAnim": 2622,
+    "deathAnim": 2620,
+    "description": [
+      "Tz-Kih"
+    ]
+  },
+  {
+    "ids": [
+      2085,
+      2086,
+      2087,
+      2088,
+      2089,
+      7878,
+      7879,
+      7880
+    ],
+    "attackAnim": 4672,
+    "defenceAnim": 4671,
+    "deathAnim": 4673,
+    "description": [
+      "Ice giant"
+    ]
+  },
+  {
+    "ids": [
+      14678,
+      14679,
+      14680,
+      14681
+    ],
+    "attackAnim": 10881,
+    "defenceAnim": 10877,
+    "deathAnim": 10878,
+    "description": []
+  },
+  {
+    "ids": [
+      3203,
+      6272,
+      6273,
+      6402
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2398,
+    "description": [
+      "Large mosquito",
+      "Mosquito swarm"
+    ]
+  },
+  {
+    "ids": [
+      498,
+      499,
+      7406
+    ],
+    "attackAnim": 3847,
+    "defenceAnim": 3848,
+    "deathAnim": 3849,
+    "description": [
+      "Smoke devil",
+      "Nuclear smoke devil",
+      "Thermonuclear smoke devil"
+    ]
+  },
+  {
+    "ids": [
+      480
+    ],
+    "attackAnim": 1793,
+    "defenceAnim": 1789,
+    "deathAnim": 1792,
+    "description": [
+      "Cave slime"
+    ]
+  },
+  {
+    "ids": [
+      7307,
+      7308
+    ],
+    "attackAnim": 1979,
+    "defenceAnim": 1156,
+    "deathAnim": 836,
+    "description": [
+      "Ancient Wizard"
+    ]
+  },
+  {
+    "ids": [
+      1062,
+      1063,
+      1064,
+      1680,
+      1681,
+      1682,
+      2510,
+      2511,
+      2512,
+      2856,
+      2857,
+      2858,
+      2859,
+      2860,
+      2861,
+      2862,
+      2863,
+      2864,
+      2865,
+      2866,
+      2867,
+      3313,
+      3314,
+      3315,
+      3607,
+      3608,
+      3609,
+      3969,
+      3970,
+      3971,
+      4534,
+      4535,
+      4689,
+      4690
+    ],
+    "attackAnim": 4933,
+    "defenceAnim": 4934,
+    "deathAnim": 4935,
+    "description": [
+      "Giant rat",
+      "Dungeon rat",
+      "Blessed giant rat",
+      "Giant crypt rat",
+      "Zombie rat",
+      "Angry giant rat"
+    ]
+  },
+  {
+    "ids": [
+      7405
+    ],
+    "attackAnim": 4235,
+    "defenceAnim": 4232,
+    "deathAnim": 4233,
+    "description": [
+      "King kurask"
+    ]
+  },
+  {
+    "ids": [
+      7569,
+      7570,
+      7571,
+      7572
+    ],
+    "attackAnim": 407,
+    "defenceAnim": 410,
+    "deathAnim": 836,
+    "description": []
+  },
+  {
+    "ids": [
+      5739,
+      5740,
+      5741,
+      5742,
+      5743,
+      5744,
+      5745,
+      5746,
+      5747
+    ],
+    "attackAnim": 5097,
+    "defenceAnim": 5096,
+    "deathAnim": 5098,
+    "description": [
+      "Penance Fighter"
+    ]
+  },
+  {
+    "ids": [
+      5776
+    ],
+    "attackAnim": 5097,
+    "defenceAnim": 5091,
+    "deathAnim": 5098,
+    "description": [
+      "Queen spawn"
+    ]
+  },
+  {
+    "ids": [
+      2586
+    ],
+    "attackAnim": 2192,
+    "defenceAnim": 2193,
+    "deathAnim": 2194,
+    "description": [
+      "Abyssal walker"
+    ]
+  },
+  {
+    "ids": [
+      478,
+      2143
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1804,
+    "description": [
+      "Big frog"
+    ]
+  },
+  {
+    "ids": [
+      2479,
+      2480,
+      3024,
+      3025,
+      3027,
+      6615,
+      6616,
+      6617,
+      7022,
+      9044
+    ],
+    "attackAnim": 6254,
+    "defenceAnim": 6255,
+    "deathAnim": 6256,
+    "description": [
+      "Scorpia",
+      "Scorpion",
+      "Scorpia's guardian",
+      "Poison Scorpion",
+      "Corrupted Scorpion",
+      "King Scorpion",
+      "Scorpia's offspring",
+      "Reanimated scorpion"
+    ]
+  },
+  {
+    "ids": [
+      104,
+      105,
+      135,
+      7256,
+      7935
+    ],
+    "attackAnim": 6562,
+    "defenceAnim": 6566,
+    "deathAnim": 6576,
+    "description": [
+      "Revenant hellhound",
+      "Hellhound"
+    ]
+  },
+  {
+    "ids": [
+      2486,
+      2487,
+      2488,
+      2489
+    ],
+    "attackAnim": 6188,
+    "defenceAnim": 6189,
+    "deathAnim": 6190,
+    "description": [
+      "Goblin"
+    ]
+  },
+  {
+    "ids": [
+      1226,
+      5242
+    ],
+    "attackAnim": 6254,
+    "defenceAnim": 6253,
+    "deathAnim": 6256,
+    "description": [
+      "Khazard Scorpion",
+      "Scorpion"
+    ]
+  },
+  {
+    "ids": [
+      655,
+      656,
+      657,
+      658,
+      659,
+      660,
+      661,
+      662,
+      663,
+      664,
+      665,
+      666,
+      667,
+      668,
+      674,
+      677,
+      678,
+      2245,
+      2248,
+      2484,
+      3028,
+      3029,
+      3030,
+      3031,
+      3032,
+      3033,
+      3034,
+      3035,
+      3036,
+      3037,
+      3038,
+      3039,
+      3040,
+      3041,
+      3042,
+      3043,
+      3044,
+      3045,
+      3047,
+      3048,
+      3051,
+      3052,
+      3053,
+      3054,
+      3073,
+      3074,
+      3075,
+      3076,
+      5192,
+      5193,
+      5195,
+      5196,
+      5197,
+      5198,
+      5199,
+      5200,
+      5201,
+      5202,
+      5203,
+      5204,
+      5205,
+      5206,
+      5207,
+      5208,
+      7931
+    ],
+    "attackAnim": 6184,
+    "defenceAnim": 6183,
+    "deathAnim": 6182,
+    "description": [
+      "Goblin",
+      "Revenant goblin"
+    ]
+  },
+  {
+    "ids": [
+      797,
+      1127,
+      6343
+    ],
+    "attackAnim": 5457,
+    "defenceAnim": 5458,
+    "deathAnim": 5456,
+    "description": [
+      "Giant Scarab (hard)",
+      "Giant Scarab"
+    ]
+  },
+  {
+    "ids": [
+      931,
+      932,
+      933,
+      934,
+      935
+    ],
+    "attackAnim": 1142,
+    "defenceAnim": 285,
+    "deathAnim": 287,
+    "description": [
+      "Thrower Troll"
+    ]
+  },
+  {
+    "ids": [
+      3353
+    ],
+    "attackAnim": 6147,
+    "defenceAnim": 6140,
+    "deathAnim": 6143,
+    "description": [
+      "Goblin Champion"
+    ]
+  },
+  {
+    "ids": [
+      5779,
+      6499
+    ],
+    "attackAnim": 3312,
+    "defenceAnim": 3311,
+    "deathAnim": 3310,
+    "description": [
+      "Giant Mole"
+    ]
+  },
+  {
+    "ids": [
+      517,
+      1545,
+      4167,
+      4168,
+      4169,
+      4170,
+      4171,
+      4172,
+      4173,
+      4174,
+      4175,
+      4176,
+      4331,
+      5043
+    ],
+    "attackAnim": 390,
+    "defenceAnim": 388,
+    "deathAnim": 836,
+    "description": [
+      "Outlaw",
+      "Black knight",
+      "Suit of armour",
+      "Black Knight"
+    ]
+  },
+  {
+    "ids": [
+      590,
+      591,
+      592,
+      593,
+      594,
+      595,
+      596,
+      597,
+      598,
+      599
+    ],
+    "attackAnim": 5889,
+    "defenceAnim": 5890,
+    "deathAnim": 5891,
+    "description": [
+      "Zombie pirate"
+    ]
+  },
+  {
+    "ids": [
+      7150,
+      7151,
+      7153
+    ],
+    "attackAnim": 7240,
+    "defenceAnim": 7236,
+    "deathAnim": 7237,
+    "description": [
+      "Tortured gorilla"
+    ]
+  },
+  {
+    "ids": [
+      762
+    ],
+    "attackAnim": 5031,
+    "defenceAnim": 5032,
+    "deathAnim": 5033,
+    "description": [
+      "Baby Roc"
+    ]
+  },
+  {
+    "ids": [
+      2266,
+      6497
+    ],
+    "attackAnim": 2854,
+    "defenceAnim": 2852,
+    "deathAnim": 2856,
+    "description": [
+      "Dagannoth Prime"
+    ]
+  },
+  {
+    "ids": [
+      7234
+    ],
+    "attackAnim": 7145,
+    "defenceAnim": 7144,
+    "deathAnim": 7146,
+    "description": [
+      "Ent"
+    ]
+  },
+  {
+    "ids": [
+      3094
+    ],
+    "attackAnim": 400,
+    "defenceAnim": -1,
+    "deathAnim": 836,
+    "description": []
+  },
+  {
+    "ids": [
+      7860
+    ],
+    "attackAnim": 7840,
+    "defenceAnim": 7838,
+    "deathAnim": 7843,
+    "description": [
+      "Porazdir"
+    ]
+  },
+  {
+    "ids": [
+      5126
+    ],
+    "attackAnim": 6514,
+    "defenceAnim": 6513,
+    "deathAnim": 6512,
+    "description": [
+      "Experiment No.2"
+    ]
+  },
+  {
+    "ids": [
+      138,
+      955,
+      956,
+      957,
+      958,
+      959,
+      960,
+      961,
+      962
+    ],
+    "attackAnim": 6223,
+    "defenceAnim": 6227,
+    "deathAnim": 6228,
+    "description": [
+      "Kalphite Worker",
+      "Kalphite Soldier",
+      "Kalphite Guardian"
+    ]
+  },
+  {
+    "ids": [
+      2216
+    ],
+    "attackAnim": 6154,
+    "defenceAnim": 6155,
+    "deathAnim": 6156,
+    "description": [
+      "Sergeant Strongstack"
+    ]
+  },
+  {
+    "ids": [
+      1101
+    ],
+    "attackAnim": 4040,
+    "defenceAnim": 4038,
+    "deathAnim": 4039,
+    "description": [
+      "Giant Sea Snake"
+    ]
+  },
+  {
+    "ids": [
+      300
+    ],
+    "attackAnim": 422,
+    "defenceAnim": 390,
+    "deathAnim": 836,
+    "description": [
+      "Jailer"
+    ]
+  },
+  {
+    "ids": [
+      448,
+      449,
+      450,
+      451,
+      452,
+      453,
+      454,
+      455,
+      456,
+      457,
+      7388
+    ],
+    "attackAnim": 1592,
+    "defenceAnim": 1591,
+    "deathAnim": 1590,
+    "description": [
+      "Crawling Hand",
+      "Crushing hand"
+    ]
+  },
+  {
+    "ids": [
+      143
+    ],
+    "attackAnim": 3709,
+    "defenceAnim": 3710,
+    "deathAnim": 3711,
+    "description": [
+      "Rocnar"
+    ]
+  },
+  {
+    "ids": [
+      7532,
+      7539
+    ],
+    "attackAnim": 7450,
+    "defenceAnim": 7451,
+    "deathAnim": 7458,
+    "description": [
+      "Vespula",
+      "Vespine soldier"
+    ]
+  },
+  {
+    "ids": [
+      7948,
+      7949
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 424,
+    "deathAnim": 836,
+    "description": []
+  },
+  {
+    "ids": [
+      3129,
+      6495
+    ],
+    "attackAnim": 6948,
+    "defenceAnim": 6947,
+    "deathAnim": 6949,
+    "description": [
+      "K'ril Tsutsaroth"
+    ]
+  },
+  {
+    "ids": [
+      2213
+    ],
+    "attackAnim": 406,
+    "defenceAnim": 410,
+    "deathAnim": 836,
+    "description": [
+      "Knight of Saradomin"
+    ]
+  },
+  {
+    "ids": [
+      419,
+      420,
+      7393
+    ],
+    "attackAnim": 1562,
+    "defenceAnim": 1560,
+    "deathAnim": 1563,
+    "description": [
+      "Cockatrice",
+      "Cockathrice"
+    ]
+  },
+  {
+    "ids": [
+      2474,
+      2475,
+      2476
+    ],
+    "attackAnim": 4271,
+    "defenceAnim": 4272,
+    "deathAnim": 4270,
+    "description": [
+      "Catablepon"
+    ]
+  },
+  {
+    "ids": [
+      2042,
+      2043,
+      2044
+    ],
+    "attackAnim": 5069,
+    "defenceAnim": -1,
+    "deathAnim": 5072,
+    "description": [
+      "Zulrah"
+    ]
+  },
+  {
+    "ids": [
+      2246,
+      2247,
+      2249,
+      2485,
+      3046
+    ],
+    "attackAnim": 6185,
+    "defenceAnim": 6183,
+    "deathAnim": 6182,
+    "description": [
+      "Goblin"
+    ]
+  },
+  {
+    "ids": [
+      1709,
+      1710,
+      1711,
+      1712,
+      1713
+    ],
+    "attackAnim": 3908,
+    "defenceAnim": 3909,
+    "deathAnim": 3910,
+    "description": [
+      "Spinner"
+    ]
+  },
+  {
+    "ids": [
+      2161,
+      2162,
+      2163,
+      2164,
+      2165,
+      2166,
+      7682,
+      7683,
+      7684,
+      7685,
+      7686,
+      7687
+    ],
+    "attackAnim": 2612,
+    "defenceAnim": 2605,
+    "deathAnim": 2607,
+    "description": [
+      "TzHaar-Hur"
+    ]
+  },
+  {
+    "ids": [
+      426,
+      427,
+      428,
+      429,
+      430,
+      431,
+      432,
+      10397
+    ],
+    "attackAnim": 1595,
+    "defenceAnim": 1596,
+    "deathAnim": 1597,
+    "description": [
+      "Spiked Turoth",
+      "Turoth"
+    ]
+  },
+  {
+    "ids": [
+      477,
+      2144,
+      8701,
+      8702
+    ],
+    "attackAnim": 1793,
+    "defenceAnim": 1794,
+    "deathAnim": 1795,
+    "description": [
+      "Frog",
+      "Big frog",
+      "Giant frog"
+    ]
+  },
+  {
+    "ids": [
+      8387,
+      8388,
+      10864,
+      10865,
+      10867,
+      10868,
+      11186
+    ],
+    "attackAnim": 8139,
+    "defenceAnim": 0,
+    "deathAnim": 8140,
+    "description": [
+      "Sotetseg"
+    ]
+  },
+  {
+    "ids": [
+      4184
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2038,
+    "description": [
+      "Crocodile"
+    ]
+  },
+  {
+    "ids": [
+      1366,
+      1367
+    ],
+    "attackAnim": 4868,
+    "defenceAnim": 4869,
+    "deathAnim": 4870,
+    "description": [
+      "Earth elemental"
+    ]
+  },
+  {
+    "ids": [
+      7095,
+      7097
+    ],
+    "attackAnim": 7238,
+    "defenceAnim": 7232,
+    "deathAnim": 7231,
+    "description": [
+      "Tortured gorilla"
+    ]
+  },
+  {
+    "ids": [
+      2267,
+      6498
+    ],
+    "attackAnim": 2853,
+    "defenceAnim": 2852,
+    "deathAnim": 2856,
+    "description": [
+      "Dagannoth Rex"
+    ]
+  },
+  {
+    "ids": [
+      687,
+      3014,
+      3015,
+      3078,
+      3079,
+      3081,
+      3082,
+      3083,
+      3085,
+      3101,
+      3109,
+      3110,
+      3114,
+      3260,
+      3264,
+      3265,
+      3266,
+      3267,
+      3268,
+      3652,
+      6987,
+      6988,
+      6989,
+      6990,
+      6991,
+      6992,
+      7026,
+      7029,
+      11053,
+      11054,
+      15087
+    ],
+    "attackAnim": 422,
+    "defenceAnim": 425,
+    "deathAnim": 836,
+    "description": [
+      "Warrior",
+      "Reanimated chaos druid",
+      "Reanimated elf",
+      "Man",
+      "Woman",
+      "Farmer"
+    ]
+  },
+  {
+    "ids": [
+      289,
+      299,
+      301,
+      303,
+      397,
+      399,
+      473,
+      513,
+      514,
+      516,
+      518,
+      519,
+      520,
+      522,
+      524,
+      528,
+      531,
+      639,
+      682,
+      683,
+      685,
+      690,
+      695,
+      738,
+      773,
+      774,
+      823,
+      924,
+      1025,
+      1027,
+      1114,
+      1115,
+      1128,
+      1134,
+      1135,
+      1136,
+      1148,
+      1149,
+      1204,
+      1206,
+      1208,
+      1209,
+      1210,
+      1211,
+      1293,
+      1294,
+      1297,
+      1298,
+      1429,
+      1447,
+      1448,
+      1538,
+      1540,
+      1777,
+      1778,
+      1798,
+      1799,
+      1800,
+      1829,
+      2056,
+      2057,
+      2058,
+      2059,
+      2263,
+      2536,
+      2537,
+      2538,
+      2579,
+      2613,
+      2614,
+      2615,
+      2616,
+      2617,
+      2618,
+      2619,
+      2620,
+      2621,
+      2622,
+      2623,
+      2624,
+      2625,
+      2626,
+      2627,
+      2628,
+      2629,
+      2630,
+      2631,
+      2632,
+      2840,
+      2843,
+      2921,
+      2954,
+      2955,
+      2999,
+      3056,
+      3059,
+      3060,
+      3061,
+      3064,
+      3065,
+      3066,
+      3067,
+      3068,
+      3070,
+      3071,
+      3092,
+      3093,
+      3100,
+      3107,
+      3111,
+      3234,
+      3237,
+      3255,
+      3256,
+      3257,
+      3258,
+      3275,
+      3276,
+      3279,
+      3280,
+      3281,
+      3282,
+      3292,
+      3293,
+      3295,
+      3297,
+      3330,
+      3360,
+      3433,
+      3434,
+      3445,
+      3448,
+      3456,
+      3459,
+      3460,
+      3481,
+      3482,
+      3484,
+      3485,
+      3486,
+      3551,
+      3651,
+      3675,
+      3676,
+      3677,
+      3681,
+      3683,
+      3684,
+      3685,
+      3686,
+      3687,
+      3707,
+      3708,
+      3863,
+      3865,
+      3869,
+      3922,
+      3938,
+      3939,
+      3940,
+      3944,
+      3949,
+      3950,
+      3957,
+      3958,
+      3963,
+      4043,
+      4044,
+      4045,
+      4046,
+      4047,
+      4048,
+      4049,
+      4050,
+      4051,
+      4052,
+      4068,
+      4108,
+      4109,
+      4114,
+      4115,
+      4210,
+      4246,
+      4248,
+      4405,
+      4406,
+      4442,
+      4443,
+      4486,
+      4545,
+      4546,
+      4547,
+      4559,
+      4634,
+      4635,
+      4655,
+      4656,
+      4657,
+      4658,
+      4659,
+      4678,
+      4682,
+      4878,
+      4882,
+      4919,
+      4922,
+      4926,
+      4969,
+      4970,
+      4972,
+      5157,
+      5211,
+      5213,
+      5217,
+      5218,
+      5219,
+      5220,
+      5285,
+      5286,
+      5287,
+      5420,
+      5506,
+      5634,
+      5635,
+      5636,
+      5964,
+      5965,
+      6307,
+      6310,
+      6329,
+      6332,
+      6344,
+      6346,
+      6347,
+      6348,
+      6368,
+      6371,
+      6390,
+      6393,
+      6406,
+      6407,
+      6409,
+      6411,
+      6413,
+      6606,
+      6896,
+      6897,
+      6902,
+      6903,
+      6904,
+      6905,
+      6906,
+      6907,
+      6908,
+      6909,
+      6912,
+      6913,
+      6956,
+      6993,
+      6994,
+      6995,
+      7016,
+      7017,
+      7238,
+      7257,
+      7296,
+      7309,
+      7310,
+      7312,
+      7418,
+      7419,
+      7420,
+      7421,
+      7426,
+      7427,
+      7621,
+      7622,
+      7864,
+      8853,
+      10694,
+      10695,
+      10696
+    ],
+    "attackAnim": 422,
+    "defenceAnim": 424,
+    "deathAnim": 836,
+    "description": [
+      "Double agent",
+      "Zamorak warrior",
+      "Cuffs",
+      "Colonel Radick",
+      "Bandit champion",
+      "Feral Vampyre",
+      "Druid",
+      "Valgerd",
+      "Watchman",
+      "Weaponsmaster",
+      "Soldier (tier 1)",
+      "Vera",
+      "Skeleton heavy",
+      "Forester",
+      "Paladin",
+      "Skeleton brute",
+      "Otherworldly being",
+      "Borrokar",
+      "Tower guard",
+      "Possessed Priest",
+      "Speedy Keith",
+      "Einar",
+      "Khazard warlord",
+      "Leon d'Cour",
+      "Foreman",
+      "Gardener",
+      "Bedabin Nomad Fighter",
+      "Alrik",
+      "Viyeldi",
+      "H.A.M. Archer",
+      "Dark wizard",
+      "Highwayman",
+      "Joseph",
+      "Saradomin wizard",
+      "Hero",
+      "Tortured soul",
+      "Man",
+      "Tribesman",
+      "Khazard commander",
+      "Yadviga",
+      "Vampyre Juvinate",
+      "Zamorak ranger",
+      "Dark Ankou",
+      "H.A.M. Guard",
+      "Lost barbarian",
+      "Rusty",
+      "Barbarian",
+      "Mugger",
+      "Fareed (hard)",
+      "Grip",
+      "Imre",
+      "Svetlana",
+      "Ungadulu",
+      "Boris",
+      "Yuri",
+      "Count Draynor (hard)",
+      "Galina",
+      "Witch",
+      "Necromancer",
+      "Warrior",
+      "Narf",
+      "Khazard trooper",
+      "Thief",
+      "Zoja",
+      "Sofiya",
+      "Bandit",
+      "Damis",
+      "Dessous (hard)",
+      "Palmer",
+      "Mercenary",
+      "Ghost",
+      "Ksenia",
+      "Jeff",
+      "Culinaromancer",
+      "Thorhild",
+      "Zamorak crafter",
+      "Skraeling",
+      "Market Guard",
+      "Eduard",
+      "Rannveig",
+      "Broddi",
+      "Soldier (tier 5)",
+      "Fareed",
+      "Culinaromancer (hard)",
+      "Rowdy slave",
+      "Pirate Guard",
+      "Sir Leye",
+      "Guard",
+      "Woman",
+      "The Draugen",
+      "Mercenary Captain",
+      "Ghoul Champion",
+      "Penda",
+      "Ice Queen",
+      "Karamel (hard)",
+      "Knight of Ardougne",
+      "Nikita",
+      "Count Draynor",
+      "Ghoul",
+      "Black Knight",
+      "Ragnvald",
+      "Chaos druid",
+      "Freidir",
+      "Head Thief",
+      "Guard Bandit",
+      "Lanzig",
+      "Gangster",
+      "Liliya",
+      "Flawed Golem",
+      "Irina",
+      "Fire Warrior of Lesarkus",
+      "Khazard warlord (hard)",
+      "Milla",
+      "Khazard Guard",
+      "Tyras guard",
+      "Guardian of Armadyl",
+      "Jake",
+      "Soldier (tier 3)",
+      "Gang boss",
+      "Jonny the beard",
+      "Brassican Mage",
+      "Ancient Wizard",
+      "Skeleton",
+      "Afflicted",
+      "Monk",
+      "Zamorak wizard",
+      "Al Kharid warrior",
+      "Nikolai",
+      "Karamel",
+      "Ankou",
+      "Alexis",
+      "White Knight",
+      "Dessous",
+      "Wilson",
+      "Jennella",
+      "Melzar the Mad",
+      "Black Heather",
+      "Dark warrior",
+      "Ocga",
+      "Stranger",
+      "Monk of Zamorak",
+      "Soldier (tier 2)",
+      "Gunthor the brave",
+      "Earth warrior",
+      "Georgy",
+      "Pirate",
+      "Damis (hard)",
+      "Tough Guy",
+      "Broodoo victim",
+      "Lev",
+      "Wizard"
+    ]
+  },
+  {
+    "ids": [
+      3602
+    ],
+    "attackAnim": 143,
+    "defenceAnim": 144,
+    "deathAnim": 146,
+    "description": [
+      "Spidine"
+    ]
+  },
+  {
+    "ids": [
+      8359,
+      10812,
+      10813,
+      11184
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 8085,
+    "description": [
+      "Pestilent Bloat"
+    ]
+  },
+  {
+    "ids": [
+      5628,
+      5629,
+      5630
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 3723,
+    "description": [
+      "Giant snail"
+    ]
+  },
+  {
+    "ids": [
+      1852,
+      1853,
+      3420,
+      3421,
+      3422,
+      3664,
+      3665
+    ],
+    "attackAnim": 6090,
+    "defenceAnim": 6091,
+    "deathAnim": 6092,
+    "description": [
+      "Rabbit"
+    ]
+  },
+  {
+    "ids": [
+      2845,
+      3199,
+      3544,
+      6102
+    ],
+    "attackAnim": 275,
+    "defenceAnim": 276,
+    "deathAnim": 278,
+    "description": [
+      "Bush snake",
+      "Snake"
+    ]
+  },
+  {
+    "ids": [
+      2450,
+      2451,
+      2452,
+      2453,
+      2454,
+      2456
+    ],
+    "attackAnim": 386,
+    "defenceAnim": 388,
+    "deathAnim": 4167,
+    "description": [
+      "Animated Rune Armour",
+      "Animated Black Armour",
+      "Animated Bronze Armour",
+      "Animated Steel Armour",
+      "Animated Iron Armour",
+      "Animated Mithril Armour"
+    ]
+  },
+  {
+    "ids": [
+      3159,
+      11290
+    ],
+    "attackAnim": 401,
+    "defenceAnim": 1156,
+    "deathAnim": 836,
+    "description": [
+      "Spiritual Warrior",
+      "Spiritual warrior"
+    ]
+  },
+  {
+    "ids": [
+      7018
+    ],
+    "attackAnim": 309,
+    "defenceAnim": 312,
+    "deathAnim": 313,
+    "description": [
+      "Reanimated goblin"
+    ]
+  },
+  {
+    "ids": [
+      600,
+      1126,
+      6342
+    ],
+    "attackAnim": 5894,
+    "defenceAnim": 5897,
+    "deathAnim": 5898,
+    "description": [
+      "Barrelchest",
+      "Barrelchest (hard)"
+    ]
+  },
+  {
+    "ids": [
+      469,
+      470
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 3162,
+    "description": [
+      "Killerwatt"
+    ]
+  },
+  {
+    "ids": [
+      6328,
+      6389
+    ],
+    "attackAnim": -1,
+    "defenceAnim": 424,
+    "deathAnim": 836,
+    "description": [
+      "King Roald"
+    ]
+  },
+  {
+    "ids": [
+      1370
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1048,
+    "description": [
+      "Water elemental"
+    ]
+  },
+  {
+    "ids": [
+      5722,
+      5723
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 5972,
+    "description": []
+  },
+  {
+    "ids": [
+      1227,
+      1228,
+      1229,
+      1230,
+      1231,
+      1232,
+      1233,
+      1234,
+      1235
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1841,
+    "description": [
+      "Arzinian Avatar of Magic",
+      "Arzinian Avatar of Strength",
+      "Arzinian Avatar of Ranging"
+    ]
+  },
+  {
+    "ids": [
+      8,
+      11,
+      7278
+    ],
+    "attackAnim": 1528,
+    "defenceAnim": 1531,
+    "deathAnim": 1530,
+    "description": [
+      "Nechryael",
+      "Greater Nechryael"
+    ]
+  },
+  {
+    "ids": [
+      3604,
+      4863
+    ],
+    "attackAnim": 6810,
+    "defenceAnim": 6805,
+    "deathAnim": 6812,
+    "description": [
+      "Jubster",
+      "Jubbly bird"
+    ]
+  },
+  {
+    "ids": [
+      8917,
+      8918,
+      8919,
+      8920
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 8384,
+    "description": [
+      "Fragment of Seren"
+    ]
+  },
+  {
+    "ids": [
+      4927
+    ],
+    "attackAnim": 6810,
+    "defenceAnim": 6811,
+    "deathAnim": 6812,
+    "description": [
+      "Entrana firebird"
+    ]
+  },
+  {
+    "ids": [
+      1273
+    ],
+    "attackAnim": 1626,
+    "defenceAnim": 1627,
+    "deathAnim": 1628,
+    "description": [
+      "Experiment"
+    ]
+  },
+  {
+    "ids": [
+      1610,
+      1611,
+      2209,
+      2212,
+      3161,
+      11292
+    ],
+    "attackAnim": 811,
+    "defenceAnim": 424,
+    "deathAnim": 836,
+    "description": [
+      "Spiritual Mage",
+      "Spiritual mage",
+      "Battle mage",
+      "Saradomin priest"
+    ]
+  },
+  {
+    "ids": [
+      1739
+    ],
+    "attackAnim": 3936,
+    "defenceAnim": 3934,
+    "deathAnim": 3935,
+    "description": [
+      "Portal"
+    ]
+  },
+  {
+    "ids": [
+      7698,
+      7702
+    ],
+    "attackAnim": 7604,
+    "defenceAnim": 7607,
+    "deathAnim": 7606,
+    "description": [
+      "Jal-Xil"
+    ]
+  },
+  {
+    "ids": [
+      1679
+    ],
+    "attackAnim": 240,
+    "defenceAnim": 241,
+    "deathAnim": 243,
+    "description": [
+      "Crypt rat"
+    ]
+  },
+  {
+    "ids": [
+      319
+    ],
+    "attackAnim": 1683,
+    "defenceAnim": 1677,
+    "deathAnim": 1676,
+    "description": [
+      "Corporeal Beast"
+    ]
+  },
+  {
+    "ids": [
+      3473,
+      6119,
+      6350
+    ],
+    "attackAnim": 6318,
+    "defenceAnim": 6319,
+    "deathAnim": 6322,
+    "description": [
+      "The Inadequacy (hard)",
+      "The Inadequacy"
+    ]
+  },
+  {
+    "ids": [
+      1834,
+      3141
+    ],
+    "attackAnim": 4300,
+    "defenceAnim": 4301,
+    "deathAnim": 4302,
+    "description": [
+      "Gorak"
+    ]
+  },
+  {
+    "ids": [
+      7023
+    ],
+    "attackAnim": 4927,
+    "defenceAnim": 4925,
+    "deathAnim": 4929,
+    "description": [
+      "Reanimated bear"
+    ]
+  },
+  {
+    "ids": [
+      98
+    ],
+    "attackAnim": 338,
+    "defenceAnim": 339,
+    "deathAnim": 340,
+    "description": [
+      "Ghost"
+    ]
+  },
+  {
+    "ids": [
+      2207
+    ],
+    "attackAnim": 7037,
+    "defenceAnim": 7035,
+    "deathAnim": 7034,
+    "description": [
+      "Growler"
+    ]
+  },
+  {
+    "ids": [
+      2054,
+      6505
+    ],
+    "attackAnim": 3146,
+    "defenceAnim": 3145,
+    "deathAnim": 3147,
+    "description": [
+      "Chaos Elemental"
+    ]
+  },
+  {
+    "ids": [
+      1683,
+      2478,
+      3019,
+      4561,
+      5238
+    ],
+    "attackAnim": 6249,
+    "defenceAnim": 6250,
+    "deathAnim": 6251,
+    "description": [
+      "Crypt spider",
+      "Spider"
+    ]
+  },
+  {
+    "ids": [
+      7604,
+      7605,
+      7606
+    ],
+    "attackAnim": 5523,
+    "defenceAnim": 5489,
+    "deathAnim": 5527,
+    "description": [
+      "Skeletal Mystic"
+    ]
+  },
+  {
+    "ids": [
+      949,
+      950,
+      951,
+      952,
+      953,
+      7658,
+      7659,
+      7660,
+      7661,
+      7662
+    ],
+    "attackAnim": 5554,
+    "defenceAnim": 5552,
+    "deathAnim": 5555,
+    "description": [
+      "Mummy"
+    ]
+  },
+  {
+    "ids": [
+      1672
+    ],
+    "attackAnim": 727,
+    "defenceAnim": 424,
+    "deathAnim": 4167,
+    "description": [
+      "Ahrim the Blighted"
+    ]
+  },
+  {
+    "ids": [
+      2261,
+      5940
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 1314,
+    "description": [
+      "Giant Rock Crab"
+    ]
+  },
+  {
+    "ids": [
+      7584,
+      7585
+    ],
+    "attackAnim": 69,
+    "defenceAnim": 65,
+    "deathAnim": 67,
+    "description": [
+      "Ice demon"
+    ]
+  },
+  {
+    "ids": [
+      7706
+    ],
+    "attackAnim": 7566,
+    "defenceAnim": 7565,
+    "deathAnim": 7562,
+    "description": [
+      "TzKal-Zuk"
+    ]
+  },
+  {
+    "ids": [
+      2841,
+      2842,
+      2851
+    ],
+    "attackAnim": 391,
+    "defenceAnim": 389,
+    "deathAnim": 843,
+    "description": [
+      "Ice warrior"
+    ]
+  },
+  {
+    "ids": [
+      2167,
+      2168,
+      2169,
+      2170,
+      2171,
+      2172
+    ],
+    "attackAnim": 2610,
+    "defenceAnim": 2605,
+    "deathAnim": 2607,
+    "description": [
+      "TzHaar-Xil"
+    ]
+  },
+  {
+    "ids": [
+      7031
+    ],
+    "attackAnim": 4234,
+    "defenceAnim": 4232,
+    "deathAnim": 4233,
+    "description": [
+      "Reanimated horror"
+    ]
+  },
+  {
+    "ids": [
+      1047,
+      1048,
+      1049,
+      1050,
+      1051,
+      7401
+    ],
+    "attackAnim": 4234,
+    "defenceAnim": 4235,
+    "deathAnim": 4233,
+    "description": [
+      "Cave horror",
+      "Cave abomination"
+    ]
+  },
+  {
+    "ids": [
+      2173,
+      2174,
+      2175,
+      2176,
+      2177,
+      2178,
+      2179,
+      7035
+    ],
+    "attackAnim": 2610,
+    "defenceAnim": 2602,
+    "deathAnim": 2607,
+    "description": [
+      "TzHaar-Ket",
+      "Reanimated TzHaar"
+    ]
+  },
+  {
+    "ids": [
+      650,
+      652,
+      701,
+      703,
+      925,
+      927,
+      928,
+      4120,
+      4121,
+      4122,
+      4125,
+      4127,
+      4130,
+      6330,
+      6391,
+      7107
+    ],
+    "attackAnim": 928,
+    "defenceAnim": -1,
+    "deathAnim": -1,
+    "description": [
+      "Ice Troll",
+      "Pee Hat",
+      "Rock",
+      "Troll spectator",
+      "Troll general",
+      "Kraka",
+      "Dad",
+      "Dad (hard)",
+      "Ice troll",
+      "Kob"
+    ]
+  },
+  {
+    "ids": [
+      2075,
+      2076,
+      2077,
+      2078,
+      2079,
+      2080,
+      2081,
+      2082,
+      2083,
+      2084,
+      7251,
+      7252
+    ],
+    "attackAnim": 4666,
+    "defenceAnim": 4665,
+    "deathAnim": 4668,
+    "description": [
+      "Fire giant"
+    ]
+  },
+  {
+    "ids": [
+      6618,
+      7806
+    ],
+    "attackAnim": 3353,
+    "defenceAnim": 425,
+    "deathAnim": 2304,
+    "description": [
+      "Deranged archaeologist",
+      "Crazy archaeologist"
+    ]
+  },
+  {
+    "ids": [
+      820,
+      1065,
+      4691
+    ],
+    "attackAnim": 6183,
+    "defenceAnim": 6184,
+    "deathAnim": 6182,
+    "description": [
+      "Wormbrain",
+      "Angry goblin"
+    ]
+  },
+  {
+    "ids": [
+      9049,
+      9050
+    ],
+    "attackAnim": 8432,
+    "defenceAnim": 0,
+    "deathAnim": 8440,
+    "description": [
+      "Zalcano"
+    ]
+  },
+  {
+    "ids": [
+      10402
+    ],
+    "attackAnim": 7008,
+    "defenceAnim": 0,
+    "deathAnim": 0,
+    "description": [
+      "Colossal Hydra"
+    ]
+  },
+  {
+    "ids": [
+      2946,
+      2947,
+      2948
+    ],
+    "attackAnim": 5988,
+    "defenceAnim": 5989,
+    "deathAnim": 5990,
+    "description": [
+      "Nail beast"
+    ]
+  },
+  {
+    "ids": [
+      1675
+    ],
+    "attackAnim": 2075,
+    "defenceAnim": 424,
+    "deathAnim": 4167,
+    "description": [
+      "Karil the Tainted"
+    ]
+  },
+  {
+    "ids": [
+      1684,
+      2477,
+      3016,
+      3017,
+      3018,
+      3020,
+      3022,
+      3023,
+      3997,
+      4533,
+      5243,
+      5373,
+      6267,
+      6271,
+      6334,
+      6395,
+      7514
+    ],
+    "attackAnim": 5327,
+    "defenceAnim": 5328,
+    "deathAnim": 5329,
+    "description": [
+      "Blessed spider",
+      "Shadow spider",
+      "Ice spider",
+      "Giant spider",
+      "Witch's experiment (second form)",
+      "Giant crypt spider",
+      "Poison spider",
+      "Witch's experiment (second form) (hard)",
+      "Jungle spider"
+    ]
+  },
+  {
+    "ids": [
+      7541,
+      7542
+    ],
+    "attackAnim": 7478,
+    "defenceAnim": -1,
+    "deathAnim": 7495,
+    "description": [
+      "Tekton"
+    ]
+  },
+  {
+    "ids": [
+      5633,
+      7258
+    ],
+    "attackAnim": 1284,
+    "defenceAnim": 1286,
+    "deathAnim": 1308,
+    "description": [
+      "Shade"
+    ]
+  },
+  {
+    "ids": [
+      6473,
+      6474
+    ],
+    "attackAnim": 5624,
+    "defenceAnim": 5625,
+    "deathAnim": 5627,
+    "description": [
+      "Terror dog"
+    ]
+  },
+  {
+    "ids": [
+      5369
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 6204,
+    "description": [
+      "Goblin guard"
+    ]
+  },
+  {
+    "ids": [
+      7691
+    ],
+    "attackAnim": 7574,
+    "defenceAnim": 7575,
+    "deathAnim": 7676,
+    "description": [
+      "Jal-Nib"
+    ]
+  },
+  {
+    "ids": [
+      8609
+    ],
+    "attackAnim": 8263,
+    "defenceAnim": 0,
+    "deathAnim": 8264,
+    "description": [
+      "Hydra"
+    ]
+  },
+  {
+    "ids": [
+      6604
+    ],
+    "attackAnim": 304,
+    "defenceAnim": 305,
+    "deathAnim": 307,
+    "description": [
+      "Mammoth"
+    ]
+  },
+  {
+    "ids": [
+      423,
+      7249,
+      7404
+    ],
+    "attackAnim": 1557,
+    "defenceAnim": 1555,
+    "deathAnim": 1558,
+    "description": [
+      "Dust devil",
+      "Choke devil"
+    ]
+  },
+  {
+    "ids": [
+      2481,
+      7021
+    ],
+    "attackAnim": 4266,
+    "defenceAnim": 4267,
+    "deathAnim": 4265,
+    "description": [
+      "Minotaur",
+      "Reanimated minotaur"
+    ]
+  },
+  {
+    "ids": [
+      6594
+    ],
+    "attackAnim": 7144,
+    "defenceAnim": 7145,
+    "deathAnim": 7146,
+    "description": [
+      "Ent"
+    ]
+  },
+  {
+    "ids": [
+      2482,
+      2483
+    ],
+    "attackAnim": 4266,
+    "defenceAnim": 4268,
+    "deathAnim": 4265,
+    "description": [
+      "Minotaur"
+    ]
+  },
+  {
+    "ids": [
+      7525
+    ],
+    "attackAnim": 7431,
+    "defenceAnim": 0,
+    "deathAnim": 7432,
+    "description": []
+  },
+  {
+    "ids": [
+      852,
+      853,
+      854,
+      855
+    ],
+    "attackAnim": 5723,
+    "defenceAnim": 5724,
+    "deathAnim": 5726,
+    "description": [
+      "Icelord"
+    ]
+  },
+  {
+    "ids": [
+      4819,
+      4822
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 3430,
+    "description": [
+      "Crab"
+    ]
+  },
+  {
+    "ids": [
+      10532
+    ],
+    "attackAnim": 8840,
+    "defenceAnim": 0,
+    "deathAnim": 8841,
+    "description": [
+      "Avatar of Destruction"
+    ]
+  },
+  {
+    "ids": [
+      373,
+      374,
+      5497,
+      5498,
+      5499,
+      5500,
+      5501,
+      5502
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 2373,
+    "description": []
+  },
+  {
+    "ids": [
+      5775
+    ],
+    "attackAnim": -1,
+    "defenceAnim": -1,
+    "deathAnim": 5412,
+    "description": [
+      "Penance Queen"
+    ]
+  },
+  {
+    "ids": [
+      7540
+    ],
+    "attackAnim": 0,
+    "defenceAnim": 0,
+    "deathAnim": 7495,
+    "description": []
+  }
+]

@@ -1,6 +1,7 @@
-package com.elvarg.game.definition;
+package com.elvarg.game.definition.loader.impl;
 
 import com.elvarg.game.World;
+import com.elvarg.game.definition.NpcSpawnDefinition;
 import com.elvarg.game.entity.impl.npc.NPC;
 import com.elvarg.game.model.Location;
 import com.elvarg.util.Misc;

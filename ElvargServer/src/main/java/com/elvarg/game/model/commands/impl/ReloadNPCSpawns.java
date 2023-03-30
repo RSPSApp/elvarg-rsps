@@ -1,7 +1,7 @@
 package com.elvarg.game.model.commands.impl;
 
 import com.elvarg.game.World;
-import com.elvarg.game.definition.NpcSpawnDefinitionLoader;
+import com.elvarg.game.definition.loader.impl.NpcSpawnDefinitionLoader;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.commands.Command;
 import com.elvarg.game.model.rights.PlayerRights;
