@@ -18,7 +18,15 @@ public class AnimationDefinitionLoader extends DefinitionLoader {
 
 	@Override
 	public void load() throws Throwable {
-		FileReader reader = new FileReader(file());
+		//TODO temporary until the definitions dumped from OSRS are fully filled.
+		//These are the items that had animations that were not the default values.
+		//This is to ensure feature parity with the original system.
+		load(GameConstants.DEFINITIONS_DIRECTORY + "item-animations-elvarg.json");
+		load(file());
+	}
+
+	private void load(String file) throws Throwable {
+		FileReader reader = new FileReader(file);
 		_AnimationDefinition[] defs = new Gson().fromJson(reader, _AnimationDefinition[].class);
 		for (_AnimationDefinition def : defs) {
 			AnimationDefinition d = new AnimationDefinition(def.stand, def.walk, def.run, def.walkR180, def.walkRRight, def.walkRLeft, def.standRRight, def.standRLeft);
