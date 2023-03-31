@@ -26,8 +26,8 @@ public class AnimationDefinition {
 	public int walkR180;
 	public int walkRRight;
 	public int walkRLeft;
-	public int standRRight;
-	public int standRLeft;
+	public int standRRight;//TODO check if is always same as standRLeft
+	public int standRLeft;//TODO check if is always same as standRRight
 
 	public AnimationDefinition(int stand, int walk, int run, int walkR180, int walkRRight, int walkRLeft,
 			int standRRight, int standRLeft) {

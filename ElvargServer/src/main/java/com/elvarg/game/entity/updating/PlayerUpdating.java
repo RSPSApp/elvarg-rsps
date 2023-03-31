@@ -1,7 +1,7 @@
 package com.elvarg.game.entity.updating;
 
 import com.elvarg.game.World;
-import com.elvarg.game.definition.ItemDefinition;
+import com.elvarg.game.definition.*;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.entity.impl.playerbot.PlayerBot;
@@ -693,12 +693,14 @@ public class PlayerUpdating {
 				properties.putShort(skillAnim);
 		} else {
 			ItemDefinition wep = target.getEquipment().getItems()[Equipment.WEAPON_SLOT].getDefinition();
+			AnimationDefinition anims = AnimationDefinition.forId(equipment.getWeapon().getId());
+
 			properties.putShort(wep.getStandAnim());
-			properties.putShort(0x337);//823
+			properties.putShort(anims.getStandRRight());
 			properties.putShort(wep.getWalkAnim());
-			properties.putShort(0x334);//820
-			properties.putShort(0x335);//821
-			properties.putShort(0x336);//822
+			properties.putShort(anims.getWalkR180());
+			properties.putShort(anims.getWalkRLeft());
+			properties.putShort(anims.getWalkRRight());
 			properties.putShort(wep.getRunAnim());
 		}
 
