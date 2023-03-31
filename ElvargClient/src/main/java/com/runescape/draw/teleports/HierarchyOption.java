@@ -1,6 +1,8 @@
 package com.runescape.draw.teleports;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author relex lawl
@@ -17,5 +19,5 @@ public interface HierarchyOption {
 
     int[] getIndex();
 
-    HierarchyOption[] getOptions();
+    ArrayList<HierarchyOption> getOptions();
 }

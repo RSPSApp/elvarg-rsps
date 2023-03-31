@@ -4199,6 +4199,9 @@ public class Client extends GameEngine implements RSClient {
         setGameState(GameState.STARTING);
         new CacheDownloader(this).init();
 
+
+        TeleportChatBox.addCategory("category",KeyEvent.VK_Y,"");
+        TeleportChatBox.addTeleport("category",KeyEvent.VK_X,"dfdfd");
         drawLoadingText(20, "Starting up");
         if (SignLink.cache_dat != null) {
             for (int i = 0; i < 5; i++)
