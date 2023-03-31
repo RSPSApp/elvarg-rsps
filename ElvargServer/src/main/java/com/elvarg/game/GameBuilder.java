@@ -67,6 +67,7 @@ public class GameBuilder {
 
         // Load definitions..
         tasks.add(new ObjectSpawnDefinitionLoader());
+        tasks.add(new AnimationDefinitionLoader());
         tasks.add(new ItemDefinitionLoader());
         tasks.add(new ShopDefinitionLoader());
         tasks.add(new NpcDefinitionLoader());

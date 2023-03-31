@@ -692,16 +692,15 @@ public class PlayerUpdating {
 			for (int i = 0; i < 7; i++)
 				properties.putShort(skillAnim);
 		} else {
-			ItemDefinition wep = target.getEquipment().getItems()[Equipment.WEAPON_SLOT].getDefinition();
 			AnimationDefinition anims = AnimationDefinition.forId(equipment.getWeapon().getId());
 
-			properties.putShort(wep.getStandAnim());
-			properties.putShort(anims.getStandRRight());
-			properties.putShort(wep.getWalkAnim());
+			properties.putShort(anims.getStand());
+			properties.putShort(anims.getStandRRight());//TODO check
+			properties.putShort(anims.getWalk());
 			properties.putShort(anims.getWalkR180());
 			properties.putShort(anims.getWalkRLeft());
 			properties.putShort(anims.getWalkRRight());
-			properties.putShort(wep.getRunAnim());
+			properties.putShort(anims.getRun());
 		}
 
 		properties.putLong(target.getLongUsername());
