@@ -1,12 +1,78 @@
 [
   {
     "ids": [
-      9185,
-      11785
+      4734
     ],
-    "stand": 4591,
-    "walk": 819,
-    "run": 824,
+    "stand": 2074,
+    "walk": 2076,
+    "run": 2077,
+    "walkR180": 820,
+    "walkRRight": 822,
+    "walkRLeft": 821,
+    "standRRight": 823,
+    "standRLeft": 823
+  },
+  {
+    "ids": [
+      19478,
+      19481
+    ],
+    "stand": 7220,
+    "walk": 7223,
+    "run": 7221,
+    "walkR180": 820,
+    "walkRRight": 822,
+    "walkRLeft": 821,
+    "standRRight": 823,
+    "standRLeft": 823
+  },
+  {
+    "ids": [
+      4565
+    ],
+    "stand": 1836,
+    "walk": 1836,
+    "run": 1836,
+    "walkR180": 820,
+    "walkRRight": 822,
+    "walkRLeft": 821,
+    "standRRight": 823,
+    "standRLeft": 823
+  },
+  {
+    "ids": [
+      3200,
+      4864,
+      4865,
+      3202,
+      9091,
+      3204,
+      9092,
+      9093,
+      6599,
+      6603,
+      6563,
+      4710,
+      10150,
+      3054,
+      4910,
+      4911,
+      4912,
+      4913,
+      3190,
+      4726,
+      3192,
+      3194,
+      1403,
+      3196,
+      1405,
+      3198,
+      4862,
+      4863
+    ],
+    "stand": 809,
+    "walk": 1146,
+    "run": 1210,
     "walkR180": 820,
     "walkRRight": 822,
     "walkRLeft": 821,
@@ -20,6 +86,24 @@
     "stand": 5869,
     "walk": 5867,
     "run": 5868,
+    "walkR180": 820,
+    "walkRRight": 822,
+    "walkRLeft": 821,
+    "standRRight": 823,
+    "standRLeft": 823
+  },
+  {
+    "ids": [
+      11808,
+      12809,
+      26233,
+      11802,
+      11804,
+      11806
+    ],
+    "stand": 7053,
+    "walk": 7052,
+    "run": 7043,
     "walkR180": 820,
     "walkRRight": 822,
     "walkRLeft": 821,
@@ -57,6 +141,37 @@
   },
   {
     "ids": [
+      4934,
+      4935,
+      4936,
+      4937
+    ],
+    "stand": 2074,
+    "walk": 819,
+    "run": 824,
+    "walkR180": 820,
+    "walkRRight": 822,
+    "walkRLeft": 821,
+    "standRRight": 823,
+    "standRLeft": 823
+  },
+  {
+    "ids": [
+      22324,
+      25734,
+      23628
+    ],
+    "stand": 809,
+    "walk": 819,
+    "run": 824,
+    "walkR180": 820,
+    "walkRRight": 822,
+    "walkRLeft": 821,
+    "standRRight": 823,
+    "standRLeft": 823
+  },
+  {
+    "ids": [
       7809,
       5704,
       5706,
@@ -84,239 +199,11 @@
       3176,
       4584,
       5736,
-      4158,
-      4159
+      4158
     ],
     "stand": 8980,
     "walk": 1146,
     "run": 1210,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      4178,
-      12773,
-      12774
-    ],
-    "stand": 1832,
-    "walk": 1660,
-    "run": 1661,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      4886,
-      4887,
-      4888,
-      4889
-    ],
-    "stand": 2065,
-    "walk": 1663,
-    "run": 12001,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      4734
-    ],
-    "stand": 2074,
-    "walk": 2076,
-    "run": 2077,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      6609
-    ],
-    "stand": 809,
-    "walk": 7046,
-    "run": 7039,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      19478,
-      19481
-    ],
-    "stand": 7220,
-    "walk": 7223,
-    "run": 7221,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      12006,
-      4151
-    ],
-    "stand": 808,
-    "walk": 1660,
-    "run": 1661,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      4565
-    ],
-    "stand": 1836,
-    "walk": 1836,
-    "run": 1836,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      11809,
-      11803,
-      11805,
-      11807
-    ],
-    "stand": 7047,
-    "walk": 7046,
-    "run": 7039,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      3200,
-      4864,
-      4865,
-      3202,
-      9091,
-      772,
-      3204,
-      9092,
-      9093,
-      6599,
-      6603,
-      6562,
-      6563,
-      4710,
-      10150,
-      3053,
-      3054,
-      4910,
-      4911,
-      4912,
-      4913,
-      3190,
-      4726,
-      3192,
-      1401,
-      3194,
-      1403,
-      3196,
-      1405,
-      3198,
-      4862,
-      1407,
-      4863
-    ],
-    "stand": 809,
-    "walk": 1146,
-    "run": 1210,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      11808,
-      26402,
-      12809,
-      26233,
-      11802,
-      11804,
-      11806,
-      11838
-    ],
-    "stand": 7053,
-    "walk": 7052,
-    "run": 7043,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      4934,
-      4935,
-      4936,
-      4937
-    ],
-    "stand": 2074,
-    "walk": 819,
-    "run": 824,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      22483,
-      22324,
-      22484,
-      25734,
-      25735,
-      23628,
-      23629
-    ],
-    "stand": 809,
-    "walk": 819,
-    "run": 824,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      4084
-    ],
-    "stand": 1461,
-    "walk": 1468,
-    "run": 1467,
     "walkR180": 820,
     "walkRRight": 822,
     "walkRLeft": 821,
@@ -382,59 +269,11 @@
   },
   {
     "ids": [
-      6912,
-      12416,
-      1409,
-      11905,
-      6914,
-      11907,
-      11908,
-      11791,
-      5016,
-      4675,
-      4170,
-      1237,
-      1239,
-      1241,
-      1243,
-      1245,
-      11998,
-      1247,
-      1249,
-      1251,
-      1379,
-      12899,
-      1253,
-      1381,
-      1255,
-      1383,
-      12904,
-      1257,
-      1385,
-      1259,
-      1387,
-      1261,
-      1389,
-      1263,
-      1391,
-      2415,
-      2416,
-      1393,
-      2417,
-      11889,
-      1395,
-      1397,
-      11381,
-      1399,
-      12795,
-      6908,
-      9084,
-      12796,
-      6910
+      12774
     ],
-    "stand": 813,
-    "walk": 1146,
-    "run": 1210,
+    "stand": 1832,
+    "walk": 1660,
+    "run": 1661,
     "walkR180": 820,
     "walkRRight": 822,
     "walkRLeft": 821,
@@ -459,41 +298,18 @@
       1281,
       4068,
       1285,
-      1287,
+      4503,
       9703,
       10858,
-      6605,
-      6607,
-      6897,
-      4503,
-      667,
       7675,
       4508,
-      7806
+      6605,
+      7806,
+      6607
     ],
     "stand": 12021,
     "walk": 12024,
     "run": 824,
-    "walkR180": 820,
-    "walkRRight": 822,
-    "walkRLeft": 821,
-    "standRRight": 823,
-    "standRLeft": 823
-  },
-  {
-    "ids": [
-      1313,
-      1315,
-      1317,
-      7158,
-      1319,
-      1307,
-      1309,
-      1311
-    ],
-    "stand": 2561,
-    "walk": 2064,
-    "run": 2563,
     "walkR180": 820,
     "walkRRight": 822,
     "walkRLeft": 821,
