@@ -5,6 +5,7 @@ import com.elvarg.game.content.combat.CombatEquipment;
 import com.elvarg.game.content.combat.CombatFactory;
 import com.elvarg.game.content.combat.CombatType;
 import com.elvarg.game.content.combat.FightStyle;
+import com.elvarg.game.definition.NpcDefinition;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Skill;
@@ -59,7 +60,7 @@ public class AccuracyFormulasDpsCalc {
         float att = 8;
 
         if (entity.isNpc()) {
-            att += entity.getAsNpc().getCurrentDefinition().getStats()[0];
+            att += entity.getAsNpc().getCurrentDefinition().getStats()[NpcDefinition.ATTACK_LEVEL];
             return att;
         }
 
@@ -106,7 +107,7 @@ public class AccuracyFormulasDpsCalc {
 
         if (entity.isNpc()) {
             // NPC's don't currently have stab/slash/crush bonuses
-            attRoll *= 64;
+            attRoll *= entity.getAsNpc().getCurrentDefinition().getStats()[NpcDefinition.ATTACK_MELEE]  + 64;
             return (int) attRoll;
         }
 
@@ -138,7 +139,7 @@ public class AccuracyFormulasDpsCalc {
         float def = 1;
 
         if(enemy.isNpc()) {
-            return enemy.getAsNpc().getCurrentDefinition().getStats()[2];
+            return enemy.getAsNpc().getCurrentDefinition().getStats()[NpcDefinition.DEFENCE_LEVEL];
         }
 
         Player player = enemy.getAsPlayer();
@@ -233,7 +234,7 @@ public class AccuracyFormulasDpsCalc {
 
         if (entity.isNpc()) {
             // Prayer bonuses don't apply to NPCs (yet)
-            return rngStrength + entity.getAsNpc().getCurrentDefinition().getStats()[3];
+            return rngStrength + entity.getAsNpc().getCurrentDefinition().getStats()[NpcDefinition.RANGED_LEVEL];
         }
 
         Player player = entity.getAsPlayer();
@@ -283,7 +284,7 @@ public class AccuracyFormulasDpsCalc {
 
         if (entity.isNpc()) {
             // Prayer bonuses don't apply to NPCs (yet)
-            mag += entity.getAsNpc().getCurrentDefinition().getStats()[4];
+            mag += entity.getAsNpc().getCurrentDefinition().getStats()[NpcDefinition.MAGIC_LEVEL];
             return mag;
         }
 

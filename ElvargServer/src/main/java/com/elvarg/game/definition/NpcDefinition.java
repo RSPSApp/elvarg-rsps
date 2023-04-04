@@ -13,7 +13,17 @@ import com.elvarg.util.SuppliedHashMap;
  * @author Professor Oak
  */
 public class NpcDefinition {
+	
+    public static final int ATTACK_LEVEL = 0, STRENGTH_LEVEL = 1, DEFENCE_LEVEL = 2, RANGED_LEVEL = 3, MAGIC_LEVEL = 4;
+    public static final int ATTACK_MELEE = 5;
+    
+/*    public static final int ATTACK_STAB = 0, ATTACK_SLASH = 1, ATTACK_CRUSH = 2, ATTACK_MAGIC = 3, ATTACK_RANGE = 4,
 
+            DEFENCE_STAB = 10, DEFENCE_SLASH = 11, DEFENCE_CRUSH = 12, DEFENCE_MAGIC = 13, DEFENCE_RANGE = 14,
+
+            STRENGTH = 0, RANGED_STRENGTH = 1, MAGIC_STRENGTH = 2, PRAYER = 3*/
+            ;
+	
     /**
      * The map containing all our {@link NpcDefinition}s.
      */
