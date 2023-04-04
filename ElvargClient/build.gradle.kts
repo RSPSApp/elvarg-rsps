@@ -111,3 +111,22 @@ tasks.withType<JavaCompile>().configureEach {
     options.isIncremental = true
 }
 
+tasks {
+    register<JavaExec>("Run-Normal") {
+        group = "Runelite"
+        description = "Run Runelite in Normal Mode"
+        classpath = project.sourceSets.main.get().runtimeClasspath
+        mainClass.set("net.runelite.client.RuneLite")
+    }
+
+    register<JavaExec>("Run-Development") {
+        group = "Runelite"
+        description = "Run Runelite in Development Mode"
+        enableAssertions = true
+        args = listOf("--developer-mode")
+        classpath = project.sourceSets.main.get().runtimeClasspath
+        mainClass.set("net.runelite.client.RuneLite")
+    }
+}
+
+
