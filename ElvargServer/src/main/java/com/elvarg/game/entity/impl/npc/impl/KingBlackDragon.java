@@ -1,5 +1,6 @@
 package com.elvarg.game.entity.impl.npc.impl;
 
+import com.elvarg.game.content.combat.CombatFactory;
 import com.elvarg.game.content.combat.method.CombatMethod;
 import com.elvarg.game.content.combat.method.impl.npcs.KingBlackDragonMethod;
 import com.elvarg.game.entity.impl.npc.NPC;
@@ -27,4 +28,9 @@ public class KingBlackDragon extends NPC {
     public CombatMethod getCombatMethod() {
         return COMBAT_METHOD;
     }
+    
+    @Override
+	public boolean useProjectileClipping() {
+	    return false;
+	}
 }
