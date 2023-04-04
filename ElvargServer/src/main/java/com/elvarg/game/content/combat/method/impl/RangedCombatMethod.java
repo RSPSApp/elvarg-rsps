@@ -85,7 +85,7 @@ public class RangedCombatMethod extends CombatMethod {
         Projectile projectile;
         
         if (rangedWeapon.getType() == RangedWeaponType.CROSSBOW) {
-            projectile = new Projectile(projectileId, 44, 35, 46, 62);
+            projectile = new ProjectileBuilder().setId(projectileId).setStart(38).setEnd(36).setDelay(41).setAngle(5).setDistanceOffset(11).setDuration(5).setSpan(5).create();
         } else if (rangedWeapon.getType() == RangedWeaponType.BLOWPIPE) {
         	projectile = new Projectile(projectileId, 40, 35, 40, 60);
         } else if (ammo == Ammunition.TOKTZ_XIL_UL) {
