@@ -306,10 +306,6 @@ public abstract class Mobile extends Entity {
 
 	public abstract Mobile setHitpoints(int hitpoints);
 
-	public abstract int getBaseAttack(CombatType type);
-
-	public abstract int getBaseDefence(CombatType type);
-
 	public abstract int getBaseAttackSpeed();
 
 	public abstract int getAttackAnim();

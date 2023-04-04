@@ -337,22 +337,6 @@ public class Player extends Mobile {
 	}
 
 	@Override
-	public int getBaseAttack(CombatType type) {
-		if (type == CombatType.RANGED)
-			return skillManager.getCurrentLevel(Skill.RANGED);
-		else if (type == CombatType.MAGIC)
-			return skillManager.getCurrentLevel(Skill.MAGIC);
-		return skillManager.getCurrentLevel(Skill.ATTACK);
-	}
-
-	@Override
-	public int getBaseDefence(CombatType type) {
-		if (type == CombatType.MAGIC)
-			return skillManager.getCurrentLevel(Skill.MAGIC);
-		return skillManager.getCurrentLevel(Skill.DEFENCE);
-	}
-
-	@Override
 	public int getBaseAttackSpeed() {
 
 		// Gets attack speed for player's weapon
