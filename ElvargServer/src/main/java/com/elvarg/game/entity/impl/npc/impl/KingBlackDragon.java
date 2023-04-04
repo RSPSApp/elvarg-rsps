@@ -12,7 +12,7 @@ import static com.elvarg.util.NpcIdentifiers.*;
 @Ids({KING_BLACK_DRAGON, KING_BLACK_DRAGON_2, KING_BLACK_DRAGON_3})
 public class KingBlackDragon extends NPC {
 
-    private static final CombatMethod COMBAT_METHOD = new KingBlackDragonMethod();
+    private CombatMethod COMBAT_METHOD = new KingBlackDragonMethod();
 
     /**
      * Constructs a new npc.
