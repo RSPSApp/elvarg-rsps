@@ -92,6 +92,10 @@ public class RangedCombatMethod extends CombatMethod {
         	projectile = new ProjectileBuilder().setId(projectileId).setStart(40).setEnd(36).setDelay(32).setAngle(15).setDistanceOffset(11).setDuration(0).setSpan(5).create();
         } else if (rangedWeapon.getType() == RangedWeaponType.LONGBOW) {
         	projectile = new Projectile(projectileId, 43, 31, 40, 70);
+        } else if (rangedWeapon.getType() == RangedWeaponType.BALLISTA) {
+        	projectile = new ProjectileBuilder().setId(projectileId).setStart(38).setEnd(36).setDelay(42).setAngle(1).setDistanceOffset(120).setDuration(5).setSpan(3).create();
+        } else if (rangedWeapon.getType() == RangedWeaponType.KNIFE) {
+        	projectile = new ProjectileBuilder().setId(projectileId).setStart(40).setEnd(36).setDelay(32).setAngle(15).setDistanceOffset(11).setDuration(0).setSpan(5).create();
         } else {
         	projectile = new ProjectileBuilder().setId(projectileId).setStart(40).setEnd(36).setDelay(41).setAngle(15).setDistanceOffset(11).setDuration(5).setSpan(5).create();
         }
