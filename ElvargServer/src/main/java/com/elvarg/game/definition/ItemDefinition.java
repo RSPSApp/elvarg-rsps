@@ -30,7 +30,6 @@ public class ItemDefinition {
     public boolean sellable;//Noot sure about this one.
     public int value;// GE PRICE
     public int bloodMoneyValue;// ELVARG SPECIFIC
-    public int blockAnim = 424;
     
     //VALUES from OSRSBOX
     public int id;
@@ -119,10 +118,6 @@ public class ItemDefinition {
         return doubleHanded;
     }
 
-    public int getBlockAnim() {
-        return blockAnim;
-    }
-
     public double getWeight() {
         return weight;
     }
@@ -157,8 +152,8 @@ public class ItemDefinition {
         return ItemDefinition.forId(id - 1).getName().equals(name) ? id - 1 : id;
     }
 
-	public void update(OSRSBoxItemDefinition o) {	
-		//ELVARG max id is 26562 and it is missing the following:
+    public void update(OSRSBoxItemDefinition o) {
+        // ELVARG max id is 26562 and it is missing the following:
 /*
 OSRSBoxItemDefinition [id=25484, name=Webweaver bow (u)] mismatch with Elvarg [id=0, name=]
 OSRSBoxItemDefinition [id=25485, name=Webweaver bow] mismatch with Elvarg [id=0, name=]
@@ -170,10 +165,10 @@ OSRSBoxItemDefinition [id=25490, name=Voidwaker] mismatch with Elvarg [id=0, nam
 OSRSBoxItemDefinition [id=25491, name=Accursed sceptre (au)] mismatch with Elvarg [id=0, name=]
 OSRSBoxItemDefinition [id=25492, name=Accursed sceptre (a)] mismatch with Elvarg [id=0, name=]
  */
-		
-//		Check to ensure that the names match. This should throw an error on shuffled ids.
-//		if(!this.name.equalsIgnoreCase(o.name))
-//			System.out.println("OSRSBoxItemDefinition [id=" + o.id + ", name=" + o.name + "] mismatch with Elvarg [id=" + this.id + ", name=" + this.name + "]");
+
+        //Check to ensure that the names match. This should throw an error on shuffled ids.
+        //if(!this.name.equalsIgnoreCase(o.name))
+        //System.out.println("OSRSBoxItemDefinition [id=" + o.id + ", name=" + o.name + "] mismatch with Elvarg [id=" + this.id + ", name=" + this.name + "]");
 
         this.id = o.id;
         this.name = o.name;
@@ -189,5 +184,44 @@ OSRSBoxItemDefinition [id=25492, name=Accursed sceptre (a)] mismatch with Elvarg
         this.bonuses = o.equipment != null? o.getBonuses() : null;
         this.requirements = o.equipment != null && o.equipment.requirements != null ? o.getRequirements() : null;		
         this.weapon_type = o.weapon != null ? o.weapon.weapon_type : null;
-	}
+    }
+    
+    public static int getBlockAnimation(int shield, int weapon) {
+        if(shield > 0)
+            return getOffhandBlock(shield);
+        WeaponInterface def = ItemDefinition.forId(weapon).getWeaponInterface();
+        if(def != null)
+            return def.getBlockAnim();
+        return 424;
+    }
+
+    private static int getOffhandBlock(int itemId) {
+        switch (itemId) {
+        case 1189: // Bronze kiteshield
+        case 1191: // Iron kiteshield
+        case 1193: // Steel kiteshield
+        case 1195: // Black kiteshield
+        case 1197: // Mithril kiteshield
+        case 1199: // Adamant kiteshield
+        case 1201: // Rune kiteshield
+        case 6894: // Adamant kiteshield
+        case 11283: // Dragonfire shield
+        case 11284: // Dragonfire shield
+        case 11285: // Dragonfire shield
+        case 12817: // Elysian spirit shield
+        case 12821: // Spectral spirit shield
+        case 12825: // Arcane spirit shield
+            return 1156;
+        case 8844: // Bronze defender
+        case 8845: // Iron defender
+        case 8846: // Steel defender
+        case 8847: // Black defender
+        case 8848: // Mithril defender
+        case 8849: // Adamant defender
+        case 8850: // Rune defender
+        case 12954: // Dragon defender
+            return 4177;
+        }
+        return 424;
+    }
 }

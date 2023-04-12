@@ -303,8 +303,7 @@ public class Player extends Mobile {
 	public int getBlockAnim() {
 		final Item shield = getEquipment().getItems()[Equipment.SHIELD_SLOT];
 		final Item weapon = getEquipment().getItems()[Equipment.WEAPON_SLOT];
-		ItemDefinition definition = shield.getId() > 0 ? shield.getDefinition() : weapon.getDefinition();
-		return definition.getBlockAnim();
+		return ItemDefinition.getBlockAnimation(shield.getId(), weapon.getId());
 	}
 
 	@Override
