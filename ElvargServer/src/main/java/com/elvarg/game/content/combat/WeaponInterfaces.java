@@ -526,6 +526,8 @@ public final class WeaponInterfaces {
                 FightType.HALBERD_SWIPE, FightType.HALBERD_FEND}, 8493, 8505, 430),
         UNARMED(5855, 5857, 4, new FightType[]{FightType.UNARMED_PUNCH,
                 FightType.UNARMED_KICK, FightType.UNARMED_BLOCK}, DEFAULT_BLOCK),
+        CHIN(5855, 5857, 4, new FightType[]{FightType.UNARMED_PUNCH,
+                FightType.UNARMED_KICK, FightType.UNARMED_BLOCK}, 3176),
         WHIP(12290, 12293, 4, new FightType[]{FightType.WHIP_FLICK,
                 FightType.WHIP_LASH, FightType.WHIP_DEFLECT}, 12323, 12335, 1659),
         THROWNAXE(4446, 4449, 4, new FightType[]{
