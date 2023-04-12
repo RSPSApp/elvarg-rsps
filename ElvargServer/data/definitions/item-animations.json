@@ -386,19 +386,6 @@
   },
   {
     "ids": [
-      -1
-    ],
-    "stand": -1,
-    "walk": -1,
-    "run": -1,
-    "walkR180": -1,
-    "walkRRight": -1,
-    "walkRLeft": -1,
-    "standRRight": -1,
-    "standRLeft": -1
-  },
-  {
-    "ids": [
       12773,
       4151,
       12006,
