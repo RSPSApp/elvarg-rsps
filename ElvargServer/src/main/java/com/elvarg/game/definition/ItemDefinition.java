@@ -24,12 +24,14 @@ public class ItemDefinition {
      * The default {@link ItemDefinition} that will be used.
      */
     public static final ItemDefinition DEFAULT = new ItemDefinition();
-    public transient WeaponInterface weaponInterface;
     public EquipmentType equipmentType = EquipmentType.NONE;
     public boolean doubleHanded;//TODO is this needed?
-    public boolean dropable;//TODO get from cache. If it doesnt have destroy.
-    public boolean sellable;//Noot sure about this one.
     public int value;// GE PRICE
+    
+    //Calculated from OSRSbox
+    public transient WeaponInterface weaponInterface;
+    public transient boolean dropable;
+    public transient boolean sellable;
     
     //VALUES from OSRSBOX
     public int id;
@@ -149,23 +151,6 @@ public class ItemDefinition {
     }
 
     public void update(OSRSBoxItemDefinition o) {
-        // ELVARG max id is 26562 and it is missing the following:
-/*
-OSRSBoxItemDefinition [id=25484, name=Webweaver bow (u)] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25485, name=Webweaver bow] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25486, name=Ursine chainmace (u)] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25487, name=Ursine chainmace] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25488, name=Accursed sceptre (u)] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25489, name=Accursed sceptre] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25490, name=Voidwaker] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25491, name=Accursed sceptre (au)] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25492, name=Accursed sceptre (a)] mismatch with Elvarg [id=0, name=]
- */
-
-        //Check to ensure that the names match. This should throw an error on shuffled ids.
-        //if(!this.name.equalsIgnoreCase(o.name))
-        //System.out.println("OSRSBoxItemDefinition [id=" + o.id + ", name=" + o.name + "] mismatch with Elvarg [id=" + this.id + ", name=" + this.name + "]");
-
         this.id = o.id;
         this.name = o.name;
         this.examine = o.examine;
@@ -182,8 +167,26 @@ OSRSBoxItemDefinition [id=25492, name=Accursed sceptre (a)] mismatch with Elvarg
         this.weapon_type = o.weapon != null ? o.weapon.weapon_type : null;
         if(this.weapon_type != null)
             this.weaponInterface = WeaponInterfaces.get(this.weapon_type, this.id);
+        
+        /*
+         * sellable is always tradeable in current defs except when ID is 13307 when it is false
+         */
+        this.sellable = id == 13307 ? false : tradeable;
+        this.dropable = isDropable(id, tradeable);
     }
-    
+
+    //TODO get from cache later and set this to if the item action doesnt have destroy.
+    public boolean isDropable(int id, boolean tradeable) {
+        //STOCK ELVARG Definitions have this set to tradeable except for some fringe scenarios.
+        //tradeable true is always droppable. there are some exceptions when is tradeable is false and droppable is true
+        //21273 is true
+        //21393 and higher is always true except for 22322 which is false.
+        
+        if(id == 21273 || (id > 21392 && id != 22322))
+            return true;
+        return tradeable;
+    }
+
     public static int getBlockAnimation(int shield, int weapon) {
         if(shield > 0)
             return getOffhandBlock(shield);
