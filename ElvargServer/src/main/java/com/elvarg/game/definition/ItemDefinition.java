@@ -23,7 +23,7 @@ public class ItemDefinition {
      * The default {@link ItemDefinition} that will be used.
      */
     public static final ItemDefinition DEFAULT = new ItemDefinition();
-    public WeaponInterface weaponInterface;
+    public transient WeaponInterface weaponInterface;
     public EquipmentType equipmentType = EquipmentType.NONE;
     public boolean doubleHanded;//TODO is this needed?
     public boolean dropable;//TODO get from cache. If it doesnt have destroy.
@@ -184,6 +184,8 @@ OSRSBoxItemDefinition [id=25492, name=Accursed sceptre (a)] mismatch with Elvarg
         this.bonuses = o.equipment != null? o.getBonuses() : null;
         this.requirements = o.equipment != null && o.equipment.requirements != null ? o.getRequirements() : null;		
         this.weapon_type = o.weapon != null ? o.weapon.weapon_type : null;
+        if(this.weapon_type != null)
+            this.weaponInterface = WeaponInterfaces.get(this.weapon_type, this.id);
     }
     
     public static int getBlockAnimation(int shield, int weapon) {
