@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.elvarg.game.definition.ItemDefinition;
 import com.elvarg.game.entity.impl.player.Player;
+import com.elvarg.game.model.container.shop.currency.impl.BloodMoneyCurrency;
 import com.elvarg.util.ItemIdentifiers;
 
 public enum BrokenItem {
@@ -35,9 +36,12 @@ public enum BrokenItem {
 
     private final int originalItem;
     private final int brokenItem;
-
+    private final int bloodMoneyValue;
+    
     BrokenItem(int originalItem, int brokenItem) {
         this.originalItem = originalItem;
+        //TODO, replace with ShopCurrencies.BLOOD_MONEY.get().getValue() once currency system gets extended.
+        this.bloodMoneyValue = BloodMoneyCurrency.getBloodMoneyValue(originalItem);
         this.brokenItem = brokenItem;
     }
 
@@ -53,7 +57,7 @@ public enum BrokenItem {
         for (BrokenItem b : BrokenItem.values()) {
             final int amt = player.getInventory().getAmount(b.getBrokenItem());
             if (amt > 0) {
-                cost += ((int) (ItemDefinition.forId(b.getOriginalItem()).getBloodMoneyValue() * REPAIR_COST_MULTIPLIER) * amt);
+                cost += ((int) (b.bloodMoneyValue * REPAIR_COST_MULTIPLIER) * amt);
             }
         }
         return cost;
@@ -71,11 +75,11 @@ public enum BrokenItem {
         for (BrokenItem b : BrokenItem.values()) {
             final int amt = player.getInventory().getAmount(b.getOriginalItem());
             if (amt > 0) {
-                cost += ((int) (ItemDefinition.forId(b.getOriginalItem()).getBloodMoneyValue() * REPAIR_COST_MULTIPLIER) * amt);
+                cost += ((int) (b.bloodMoneyValue * REPAIR_COST_MULTIPLIER) * amt);
             }
             final int amtEq = player.getEquipment().getAmount(b.getOriginalItem());
             if (amtEq > 0) {
-                cost += ((int) (ItemDefinition.forId(b.getOriginalItem()).getBloodMoneyValue() * REPAIR_COST_MULTIPLIER) * amt);
+                cost += ((int) (b.bloodMoneyValue * REPAIR_COST_MULTIPLIER) * amt);
             }
         }
         return cost;
@@ -96,7 +100,7 @@ public enum BrokenItem {
         for (BrokenItem b : BrokenItem.values()) {
             final int amt = player.getInventory().getAmount(b.getBrokenItem());
             if (amt > 0) {
-                final int cost = ((int) (ItemDefinition.forId(b.getOriginalItem()).getBloodMoneyValue() * REPAIR_COST_MULTIPLIER) * amt);
+                final int cost = ((int) (b.bloodMoneyValue * REPAIR_COST_MULTIPLIER) * amt);
                 if (player.getInventory().getAmount(ItemIdentifiers.BLOOD_MONEY) >= cost) {
                     player.getInventory().delete(ItemIdentifiers.BLOOD_MONEY, cost);
                     player.getInventory().delete(b.getBrokenItem(), amt);

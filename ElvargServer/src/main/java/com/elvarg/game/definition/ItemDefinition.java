@@ -3,6 +3,7 @@ package com.elvarg.game.definition;
 import com.elvarg.game.content.combat.WeaponInterfaces.WeaponInterface;
 import com.elvarg.game.definition.loader.impl.ItemDefinitionLoader.OSRSBoxItemDefinition;
 import com.elvarg.game.model.EquipmentType;
+import com.elvarg.game.model.container.shop.currency.impl.BloodMoneyCurrency;
 import com.elvarg.util.SuppliedHashMap;
 
 import static com.elvarg.util.ItemIdentifiers.*;
@@ -29,7 +30,6 @@ public class ItemDefinition {
     public boolean dropable;//TODO get from cache. If it doesnt have destroy.
     public boolean sellable;//Noot sure about this one.
     public int value;// GE PRICE
-    public int bloodMoneyValue;// ELVARG SPECIFIC
     
     //VALUES from OSRSBOX
     public int id;
@@ -72,10 +72,6 @@ public class ItemDefinition {
 
     public int getValue() {
         return value;
-    }
-
-    public int getBloodMoneyValue() {
-        return bloodMoneyValue;
     }
 
     public int getHighAlchValue() {
