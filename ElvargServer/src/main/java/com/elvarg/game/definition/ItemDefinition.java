@@ -31,15 +31,6 @@ public class ItemDefinition {
     public int value;// GE PRICE
     public int bloodMoneyValue;// ELVARG SPECIFIC
     public int blockAnim = 424;
-    public int standAnim = 808;
-    public int walkAnim = 819;
-    public int runAnim = 824;
-    
-    //these 4 anims arnt used in src.
-    public int standTurnAnim = 823;
-    public int turn180Anim = 820;
-    public int turn90CWAnim = 821;
-    public int turn90CCWAnim = 821;
     
     //VALUES from OSRSBOX
     public int id;
@@ -55,6 +46,7 @@ public class ItemDefinition {
     public double weight;
     public int[] bonuses;
     public int[] requirements;
+    public String weapon_type;
 
     /**
      * Attempts to get the {@link ItemDefinition} for the
@@ -131,36 +123,6 @@ public class ItemDefinition {
         return blockAnim;
     }
 
-    public int getStandAnim() {
-        return standAnim;
-    }
-
-    public int getWalkAnim() {
-        return walkAnim;
-    }
-
-    public int getRunAnim() {
-        return runAnim;
-    }
-
-    /* Unused */
-    public int getStandTurnAnim() {
-        return standTurnAnim;
-    }
-
-    public int getTurn180Anim() {
-        return turn180Anim;
-    }
-
-    public int getTurn90CWAnim() {
-        return turn90CWAnim;
-    }
-
-    public int getTurn90CCWAnim() {
-        return turn90CCWAnim;
-    }
-    /* end unused */
-
     public double getWeight() {
         return weight;
     }
@@ -226,5 +188,6 @@ OSRSBoxItemDefinition [id=25492, name=Accursed sceptre (a)] mismatch with Elvarg
         this.weight = o.weight;
         this.bonuses = o.equipment != null? o.getBonuses() : null;
         this.requirements = o.equipment != null && o.equipment.requirements != null ? o.getRequirements() : null;		
+        this.weapon_type = o.weapon != null ? o.weapon.weapon_type : null;
 	}
 }
