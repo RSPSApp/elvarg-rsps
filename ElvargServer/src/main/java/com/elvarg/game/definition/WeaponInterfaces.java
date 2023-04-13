@@ -139,6 +139,8 @@ public class WeaponInterfaces {
 			case CRYSTAL_BOW_1_10:
 			case SEERCULL:
 				return WeaponInterface.SHORTBOW;
+				default:
+	                return WeaponInterface.SHORTBOW;
 			}
 		case "salamander":
 			return WeaponInterface.UNARMED;//TODO salamanders are missing
