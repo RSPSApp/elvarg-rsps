@@ -15997,12 +15997,12 @@ public class Client extends GameEngine implements RSClient {
 
     @Override
     public int getDestinationX() {
-        return 0;
+        return destinationX;
     }
 
     @Override
     public int getDestinationY() {
-        return 0;
+        return destinationY;
     }
 
     @Override
