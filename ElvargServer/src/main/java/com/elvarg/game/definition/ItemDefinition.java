@@ -25,7 +25,6 @@ public class ItemDefinition {
      */
     public static final ItemDefinition DEFAULT = new ItemDefinition();
     public EquipmentType equipmentType = EquipmentType.NONE;
-    public boolean doubleHanded;//TODO is this needed?
     public int value;// GE PRICE
     
     //Calculated from OSRSbox
@@ -113,7 +112,7 @@ public class ItemDefinition {
     }
 
     public boolean isDoubleHanded() {
-        return doubleHanded;
+        return equipmentType == EquipmentType.DOUBLE_HANDED;
     }
 
     public double getWeight() {
