@@ -2275,6 +2275,7 @@ public final class SceneGraph implements RSScene {
         }
         catch (Exception ex)
         {
+            ex.printStackTrace();
             Client.instance.getLogger().warn("error during overlay rendering", ex);
         }
     }

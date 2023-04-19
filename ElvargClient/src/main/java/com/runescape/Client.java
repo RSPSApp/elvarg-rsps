@@ -79,6 +79,7 @@ import net.runelite.api.events.ResizeableChanged;
 import net.runelite.api.hooks.Callbacks;
 import net.runelite.api.hooks.DrawCallbacks;
 import net.runelite.api.vars.AccountType;
+import net.runelite.api.widgets.WidgetID;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.rs.api.*;
 import org.slf4j.Logger;
@@ -14559,12 +14560,21 @@ public class Client extends GameEngine implements RSClient {
         drawChatArea();
         drawMinimap();
         drawTabArea();
+        viewportInterfaceCallback();
 
         xCameraPos = l;
         zCameraPos = i1;
         yCameraPos = j1;
         yCameraCurve = k1;
         xCameraCurve = l1;
+    }
+
+    private void viewportInterfaceCallback() {
+        if (!isResized()) {
+            callbacks.drawInterface(WidgetID.FIXED_VIEWPORT_GROUP_ID, Collections.emptyList());
+        } else {
+            callbacks.drawInterface(WidgetID.RESIZABLE_VIEWPORT_OLD_SCHOOL_BOX_GROUP_ID, Collections.emptyList());
+        }
     }
 
     private void tabToReplyPm() {
@@ -15987,12 +15997,12 @@ public class Client extends GameEngine implements RSClient {
 
     @Override
     public int getDestinationX() {
-        return 0;
+        return destinationX;
     }
 
     @Override
     public int getDestinationY() {
-        return 0;
+        return destinationY;
     }
 
     @Override
