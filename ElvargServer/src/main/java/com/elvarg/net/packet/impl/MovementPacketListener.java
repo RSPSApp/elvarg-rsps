@@ -4,6 +4,7 @@ import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Location;
 import com.elvarg.game.model.movement.MovementQueue.Mobility;
 import com.elvarg.game.model.movement.path.PathFinder;
+import com.elvarg.game.task.impl.WalkToTask;
 import com.elvarg.net.packet.Packet;
 import com.elvarg.net.packet.PacketExecutor;
 
@@ -45,7 +46,7 @@ public class MovementPacketListener implements PacketExecutor {
         }
 
         // Make sure to reset any previous movement steps
-        player.getMovementQueue().reset();
+        WalkToTask.resetMovement(player);
 
         player.getMovementQueue().walkToReset();
 
