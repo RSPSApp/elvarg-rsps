@@ -218,6 +218,7 @@ public class Trading {
                 t_.getTrading().initiateTrade();
             } else {
                 player.getPacketSender().sendMessage("You've sent a trade request to " + t_.getUsername() + ".");
+                player.setMobileInteraction(null);
                 t_.getPacketSender().sendMessage(player.getUsername() + ":tradereq:");
 
                 if (t_ instanceof PlayerBot) {
