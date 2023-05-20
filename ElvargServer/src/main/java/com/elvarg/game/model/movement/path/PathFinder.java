@@ -119,20 +119,20 @@ public class PathFinder {
         return isDia;
     }
 
-    public static void calculateCombatRoute(Mobile player, Mobile target) {
-        calculateRoute(player, 0, target.getLocation().getX(), target.getLocation().getY(), 1, 1, 0, 0, false);
+    public static int calculateCombatRoute(Mobile player, Mobile target) {
         player.setMobileInteraction(target);
+        return calculateRoute(player, 0, target.getLocation().getX(), target.getLocation().getY(), 1, 1, 0, 0, false);
     }
 
-    public static void calculateEntityRoute(Mobile player, int destX, int destY) {
-        calculateRoute(player, 0, destX, destY, 1, 1, 0, 0, false);
+    public static int calculateEntityRoute(Mobile player, int destX, int destY) {
+        return calculateRoute(player, 0, destX, destY, 1, 1, 0, 0, false);
     }
 
-    public static void calculateWalkRoute(Mobile player, int destX, int destY) {
-        calculateRoute(player, 0, destX, destY, 0, 0, 0, 0, true);
+    public static int calculateWalkRoute(Mobile player, int destX, int destY) {
+        return calculateRoute(player, 0, destX, destY, 0, 0, 0, 0, true);
     }
 
-    public static void calculateObjectRoute(Mobile entity, GameObject object) {
+    public static int calculateObjectRoute(Mobile entity, GameObject object) {
         int objectX = object.getLocation().getX();
 
         int objectY = object.getLocation().getY();
@@ -158,12 +158,9 @@ public class PathFinder {
             if (direction != 0) {
                 blockingMask = (blockingMask << direction & 0xf) + (blockingMask >> 4 - direction);
             }
-
-            calculateRoute(entity, 0, objectX, objectY, xLength, yLength, 0, blockingMask, false);
-            return;
+            return calculateRoute(entity, 0, objectX, objectY, xLength, yLength, 0, blockingMask, false);
         }
-
-        calculateRoute(entity, type + 1, objectX, objectY, 0, 0, direction, 0, false);
+        return calculateRoute(entity, type + 1, objectX, objectY, 0, 0, direction, 0, false);
     }
 
     /**
@@ -293,6 +290,8 @@ public class PathFinder {
 
         int anInt1288 = 0;
 
+        entity.getMovementQueue().reset();
+
         entity.getMovementQueue().lastDestX = destX;
 
         entity.getMovementQueue().lastDestY = destY;
@@ -324,8 +323,6 @@ public class PathFinder {
         /** Set in order to loop to find best path **/
         routeStepsX[tail] = localX;
         routeStepsY[tail++] = localY;
-        /** Required for custom object walk-to actions. **/
-        entity.getMovementQueue().setRoute(false);
         /** Size of the main queue **/
         int queueSizeX = routeStepsX.length;
         /** Entities height **/
