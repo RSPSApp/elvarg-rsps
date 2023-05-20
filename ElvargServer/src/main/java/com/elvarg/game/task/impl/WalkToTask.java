@@ -40,43 +40,43 @@ public class WalkToTask extends Task {
     boolean reachedDestination = false;
 
     public static void submit(Player player, Entity entity, Runnable action) {
+        resetMovement(player);
         TaskManager.submit(new WalkToTask(player, entity, action));
+    }
+
+    public static void resetMovement(Player player) {
+        player.setMobileInteraction(null);
+        player.getMovementQueue().reset();
+        TaskManager.cancelTasks(player.getIndex());
     }
 
     public WalkToTask(Player player, Entity entity, Runnable action) {
         super(0, player.getIndex(), true);
-
         this.player = player;
         this.movement = player.getMovementQueue();
         this.entity = entity;
         this.action = action;
         this.destX = entity.getLocation().getX();
         this.destY = entity.getLocation().getY();
-
         // Always reset the movement queue when the player intents to walk towards an entity
         movement.reset();
-
         if (player.getLocation().getDistance(entity.getLocation()) == 0 && action != null) {
             // If player is already standing on top of the entity, run the action now
             action.run();
             return;
         }
-
         MovementQueue.Mobility mobility = movement.getMobility();
         if (!mobility.canMove()) {
             // Player can not currently move
             mobility.sendMessage(movement.getPlayer());
             return;
         }
-
         if (!movement.checkDestination(entity.getLocation())) {
             // Destination is not valid
             return;
         }
-
         movement.walkToReset();
         calculateWalkRoute(entity);
-
         this.finalDestinationX = movement.pathX;
         this.finalDestinationY = movement.pathY;
     }
@@ -87,7 +87,6 @@ public class WalkToTask extends Task {
         if (entity instanceof Mobile) {
             player.setMobileInteraction((Mobile) entity);
         }
-
         if (reachedDestination || withinInteractionDistance()) {
             // Executes the runnable and stops the task. Player will still path to the destination.
             if (action != null) {
@@ -96,25 +95,30 @@ public class WalkToTask extends Task {
             stop();
             return;
         }
-
-        // If the target has moved, update the movement queue
         checkForMovement();
-
-        if (!movement.points().isEmpty()) {
-            // Movement hasn't finished yet, skip for this cycle
+        // If the target has moved, update the movement queue
+        if (!inRange()) {
             return;
         }
+    }
 
-        if (!player.getMovementQueue().hasRoute() || player.getLocation().getX() != finalDestinationX || player.getLocation().getY() != finalDestinationY) {
+    private boolean inRange() {
+        boolean hasRoute = player.getMovementQueue().hasRoute();
+        if (entity instanceof GameObject) {
+            if (!hasRoute || player.getLocation().getX() != finalDestinationX || player.getLocation().getY() != finalDestinationY) {
+                return false;
+            }
+            reachedDestination = true;
+            return true;
+        }
+        if (!hasRoute) {
             // No route is possible or queue is empty and not at destination
-            player.getPacketSender().sendMessage("I can't reach that!");
+            player.getPacketSender().sendMessage("I can't reach that npc!");
             movement.reset();
             stop();
-            return;
+            return false;
         }
-
-        // Execute the runnable on the next game tick as per OSRS
-        reachedDestination = true;
+        return true;
     }
 
     /**
@@ -122,14 +126,15 @@ public class WalkToTask extends Task {
      *
      * @param entity The entity to walk to
      */
-    private void calculateWalkRoute(Entity entity) {
+    private int calculateWalkRoute(Entity entity) {
         if (entity instanceof Mobile /* Players and NPCs */) {
-            PathFinder.calculateEntityRoute(player, destX, destY);
+            return PathFinder.calculateEntityRoute(player, destX, destY);
         } else if (entity instanceof GameObject) {
-            PathFinder.calculateObjectRoute(player, (GameObject) entity);
+            return PathFinder.calculateObjectRoute(player, (GameObject) entity);
         } else if (entity instanceof ItemOnGround) {
-            PathFinder.calculateWalkRoute(player, destX, destY);
+            return PathFinder.calculateWalkRoute(player, destX, destY);
         }
+        return 0;
     }
 
     /**
@@ -138,27 +143,25 @@ public class WalkToTask extends Task {
      * @return
      */
     private boolean withinInteractionDistance() {
-        if (entity instanceof NPC && movement.points().size() <= NPC_INTERACT_RADIUS
-                && player.getLocation().getDistance(entity.getLocation()) <= NPC_INTERACT_RADIUS) {
-            // NPC interactions start as soon as Player is within 2 tiles
-            return true;
+        if (entity instanceof ItemOnGround) {
+            /** On Top Of **/
+            return player.getLocation().getDistance(entity.getLocation()) <= 0;
         }
-
+        if (entity instanceof NPC || entity instanceof Player) {
+            return movement.points().size() <= NPC_INTERACT_RADIUS && player.getLocation().getDistance(entity.getLocation()) <= NPC_INTERACT_RADIUS;
+        }
         return false;
     }
 
     private void checkForMovement() {
         if (!(entity instanceof Mobile)) {
-            // Only Mobile's can move
             return;
         }
-
         if (destX != entity.getLocation().getX() || destY != entity.getLocation().getY()) {
-            // Mobile has moved, update the entity path to the updated location
-            movement.reset();
+            // Entity has moved, update the entity path to the updated location
             destX = entity.getLocation().getX();
             destY = entity.getLocation().getY();
-            PathFinder.calculateEntityRoute(player, destX, destX);
+            calculateWalkRoute(entity);
         }
     }
 }
