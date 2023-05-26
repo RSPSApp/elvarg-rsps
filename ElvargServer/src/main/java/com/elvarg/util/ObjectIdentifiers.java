@@ -6092,7 +6092,7 @@ public class ObjectIdentifiers {
     public static final int RAT_HOLE_5 = 10349;
     public static final int RAT_HOLE_6 = 10350;
     public static final int GAP_6 = 10352;
-    public static final int CABLE = 10355;
+    public static final int BANK_BOOTH_8 = 10355;
     public static final int ZIP_LINE = 10356;
     public static final int TROPICAL_TREE_27 = 10357;
     public static final int BED_55 = 10358;
@@ -6176,7 +6176,7 @@ public class ObjectIdentifiers {
     public static final int SHELVES_43 = 10513;
     public static final int SHELVES_44 = 10514;
     public static final int WHEELBARROW_4 = 10516;
-    public static final int BANK_BOOTH_8 = 10517;
+    public static final int BANK_BOOTH_9 = 10517;
     public static final int CLOSED_BANK_BOOTH_3 = 10518;
     public static final int CHALICE = 10521;
     public static final int TAPESTRY = 10522;
@@ -6576,7 +6576,7 @@ public class ObjectIdentifiers {
     public static final int BAMBOO_DESK_2 = 11335;
     public static final int BAMBOO_DESK_3 = 11336;
     public static final int BAMBOO_DESK_4 = 11337;
-    public static final int BANK_BOOTH_9 = 11338;
+    public static final int BANK_BOOTH_55 = 11338;
     public static final int OPEN_CHEST_19 = 11339;
     public static final int CLOSED_CHEST_23 = 11341;
     public static final int REPAIR_LOCKER_3 = 11342;
