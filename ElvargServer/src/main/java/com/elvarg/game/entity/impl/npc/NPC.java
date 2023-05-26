@@ -498,4 +498,9 @@ public class NPC extends Mobile {
 	public int getWalkRadius() {
 		return this.size() + 5;
 	}
+
+	public boolean ignoreClipping() {
+		boolean namedBanker = this.getDefinition() != null && this.getDefinition().getName() != null && this.getDefinition().getName().toLowerCase().contains("banker");
+		return namedBanker || Arrays.asList(1618).stream().anyMatch(n -> n.intValue() == this.getId());
+	}
 }
