@@ -202,6 +202,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         case BANK_BOOTH_2:
         case BANK_BOOTH_3:
         case BANK_BOOTH_4:
+        case BANK_BOOTH_55:
             player.getBank(player.getCurrentBankTab()).open();
             break;
         case ANCIENT_ALTAR:
@@ -274,6 +275,7 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         }
 
         WalkToTask.submit(player, object, () -> {
+            System.err.println("clicked..... "+clickType);
             // Areas
             if (player.getArea() != null) {
                 if (player.getArea().handleObjectClick(player, object, clickType)) {
