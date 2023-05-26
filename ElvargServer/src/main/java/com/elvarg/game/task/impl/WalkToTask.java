@@ -1,22 +1,19 @@
 package com.elvarg.game.task.impl;
 
-import com.elvarg.game.definition.ObjectDefinition;
 import com.elvarg.game.entity.Entity;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.grounditem.ItemOnGround;
 import com.elvarg.game.entity.impl.npc.NPC;
 import com.elvarg.game.entity.impl.object.GameObject;
 import com.elvarg.game.entity.impl.player.Player;
-import com.elvarg.game.entity.impl.playerbot.interaction.MovementInteraction;
-import com.elvarg.game.model.Action;
 import com.elvarg.game.model.movement.MovementQueue;
 import com.elvarg.game.model.movement.path.PathFinder;
 import com.elvarg.game.task.Task;
 import com.elvarg.game.task.TaskManager;
 
-public class WalkToTask extends Task {
+import static com.elvarg.game.model.movement.MovementQueue.NPC_INTERACT_RADIUS;
 
-    public static final int NPC_INTERACT_RADIUS = 2;
+public class WalkToTask extends Task {
 
     // The MovementQueue this task is related to
     MovementQueue movement;
@@ -111,14 +108,7 @@ public class WalkToTask extends Task {
             reachedDestination = true;
             return true;
         }
-        if (!hasRoute) {
-            // No route is possible or queue is empty and not at destination
-            player.getPacketSender().sendMessage("I can't reach that npc!");
-            movement.reset();
-            stop();
-            return false;
-        }
-        return true;
+        return false;
     }
 
     /**
@@ -126,15 +116,27 @@ public class WalkToTask extends Task {
      *
      * @param entity The entity to walk to
      */
-    private int calculateWalkRoute(Entity entity) {
+    private void calculateWalkRoute(Entity entity) {
         if (entity instanceof Mobile /* Players and NPCs */) {
-            return PathFinder.calculateEntityRoute(player, destX, destY);
+            findRoute();
         } else if (entity instanceof GameObject) {
-            return PathFinder.calculateObjectRoute(player, (GameObject) entity);
+            PathFinder.calculateObjectRoute(player, (GameObject) entity);
         } else if (entity instanceof ItemOnGround) {
-            return PathFinder.calculateWalkRoute(player, destX, destY);
+            PathFinder.calculateWalkRoute(player, destX, destY);
         }
-        return 0;
+    }
+
+    private void findRoute() {
+        if (PathFinder.calculateEntityRoute(player, destX, destY) == -1) {
+            int size = entity.size();
+            if (entity instanceof NPC) {
+                NPC npc = (NPC) entity;
+                /** Ignores clipping of bank booths ect **/
+                if (npc.ignoreClipping()) {
+                    PathFinder.findWalkableRoute(player, destX, destY, size == 0 ? 1 : size);
+                }
+            }
+        }
     }
 
     /**
