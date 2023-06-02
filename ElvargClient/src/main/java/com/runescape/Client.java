@@ -6558,7 +6558,7 @@ public class Client extends GameEngine implements RSClient {
         }
 
         if (action == 1226) {
-            int objectId = clicked >> 14 & 0x7fff;
+            int objectId = ObjectKeyUtil.getObjectId(clickedLong);
             ObjectDefinition definition = ObjectDefinition.lookup(objectId);
             String message;
             if (definition.description != null)
@@ -6676,7 +6676,7 @@ public class Client extends GameEngine implements RSClient {
                                 "Examine @cya@" + objectDef.name;
                     }
                     menuActionTypes[menuActionRow] = 1226;
-                    selectedMenuActions[menuActionRow] = objectDef.type << 14;
+                    selectedMenuActions[menuActionRow] = current;
                     firstMenuAction[menuActionRow] = x;
                     secondMenuAction[menuActionRow] = y;
                     menuActionRow++;
