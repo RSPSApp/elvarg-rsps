@@ -2,6 +2,8 @@ package com.elvarg.game.collision;
 
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Location;
+import com.elvarg.game.model.Tile;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,6 +37,10 @@ public class Region {
      */
     public int[][][] clips = new int[4][][];
 
+    public Tile[][][] tiles;
+
+    public List<Tile> activeTiles;
+
     /**
      * Has this region been loaded?
      */
@@ -56,6 +62,7 @@ public class Region {
         this.regionId = regionId;
         this.terrainFile = terrainFile;
         this.objectFile = objectFile;
+        this.activeTiles = Lists.newCopyOnWriteArrayList();
     }
 
     public int getRegionId() {
@@ -87,6 +94,22 @@ public class Region {
             clips[height] = new int[64][64];
         }
         return clips[height][x - regionAbsX][y - regionAbsY];
+    }
+
+    public Tile getTile(int x, int y, int z, boolean create) {
+        int baseX = (regionId >> 8) * 64;
+        int baseY = (regionId & 0xff) * 64;
+        int localX = x - baseX;
+        int localY = y - baseY;
+        if(tiles == null) {
+            if(!create)
+                return null;
+            tiles = new Tile[4][64][64];
+        }
+        Tile tile = tiles[z][localX][localY];
+        if(tile == null && create)
+            tile = tiles[z][localX][localY] = new Tile(this);
+        return tile;
     }
 
     /**
@@ -141,6 +164,18 @@ public class Region {
         int localX = absX - regionAbsX;
         int localY = absY - regionAbsY;
         return new int[]{localX, localY};
+    }
+
+    public static Region get(int regionId) {
+        return RegionManager.regions.get(regionId);
+    }
+
+    public static Region get(int absX, int absY) {
+        return get(getId(absX, absY));
+    }
+
+    public static int getId(int absX, int absY) {
+        return ((absX >> 6) << 8) | absY >> 6;
     }
 
     public boolean isLoaded() {

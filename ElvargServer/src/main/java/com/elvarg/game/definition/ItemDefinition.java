@@ -1,10 +1,9 @@
 package com.elvarg.game.definition;
 
 import com.elvarg.game.content.combat.WeaponInterfaces.WeaponInterface;
+import com.elvarg.game.definition.loader.impl.ItemDefinitionLoader.OSRSBoxItemDefinition;
 import com.elvarg.game.model.EquipmentType;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.elvarg.util.SuppliedHashMap;
 
 import static com.elvarg.util.ItemIdentifiers.*;
 
@@ -18,40 +17,44 @@ public class ItemDefinition {
     /**
      * The map containing all our {@link ItemDefinition}s.
      */
-    public static final Map<Integer, ItemDefinition> definitions = new HashMap<Integer, ItemDefinition>();
+    public static final SuppliedHashMap<Integer, ItemDefinition> definitions = new SuppliedHashMap<>(ItemDefinition::new);
 
     /**
      * The default {@link ItemDefinition} that will be used.
      */
     public static final ItemDefinition DEFAULT = new ItemDefinition();
-    private int id;
-    private String name = "";
-    private String examine = "";
-    private WeaponInterface weaponInterface;
-    private EquipmentType equipmentType = EquipmentType.NONE;
-    private boolean doubleHanded;
-    private boolean stackable;
-    private boolean tradeable;
-    private boolean dropable;
-    private boolean sellable;
-    private boolean noted;
-    private int value;
-    private int bloodMoneyValue;
-    private int highAlch;
-    private int lowAlch;
-    private int dropValue;
-    private int noteId = -1;
-    private int blockAnim = 424;
-    private int standAnim = 808;
-    private int walkAnim = 819;
-    private int runAnim = 824;
-    private int standTurnAnim = 823;
-    private int turn180Anim = 820;
-    private int turn90CWAnim = 821;
-    private int turn90CCWAnim = 821;
-    private double weight;
-    private int[] bonuses;
-    private int[] requirements;
+    public WeaponInterface weaponInterface;
+    public EquipmentType equipmentType = EquipmentType.NONE;
+    public boolean doubleHanded;//TODO is this needed?
+    public boolean dropable;//TODO get from cache. If it doesnt have destroy.
+    public boolean sellable;//Noot sure about this one.
+    public int value;// GE PRICE
+    public int bloodMoneyValue;// ELVARG SPECIFIC
+    public int blockAnim = 424;
+    public int standAnim = 808;
+    public int walkAnim = 819;
+    public int runAnim = 824;
+    
+    //these 4 anims arnt used in src.
+    public int standTurnAnim = 823;
+    public int turn180Anim = 820;
+    public int turn90CWAnim = 821;
+    public int turn90CCWAnim = 821;
+    
+    //VALUES from OSRSBOX
+    public int id;
+    public String name = "";
+    public String examine = "";
+    public boolean stackable;
+    public boolean tradeable;
+    public boolean noted;
+    public int highAlch;
+    public int lowAlch;
+    public int dropValue;
+    public int noteId = -1;
+    public double weight;
+    public int[] bonuses;
+    public int[] requirements;
 
     /**
      * Attempts to get the {@link ItemDefinition} for the
@@ -140,6 +143,7 @@ public class ItemDefinition {
         return runAnim;
     }
 
+    /* Unused */
     public int getStandTurnAnim() {
         return standTurnAnim;
     }
@@ -155,6 +159,7 @@ public class ItemDefinition {
     public int getTurn90CCWAnim() {
         return turn90CCWAnim;
     }
+    /* end unused */
 
     public double getWeight() {
         return weight;
@@ -189,4 +194,37 @@ public class ItemDefinition {
     public int unNote() {
         return ItemDefinition.forId(id - 1).getName().equals(name) ? id - 1 : id;
     }
+
+	public void update(OSRSBoxItemDefinition o) {	
+		//ELVARG max id is 26562 and it is missing the following:
+/*
+OSRSBoxItemDefinition [id=25484, name=Webweaver bow (u)] mismatch with Elvarg [id=0, name=]
+OSRSBoxItemDefinition [id=25485, name=Webweaver bow] mismatch with Elvarg [id=0, name=]
+OSRSBoxItemDefinition [id=25486, name=Ursine chainmace (u)] mismatch with Elvarg [id=0, name=]
+OSRSBoxItemDefinition [id=25487, name=Ursine chainmace] mismatch with Elvarg [id=0, name=]
+OSRSBoxItemDefinition [id=25488, name=Accursed sceptre (u)] mismatch with Elvarg [id=0, name=]
+OSRSBoxItemDefinition [id=25489, name=Accursed sceptre] mismatch with Elvarg [id=0, name=]
+OSRSBoxItemDefinition [id=25490, name=Voidwaker] mismatch with Elvarg [id=0, name=]
+OSRSBoxItemDefinition [id=25491, name=Accursed sceptre (au)] mismatch with Elvarg [id=0, name=]
+OSRSBoxItemDefinition [id=25492, name=Accursed sceptre (a)] mismatch with Elvarg [id=0, name=]
+ */
+		
+//		Check to ensure that the names match. This should throw an error on shuffled ids.
+//		if(!this.name.equalsIgnoreCase(o.name))
+//			System.out.println("OSRSBoxItemDefinition [id=" + o.id + ", name=" + o.name + "] mismatch with Elvarg [id=" + this.id + ", name=" + this.name + "]");
+
+        this.id = o.id;
+        this.name = o.name;
+        this.examine = o.examine;
+        this.stackable = o.stackable;
+        this.tradeable = o.tradeable;
+        this.noted = o.noted;
+        this.highAlch = o.highalch;
+        this.lowAlch = o.lowalch;
+        this.dropValue = o.cost;
+        this.noteId = o.noted ? o.linked_id_item : o.linked_id_noted;
+        this.weight = o.weight;
+        this.bonuses = o.equipment != null? o.getBonuses() : null;
+        this.requirements = o.equipment != null && o.equipment.requirements != null ? o.getRequirements() : null;		
+	}
 }

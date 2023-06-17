@@ -431,12 +431,14 @@ public final class Player extends Mob implements RSPlayer,RSPlayerComposition {
 
     @Override
     public WorldPoint getWorldLocation() {
-        return null;
+        return WorldPoint.fromLocal(Client.instance,
+                this.getPathX()[0] * Perspective.LOCAL_TILE_SIZE + Perspective.LOCAL_TILE_SIZE / 2,
+                this.getPathY()[0] * Perspective.LOCAL_TILE_SIZE + Perspective.LOCAL_TILE_SIZE / 2,
+                Client.instance.getPlane());
     }
-
     @Override
     public LocalPoint getLocalLocation() {
-        return null;
+        return new LocalPoint(this.x, this.y);
     }
 
     @Override
@@ -516,7 +518,7 @@ public final class Player extends Mob implements RSPlayer,RSPlayerComposition {
 
     @Override
     public WorldArea getWorldArea() {
-        return null;
+        return new WorldArea(getWorldLocation(), 1, 1);
     }
 
     @Override
