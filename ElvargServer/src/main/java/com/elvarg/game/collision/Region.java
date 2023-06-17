@@ -3,7 +3,10 @@ package com.elvarg.game.collision;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Location;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Represents a region.
@@ -148,7 +151,58 @@ public class Region {
         this.loaded = loaded;
     }
 
+    /**
+     * Return a list of regions adjacent to this Region.
+     *
+     * @return
+     */
+    public List<Region> getAdjacentRegions(){
+        int x = (regionId >> 8) << 6;
+        int y = (regionId & 0xFF) << 6;
+
+        List<Region> adjacentRegions = new ArrayList<>();
+
+        int[][] directions = {
+                {0, -1},    // West
+                {-1, -1},   // Northwest
+                {0, -1},    // North
+                {1, -1},    // Northeast
+                {1, 0},     // East
+                {1, 1},     // Southeast
+                {0, 1},     // South
+                {-1, 1}     // Southwest
+        };
+
+        for (int[] dir : directions) {
+            int adjX = (x >> 6) + dir[0];
+            int adjY = (y >> 6) + dir[1];
+            Optional<Region> adjacentRegion = RegionManager.getRegion((adjX << 8) | adjY);
+            if (adjacentRegion.isPresent()) {
+                adjacentRegions.add(adjacentRegion.get());
+            }
+        }
+
+        return adjacentRegions;
+    }
+
+    /**
+     * Function to determine whether this region is eligible for Processing.
+     * (e.g. if there are any players within this region or adjacent regions)
+     *
+     * @return
+     */
     public boolean isActive() {
-        return this.players.size() > 0;
+        if (this.players.size() > 0) {
+            return true;
+        }
+
+        List<Region> adjacentRegions = getAdjacentRegions();
+        for (Region adjacentRegion : adjacentRegions) {
+            if (adjacentRegion.players.size() > 0) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
