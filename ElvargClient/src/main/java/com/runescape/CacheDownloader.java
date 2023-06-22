@@ -61,59 +61,64 @@ public class CacheDownloader {
 
 
     public void init() {
-        if (needsUpdating()) {
-            log.info("Downloading Cache: {}", Configuration.CACHE_LINK);
 
-            Request request = new Request.Builder().url(Configuration.CACHE_LINK).build();
-            final ProgressListener progressListener = new ProgressListener() {
-                @Override
-                public void finishedDownloading() {
-                    Client.instance.drawLoadingText(0, "Unzipping Cache");
-                    unzip(outputFile.toPath(), RuneLite.CACHE_DIR.toPath());
-                    outputFile.delete();
-                    try {
-                        FileUtils.writeStringToFile(hashFileLocation, getOnlineHash(), Charset.forName("UTF-8"));
-                    } catch (IOException e) {
-                        sendError(8);
-                    }
-                }
+        if (!needsUpdating()) {
+            client.loadCacheArchives();
+            System.err.println("Cache passed OK check");
+            return;
+        }
 
-                @Override
-                public void progress(long bytesRead, long contentLength) {
-                    long progress = (100 * bytesRead) / contentLength;
-                    Client.instance.drawLoadingText((int) progress, "Downloading Cache: " + (int) progress + " %");
-                }
+        log.info("Downloading Cache: {}", Configuration.CACHE_LINK);
 
-                @Override
-                public void started() {
-                    Client.instance.drawLoadingText(0, "Downloading Cache");
+        Request request = new Request.Builder().url(Configuration.CACHE_LINK).build();
+        final ProgressListener progressListener = new ProgressListener() {
+            @Override
+            public void finishedDownloading() {
+                client.drawLoadingText(0, "Unzipping Cache");
+                unzip(outputFile.toPath(), RuneLite.CACHE_DIR.toPath());
+                outputFile.delete();
+                try {
+                    FileUtils.writeStringToFile(hashFileLocation, getOnlineHash(), Charset.forName("UTF-8"));
+                    client.loadCacheArchives();
+                } catch (IOException e) {
+                    sendError(8);
                 }
-            };
-
-            OkHttpClient client = new OkHttpClient.Builder().addNetworkInterceptor(chain -> {
-                Response originalResponse = chain.proceed(chain.request());
-                return originalResponse.newBuilder()
-                        .body(new ProgressManager(originalResponse.body(), progressListener))
-                        .build();
-            }).build();
-
-            try (Response response = client.newCall(request).execute()) {
-                if (!response.isSuccessful()) {
-                    sendError(1);
-                }
-                try (FileOutputStream outputStream = new FileOutputStream(outputFile)) {
-                    if (response.body() != null) {
-                        outputStream.write(response.body().bytes());
-                    } else {
-                        sendError(2);
-                    }
-                }
-                progressListener.finishedDownloading();
-            } catch (IOException e) {
-                sendError(3);
             }
 
+            @Override
+            public void progress(long bytesRead, long contentLength) {
+                long progress = (100 * bytesRead) / contentLength;
+                client.drawLoadingText((int) progress, "Downloading Cache: " + (int) progress + " %");
+            }
+
+            @Override
+            public void started() {
+                client.drawLoadingText(0, "Downloading Cache");
+            }
+        };
+
+        OkHttpClient client = new OkHttpClient.Builder().addNetworkInterceptor(chain -> {
+            Response originalResponse = chain.proceed(chain.request());
+            return originalResponse.newBuilder()
+                    .body(new ProgressManager(originalResponse.body(), progressListener))
+                    .build();
+        }).build();
+
+        try {
+            Response response = client.newCall(request).execute();
+            if (!response.isSuccessful()) {
+                Client.instance.loadingError = true;
+                System.err.println("failed to connect to cache url..");
+                return;
+            }
+            FileOutputStream outputStream = new FileOutputStream(outputFile);
+            outputStream.write(response.body().bytes());
+            progressListener.finishedDownloading();
+        } catch (IOException e) {
+            sendError(3);
         }
+
+
     }
 
     /**
