@@ -665,7 +665,7 @@ public class Client extends GameEngine implements RSClient {
     private int crossIndex;
     private int crossType;
     private int plane;
-    private boolean loadingError;
+    boolean loadingError;
     private int[][] anIntArrayArray929;
     private Sprite aClass30_Sub2_Sub1_Sub1_931;
     private Sprite aClass30_Sub2_Sub1_Sub1_932;
@@ -4192,15 +4192,22 @@ public class Client extends GameEngine implements RSClient {
         } else {
             mainGameProcessor();
         }
-        processOnDemandQueue();
-        processMusic();
+        if (this.resourceProvider != null) {
+            processOnDemandQueue();
+            processMusic();
+        }
     }
 
-    protected void startUp() {
-        setGameState(GameState.STARTING);
-        new CacheDownloader(this).init();
-
+    public void startUp() {
         drawLoadingText(20, "Starting up");
+        try {
+            new CacheDownloader(this).init();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadCacheArchives() {
         if (SignLink.cache_dat != null) {
             for (int i = 0; i < 5; i++)
                 indices[i] = new FileStore(SignLink.cache_dat, SignLink.indices[i], i + 1);
@@ -4215,7 +4222,7 @@ public class Client extends GameEngine implements RSClient {
 
             //fileServer = new FileServer();
             //fileServer.start();
-
+            setGameState(GameState.STARTING);
             titleArchive = createArchive(1, "title screen", "title", 25);
             smallText = new GameFont(false, "p11_full", titleArchive);
             regularText = new GameFont(false, "p12_full", titleArchive);
@@ -4413,13 +4420,12 @@ public class Client extends GameEngine implements RSClient {
             Rasterizer3D.setBrightness(0.8);
             setGameState(GameState.LOGIN_SCREEN);
             secondLoginMessage = "Enter your username/email & password.";
-            loading = false;
-            return;
         } catch (Exception exception) {
+            System.err.println("error caught initlizing cache.. sending to error page");
+            loadingError = true;
             exception.printStackTrace();
             System.out.println("loaderror " + aString1049 + " " + anInt1079);
         }
-        loadingError = true;
     }
 
     public void repackCacheIndex(int cacheIndex) {
@@ -6558,7 +6564,7 @@ public class Client extends GameEngine implements RSClient {
         }
 
         if (action == 1226) {
-            int objectId = clicked >> 14 & 0x7fff;
+            int objectId = ObjectKeyUtil.getObjectId(clickedLong);
             ObjectDefinition definition = ObjectDefinition.lookup(objectId);
             String message;
             if (definition.description != null)
@@ -6676,7 +6682,7 @@ public class Client extends GameEngine implements RSClient {
                                 "Examine @cya@" + objectDef.name;
                     }
                     menuActionTypes[menuActionRow] = 1226;
-                    selectedMenuActions[menuActionRow] = objectDef.type << 14;
+                    selectedMenuActions[menuActionRow] = current;
                     firstMenuAction[menuActionRow] = x;
                     secondMenuAction[menuActionRow] = y;
                     menuActionRow++;
@@ -10852,6 +10858,11 @@ public class Client extends GameEngine implements RSClient {
 
     @Override
     public void draw(boolean redraw) {
+
+        if (loadingError) {
+            drawLoadingText(1,"Error initlizing Cache.. 1%");
+            return;
+        }
 
         callbacks.frame();
         updateCamera();

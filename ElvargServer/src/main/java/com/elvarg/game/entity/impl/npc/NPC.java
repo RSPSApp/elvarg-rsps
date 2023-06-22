@@ -20,6 +20,7 @@ import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Direction;
 import com.elvarg.game.model.Ids;
 import com.elvarg.game.model.Location;
+import com.elvarg.game.model.Tile;
 import com.elvarg.game.model.areas.AreaManager;
 import com.elvarg.game.model.areas.impl.WildernessArea;
 import com.elvarg.game.task.TaskManager;
@@ -154,6 +155,15 @@ public class NPC extends Mobile {
 		} else {
 			setHitpoints(getDefinition().getHitpoints());
 		}
+		Tile.occupy(this);
+	}
+
+	public void setTileStacking(boolean tileStack) {
+		if (this.getDefinition() == null) {
+			System.err.println("This NPC doesn't have definitions to set for tile stacking.");
+			return;
+		}
+		this.getDefinition().canTileStack = tileStack;
 	}
 
 	@Override

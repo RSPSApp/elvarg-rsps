@@ -42,7 +42,12 @@ public class NpcDefinition {
      */
     private static final int[] DEFAULT_STATS = new int[] { 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-    // VALUES from original Elvarg Definitions
+    public boolean canTileStack = true;
+
+    public boolean canTileStack() {
+        return canTileStack;
+    }
+
     private int attackAnim;
     private int defenceAnim;
     private int deathAnim;

@@ -43,24 +43,7 @@ import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.npc.NPC;
 import com.elvarg.game.entity.impl.npc.NpcAggression;
 import com.elvarg.game.entity.impl.playerbot.PlayerBot;
-import com.elvarg.game.model.Animation;
-import com.elvarg.game.model.Appearance;
-import com.elvarg.game.model.ChatMessage;
-import com.elvarg.game.model.EffectTimer;
-import com.elvarg.game.model.EnteredAmountAction;
-import com.elvarg.game.model.EnteredSyntaxAction;
-import com.elvarg.game.model.Flag;
-import com.elvarg.game.model.ForceMovement;
-import com.elvarg.game.model.God;
-import com.elvarg.game.model.Item;
-import com.elvarg.game.model.Location;
-import com.elvarg.game.model.MagicSpellbook;
-import com.elvarg.game.model.PlayerInteractingOption;
-import com.elvarg.game.model.PlayerRelations;
-import com.elvarg.game.model.PlayerStatus;
-import com.elvarg.game.model.SecondsTimer;
-import com.elvarg.game.model.Skill;
-import com.elvarg.game.model.SkullType;
+import com.elvarg.game.model.*;
 import com.elvarg.game.model.areas.AreaManager;
 import com.elvarg.game.model.container.impl.Bank;
 import com.elvarg.game.model.container.impl.Equipment;
@@ -670,6 +653,7 @@ public class Player extends Mobile {
 
 			System.out.println(GameConstants.PLAYER_BOTS.length + " player bots now online.");
 		}
+		Tile.occupy(this);
 	}
 
 	/**
