@@ -14,6 +14,7 @@ import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Animation;
 import com.elvarg.game.model.Projectile;
+import com.elvarg.game.model.Projectile.ProjectileBuilder;
 
 public class RangedCombatMethod extends CombatMethod {
 
@@ -81,30 +82,26 @@ public class RangedCombatMethod extends CombatMethod {
         }
 
         int projectileId = ammo.getProjectileId();
-        int delay = 40;
-        int speed = 57;
-        int heightEnd = 31;
-        int heightStart = 43;
-
+        Projectile projectile;
+        
         if (rangedWeapon.getType() == RangedWeaponType.CROSSBOW) {
-            delay = 46;
-            speed = 62;
-            heightStart = 44;
-            heightEnd = 35;
-        } else if (rangedWeapon.getType() == RangedWeaponType.LONGBOW) {
-            speed = 70;
+            projectile = new ProjectileBuilder().setId(projectileId).setStart(38).setEnd(36).setDelay(41).setAngle(5).setDistanceOffset(11).setDuration(5).setSpan(5).create();
         } else if (rangedWeapon.getType() == RangedWeaponType.BLOWPIPE) {
-            speed = 60;
-            heightStart = 40;
-            heightEnd = 35;
+        	projectile = new Projectile(projectileId, 40, 35, 40, 60);
+        } else if (ammo == Ammunition.TOKTZ_XIL_UL) {
+        	projectile = new ProjectileBuilder().setId(projectileId).setStart(40).setEnd(36).setDelay(32).setAngle(15).setDistanceOffset(11).setDuration(0).setSpan(5).create();
+        } else if (rangedWeapon.getType() == RangedWeaponType.LONGBOW) {
+        	projectile = new Projectile(projectileId, 43, 31, 40, 70);
+        } else if (rangedWeapon.getType() == RangedWeaponType.BALLISTA) {
+        	projectile = new ProjectileBuilder().setId(projectileId).setStart(38).setEnd(36).setDelay(42).setAngle(1).setDistanceOffset(120).setDuration(5).setSpan(3).create();
+        } else if (rangedWeapon.getType() == RangedWeaponType.KNIFE) {
+        	projectile = new ProjectileBuilder().setId(projectileId).setStart(40).setEnd(36).setDelay(32).setAngle(15).setDistanceOffset(11).setDuration(0).setSpan(5).create();
+        } else {
+        	projectile = new ProjectileBuilder().setId(projectileId).setStart(40).setEnd(36).setDelay(41).setAngle(15).setDistanceOffset(11).setDuration(5).setSpan(5).create();
         }
-        if (ammo == Ammunition.TOKTZ_XIL_UL) {
-            delay = 30;
-            speed = 55;
-        }
-
-        // Fire projectile
-        Projectile.sendProjectile(character, target, new Projectile(projectileId, heightStart, heightEnd, delay, speed));
+        
+    	// Fire projectile
+        Projectile.sendProjectile(character, target, projectile);
 
         // Send sound
         SoundManager.sendSound(character.getAsPlayer(), Sound.SHOOT_ARROW);
@@ -112,7 +109,7 @@ public class RangedCombatMethod extends CombatMethod {
         // Dark bow sends two arrows, so send another projectile and delete another
         // arrow.
         if (rangedWeapon == RangedWeapon.DARK_BOW) {
-            Projectile.sendProjectile(character, target, new Projectile(ammo.getProjectileId(), heightStart + 5, heightEnd, delay - 7, speed + 4));
+            Projectile.sendProjectile(character, target, new Projectile(ammo.getProjectileId(), 43 + 5, 31, 40 - 7, 70 + 4));
 
             // Decrement 2 ammo if d bow
             if (character.isPlayer()) {

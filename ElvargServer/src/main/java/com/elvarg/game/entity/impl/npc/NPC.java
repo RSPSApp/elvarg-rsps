@@ -303,43 +303,6 @@ public class NPC extends Mobile {
 	}
 
 	@Override
-	public int getBaseAttack(CombatType type) {
-
-		if (type == CombatType.RANGED) {
-			return getCurrentDefinition().getStats()[3];
-		} else if (type == CombatType.MAGIC) {
-			return getCurrentDefinition().getStats()[4];
-		}
-
-		return getCurrentDefinition().getStats()[1];
-		// 0 = attack
-		// 1 = strength
-		// 2 = defence
-		// 3 = range
-		// 4 = magic
-	}
-
-	@Override
-	public int getBaseDefence(CombatType type) {
-		int base = 0;
-		switch (type) {
-		case MAGIC:
-			base = getCurrentDefinition().getStats()[13];
-			break;
-		case MELEE:
-			base = getCurrentDefinition().getStats()[10];
-			break;
-		case RANGED:
-			base = getCurrentDefinition().getStats()[14];
-			break;
-		}
-		// 10,11,12 = melee
-		// 13 = magic
-		// 14 = range
-		return base;
-	}
-
-	@Override
 	public int getBaseAttackSpeed() {
 		return getCurrentDefinition().getAttackSpeed();
 	}

@@ -286,8 +286,7 @@ public class Player extends Mobile {
 	public int getBlockAnim() {
 		final Item shield = getEquipment().getItems()[Equipment.SHIELD_SLOT];
 		final Item weapon = getEquipment().getItems()[Equipment.WEAPON_SLOT];
-		ItemDefinition definition = shield.getId() > 0 ? shield.getDefinition() : weapon.getDefinition();
-		return definition.getBlockAnim();
+		return ItemDefinition.getBlockAnimation(shield.getId(), weapon.getId());
 	}
 
 	@Override
@@ -317,22 +316,6 @@ public class Player extends Mobile {
 		} else {
 			setHitpoints(skillManager.getCurrentLevel(Skill.HITPOINTS) + amount);
 		}
-	}
-
-	@Override
-	public int getBaseAttack(CombatType type) {
-		if (type == CombatType.RANGED)
-			return skillManager.getCurrentLevel(Skill.RANGED);
-		else if (type == CombatType.MAGIC)
-			return skillManager.getCurrentLevel(Skill.MAGIC);
-		return skillManager.getCurrentLevel(Skill.ATTACK);
-	}
-
-	@Override
-	public int getBaseDefence(CombatType type) {
-		if (type == CombatType.MAGIC)
-			return skillManager.getCurrentLevel(Skill.MAGIC);
-		return skillManager.getCurrentLevel(Skill.DEFENCE);
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package com.elvarg.game.definition;
 import com.elvarg.game.content.combat.WeaponInterfaces.WeaponInterface;
 import com.elvarg.game.definition.loader.impl.ItemDefinitionLoader.OSRSBoxItemDefinition;
 import com.elvarg.game.model.EquipmentType;
+import com.elvarg.game.model.container.shop.currency.impl.BloodMoneyCurrency;
 import com.elvarg.util.SuppliedHashMap;
 
 import static com.elvarg.util.ItemIdentifiers.*;
@@ -23,23 +24,13 @@ public class ItemDefinition {
      * The default {@link ItemDefinition} that will be used.
      */
     public static final ItemDefinition DEFAULT = new ItemDefinition();
-    public WeaponInterface weaponInterface;
     public EquipmentType equipmentType = EquipmentType.NONE;
-    public boolean doubleHanded;//TODO is this needed?
-    public boolean dropable;//TODO get from cache. If it doesnt have destroy.
-    public boolean sellable;//Noot sure about this one.
     public int value;// GE PRICE
-    public int bloodMoneyValue;// ELVARG SPECIFIC
-    public int blockAnim = 424;
-    public int standAnim = 808;
-    public int walkAnim = 819;
-    public int runAnim = 824;
     
-    //these 4 anims arnt used in src.
-    public int standTurnAnim = 823;
-    public int turn180Anim = 820;
-    public int turn90CWAnim = 821;
-    public int turn90CCWAnim = 821;
+    //Calculated from OSRSbox
+    public transient WeaponInterface weaponInterface;
+    public transient boolean dropable;
+    public transient boolean sellable;
     
     //VALUES from OSRSBOX
     public int id;
@@ -55,6 +46,7 @@ public class ItemDefinition {
     public double weight;
     public int[] bonuses;
     public int[] requirements;
+    public String weapon_type;
 
     /**
      * Attempts to get the {@link ItemDefinition} for the
@@ -81,10 +73,6 @@ public class ItemDefinition {
 
     public int getValue() {
         return value;
-    }
-
-    public int getBloodMoneyValue() {
-        return bloodMoneyValue;
     }
 
     public int getHighAlchValue() {
@@ -124,42 +112,8 @@ public class ItemDefinition {
     }
 
     public boolean isDoubleHanded() {
-        return doubleHanded;
+        return equipmentType == EquipmentType.DOUBLE_HANDED;
     }
-
-    public int getBlockAnim() {
-        return blockAnim;
-    }
-
-    public int getStandAnim() {
-        return standAnim;
-    }
-
-    public int getWalkAnim() {
-        return walkAnim;
-    }
-
-    public int getRunAnim() {
-        return runAnim;
-    }
-
-    /* Unused */
-    public int getStandTurnAnim() {
-        return standTurnAnim;
-    }
-
-    public int getTurn180Anim() {
-        return turn180Anim;
-    }
-
-    public int getTurn90CWAnim() {
-        return turn90CWAnim;
-    }
-
-    public int getTurn90CCWAnim() {
-        return turn90CCWAnim;
-    }
-    /* end unused */
 
     public double getWeight() {
         return weight;
@@ -195,24 +149,7 @@ public class ItemDefinition {
         return ItemDefinition.forId(id - 1).getName().equals(name) ? id - 1 : id;
     }
 
-	public void update(OSRSBoxItemDefinition o) {	
-		//ELVARG max id is 26562 and it is missing the following:
-/*
-OSRSBoxItemDefinition [id=25484, name=Webweaver bow (u)] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25485, name=Webweaver bow] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25486, name=Ursine chainmace (u)] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25487, name=Ursine chainmace] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25488, name=Accursed sceptre (u)] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25489, name=Accursed sceptre] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25490, name=Voidwaker] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25491, name=Accursed sceptre (au)] mismatch with Elvarg [id=0, name=]
-OSRSBoxItemDefinition [id=25492, name=Accursed sceptre (a)] mismatch with Elvarg [id=0, name=]
- */
-		
-//		Check to ensure that the names match. This should throw an error on shuffled ids.
-//		if(!this.name.equalsIgnoreCase(o.name))
-//			System.out.println("OSRSBoxItemDefinition [id=" + o.id + ", name=" + o.name + "] mismatch with Elvarg [id=" + this.id + ", name=" + this.name + "]");
-
+    public void update(OSRSBoxItemDefinition o) {
         this.id = o.id;
         this.name = o.name;
         this.examine = o.examine;
@@ -226,5 +163,65 @@ OSRSBoxItemDefinition [id=25492, name=Accursed sceptre (a)] mismatch with Elvarg
         this.weight = o.weight;
         this.bonuses = o.equipment != null? o.getBonuses() : null;
         this.requirements = o.equipment != null && o.equipment.requirements != null ? o.getRequirements() : null;		
-	}
+        this.weapon_type = o.weapon != null ? o.weapon.weapon_type : null;
+        if(this.weapon_type != null)
+            this.weaponInterface = WeaponInterfaces.get(this.weapon_type, this.id);
+        
+        /*
+         * sellable is always tradeable in current defs except when ID is 13307 when it is false
+         */
+        this.sellable = id == 13307 ? false : tradeable;
+        this.dropable = isDropable(id, tradeable);
+    }
+
+    //TODO get from cache later and set this to if the item action doesnt have destroy.
+    public boolean isDropable(int id, boolean tradeable) {
+        //STOCK ELVARG Definitions have this set to tradeable except for some fringe scenarios.
+        //tradeable true is always droppable. there are some exceptions when is tradeable is false and droppable is true
+        //21273 is true
+        //21393 and higher is always true except for 22322 which is false.
+        
+        if(id == 21273 || (id > 21392 && id != 22322))
+            return true;
+        return tradeable;
+    }
+
+    public static int getBlockAnimation(int shield, int weapon) {
+        if(shield > 0)
+            return getOffhandBlock(shield);
+        WeaponInterface def = ItemDefinition.forId(weapon).getWeaponInterface();
+        if(def != null)
+            return def.getBlockAnim();
+        return 424;
+    }
+
+    private static int getOffhandBlock(int itemId) {
+        switch (itemId) {
+        case 1189: // Bronze kiteshield
+        case 1191: // Iron kiteshield
+        case 1193: // Steel kiteshield
+        case 1195: // Black kiteshield
+        case 1197: // Mithril kiteshield
+        case 1199: // Adamant kiteshield
+        case 1201: // Rune kiteshield
+        case 6894: // Adamant kiteshield
+        case 11283: // Dragonfire shield
+        case 11284: // Dragonfire shield
+        case 11285: // Dragonfire shield
+        case 12817: // Elysian spirit shield
+        case 12821: // Spectral spirit shield
+        case 12825: // Arcane spirit shield
+            return 1156;
+        case 8844: // Bronze defender
+        case 8845: // Iron defender
+        case 8846: // Steel defender
+        case 8847: // Black defender
+        case 8848: // Mithril defender
+        case 8849: // Adamant defender
+        case 8850: // Rune defender
+        case 12954: // Dragon defender
+            return 4177;
+        }
+        return 424;
+    }
 }
