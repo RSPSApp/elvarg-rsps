@@ -1,11 +1,11 @@
 package com.elvarg.game.model.movement.path;
 
-import com.elvarg.Server;
 import com.elvarg.game.collision.RegionManager;
 import com.elvarg.game.content.combat.CombatConstants;
 import com.elvarg.game.definition.ObjectDefinition;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.object.GameObject;
+import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Location;
 import com.elvarg.game.model.areas.impl.PrivateArea;
 import com.elvarg.game.model.commands.impl.AttackRange;
@@ -25,6 +25,8 @@ public class PathFinder {
     public static final int WEST = 0x1280108, EAST = 0x1280180, SOUTH = 0x1280102,
             NORTH = 0x1280120, SOUTHEAST = 0x1280183, SOUTHWEST = 0x128010e,
             NORTHEAST = 0x12801e0, NORTHWEST = 0x1280138;
+
+    private static boolean DEBUG_ENABLED = false;
 
     /**
      * A list of all the deltas for distances 1-10 from any given tile.
@@ -97,6 +99,9 @@ public class PathFinder {
                 {10, 1, 0}, {10, 2, 0}, {10, 3, 0}, {10, 4, 0}, {10, 5, 0}, {10, 6, 0}, {10, 7, 0},
                 {10, 8, 0}, {10, 9, 0}, {10, 10, 0}});
     }};
+    public static final byte[] DIRECTION_DELTA_X = new byte[]{-1, 0, 1, -1, 1, -1, 0, 1};
+
+    public static final byte[] DIRECTION_DELTA_Y = new byte[]{1, 1, 1, 0, 0, -1, -1, -1};
 
 
     public final static boolean isInDiagonalBlock(Location attacker, Location attacked) {
@@ -119,20 +124,24 @@ public class PathFinder {
         return isDia;
     }
 
-    public static void calculateCombatRoute(Mobile player, Mobile target) {
-        calculateRoute(player, 0, target.getLocation().getX(), target.getLocation().getY(), 1, 1, 0, 0, false);
+    public static int calculateCombatRoute(Mobile player, Mobile target) {
         player.setMobileInteraction(target);
+        return calculateRoute(player, 0, target.getLocation().getX(), target.getLocation().getY(), 1, 1, 0, 0, false);
     }
 
-    public static void calculateEntityRoute(Mobile player, int destX, int destY) {
-        calculateRoute(player, 0, destX, destY, 1, 1, 0, 0, false);
+    public static int calculateEntityRoute(Mobile player, int destX, int destY) {
+        return calculateRoute(player, 0, destX, destY, 1, 1, 0, 0, false);
     }
 
-    public static void calculateWalkRoute(Mobile player, int destX, int destY) {
-        calculateRoute(player, 0, destX, destY, 0, 0, 0, 0, true);
+    public static int calculateEntityRoute(Mobile player, int destX, int destY, int size, boolean basic) {
+        return calculateRoute(player, 0, destX, destY, size, size, 0, 0, basic);
     }
 
-    public static void calculateObjectRoute(Mobile entity, GameObject object) {
+    public static int calculateWalkRoute(Mobile player, int destX, int destY) {
+        return calculateRoute(player, 0, destX, destY, 0, 0, 0, 0, true);
+    }
+
+    public static int calculateObjectRoute(Mobile mobile, GameObject object) {
         int objectX = object.getLocation().getX();
 
         int objectY = object.getLocation().getY();
@@ -158,16 +167,13 @@ public class PathFinder {
             if (direction != 0) {
                 blockingMask = (blockingMask << direction & 0xf) + (blockingMask >> 4 - direction);
             }
-
-            calculateRoute(entity, 0, objectX, objectY, xLength, yLength, 0, blockingMask, false);
-            return;
+            return calculateRoute(mobile, 0, objectX, objectY, xLength, yLength, 0, blockingMask, false);
         }
-
-        calculateRoute(entity, type + 1, objectX, objectY, 0, 0, direction, 0, false);
+        return calculateRoute(mobile, type + 1, objectX, objectY, 0, 0, direction, 0, false);
     }
 
     /**
-     * Returns the best Location(x, y) to attack the defender from, from a preferred distance.
+     * Returns the best Position(x, y) to attack the defender from, from a preferred distance.
      *
      * @param attacker
      * @param defender
@@ -176,7 +182,7 @@ public class PathFinder {
      */
     public static Location getClosestAttackableTile(Mobile attacker, Mobile defender, int distance) {
         PrivateArea privateArea = attacker.getPrivateArea();
-        Location targetLocation = defender.getLocation();
+        Location targetPosition = defender.getLocation();
 
         if (distance == 1) {
             final int size = attacker.size();
@@ -184,19 +190,19 @@ public class PathFinder {
             final Location current = attacker.getLocation();
 
             List<Location> tiles = new ArrayList<>();
-            List<Location> outerTiles = Arrays.stream(defender.outterTiles()).toList();
+            List<Location> outerTiles = Arrays.stream(defender.outterTiles()).collect(Collectors.toList());
 
-            if (DEBUG_ATTACK_DISTANCE && attacker.isPlayer() && attacker.getAsPlayer().getRights() == PlayerRights.DEVELOPER) {
+            if (DEBUG_ATTACK_DISTANCE && attacker.isPlayer()) {
                 // If we're debugging attack range
                 outerTiles.forEach(t -> attacker.getAsPlayer().getPacketSender().sendGraphic(AttackRange.PURPLE_GLOW, t));
             }
 
             for (Location tile : outerTiles) {
-                if (!RegionManager.canMove(attacker.getLocation(), tile, size, size, privateArea) || RegionManager.blocked(tile, privateArea)) {
+                if (!RegionManager.canMove(attacker.getLocation(), tile, size, size) || RegionManager.blocked(tile, privateArea)) {
                     continue;
                 }
                 // Projectile attack
-                if (attacker.useProjectileClipping() && !RegionManager.canProjectileAttack(tile, targetLocation, size, privateArea)) {
+                if (attacker.useProjectileClipping() && !RegionManager.canProjectileAttack(tile, targetPosition, size, privateArea)) {
                     continue;
                 }
                 tiles.add(tile);
@@ -228,9 +234,9 @@ public class PathFinder {
         Optional<Location> tile = Optional.empty();
 
         // Starting from the max distance, try to find a suitable tile to attack from
-        while (tile.isEmpty()) {
+        while (!tile.isPresent()) {
             // Fetch the circumference of the closest attackable tiles to the target
-            List<Location> possibleTiles = getTilesForDistance(targetLocation, distance);
+            List<Location> possibleTiles = getTilesForDistance(targetPosition, distance);
 
             if (DEBUG_ATTACK_DISTANCE && attacker.isPlayer() && attacker.getAsPlayer().getRights() == PlayerRights.DEVELOPER) {
                 // If we're debugging attack range
@@ -238,23 +244,23 @@ public class PathFinder {
             }
 
             tile = possibleTiles.stream()
-            // Filter out any tiles which are clipped
-            .filter(t -> !RegionManager.blocked(t, attacker.getPrivateArea()))
-            // Filter out any tiles which projectiles are blocked from (i.e. tree is in the way)
-            .filter(t -> RegionManager.canProjectileAttack(attacker, t, targetLocation))
-            // Find the tile closest to the attacker
-            .min(Comparator.comparing(attacker.getLocation()::getDistance));
+                    // Filter out any tiles which are clipped
+                    .filter(t -> !RegionManager.blocked(t, privateArea))
+                    // Filter out any tiles which projectiles are blocked from (i.e. tree is in the way)
+                    .filter(t -> RegionManager.canProjectileAttack(attacker, t, targetPosition))
+                    // Find the tile closest to the attacker
+                    .min(Comparator.comparing(attacker.getLocation()::getDistance));
 
             if (distance == 1) {
                 // We've reached the closest attackable tile, break out of the loop as we can't get any closer
                 break;
             } else {
                 // Check 1 square closer if we don't have any valid tiles at this distance
-                distance = Math.max(distance-1, 1);
+                distance = Math.max(distance - 1, 1);
             }
         }
 
-        if (tile.isEmpty()) {
+        if (!tile.isPresent()) {
             attacker.sendMessage("I can't reach that.");
             return null;
         }
@@ -265,9 +271,9 @@ public class PathFinder {
     /**
      * Gets tile Locations exactly a given distance away from a center point.
      *
-     * @param center The centre of the circle, or the target.
+     * @param center   The centre of the circle, or the target.
      * @param distance The radius, or the max distance.
-     * @return {List<Location>}
+     * @return {List<Position>}
      */
     public static List<Location> getTilesForDistance(Location center, int distance) {
         int[][] deltas = TILE_DISTANCE_DELTAS.get(Math.min(distance, CombatConstants.MAX_ATTACK_DISTANCE));
@@ -275,7 +281,7 @@ public class PathFinder {
         return Arrays.stream(deltas).map((d) -> center.clone().translate(d[0], d[1])).collect(Collectors.toList());
     }
 
-    public static int calculateRoute(Mobile entity, int size, int destX, int destY, int xLength, int yLength, int direction, int blockingMask, boolean basicPather) {
+    public static int calculateRoute(Mobile entity, int size, int destX, int destY, int xLength, int yLength, int direction, int blockingMask, boolean moveClose) {
 
         /** RS Protocol **/
         byte byte0 = 104;
@@ -292,6 +298,8 @@ public class PathFinder {
         int anInt1264 = 0;
 
         int anInt1288 = 0;
+
+        entity.getMovementQueue().reset();
 
         entity.getMovementQueue().lastDestX = destX;
 
@@ -311,9 +319,9 @@ public class PathFinder {
         int baseX = localX;
         int baseY = localY;
         /** DestinationX for LocalX **/
-        var destinationX = destX - (entity.getLocation().getRegionX() << 3);
+        int destinationX = destX - (entity.getLocation().getRegionX() << 3);
         /** DestinationY for LocalY **/
-        var destinationY = destY - (entity.getLocation().getRegionY() << 3);
+        int destinationY = destY - (entity.getLocation().getRegionY() << 3);
         /** RS Protocol **/
         directions[localX][localY] = 99;
         distanceValues[localX][localY] = 0;
@@ -324,13 +332,12 @@ public class PathFinder {
         /** Set in order to loop to find best path **/
         routeStepsX[tail] = localX;
         routeStepsY[tail++] = localY;
-        /** Required for custom object walk-to actions. **/
         entity.getMovementQueue().setRoute(false);
         /** Size of the main queue **/
         int queueSizeX = routeStepsX.length;
         /** Entities height **/
         int height = entity.getLocation().getZ();
-        /** Private Area **/
+        /** Private Controller **/
         PrivateArea area = entity.getPrivateArea();
         /** Steps taken to get to best route **/
         int steps = 0;
@@ -345,28 +352,27 @@ public class PathFinder {
             if (baseX == destinationX && baseY == destinationY) {
                 entity.getMovementQueue().setRoute(true);
                 entity.getMovementQueue().setPathX(baseX).setPathY(baseY);
-                Server.logDebug("Already at destination, breaking loop");
+                //Server.logDebug("Already at destination, breaking loop");
                 break;
             }
 
             if (size != 0) {
                 /** Used for basic walking and other packet interactions also size 10 **/
                 if ((size < 5 || size == 10) && defaultRoutePath(entity, destinationX, baseX, baseY, direction, size - 1, destinationY)) {
-                    Server.logDebug("Using normal entity pathing..");
+                    debug(entity, "path route 1...");
                     entity.getMovementQueue().setRoute(true);
                     break;
                 }
                 /** Used for larger entities e.g corp/kbd ect **/
                 if (size < 10 && largeRoutePath(entity, destinationX, destinationY, baseY, size - 1, direction, baseX)) {
-                    Server.logDebug("Using larger Size Pathing..");
+                    debug(entity, "path route 2...");
                     entity.getMovementQueue().setRoute(true);
                     break;
                 }
             }
             /** Used for Calculating best route to object based on sizeX/Y **/
             if (yLength != 0 && xLength != 0 && sizeRoutePath(entity, destinationY, destinationX, baseX, xLength, blockingMask, yLength, baseY)) {
-                Server.logDebug("Using size based pathing..");
-                entity.getMovementQueue().setRoute(true);
+                debug(entity, "path route 3...");
                 break;
             }
 
@@ -441,28 +447,41 @@ public class PathFinder {
             }
         }
         anInt1264 = 0;
-
         if (!entity.getMovementQueue().hasRoute()) {
-            if (basicPather) {
-                int cost = 100;
-                for (int range = 1; range < 5; range++) {
-                    for (int xOffset = destinationX - range; xOffset <= destinationX + range; xOffset++) {
-                        for (int yOffset = destinationY - range; yOffset <= destinationY + range; yOffset++) {
-                            if (xOffset >= 0 && yOffset >= 0 && xOffset < 104 && yOffset < 104 && distanceValues[xOffset][yOffset] < cost) {
-                                cost = distanceValues[xOffset][yOffset];
-                                baseX = xOffset;
-                                baseY = yOffset;
-                                anInt1264 = 1;
-                                entity.getMovementQueue().setRoute(true);
+            if (moveClose) {
+                int lowestCost = 1000;
+                int range = 10;
+                int nextCost = 100;
+
+                for (int i = 0; i < 1; i++) {
+                    for (int offsetX = destinationX - range; offsetX <= destinationX + range; offsetX++) {
+                        for (int offsetY = destinationY - range; offsetY <= destinationY + range; offsetY++) {
+                            if (offsetX >= 0 && offsetY >= 0 && offsetX < 104 && offsetY < 104 && distanceValues[offsetX][offsetY] < 100) {
+                                int i_132_ = 0;
+                                int i_133_ = 0;
+                                if (offsetX < destinationX)
+                                    i_133_ = -offsetX + destinationX;
+                                else if (destinationX + xLength < offsetX)
+                                    i_133_ = 1 - destinationX - (xLength - offsetX);
+                                if (destinationY > offsetY)
+                                    i_132_ = -offsetY + destinationY;
+                                else if (yLength + (destinationY) < offsetY)
+                                    i_132_ = offsetY + 1 - yLength - destinationY;
+                                int i_134_ = i_132_ * i_132_ + i_133_ * i_133_;
+                                if (lowestCost > i_134_ || (lowestCost == i_134_ && nextCost > (distanceValues[offsetX][offsetY]))) {
+                                    lowestCost = i_134_;
+                                    baseX = offsetX;
+                                    baseY = offsetY;
+                                    nextCost = distanceValues[offsetX][offsetY];
+                                    entity.getMovementQueue().setRoute(true);
+                                }
                             }
                         }
                     }
-                    if (entity.getMovementQueue().hasRoute())
-                        break;
                 }
             }
             if (!entity.getMovementQueue().hasRoute()) {
-                Server.logDebug("error.. no path found... path probably not reachable.");
+                debug(entity, "path not reachable..");
                 return -1;
             }
         }
@@ -497,10 +516,19 @@ public class PathFinder {
                 int absX = entity.getLocation().getRegionX() * 8 + routeStepsX[queueIndex];
                 int absY = entity.getLocation().getRegionY() * 8 + routeStepsY[queueIndex];
                 entity.getMovementQueue().addStep(new Location(absX, absY, height));
+                debug(entity, "adding steps to queue..");
                 steps++;
             }
         }
         return steps;
+    }
+
+    private static void debug(Mobile mobile, String s) {
+        if (!DEBUG_ENABLED)
+            return;
+        if (mobile instanceof Player) {
+            System.err.println(s);
+        }
     }
 
     private static boolean defaultRoutePath(Mobile entity, int destX, int baseX, int baseY, int direction, int size, int destY) {
@@ -509,13 +537,13 @@ public class PathFinder {
             return true;
         }
 
+        PrivateArea area = entity.getPrivateArea();
+
         int absX = (entity.getLocation().getRegionX() << 3) + baseX;
 
         int absY = (entity.getLocation().getRegionY() << 3) + baseY;
 
         int height = entity.getLocation().getZ();
-
-        PrivateArea area = entity.getPrivateArea();
 
         baseX -= 0;
         baseY -= 0;
@@ -784,30 +812,54 @@ public class PathFinder {
      * @param baseY
      * @return
      */
+
+    /**
+     * public boolean atObject(int finalY, int finalX, int x, int height, int rotation, int width, int y) {
+     * int maxX = (finalX + width) - 1;
+     * int maxY = (finalY + height) - 1;
+     * if (x >= finalX && x <= maxX && y >= finalY && y <= maxY)
+     * return true;
+     * if (x == finalX - 1 && y >= finalY && y <= maxY
+     * && (clipData[x - xOffset][y - yOffset] & 8) == 0
+     * && (rotation & 8) == 0)
+     * return true;
+     * if (x == maxX + 1 && y >= finalY && y <= maxY
+     * && (clipData[x - xOffset][y - yOffset] & 0x80) == 0
+     * && (rotation & 2) == 0)
+     * return true;
+     * return y == finalY - 1 && x >= finalX && x <= maxX
+     * && (clipData[x - xOffset][y - yOffset] & 2) == 0
+     * && (rotation & 4) == 0 || y == maxY + 1 && x >= finalX && x <= maxX
+     * && (clipData[x - xOffset][y - yOffset] & 0x20) == 0
+     * && (rotation & 1) == 0;
+     * }
+     */
     private static boolean sizeRoutePath(Mobile entity, int destY, int destX, int baseX, int sizeX, int blockedMask, int sizeY, int baseY) {
         int absX = (entity.getLocation().getRegionX() << 3) + baseX;
         int absY = (entity.getLocation().getRegionY() << 3) + baseY;
         int height = entity.getLocation().getZ();
-        PrivateArea area = entity.getPrivateArea();
         int xOffset = 0;
         int yOffset = 0;
         int maxX = (destX + sizeY) - 1;
         int maxY = (destY + sizeX) - 1;
-
+        PrivateArea area = entity.getPrivateArea();
         if (baseX >= destX && baseX <= maxX && baseY >= destY && baseY <= maxY) {
             entity.getMovementQueue().setPathX(baseX).setPathY(baseY);
+            entity.getMovementQueue().setRoute(true);
             return true;
         }
         if (baseX == destX - 1 && baseY >= destY && baseY <= maxY
                 && (RegionManager.getClipping(absX - xOffset, absY - yOffset, height, area) & 8) == 0
                 && (blockedMask & 8) == 0) {
             entity.getMovementQueue().setPathX(baseX).setPathY(baseY);
+            entity.getMovementQueue().setRoute(true);
             return true;
         }
         if (baseX == maxX + 1 && baseY >= destY && baseY <= maxY
                 && (RegionManager.getClipping(absX - xOffset, absY - yOffset, height, area) & 0x80) == 0
                 && (blockedMask & 2) == 0) {
             entity.getMovementQueue().setPathX(baseX).setPathY(baseY);
+            entity.getMovementQueue().setRoute(true);
             return true;
         }
         if (baseY == destY - 1 && baseX >= destX && baseX <= maxX
@@ -816,24 +868,99 @@ public class PathFinder {
                 && (RegionManager.getClipping(absX - xOffset, absY - yOffset, height, area) & 0x20) == 0
                 && (blockedMask & 1) == 0) {
             entity.getMovementQueue().setPathX(baseX).setPathY(baseY);
+            entity.getMovementQueue().setRoute(true);
             return true;
         }
         return false;
     }
 
-    public static boolean findWalkable(Mobile entity, int x, int y, int targetSize) {
+    private static boolean checkWalkStep(int x, int y, int z, int size, int dir, boolean projectile) {
+        int xOffset = DIRECTION_DELTA_X[dir];
+        int yOffset = DIRECTION_DELTA_Y[dir];
+        if (size == 1) {
+            int mask = RegionManager.getClipping(x + xOffset, y + yOffset, z, null);
+            if (xOffset == -1 && yOffset == 0)
+                return (mask & WEST) == 0;
+            if (xOffset == 1 && yOffset == 0)
+                return (mask & EAST) == 0;
+            if (xOffset == 0 && yOffset == -1)
+                return (mask & SOUTH) == 0;
+            if (xOffset == 0 && yOffset == 1)
+                return (mask & NORTH) == 0;
+            if (xOffset == -1 && yOffset == -1)
+                return (mask & SOUTHWEST) == 0 && (RegionManager.getClipping(x - 1, y, z, null) & WEST) == 0 && (RegionManager.getClipping(x, y - 1, z, null) & SOUTH) == 0;
+            if (xOffset == 1 && yOffset == -1)
+                return (mask & SOUTHEAST) == 0 && (RegionManager.getClipping(x + 1, y, z, null) & EAST) == 0 && (RegionManager.getClipping(x, y - 1, z, null) & SOUTH) == 0;
+            if (xOffset == -1 && yOffset == 1)
+                return (mask & NORTHWEST) == 0 && (RegionManager.getClipping(x - 1, y, z, null) & WEST) == 0 && (RegionManager.getClipping(x, y + 1, z, null) & NORTH) == 0;
+            if (xOffset == 1 && yOffset == 1)
+                return (mask & NORTHEAST) == 0 && (RegionManager.getClipping(x + 1, y, z, null) & EAST) == 0 && (RegionManager.getClipping(x, y + 1, z, null) & NORTH) == 0;
+        }
+        return true;
+    }
+
+    public static byte direction(int dx, int dy) {
+        if (dx < 0) {
+            if (dy < 0)
+                return 5;
+            else if (dy > 0)
+                return 0;
+            else
+                return 3;
+        } else if (dx > 0) {
+            if (dy < 0)
+                return 7;
+            else if (dy > 0)
+                return 2;
+            else
+                return 4;
+        } else {
+            if (dy < 0)
+                return 6;
+            else if (dy > 0)
+                return 1;
+            else
+                return -1;
+        }
+    }
+
+    public static boolean canReach(int height, int startX, int startY, int destX, int destY, int size, boolean projectile) {
+        int lastX = startX;
+        int lastY = startY;
+        while (true) {
+            if (startX < destX)
+                startX++;
+            else if (startX > destX)
+                startX--;
+            if (startY < destY)
+                startY++;
+            else if (startY > destY)
+                startY--;
+            int dir = direction(startX - lastX, startY - lastY);
+            if (dir == -1 || !checkWalkStep(lastX, lastY, height, size, dir, projectile))
+                return false;
+            lastX = startX;
+            lastY = startY;
+            if (lastX == destX && lastY == destY)
+                return true;
+        }
+    }
+
+    public static boolean findWalkableRoute(Player player, int x, int y, int targetSize) {
         //Step West
-        if (calculateRoute(entity, entity.size(), x - targetSize, y, 0, 0, 0, 0, false) > 0)
+        int size = player.size();
+        if (calculateRoute(player, size, x - targetSize, y, 1, 1, 0, 0, false) > 0)
             return true;
         //Step East
-        if (calculateRoute(entity, entity.size(), x + targetSize, y, 0, 0, 0, 0, false) > 0)
+        if (calculateRoute(player, size, x + targetSize, y, 1, 1, 0, 0, false) > 0)
             return true;
         //Step North
-        if (calculateRoute(entity, entity.size(), x, y + targetSize, 0, 0, 0, 0, false) > 0)
+        if (calculateRoute(player, size, x, y + targetSize, 1, 1, 0, 0, false) > 0)
             return true;
         //Step South
-        if (calculateRoute(entity, entity.size(), x, y - targetSize, 0, 0, 0, 0, false) > 0)
+        if (calculateRoute(player, size, x, y - targetSize, 1, 1, 0, 0, false) > 0)
             return true;
+        player.sendMessage("You can't reach that!");
         return false;
     }
 }
