@@ -529,7 +529,7 @@ public final class WeaponInterfaces {
                 FightType.THROWNAXE_LONGRANGE}, 7649, 7661),
         DART(4446, 4449, 3, new FightType[]{FightType.DART_ACCURATE,
                 FightType.DART_RAPID, FightType.DART_LONGRANGE}, 7649, 7661),
-        JAVELIN(4446, 4449, 4, new FightType[]{FightType.JAVELIN_ACCURATE,
+        JAVELIN(4446, 4449, 6, new FightType[]{FightType.JAVELIN_ACCURATE,
                 FightType.JAVELIN_RAPID, FightType.JAVELIN_LONGRANGE}, 7649, 7661),
         ANCIENT_STAFF(328, 355, 4, new FightType[]{FightType.STAFF_BASH, FightType.STAFF_POUND, FightType.STAFF_FOCUS}),
         DARK_BOW(1764, 1767, 8, new FightType[]{FightType.LONGBOW_ACCURATE,
