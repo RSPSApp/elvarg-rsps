@@ -812,28 +812,6 @@ public class PathFinder {
      * @param baseY
      * @return
      */
-
-    /**
-     * public boolean atObject(int finalY, int finalX, int x, int height, int rotation, int width, int y) {
-     * int maxX = (finalX + width) - 1;
-     * int maxY = (finalY + height) - 1;
-     * if (x >= finalX && x <= maxX && y >= finalY && y <= maxY)
-     * return true;
-     * if (x == finalX - 1 && y >= finalY && y <= maxY
-     * && (clipData[x - xOffset][y - yOffset] & 8) == 0
-     * && (rotation & 8) == 0)
-     * return true;
-     * if (x == maxX + 1 && y >= finalY && y <= maxY
-     * && (clipData[x - xOffset][y - yOffset] & 0x80) == 0
-     * && (rotation & 2) == 0)
-     * return true;
-     * return y == finalY - 1 && x >= finalX && x <= maxX
-     * && (clipData[x - xOffset][y - yOffset] & 2) == 0
-     * && (rotation & 4) == 0 || y == maxY + 1 && x >= finalX && x <= maxX
-     * && (clipData[x - xOffset][y - yOffset] & 0x20) == 0
-     * && (rotation & 1) == 0;
-     * }
-     */
     private static boolean sizeRoutePath(Mobile entity, int destY, int destX, int baseX, int sizeX, int blockedMask, int sizeY, int baseY) {
         int absX = (entity.getLocation().getRegionX() << 3) + baseX;
         int absY = (entity.getLocation().getRegionY() << 3) + baseY;
