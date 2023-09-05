@@ -12,6 +12,8 @@ import com.elvarg.game.model.container.impl.Equipment;
  */
 public final class WeaponInterfaces {
 
+    private static int DEFAULT_BLOCK = 424;
+    
     /**
      * Assigns an interface to the combat sidebar based on the argued weapon.
      *
@@ -450,104 +452,108 @@ public final class WeaponInterfaces {
      * @author lare96
      */
     public enum WeaponInterface {
-        STAFF(328, 355, 5, new FightType[]{FightType.STAFF_BASH, FightType.STAFF_POUND, FightType.STAFF_FOCUS}),
+        STAFF(328, 355, 5, new FightType[]{FightType.STAFF_BASH, FightType.STAFF_POUND, FightType.STAFF_FOCUS}, DEFAULT_BLOCK),
         WARHAMMER(425, 428, 6, new FightType[]{FightType.WARHAMMER_POUND,
-                FightType.WARHAMMER_PUMMEL, FightType.WARHAMMER_BLOCK}, 7474, 7486),
+                FightType.WARHAMMER_PUMMEL, FightType.WARHAMMER_BLOCK}, 7474, 7486, DEFAULT_BLOCK),
+        ANCHOR(425, 428, 6, new FightType[]{FightType.WARHAMMER_POUND,
+                FightType.WARHAMMER_PUMMEL, FightType.WARHAMMER_BLOCK}, 7474, 7486, 5866),
         MAUL(425, 428, 7, new FightType[]{FightType.MAUL_POUND,
-                FightType.MAUL_PUMMEL, FightType.MAUL_BLOCK}, 7474, 7486),
+                FightType.MAUL_PUMMEL, FightType.MAUL_BLOCK}, 7474, 7486, 1666),
         GRANITE_MAUL(425, 428, 7, new FightType[]{FightType.GRANITE_MAUL_POUND,
-                FightType.GRANITE_MAUL_PUMMEL, FightType.GRANITE_MAUL_BLOCK}, 7474, 7486),
+                FightType.GRANITE_MAUL_PUMMEL, FightType.GRANITE_MAUL_BLOCK}, 7474, 7486, 1666),
         VERACS_FLAIL(3796, 3799, 5, new FightType[]{FightType.VERACS_FLAIL_POUND,
                 FightType.VERACS_FLAIL_PUMMEL, FightType.VERACS_FLAIL_SPIKE,
-                FightType.VERACS_FLAIL_BLOCK}, 7624, 7636),
+                FightType.VERACS_FLAIL_BLOCK}, 7624, 7636, 2063),
         SCYTHE(776, 779, 4, new FightType[]{FightType.SCYTHE_REAP,
                 FightType.SCYTHE_CHOP, FightType.SCYTHE_JAB,
-                FightType.SCYTHE_BLOCK}),
+                FightType.SCYTHE_BLOCK}, DEFAULT_BLOCK),
         BATTLEAXE(1698, 1701, 5, new FightType[]{FightType.BATTLEAXE_CHOP,
                 FightType.BATTLEAXE_HACK, FightType.BATTLEAXE_SMASH,
-                FightType.BATTLEAXE_BLOCK}, 7499, 7511),
+                FightType.BATTLEAXE_BLOCK}, 7499, 7511, 397),
         GREATAXE(1698, 1701, 7, new FightType[]{FightType.GREATAXE_CHOP,
                 FightType.GREATAXE_HACK, FightType.GREATAXE_SMASH,
-                FightType.GREATAXE_BLOCK}, 7499, 7511),
+                FightType.GREATAXE_BLOCK}, 7499, 7511, 1666),
         CROSSBOW(1764, 1767, 6, new FightType[]{FightType.CROSSBOW_ACCURATE,
-                FightType.CROSSBOW_RAPID, FightType.CROSSBOW_LONGRANGE}, 7549, 7561),
+                FightType.CROSSBOW_RAPID, FightType.CROSSBOW_LONGRANGE}, 7549, 7561, DEFAULT_BLOCK),
         BALLISTA(1764, 1767, 7, new FightType[]{FightType.BALLISTA_ACCURATE,
-                FightType.BALLISTA_RAPID, FightType.BALLISTA_LONGRANGE}, 7549, 7561),
+                FightType.BALLISTA_RAPID, FightType.BALLISTA_LONGRANGE}, 7549, 7561, 7219),
         BLOWPIPE(1764, 1767, 3, new FightType[]{FightType.BLOWPIPE_ACCURATE,
-                FightType.BLOWPIPE_RAPID, FightType.BLOWPIPE_LONGRANGE}, 7549, 7561),
+                FightType.BLOWPIPE_RAPID, FightType.BLOWPIPE_LONGRANGE}, 7549, 7561, DEFAULT_BLOCK),
         KARILS_CROSSBOW(1764, 1767, 4, new FightType[]{FightType.KARILS_CROSSBOW_ACCURATE,
-                FightType.KARILS_CROSSBOW_RAPID, FightType.KARILS_CROSSBOW_LONGRANGE}, 7549, 7561),
+                FightType.KARILS_CROSSBOW_RAPID, FightType.KARILS_CROSSBOW_LONGRANGE}, 7549, 7561, DEFAULT_BLOCK),
         SHORTBOW(1764, 1767, 4, new FightType[]{FightType.SHORTBOW_ACCURATE,
-                FightType.SHORTBOW_RAPID, FightType.SHORTBOW_LONGRANGE}, 7549, 7561),
+                FightType.SHORTBOW_RAPID, FightType.SHORTBOW_LONGRANGE}, 7549, 7561, DEFAULT_BLOCK),
         LONGBOW(1764, 1767, 6, new FightType[]{FightType.LONGBOW_ACCURATE,
-                FightType.LONGBOW_RAPID, FightType.LONGBOW_LONGRANGE}, 7549, 7561),
+                FightType.LONGBOW_RAPID, FightType.LONGBOW_LONGRANGE}, 7549, 7561, DEFAULT_BLOCK),
         DRAGON_DAGGER(2276, 2279, 4, new FightType[]{FightType.DRAGON_DAGGER_STAB,
                 FightType.DRAGON_DAGGER_LUNGE, FightType.DRAGON_DAGGER_SLASH,
-                FightType.DRAGON_DAGGER_BLOCK}, 7574, 7586),
+                FightType.DRAGON_DAGGER_BLOCK}, 7574, 7586, 388),
         ABYSSAL_DAGGER(2276, 2279, 4, new FightType[]{FightType.DRAGON_DAGGER_STAB,
                 FightType.DRAGON_DAGGER_LUNGE, FightType.DRAGON_DAGGER_SLASH,
-                FightType.DRAGON_DAGGER_BLOCK}, 7574, 7586),
+                FightType.DRAGON_DAGGER_BLOCK}, 7574, 7586, 388),
         DAGGER(2276, 2279, 4, new FightType[]{FightType.DAGGER_STAB,
                 FightType.DAGGER_LUNGE, FightType.DAGGER_SLASH,
-                FightType.DAGGER_BLOCK}, 7574, 7586),
+                FightType.DAGGER_BLOCK}, 7574, 7586, 388),
         SWORD(2276, 2279, 5, new FightType[]{FightType.SWORD_STAB,
                 FightType.SWORD_LUNGE, FightType.SWORD_SLASH,
-                FightType.SWORD_BLOCK}, 7574, 7586),
+                FightType.SWORD_BLOCK}, 7574, 7586, 388),
         SCIMITAR(2423, 2426, 4, new FightType[]{FightType.SCIMITAR_CHOP,
                 FightType.SCIMITAR_SLASH, FightType.SCIMITAR_LUNGE,
-                FightType.SCIMITAR_BLOCK}, 7599, 7611),
+                FightType.SCIMITAR_BLOCK}, 7599, 7611, 388),
         LONGSWORD(2423, 2426, 5, new FightType[]{FightType.LONGSWORD_CHOP,
                 FightType.LONGSWORD_SLASH, FightType.LONGSWORD_LUNGE,
-                FightType.LONGSWORD_BLOCK}, 7599, 7611),
+                FightType.LONGSWORD_BLOCK}, 7599, 7611, 388),
         MACE(3796, 3799, 5, new FightType[]{FightType.MACE_POUND,
                 FightType.MACE_PUMMEL, FightType.MACE_SPIKE,
-                FightType.MACE_BLOCK}, 7624, 7636),
+                FightType.MACE_BLOCK}, 7624, 7636, 403),
         KNIFE(4446, 4449, 3, new FightType[]{FightType.KNIFE_ACCURATE,
-                FightType.KNIFE_RAPID, FightType.KNIFE_LONGRANGE}, 7649, 7661),
+                FightType.KNIFE_RAPID, FightType.KNIFE_LONGRANGE}, 7649, 7661, DEFAULT_BLOCK),
         OBBY_RINGS(4446, 4449, 4, new FightType[]{FightType.OBBY_RING_ACCURATE,
-                FightType.OBBY_RING_RAPID, FightType.OBBY_RING_LONGRANGE}, 7649, 7661),
+                FightType.OBBY_RING_RAPID, FightType.OBBY_RING_LONGRANGE}, 7649, 7661, DEFAULT_BLOCK),
         SPEAR(4679, 4682, 5, new FightType[]{FightType.SPEAR_LUNGE,
                 FightType.SPEAR_SWIPE, FightType.SPEAR_POUND,
-                FightType.SPEAR_BLOCK}, 7674, 7686),
+                FightType.SPEAR_BLOCK}, 7674, 7686, 430),
         TWO_HANDED_SWORD(4705, 4708, 7, new FightType[]{
                 FightType.TWOHANDEDSWORD_CHOP, FightType.TWOHANDEDSWORD_SLASH,
-                FightType.TWOHANDEDSWORD_SMASH, FightType.TWOHANDEDSWORD_BLOCK}, 7699, 7711),
+                FightType.TWOHANDEDSWORD_SMASH, FightType.TWOHANDEDSWORD_BLOCK}, 7699, 7711, 410),
         PICKAXE(5570, 5573, 5, new FightType[]{FightType.PICKAXE_SPIKE,
                 FightType.PICKAXE_IMPALE, FightType.PICKAXE_SMASH,
-                FightType.PICKAXE_BLOCK}),
+                FightType.PICKAXE_BLOCK}, DEFAULT_BLOCK),
         CLAWS(7762, 7765, 4, new FightType[]{FightType.CLAWS_CHOP,
                 FightType.CLAWS_SLASH, FightType.CLAWS_LUNGE,
-                FightType.CLAWS_BLOCK}, 7800, 7812),
+                FightType.CLAWS_BLOCK}, 7800, 7812, DEFAULT_BLOCK),
         HALBERD(8460, 8463, 7, new FightType[]{FightType.HALBERD_JAB,
-                FightType.HALBERD_SWIPE, FightType.HALBERD_FEND}, 8493, 8505),
+                FightType.HALBERD_SWIPE, FightType.HALBERD_FEND}, 8493, 8505, 430),
         UNARMED(5855, 5857, 4, new FightType[]{FightType.UNARMED_PUNCH,
-                FightType.UNARMED_KICK, FightType.UNARMED_BLOCK}),
+                FightType.UNARMED_KICK, FightType.UNARMED_BLOCK}, DEFAULT_BLOCK),
+        CHIN(5855, 5857, 4, new FightType[]{FightType.UNARMED_PUNCH,
+                FightType.UNARMED_KICK, FightType.UNARMED_BLOCK}, 3176),
         WHIP(12290, 12293, 4, new FightType[]{FightType.WHIP_FLICK,
-                FightType.WHIP_LASH, FightType.WHIP_DEFLECT}, 12323, 12335),
+                FightType.WHIP_LASH, FightType.WHIP_DEFLECT}, 12323, 12335, 1659),
         THROWNAXE(4446, 4449, 4, new FightType[]{
                 FightType.THROWNAXE_ACCURATE, FightType.THROWNAXE_RAPID,
-                FightType.THROWNAXE_LONGRANGE}, 7649, 7661),
+                FightType.THROWNAXE_LONGRANGE}, 7649, 7661, DEFAULT_BLOCK),
         DART(4446, 4449, 3, new FightType[]{FightType.DART_ACCURATE,
-                FightType.DART_RAPID, FightType.DART_LONGRANGE}, 7649, 7661),
+                FightType.DART_RAPID, FightType.DART_LONGRANGE}, 7649, 7661, DEFAULT_BLOCK),
         JAVELIN(4446, 4449, 4, new FightType[]{FightType.JAVELIN_ACCURATE,
-                FightType.JAVELIN_RAPID, FightType.JAVELIN_LONGRANGE}, 7649, 7661),
-        ANCIENT_STAFF(328, 355, 4, new FightType[]{FightType.STAFF_BASH, FightType.STAFF_POUND, FightType.STAFF_FOCUS}),
+                FightType.JAVELIN_RAPID, FightType.JAVELIN_LONGRANGE}, 7649, 7661, DEFAULT_BLOCK),
+        ANCIENT_STAFF(328, 355, 4, new FightType[]{FightType.STAFF_BASH, FightType.STAFF_POUND, FightType.STAFF_FOCUS}, DEFAULT_BLOCK),
         DARK_BOW(1764, 1767, 8, new FightType[]{FightType.LONGBOW_ACCURATE,
-                FightType.LONGBOW_RAPID, FightType.LONGBOW_LONGRANGE}, 7549, 7561),
+                FightType.LONGBOW_RAPID, FightType.LONGBOW_LONGRANGE}, 7549, 7561, DEFAULT_BLOCK),
         GODSWORD(4705, 4708, 6, new FightType[]{
                 FightType.GODSWORD_CHOP, FightType.GODSWORD_SLASH,
-                FightType.GODSWORD_SMASH, FightType.GODSWORD_BLOCK}, 7699, 7711),
+                FightType.GODSWORD_SMASH, FightType.GODSWORD_BLOCK}, 7699, 7711, 7056),
         ABYSSAL_BLUDGEON(4705, 4708, 4, new FightType[]{
                 FightType.ABYSSAL_BLUDGEON_CHOP, FightType.ABYSSAL_BLUDGEON_SLASH,
-                FightType.ABYSSAL_BLUDGEON_SMASH, FightType.ABYSSAL_BLUDGEON_BLOCK}, 7699, 7711),
+                FightType.ABYSSAL_BLUDGEON_SMASH, FightType.ABYSSAL_BLUDGEON_BLOCK}, 7699, 7711, 425),
         SARADOMIN_SWORD(4705, 4708, 4, new FightType[]{
                 FightType.TWOHANDEDSWORD_CHOP, FightType.TWOHANDEDSWORD_SLASH,
-                FightType.TWOHANDEDSWORD_SMASH, FightType.TWOHANDEDSWORD_BLOCK}, 7699, 7711),
+                FightType.TWOHANDEDSWORD_SMASH, FightType.TWOHANDEDSWORD_BLOCK}, 7699, 7711, 7056),
         ELDER_MAUL(425, 428, 6, new FightType[]{FightType.ELDER_MAUL_POUND,
-                FightType.ELDER_MAUL_PUMMEL, FightType.ELDER_MAUL_BLOCK}, 7474, 7486),
+                FightType.ELDER_MAUL_PUMMEL, FightType.ELDER_MAUL_BLOCK}, 7474, 7486, 7517),
         GHRAZI_RAPIER(2276, 2279, 4, new FightType[]{FightType.GHRAZI_RAPIER_STAB,
                 FightType.GHRAZI_RAPIER_LUNGE, FightType.GHRAZI_RAPIER_SLASH,
-                FightType.GHRAZI_RAPIER_BLOCK}, 7574, 7586),
+                FightType.GHRAZI_RAPIER_BLOCK}, 7574, 7586, 4177),
         ;
 
         /**
@@ -580,6 +586,8 @@ public final class WeaponInterfaces {
          */
         private int specialMeter;
 
+        private int blockAnim;
+
         /**
          * Creates a new weapon interface.
          *
@@ -589,9 +597,10 @@ public final class WeaponInterfaces {
          * @param fightType    the fight types that correspond with this interface.
          * @param specialBar   the id of the special bar for this interface.
          * @param specialMeter the id of the special meter for this interface.
+         * @param blockAnim    the block animation that corresponds with this interface.
          */
         private WeaponInterface(int interfaceId, int nameLineId, int speed,
-                                FightType[] fightType, int specialBar, int specialMeter) {
+                                FightType[] fightType, int specialBar, int specialMeter, int blockAnim) {
             this.interfaceId = interfaceId;
             this.nameLineId = nameLineId;
             this.speed = speed;
@@ -607,10 +616,11 @@ public final class WeaponInterfaces {
          * @param nameLineId  the line that the name of the item will be printed to.
          * @param speed       the attack speed of weapons using this interface.
          * @param fightType   the fight types that correspond with this interface.
+         * @param blockAnim   the block animation that corresponds with this interface.
          */
         private WeaponInterface(int interfaceId, int nameLineId, int speed,
-                                FightType[] fightType) {
-            this(interfaceId, nameLineId, speed, fightType, -1, -1);
+                                FightType[] fightType, int blockAnim) {
+            this(interfaceId, nameLineId, speed, fightType, -1, -1, blockAnim);
         }
 
         /**
@@ -665,6 +675,15 @@ public final class WeaponInterfaces {
          */
         public int getSpecialMeter() {
             return specialMeter;
+        }
+        
+        /**
+         * Gets the blocking animation used by this interface.
+         * 
+         * @return the id of the block animation for this interface.
+         */
+        public int getBlockAnim() {
+            return blockAnim;
         }
     }
 }

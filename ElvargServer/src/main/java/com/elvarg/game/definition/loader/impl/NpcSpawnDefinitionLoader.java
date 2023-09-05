@@ -1,32 +1,48 @@
 package com.elvarg.game.definition.loader.impl;
 
-import java.io.FileReader;
-
-import com.elvarg.game.GameConstants;
 import com.elvarg.game.World;
 import com.elvarg.game.definition.NpcSpawnDefinition;
-import com.elvarg.game.definition.loader.DefinitionLoader;
 import com.elvarg.game.entity.impl.npc.NPC;
+import com.elvarg.game.model.Location;
+import com.elvarg.util.Misc;
 import com.google.gson.Gson;
+import com.google.gson.JsonParseException;
 
-public class NpcSpawnDefinitionLoader extends DefinitionLoader {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
-    @Override
-    public void load() throws Throwable {
-        FileReader reader = new FileReader(file());
-        NpcSpawnDefinition[] defs = new Gson().fromJson(reader, NpcSpawnDefinition[].class);
-        for (NpcSpawnDefinition def : defs) {
-            NPC npc = NPC.create(def.getId(), def.getPosition());
-            npc.getMovementCoordinator().setRadius(def.getRadius());
-            npc.setFace(def.getFacing());
-            World.getAddNPCQueue().add(npc);
+/**
+ * @author Ynneh | 13/03/2023 - 14:43
+ * <https://github.com/drhenny>
+ */
+public class NpcSpawnDefinitionLoader {
+
+    public static int count = 0;
+
+    public static void load() {
+        long startTime = System.currentTimeMillis();
+
+        try {
+            NpcSpawnDefinition[] s = new Gson().fromJson(new FileReader("data/definitions/npc_spawns_osrs.json"), NpcSpawnDefinition[].class);
+
+            for (NpcSpawnDefinition sp : s) {
+                if (sp == null)
+                    continue;
+                Location loc = sp.position[0];
+                NPC npc = NPC.create(sp.id, loc);
+                npc.setFace(sp.dir());
+                npc.setDescription(sp.description);
+                World.getAddNPCQueue().add(npc);
+                count++;
+            }
+        } catch (JsonParseException e) {
+            throw new RuntimeException("Failed to load npc spawn (" + e + ")");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        reader.close();
-    }
 
-    @Override
-    public String file() {
-        return GameConstants.DEFINITIONS_DIRECTORY + "npc_spawns.json";
+        long elapsedTime = System.currentTimeMillis() - startTime;
+        System.err.println("Loaded " + Misc.format(count) + " NPC Spawns in "+elapsedTime+" ms.");
     }
-
 }

@@ -52,4 +52,10 @@ public final class Queue {
         }
     }
 
+    public int size() {
+        int count = 0;
+        for (Cacheable nodeSub = head.nextCacheable; nodeSub != head; nodeSub = nodeSub.nextCacheable)
+            count++;
+        return count;
+    }
 }

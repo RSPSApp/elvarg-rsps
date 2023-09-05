@@ -12,7 +12,7 @@ public class ReloadNPCSpawns implements Command {
     public void execute(Player player, String command, String[] parts) {
         try {
             World.getNpcs().clear();
-			new NpcSpawnDefinitionLoader().load();
+            NpcSpawnDefinitionLoader.load();
 			player.getPacketSender().sendConsoleMessage("Reloaded npc spawns.");
 		} catch (Throwable e) {
 			e.printStackTrace();

@@ -36,8 +36,8 @@ public class Console {
 
 	public void drawConsole() {
 		if (consoleOpen) {
-			Rasterizer2D.drawTransparentBox(0, 0, client().getGameComponent().getWidth(), 334, 5320850, 97);
-			Rasterizer2D.drawPixels(1, 315, 0, 16777215, client().getGameComponent().getWidth());
+			Rasterizer2D.drawTransparentBox(0, 0, Client.canvasWidth, 334, 5320850, 97);
+			Rasterizer2D.drawPixels(1, 315, 0, 16777215, Client.canvasWidth);
 			client().newBoldFont.drawBasicString("-->", 11, 328, 16777215, 0);
 			if (tick % 20 < 10) {
 				client().newBoldFont.drawBasicString(consoleInput + "|", 38, 328, 16777215, 0);

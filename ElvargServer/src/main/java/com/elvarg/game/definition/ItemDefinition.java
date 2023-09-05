@@ -1,10 +1,10 @@
 package com.elvarg.game.definition;
 
 import com.elvarg.game.content.combat.WeaponInterfaces.WeaponInterface;
+import com.elvarg.game.definition.loader.impl.ItemDefinitionLoader.OSRSBoxItemDefinition;
 import com.elvarg.game.model.EquipmentType;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.elvarg.game.model.container.shop.currency.impl.BloodMoneyCurrency;
+import com.elvarg.util.SuppliedHashMap;
 
 import static com.elvarg.util.ItemIdentifiers.*;
 
@@ -18,40 +18,35 @@ public class ItemDefinition {
     /**
      * The map containing all our {@link ItemDefinition}s.
      */
-    public static final Map<Integer, ItemDefinition> definitions = new HashMap<Integer, ItemDefinition>();
+    public static final SuppliedHashMap<Integer, ItemDefinition> definitions = new SuppliedHashMap<>(ItemDefinition::new);
 
     /**
      * The default {@link ItemDefinition} that will be used.
      */
     public static final ItemDefinition DEFAULT = new ItemDefinition();
-    private int id;
-    private String name = "";
-    private String examine = "";
-    private WeaponInterface weaponInterface;
-    private EquipmentType equipmentType = EquipmentType.NONE;
-    private boolean doubleHanded;
-    private boolean stackable;
-    private boolean tradeable;
-    private boolean dropable;
-    private boolean sellable;
-    private boolean noted;
-    private int value;
-    private int bloodMoneyValue;
-    private int highAlch;
-    private int lowAlch;
-    private int dropValue;
-    private int noteId = -1;
-    private int blockAnim = 424;
-    private int standAnim = 808;
-    private int walkAnim = 819;
-    private int runAnim = 824;
-    private int standTurnAnim = 823;
-    private int turn180Anim = 820;
-    private int turn90CWAnim = 821;
-    private int turn90CCWAnim = 821;
-    private double weight;
-    private int[] bonuses;
-    private int[] requirements;
+    public EquipmentType equipmentType = EquipmentType.NONE;
+    public int value;// GE PRICE
+    
+    //Calculated from OSRSbox
+    public transient WeaponInterface weaponInterface;
+    public transient boolean dropable;
+    public transient boolean sellable;
+    
+    //VALUES from OSRSBOX
+    public int id;
+    public String name = "";
+    public String examine = "";
+    public boolean stackable;
+    public boolean tradeable;
+    public boolean noted;
+    public int highAlch;
+    public int lowAlch;
+    public int dropValue;
+    public int noteId = -1;
+    public double weight;
+    public int[] bonuses;
+    public int[] requirements;
+    public String weapon_type;
 
     /**
      * Attempts to get the {@link ItemDefinition} for the
@@ -78,10 +73,6 @@ public class ItemDefinition {
 
     public int getValue() {
         return value;
-    }
-
-    public int getBloodMoneyValue() {
-        return bloodMoneyValue;
     }
 
     public int getHighAlchValue() {
@@ -121,39 +112,7 @@ public class ItemDefinition {
     }
 
     public boolean isDoubleHanded() {
-        return doubleHanded;
-    }
-
-    public int getBlockAnim() {
-        return blockAnim;
-    }
-
-    public int getStandAnim() {
-        return standAnim;
-    }
-
-    public int getWalkAnim() {
-        return walkAnim;
-    }
-
-    public int getRunAnim() {
-        return runAnim;
-    }
-
-    public int getStandTurnAnim() {
-        return standTurnAnim;
-    }
-
-    public int getTurn180Anim() {
-        return turn180Anim;
-    }
-
-    public int getTurn90CWAnim() {
-        return turn90CWAnim;
-    }
-
-    public int getTurn90CCWAnim() {
-        return turn90CCWAnim;
+        return equipmentType == EquipmentType.DOUBLE_HANDED;
     }
 
     public double getWeight() {
@@ -188,5 +147,81 @@ public class ItemDefinition {
      */
     public int unNote() {
         return ItemDefinition.forId(id - 1).getName().equals(name) ? id - 1 : id;
+    }
+
+    public void update(OSRSBoxItemDefinition o) {
+        this.id = o.id;
+        this.name = o.name;
+        this.examine = o.examine;
+        this.stackable = o.stackable;
+        this.tradeable = o.tradeable;
+        this.noted = o.noted;
+        this.highAlch = o.highalch;
+        this.lowAlch = o.lowalch;
+        this.dropValue = o.cost;
+        this.noteId = o.noted ? o.linked_id_item : o.linked_id_noted;
+        this.weight = o.weight;
+        this.bonuses = o.equipment != null? o.getBonuses() : null;
+        this.requirements = o.equipment != null && o.equipment.requirements != null ? o.getRequirements() : null;		
+        this.weapon_type = o.weapon != null ? o.weapon.weapon_type : null;
+        if(this.weapon_type != null)
+            this.weaponInterface = WeaponInterfaces.get(this.weapon_type, this.id);
+        
+        /*
+         * sellable is always tradeable in current defs except when ID is 13307 when it is false
+         */
+        this.sellable = id == 13307 ? false : tradeable;
+        this.dropable = isDropable(id, tradeable);
+    }
+
+    //TODO get from cache later and set this to if the item action doesnt have destroy.
+    public boolean isDropable(int id, boolean tradeable) {
+        //STOCK ELVARG Definitions have this set to tradeable except for some fringe scenarios.
+        //tradeable true is always droppable. there are some exceptions when is tradeable is false and droppable is true
+        //21273 is true
+        //21393 and higher is always true except for 22322 which is false.
+        
+        if(id == 21273 || (id > 21392 && id != 22322))
+            return true;
+        return tradeable;
+    }
+
+    public static int getBlockAnimation(int shield, int weapon) {
+        if(shield > 0)
+            return getOffhandBlock(shield);
+        WeaponInterface def = ItemDefinition.forId(weapon).getWeaponInterface();
+        if(def != null)
+            return def.getBlockAnim();
+        return 424;
+    }
+
+    private static int getOffhandBlock(int itemId) {
+        switch (itemId) {
+        case 1189: // Bronze kiteshield
+        case 1191: // Iron kiteshield
+        case 1193: // Steel kiteshield
+        case 1195: // Black kiteshield
+        case 1197: // Mithril kiteshield
+        case 1199: // Adamant kiteshield
+        case 1201: // Rune kiteshield
+        case 6894: // Adamant kiteshield
+        case 11283: // Dragonfire shield
+        case 11284: // Dragonfire shield
+        case 11285: // Dragonfire shield
+        case 12817: // Elysian spirit shield
+        case 12821: // Spectral spirit shield
+        case 12825: // Arcane spirit shield
+            return 1156;
+        case 8844: // Bronze defender
+        case 8845: // Iron defender
+        case 8846: // Steel defender
+        case 8847: // Black defender
+        case 8848: // Mithril defender
+        case 8849: // Adamant defender
+        case 8850: // Rune defender
+        case 12954: // Dragon defender
+            return 4177;
+        }
+        return 424;
     }
 }

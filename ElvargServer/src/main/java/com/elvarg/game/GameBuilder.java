@@ -67,13 +67,14 @@ public class GameBuilder {
 
         // Load definitions..
         tasks.add(new ObjectSpawnDefinitionLoader());
+        tasks.add(new AnimationDefinitionLoader());
         tasks.add(new ItemDefinitionLoader());
         tasks.add(new ShopDefinitionLoader());
         tasks.add(new NpcDefinitionLoader());
         tasks.add(new NpcDropDefinitionLoader());
-        tasks.add(new NpcSpawnDefinitionLoader());
         tasks.add(new GroundItemDefinitionLoader());
         tasks.add(MinigameHandler::init);
+        tasks.add(NpcSpawnDefinitionLoader::load);
     //    tasks.add(new NPCSpawnDumper());        
         return tasks;
     }

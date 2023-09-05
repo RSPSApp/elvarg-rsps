@@ -16,6 +16,7 @@ import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Direction;
 import com.elvarg.game.model.Location;
 import com.elvarg.game.model.Skill;
+import com.elvarg.game.model.Tile;
 import com.elvarg.game.model.movement.path.PathFinder;
 import com.elvarg.game.model.movement.path.RS317PathFinder;
 import com.elvarg.game.model.rights.PlayerRights;
@@ -213,6 +214,14 @@ public final class MovementQueue {
             return;
         }
 
+        if(this.character.isNpc()) {
+            NPC npc = this.character.getAsNpc();
+            if (npc.getDefinition().canTileStack() && Tile.isOccupied(npc, x, y)) {
+                reset();
+                return;
+            }
+        }
+
         if (points.size() >= MAXIMUM_SIZE)
             return;
 
@@ -241,6 +250,7 @@ public final class MovementQueue {
         int deltaX = x - last.position.getX();
         int deltaY = y - last.position.getY();
         final int max = Math.max(Math.abs(deltaX), Math.abs(deltaY));
+
         for (int i = 0; i < max; i++) {
             if (deltaX < 0)
                 deltaX++;
@@ -407,6 +417,7 @@ public final class MovementQueue {
         }
 
         isMoving = moved;
+        Tile.occupy(character);
     }
 
     public boolean canWalkTo(Location next) {

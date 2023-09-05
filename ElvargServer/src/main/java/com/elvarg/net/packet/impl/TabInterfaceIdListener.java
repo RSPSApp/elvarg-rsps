@@ -13,9 +13,8 @@ public class TabInterfaceIdListener implements PacketExecutor {
     @Override
     public void execute(Player player, Packet packet) {
         int tabId = packet.readByte();
-        /** Sets current tab ID mainly used for music **/
+      
+        // Sets current tab ID (mainly used for music inside settings)
         player.setCurrentInterfaceTab(tabId);
-
-
     }
 }
