@@ -677,7 +677,6 @@ public final class MovementQueue {
 
             // Find attack distance required for character's attack method & weapon
             int attackDistance = CombatFactory.getMethod(character).attackDistance(character);
-
             // Find the nearest tile surrounding the target
             destination = PathFinder.getClosestAttackableTile(character, following, attackDistance);
             if (destination == null) {
@@ -688,8 +687,13 @@ public final class MovementQueue {
                 this.reset();
                 return;
             }
+            /** Fixes ON-TOP-OF DD bridding ect **/
+            if (character.getLocation().equals(following.getLocation())) {
+                PathFinder.findWalkable(character, character.getLocation().getX(), character.getLocation().getY(), followingSize);
+                return;
+            }
         }
-        PathFinder.calculateWalkRoute(character, destination.getX(), destination.getY());
+        PathFinder.calculateEntityRoute(character, destination.getX(), destination.getY());
     }
 
     /**
