@@ -352,7 +352,7 @@ public class PathFinder {
             if (baseX == destinationX && baseY == destinationY) {
                 entity.getMovementQueue().setRoute(true);
                 entity.getMovementQueue().setPathX(baseX).setPathY(baseY);
-                //Server.logDebug("Already at destination, breaking loop");
+                debug(entity, "Already at destination, breaking loop...");
                 break;
             }
 
