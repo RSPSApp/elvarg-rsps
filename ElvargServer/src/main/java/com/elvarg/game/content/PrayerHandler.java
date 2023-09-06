@@ -441,7 +441,7 @@ public class PrayerHandler {
                         continue;
                     double drainMinute = pd.drainRate;
                     double drainSeconds = drainMinute / 60;
-                    double drainTicks = (drainSeconds * GameConstants.GAME_ENGINE_PROCESSING_CYCLE_RATE / 1000D);
+                    double drainTicks = Misc.getTicks(drainSeconds);
                     drainPerTick += drainTicks;
                 }
 
