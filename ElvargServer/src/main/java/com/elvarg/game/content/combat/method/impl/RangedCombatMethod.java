@@ -28,7 +28,7 @@ public class RangedCombatMethod extends CombatMethod {
         int distance = character.getLocation().getDistance(target.getLocation());
         RangedWeaponType type = character.getCombat().getRangedWeapon().getType();
         int delay = RangedData.hitDelay(distance, type);
-        
+
         if (character.getCombat().getRangedWeapon() == RangedWeapon.DARK_BOW) {
             return new PendingHit[] { new PendingHit(character, target, this, delay), new PendingHit(character, target, this, RangedData.dbowArrowDelay(distance)) };
         }
@@ -58,7 +58,9 @@ public class RangedCombatMethod extends CombatMethod {
     public void start(Mobile character, Mobile target) {
         final Ammunition ammo = character.getCombat().getAmmunition();
         final RangedWeapon rangedWeapon = character.getCombat().getRangedWeapon();
-        final int animation = character.getAttackAnim();
+        final int animation = ammo != null && ammo.getAnimationId() != -1
+                              ? ammo.getAnimationId()
+                              : character.getAttackAnim();
 
         if (animation != -1) {
             character.performAnimation(new Animation(animation));
@@ -134,7 +136,7 @@ public class RangedCombatMethod extends CombatMethod {
                     && character.getAsPlayer().getFightType() == bow.getType().getLongRangeFightType()) {
                 return bow.getType().getLongRangeDistance();
             }
-		    
+
 			return bow.getType().getDefaultDistance();
 		}
 		return 6;

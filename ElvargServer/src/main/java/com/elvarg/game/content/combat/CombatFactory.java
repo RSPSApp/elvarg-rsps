@@ -152,10 +152,10 @@ public class CombatFactory {
 	 * @return the HitDamage.
 	 */
 	public static HitDamage getHitDamage(Mobile entity, Mobile victim, CombatType type) {
-		
+
 		//calculate the multiplier that will be used when calculating protection prayers.
 		double damageMultiplier = entity.isNpc() ? CombatConstants.PRAYER_DAMAGE_REDUCTION_AGAINST_NPCS : CombatConstants.PRAYER_DAMAGE_REDUCTION_AGAINST_PLAYERS;
-		
+
 		int damage = 0;
 
 		if (type == CombatType.MELEE) {
@@ -173,22 +173,6 @@ public class CombatFactory {
 				damage *= damageMultiplier;
 			}
 
-			// Do ranged effects with the calculated damage..
-			if (entity.isPlayer()) {
-
-				Player player = entity.getAsPlayer();
-
-				// Check if player is using dark bow and set damage to minimum 8, maxmimum 48 if
-				// that's the case...
-				if (player.getAsPlayer().isSpecialActivated()
-						&& player.getAsPlayer().getCombatSpecial() == CombatSpecial.DARK_BOW) {
-					if (damage < 8) {
-						damage = 8;
-					} else if (damage > 48) {
-						damage = 48;
-					}
-				}
-			}
 		} else if (type == CombatType.MAGIC) {
 			damage = Misc.inclusive(0, DamageFormulas.getMagicMaxhit(entity));
 			if (victim.getPrayerActive()[PrayerHandler.PROTECT_FROM_MAGIC]) {
@@ -214,8 +198,9 @@ public class CombatFactory {
 		return hitDamage;
 	}
 
+
 	public static void applyExtraHitRolls(Mobile attacker, Mobile target, CombatType combatType, HitDamage damage,
-	                                     boolean accurate, CombatMethod combatMethod) {
+	                                      boolean accurate, CombatMethod combatMethod) {
 		if (combatType == CombatType.RANGED) {
 			// Handle bolt special effects for a player whose using crossbow
 			if (attacker.isPlayer() && attacker.getAsPlayer().getWeapon() == WeaponInterface.CROSSBOW) {
@@ -239,7 +224,7 @@ public class CombatFactory {
 	    if (attacker == null || target == null) {
 	        return false;
 	    }
-	    
+
 		if (!target.isRegistered() || !attacker.isRegistered() || attacker.getHitpoints() <= 0
 				|| target.getHitpoints() <= 0 || attacker.isUntargetable()) {
 			return false;
@@ -274,7 +259,7 @@ public class CombatFactory {
 	 * @param target
 	 *            The victim.
 	 * @return True if attacker has the proper distance to attack, otherwise false.
-	 */	
+	 */
 	public static boolean canReach(Mobile attacker, CombatMethod method, Mobile target) {
 		if (!validTarget(attacker, target)) {
 		    attacker.getCombat().reset();
@@ -298,10 +283,10 @@ public class CombatFactory {
 				}
 			}
 		}
-		
+
 		final Location attackerPosition = attacker.getLocation();
 		final Location targetPosition = target.getLocation();
-		
+
 		if (attackerPosition.equals(targetPosition)) {
 			if (!attacker.getTimers().has(TimerKey.STEPPING_OUT)) {
 				MovementQueue.clippedStep(attacker);
@@ -310,9 +295,9 @@ public class CombatFactory {
 		    return false;
 		}
 
-		int requiredDistance = method.attackDistance(attacker);		
+		int requiredDistance = method.attackDistance(attacker);
         int distance = attacker.calculateDistance(target);
-        
+
         // Standing under the target
         if (distance == 0) {
             if (attacker.isPlayer()) {
@@ -420,7 +405,7 @@ public class CombatFactory {
 			if (p.getTimers().has(TimerKey.STUN)) {
 				return CanAttackResponse.STUNNED;
 			}
-			
+
 			// Duel rules
             if (p.getDueling().inDuel()) {
                 String errorStatement = null;
@@ -775,7 +760,7 @@ public class CombatFactory {
 			return;
 		}
 		final double RECOIL_DMG_MULTIPLIER = 0.1;
-		int returnDmg = RANDOM.inclusive(1, 3) == 2 ? 0 : (int) (damage * RECOIL_DMG_MULTIPLIER) + 1;
+		final int returnDmg = (int) Math.floor(damage * RECOIL_DMG_MULTIPLIER) + 1;
 
 		// Increase recoil damage for a player.
 		player.setRecoilDamage(player.getRecoilDamage() + returnDmg);
@@ -974,11 +959,12 @@ public class CombatFactory {
 	 * @param victim
 	 */
 	private static void handleRedemption(Mobile attacker, Player victim, int damage) {
-		if ((victim.getHitpoints() - damage) <= (victim.getSkillManager().getMaxLevel(Skill.HITPOINTS) / 10)) {
+		if ((victim.getHitpoints() - damage) <= (victim.getSkillManager().getMaxLevel(Skill.HITPOINTS) / 10)
+		    && (victim.getHitpoints() - damage) > 0) {
 			int amountToHeal = (int) (victim.getSkillManager().getMaxLevel(Skill.PRAYER) * .25);
 			victim.performGraphic(new Graphic(436));
 			victim.getSkillManager().setCurrentLevel(Skill.PRAYER, 0);
-			victim.getSkillManager().setCurrentLevel(Skill.HITPOINTS, victim.getHitpoints() + amountToHeal);
+			victim.heal(amountToHeal);
 			victim.getPacketSender().sendMessage("You've run out of prayer points!");
 			PrayerHandler.deactivatePrayers(victim);
 		}
@@ -1043,8 +1029,7 @@ public class CombatFactory {
 			return false;
 		}
 
-		if (rangedWeapon.getType() == RangedWeaponType.KNIFE || rangedWeapon.getType() == RangedWeaponType.DART
-				|| rangedWeapon.getType() == RangedWeaponType.TOKTZ_XIL_UL) {
+		if (!rangedWeapon.getType().isUsesAmmoSlot()) {
 			return true;
 		}
 
@@ -1096,8 +1081,7 @@ public class CombatFactory {
 
 		// Is the weapon using a throw weapon?
 		// The ammo should be dropped from the weapon slot.
-		if (rangedWeapon.getType() == RangedWeaponType.KNIFE || rangedWeapon.getType() == RangedWeaponType.DART
-				|| rangedWeapon.getType() == RangedWeaponType.TOKTZ_XIL_UL) {
+		if (!rangedWeapon.getType().isUsesAmmoSlot()) {
 			slot = Equipment.WEAPON_SLOT;
 		}
 
