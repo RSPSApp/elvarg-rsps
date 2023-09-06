@@ -1,6 +1,7 @@
 package com.elvarg.net.packet.impl;
 
 import com.elvarg.game.World;
+import com.elvarg.game.content.cannon.DwarfCannon;
 import com.elvarg.game.content.combat.CombatFactory;
 import com.elvarg.game.content.minigames.impl.CastleWars;
 import com.elvarg.game.content.skill.skillable.impl.*;
@@ -150,7 +151,7 @@ public class UseItemPacketListener extends ItemIdentifiers implements PacketExec
     @SuppressWarnings("unused")
     private static void itemOnObject(Player player, Packet packet) {
         int interfaceType = packet.readShort();
-        final int objectId = packet.readShort();
+        final int objectId = packet.readInt();
         final int objectY = packet.readLEShortA();
         final int itemSlot = packet.readLEShort();
         final int objectX = packet.readLEShortA();
@@ -177,6 +178,12 @@ public class UseItemPacketListener extends ItemIdentifiers implements PacketExec
 
         WalkToTask.submit(player, object, () -> {
             switch (object.getId()) {
+                case 6: {
+                    if (DwarfCannon.isObject(object)) {
+                        player.getDwarfCannon().handleCannonBallOnCannon(object, item);
+                        return;
+                    }
+                }
                 case ObjectIdentifiers.STOVE_4: //Edgeville Stove
                 case ObjectIdentifiers.FIRE_5: //Player-made Fire
                 case ObjectIdentifiers.FIRE_23: //Barb village fire

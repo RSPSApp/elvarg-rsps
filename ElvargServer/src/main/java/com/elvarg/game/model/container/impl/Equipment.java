@@ -60,6 +60,13 @@ public class Equipment extends ItemContainer {
      */
     public static final int FEET_SLOT = 10;
     /**
+     * The jaw slot. This is used for various minigames [castle wars, soul wars,
+     * barbarian assault) to allow the usage of capes on top of the icon/dedicated
+     * minigame cape. In soul wars and castle wars, there are different versions of
+     * the cape for each facial hair style.
+     */
+    public static final int JAW_SLOT = 11;
+    /**
      * The rings slot.
      */
     public static final int RING_SLOT = 12;

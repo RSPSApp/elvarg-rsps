@@ -1,10 +1,26 @@
 package com.runescape.entity.model;
 
-public final class VertexNormal {
+import net.runelite.rs.api.RSVertexNormal;
 
-    public int normalX;
-    public int normalY;
-    public int normalZ;
+public final class VertexNormal implements RSVertexNormal {
+
+    public int x;
+    public int y;
+    public int z;
     public int magnitude;
 
+    @Override
+    public int getX() {
+        return x;
+    }
+
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public int getZ() {
+        return z;
+    }
 }

@@ -20,6 +20,7 @@ import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Direction;
 import com.elvarg.game.model.Ids;
 import com.elvarg.game.model.Location;
+import com.elvarg.game.model.Tile;
 import com.elvarg.game.model.areas.AreaManager;
 import com.elvarg.game.model.areas.impl.WildernessArea;
 import com.elvarg.game.task.TaskManager;
@@ -154,6 +155,15 @@ public class NPC extends Mobile {
 		} else {
 			setHitpoints(getDefinition().getHitpoints());
 		}
+		Tile.occupy(this);
+	}
+
+	public void setTileStacking(boolean tileStack) {
+		if (this.getDefinition() == null) {
+			System.err.println("This NPC doesn't have definitions to set for tile stacking.");
+			return;
+		}
+		this.getDefinition().canTileStack = tileStack;
 	}
 
 	@Override
@@ -290,43 +300,6 @@ public class NPC extends Mobile {
 	@Override
 	public int size() {
 		return getCurrentDefinition() == null ? 1 : getCurrentDefinition().getSize();
-	}
-
-	@Override
-	public int getBaseAttack(CombatType type) {
-
-		if (type == CombatType.RANGED) {
-			return getCurrentDefinition().getStats()[3];
-		} else if (type == CombatType.MAGIC) {
-			return getCurrentDefinition().getStats()[4];
-		}
-
-		return getCurrentDefinition().getStats()[1];
-		// 0 = attack
-		// 1 = strength
-		// 2 = defence
-		// 3 = range
-		// 4 = magic
-	}
-
-	@Override
-	public int getBaseDefence(CombatType type) {
-		int base = 0;
-		switch (type) {
-		case MAGIC:
-			base = getCurrentDefinition().getStats()[13];
-			break;
-		case MELEE:
-			base = getCurrentDefinition().getStats()[10];
-			break;
-		case RANGED:
-			base = getCurrentDefinition().getStats()[14];
-			break;
-		}
-		// 10,11,12 = melee
-		// 13 = magic
-		// 14 = range
-		return base;
 	}
 
 	@Override
@@ -478,5 +451,14 @@ public class NPC extends Mobile {
 							.mapToObj(id -> new ImmutablePair<>(id, clazz));
 
 				}).collect(Collectors.toMap(ImmutablePair::getLeft, ImmutablePair::getRight));
+	}
+
+	public String description;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getWalkRadius() {
+		return this.size() + 5;
 	}
 }

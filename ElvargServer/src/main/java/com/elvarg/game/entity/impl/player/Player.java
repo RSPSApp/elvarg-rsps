@@ -11,7 +11,9 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.elvarg.game.GameConstants;
+import com.elvarg.game.collision.Region;
 import com.elvarg.game.collision.RegionManager;
+import com.elvarg.game.content.cannon.DwarfCannon;
 import com.elvarg.game.content.sound.Sound;
 import com.elvarg.game.World;
 import com.elvarg.game.content.*;
@@ -42,24 +44,7 @@ import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.npc.NPC;
 import com.elvarg.game.entity.impl.npc.NpcAggression;
 import com.elvarg.game.entity.impl.playerbot.PlayerBot;
-import com.elvarg.game.model.Animation;
-import com.elvarg.game.model.Appearance;
-import com.elvarg.game.model.ChatMessage;
-import com.elvarg.game.model.EffectTimer;
-import com.elvarg.game.model.EnteredAmountAction;
-import com.elvarg.game.model.EnteredSyntaxAction;
-import com.elvarg.game.model.Flag;
-import com.elvarg.game.model.ForceMovement;
-import com.elvarg.game.model.God;
-import com.elvarg.game.model.Item;
-import com.elvarg.game.model.Location;
-import com.elvarg.game.model.MagicSpellbook;
-import com.elvarg.game.model.PlayerInteractingOption;
-import com.elvarg.game.model.PlayerRelations;
-import com.elvarg.game.model.PlayerStatus;
-import com.elvarg.game.model.SecondsTimer;
-import com.elvarg.game.model.Skill;
-import com.elvarg.game.model.SkullType;
+import com.elvarg.game.model.*;
 import com.elvarg.game.model.areas.AreaManager;
 import com.elvarg.game.model.container.impl.Bank;
 import com.elvarg.game.model.container.impl.Equipment;
@@ -237,6 +222,7 @@ public class Player extends Mobile {
 	private String loyaltyTitle = "empty";
 	private boolean spawnedBarrows;
 	private Location oldPosition;
+	private Region previousRegion;
 	
 	/**
 	 * Creates this player.
@@ -301,8 +287,7 @@ public class Player extends Mobile {
 	public int getBlockAnim() {
 		final Item shield = getEquipment().getItems()[Equipment.SHIELD_SLOT];
 		final Item weapon = getEquipment().getItems()[Equipment.WEAPON_SLOT];
-		ItemDefinition definition = shield.getId() > 0 ? shield.getDefinition() : weapon.getDefinition();
-		return definition.getBlockAnim();
+		return ItemDefinition.getBlockAnimation(shield.getId(), weapon.getId());
 	}
 
 	@Override
@@ -330,22 +315,6 @@ public class Player extends Mobile {
 		                         skillManager.getCurrentLevel(Skill.HITPOINTS));
 		final int healedHp = skillManager.getCurrentLevel(Skill.HITPOINTS) + amount;
 		setHitpoints(Math.min(healedHp, cap));
-	}
-
-	@Override
-	public int getBaseAttack(CombatType type) {
-		if (type == CombatType.RANGED)
-			return skillManager.getCurrentLevel(Skill.RANGED);
-		else if (type == CombatType.MAGIC)
-			return skillManager.getCurrentLevel(Skill.MAGIC);
-		return skillManager.getCurrentLevel(Skill.ATTACK);
-	}
-
-	@Override
-	public int getBaseDefence(CombatType type) {
-		if (type == CombatType.MAGIC)
-			return skillManager.getCurrentLevel(Skill.MAGIC);
-		return skillManager.getCurrentLevel(Skill.DEFENCE);
 	}
 
 	@Override
@@ -562,6 +531,10 @@ public class Player extends Mobile {
 
 		getPacketSender().sendInterfaceRemoval();
 
+		if (previousRegion != null) {
+			previousRegion.players.remove(this.getIndex());
+		}
+
 		// Leave area
 		if (getArea() != null) {
 			getArea().leave(this, true);
@@ -695,6 +668,7 @@ public class Player extends Mobile {
 
 			System.out.println(GameConstants.PLAYER_BOTS.length + " player bots now online.");
 		}
+		Tile.occupy(this);
 	}
 
 	/**
@@ -1142,6 +1116,13 @@ public class Player extends Mobile {
 	public Player setBank(int index, Bank bank) {
 		this.banks[index] = bank;
 		return this;
+	}
+
+	private DwarfCannon dwarfCannon;
+	public DwarfCannon getDwarfCannon() {
+		if (dwarfCannon == null)
+			dwarfCannon = new DwarfCannon(this);
+		return dwarfCannon;
 	}
 
 	public boolean isNewPlayer() {
@@ -1722,4 +1703,17 @@ public class Player extends Mobile {
     public void setCurrentInterfaceTab(int currentInterfaceTabId) {
 		this.currentInterfaceTabId = currentInterfaceTabId;
     }
+
+	public void handleRegionChange() {
+		if (previousRegion != null) {
+			// If the previous region is set, remove this player
+			previousRegion.players.remove(this.getIndex());
+		}
+
+		if (getRegion().isPresent()) {
+			// Set the previous region and add this player to it
+			previousRegion = getRegion().get();
+			previousRegion.players.put(this.getIndex(), this);
+		}
+	}
 }

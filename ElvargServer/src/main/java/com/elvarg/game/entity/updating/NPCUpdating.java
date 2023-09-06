@@ -1,5 +1,6 @@
 package com.elvarg.game.entity.updating;
 
+import com.elvarg.game.GameConstants;
 import com.elvarg.game.World;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.npc.NPC;
@@ -90,7 +91,7 @@ public class NPCUpdating {
         builder.putBits(5, npc.getLocation().getX() - player.getLocation().getX());
         builder.putBits(1, 0);
         builder.putBits(3, npc.getFace().ordinal());
-        builder.putBits(14, npc.getId());
+        builder.putBits(GameConstants.NPC_BITS, npc.getId());
         builder.putBits(1, npc.getUpdateFlag().isUpdateRequired() ? 1 : 0);
     }
 

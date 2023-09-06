@@ -608,10 +608,27 @@ public class RegionManager {
         return false;
     }
 
+    public static boolean isBlockedTileSize(Location position, int size) {
+        boolean isBlocked = false;
+        int x = position.getX();
+        int y = position.getY();
+        int z = position.getZ();
+        for (int i = 0; i < size; i++) {
+            if (blocked(x + i, y, z) || blocked(x - i, y, z) || blocked(x, y + i, z) || blocked(x, y, z)) {
+                isBlocked = true;
+                break;
+            }
+        }
+        return isBlocked;
+    }
+
     public static boolean blockedProjectile(Location position, PrivateArea privateArea) {
         return (getClipping(position.getX(), position.getY(), position.getZ(), privateArea) & 0x20000) == 0;
     }
 
+    public static boolean blocked(int x, int y, int z) {
+        return (getClipping(x, y, z, null) & 0x1280120) != 0;
+    }
     public static boolean blocked(Location pos, PrivateArea privateArea) {
         return (getClipping(pos.getX(), pos.getY(), pos.getZ(), privateArea) & 0x1280120) != 0;
     }
@@ -867,9 +884,9 @@ public class RegionManager {
 
             // Attempt to create streams..
             byte[] oFileData = CompressionUtil.gunzip(
-                    FileUtil.readFile(GameConstants.CLIPPING_DIRECTORY + "maps/" + r.get().getObjectFile() + ".dat"));
+                    FileUtil.readFile(GameConstants.CLIPPING_DIRECTORY + "maps/" + r.get().getObjectFile() + ".gz"));
             byte[] gFileData = CompressionUtil.gunzip(
-                    FileUtil.readFile(GameConstants.CLIPPING_DIRECTORY + "maps/" + r.get().getTerrainFile() + ".dat"));
+                    FileUtil.readFile(GameConstants.CLIPPING_DIRECTORY + "maps/" + r.get().getTerrainFile() + ".gz"));
 
             // Don't allow ground file to be invalid..
             if (gFileData == null) {
@@ -885,14 +902,14 @@ public class RegionManager {
                 for (int tileX = 0; tileX < 64; tileX++) {
                     for (int tileY = 0; tileY < 64; tileY++) {
                         while (true) {
-                            int tileType = groundStream.readUnsignedByte();
+                            int tileType = groundStream.readUShort();
                             if (tileType == 0) {
                                 break;
                             } else if (tileType == 1) {
                                 groundStream.readUnsignedByte();
                                 break;
                             } else if (tileType <= 49) {
-                                groundStream.readUnsignedByte();
+                                groundStream.readUShort();
                             } else if (tileType <= 81) {
                                 heightMap[z][tileX][tileY] = (byte) (tileType - 49);
                             }
