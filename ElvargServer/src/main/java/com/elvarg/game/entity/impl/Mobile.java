@@ -23,6 +23,8 @@ import com.google.common.collect.Maps;
 
 import java.util.Map;
 
+import static com.elvarg.game.content.presets.PresetManager.open;
+
 /**
  * Represents a {@link Player} or {@link NPC}.
  */
@@ -693,5 +695,9 @@ public abstract class Mobile extends Entity {
 				return true;
 		}
 		return false;
+	}
+
+	public void tickAction(int tickDelay, Runnable action) {
+		TaskManager.submit(tickDelay, action);
 	}
 }
