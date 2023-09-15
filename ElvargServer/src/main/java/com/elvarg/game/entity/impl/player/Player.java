@@ -12,6 +12,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.elvarg.game.GameConstants;
 import com.elvarg.game.collision.RegionManager;
+import com.elvarg.game.content.presets.PresetManager;
 import com.elvarg.game.content.sound.Sound;
 import com.elvarg.game.World;
 import com.elvarg.game.content.*;
@@ -30,7 +31,6 @@ import com.elvarg.game.content.combat.magic.Autocasting;
 import com.elvarg.game.content.minigames.impl.Barrows;
 import com.elvarg.game.content.minigames.impl.Barrows.Brother;
 import com.elvarg.game.content.presets.Presetable;
-import com.elvarg.game.content.presets.Presetables;
 import com.elvarg.game.content.skill.SkillManager;
 import com.elvarg.game.content.skill.skillable.Skillable;
 import com.elvarg.game.content.skill.skillable.impl.Runecrafting.Pouch;
@@ -128,7 +128,7 @@ public class Player extends Mobile {
 	private final DialogueManager dialogueManager = new DialogueManager(this);
 	// Presets
 	private Presetable currentPreset;
-	private Presetable[] presets = new Presetable[Presetables.MAX_PRESETS];
+	private Presetable[] presets = new Presetable[PresetManager.MAX_PRESETS];
 	private boolean openPresetsOnDeath = true;
 
 	private String username;
@@ -679,8 +679,8 @@ public class Player extends Mobile {
 		getUpdateFlag().flag(Flag.APPEARANCE);
 
 		if (this.newPlayer) {
-			int presetIndex = Misc.randomInclusive(0, Presetables.GLOBAL_PRESETS.length-1);
-			Presetables.load(this, Presetables.GLOBAL_PRESETS[presetIndex]);
+			int presetIndex = Misc.randomInclusive(0, PresetManager.GLOBAL_PRESETS.length-1);
+			PresetManager.load(this, PresetManager.GLOBAL_PRESETS[presetIndex]);
 		}
 
 		if (!(this instanceof PlayerBot)) {
@@ -1511,6 +1511,10 @@ public class Player extends Mobile {
 
 	public void setPresets(Presetable[] sets) {
 		this.presets = sets;
+	}
+
+	public void setPreset(int index, Presetable preset) {
+		this.presets[index] = preset;
 	}
 
 	public boolean isOpenPresetsOnDeath() {

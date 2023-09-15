@@ -1,12 +1,10 @@
 package com.elvarg.game.entity.impl.playerbot.interaction;
 
-import com.elvarg.game.GameConstants;
 import com.elvarg.game.content.Food;
 import com.elvarg.game.content.PotionConsumable;
 import com.elvarg.game.content.PrayerHandler;
 import com.elvarg.game.content.combat.CombatFactory;
-import com.elvarg.game.content.combat.bountyhunter.BountyHunter;
-import com.elvarg.game.content.presets.Presetables;
+import com.elvarg.game.content.presets.PresetManager;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.entity.impl.playerbot.PlayerBot;
@@ -18,7 +16,6 @@ import com.elvarg.game.task.Task;
 import com.elvarg.game.task.TaskManager;
 import com.elvarg.util.ItemIdentifiers;
 import com.elvarg.util.Misc;
-import com.elvarg.util.timers.TimerKey;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -224,7 +221,7 @@ public class CombatInteraction {
         playerBot.setAutoRetaliate(true);
 
         // Load this Bot's preset
-        Presetables.load(playerBot, playerBot.getDefinition().getFighterPreset().getItemPreset());
+        PresetManager.load(playerBot, playerBot.getDefinition().getFighterPreset().getItemPreset());
 
         // Teleport this bot back to their home location after some time
         TeleportHandler.teleport(playerBot, playerBot.getDefinition().getSpawnLocation(), TeleportType.NORMAL, false);

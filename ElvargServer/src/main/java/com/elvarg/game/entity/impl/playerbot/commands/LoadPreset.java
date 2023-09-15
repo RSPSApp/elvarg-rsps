@@ -1,7 +1,7 @@
 package com.elvarg.game.entity.impl.playerbot.commands;
 
+import com.elvarg.game.content.presets.PresetManager;
 import com.elvarg.game.content.presets.Presetable;
-import com.elvarg.game.content.presets.Presetables;
 import com.elvarg.game.entity.impl.playerbot.PlayerBot;
 import com.elvarg.util.Misc;
 
@@ -19,15 +19,15 @@ public class LoadPreset implements BotCommand {
     @Override
     public void start(PlayerBot playerBot, String[] args) {
         Presetable preset;
-        if (args == null || args.length == 0 || args.length != 1 || Integer.parseInt(args[0]) == 0 || Integer.parseInt(args[0]) > Presetables.GLOBAL_PRESETS.length) {
+        if (args == null || args.length == 0 || args.length != 1 || Integer.parseInt(args[0]) == 0 || Integer.parseInt(args[0]) > PresetManager.GLOBAL_PRESETS.length) {
             // Player hasn't specified a valid Preset ID
-            preset = Presetables.GLOBAL_PRESETS[Misc.randomInclusive(0, Presetables.GLOBAL_PRESETS.length-1)];
+            preset = PresetManager.GLOBAL_PRESETS[Misc.randomInclusive(0, PresetManager.GLOBAL_PRESETS.length-1)];
         } else {
-            preset = Presetables.GLOBAL_PRESETS[Integer.parseInt(args[0])-1 /* Player will specify 1-n */];
+            preset = PresetManager.GLOBAL_PRESETS[Integer.parseInt(args[0])-1 /* Player will specify 1-n */];
         }
 
         playerBot.setCurrentPreset(preset);
-        Presetables.handleButton(playerBot, LOAD_PRESET_BUTTON_ID);
+        PresetManager.handleButton(playerBot, LOAD_PRESET_BUTTON_ID, -1);
 
         playerBot.updateLocalPlayers();
 

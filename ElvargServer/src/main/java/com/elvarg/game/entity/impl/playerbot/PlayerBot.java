@@ -2,9 +2,8 @@ package com.elvarg.game.entity.impl.playerbot;
 
 import com.elvarg.game.GameConstants;
 import com.elvarg.game.World;
-import com.elvarg.game.content.presets.Presetables;
+import com.elvarg.game.content.presets.PresetManager;
 import com.elvarg.game.definition.PlayerBotDefinition;
-import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.entity.impl.playerbot.commands.*;
 import com.elvarg.game.entity.impl.playerbot.interaction.*;
@@ -162,7 +161,7 @@ public class PlayerBot extends Player {
     public void onLogin() {
         super.onLogin();
 
-        Presetables.load(this, this.getDefinition().getFighterPreset().getItemPreset());
+        PresetManager.load(this, this.getDefinition().getFighterPreset().getItemPreset());
     }
 
     @Override

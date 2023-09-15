@@ -5,7 +5,7 @@ import com.elvarg.game.content.ItemsKeptOnDeath;
 import com.elvarg.game.content.PrayerHandler;
 import com.elvarg.game.content.combat.CombatFactory;
 import com.elvarg.game.content.combat.bountyhunter.Emblem;
-import com.elvarg.game.content.presets.Presetables;
+import com.elvarg.game.content.presets.PresetManager;
 import com.elvarg.game.definition.ItemDefinition;
 import com.elvarg.game.entity.impl.grounditem.ItemOnGroundManager;
 import com.elvarg.game.entity.impl.player.Player;
@@ -192,7 +192,7 @@ public class PlayerDeathTask extends Task {
 					player.moveTo(GameConstants.DEFAULT_LOCATION);
 					if (loseItems) {
 						if (player.isOpenPresetsOnDeath()) {
-							Presetables.open(player);
+							PresetManager.open(player);
 						}
 					}
 				}
