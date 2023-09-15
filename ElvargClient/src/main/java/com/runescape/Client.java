@@ -15325,10 +15325,6 @@ public class Client extends GameApplet {
                     overlayInterfaceId = -1;
                     tabAreaAltered = true;
                 }
-                if (backDialogueId != -1) {
-                    backDialogueId = -1;
-                    updateChatbox = true;
-                }
                 if (inputDialogState != 0) {
                     inputDialogState = 0;
                     updateChatbox = true;
@@ -15338,6 +15334,16 @@ public class Client extends GameApplet {
                     openInterfaceId = 15244;
                 }
                 openInterfaceId = interfaceId;
+                continuedDialogue = false;
+                opcode = -1;
+
+                return true;
+            }
+            if (opcode == PacketConstants.SEND_CLOSE_DIALOGUE) {
+                if (backDialogueId != -1) {
+                    backDialogueId = -1;
+                    updateChatbox = true;
+                }
                 continuedDialogue = false;
                 opcode = -1;
 
@@ -15461,13 +15467,13 @@ public class Client extends GameApplet {
                 int id = incoming.readLEUShort();
 
                 resetAnimation(id);
-                if (overlayInterfaceId != -1) {
-                    overlayInterfaceId = -1;
-                    tabAreaAltered = true;
-                }
+                //if (overlayInterfaceId != -1) {
+                // overlayInterfaceId = -1;
+                //tabAreaAltered = true;
+                //}
                 backDialogueId = id;
                 updateChatbox = true;
-                openInterfaceId = -1;
+                //openInterfaceId = -1;
                 continuedDialogue = false;
                 opcode = -1;
                 return true;
