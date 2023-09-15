@@ -58,7 +58,7 @@ public class DialogueManager {
         Dialogue current = dialogues.get(index);
         if (current == null) {
             reset();
-            player.getPacketSender().sendInterfaceRemoval();
+            player.getPacketSender().sendInterfaceRemoval(true, false);
             return;
         }
 
@@ -138,7 +138,7 @@ public class DialogueManager {
     private void start() {
         final Dialogue dialogue = dialogues.get(index);
         if (dialogue == null) {
-            player.getPacketSender().sendInterfaceRemoval();
+            player.getPacketSender().sendInterfaceRemoval(true, true);
             return;
         }
         dialogue.send(player);
@@ -157,7 +157,7 @@ public class DialogueManager {
             return;
         }
         if (!(dialogue instanceof OptionDialogue)) {
-            player.getPacketSender().sendInterfaceRemoval();
+            player.getPacketSender().sendInterfaceRemoval(true, false);
             return;
         }
         ((OptionDialogue) dialogue).execute(option);
