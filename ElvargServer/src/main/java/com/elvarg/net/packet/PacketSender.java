@@ -558,6 +558,20 @@ public class PacketSender {
 	}
 
 	public PacketSender sendInterfaceRemoval() {
+		close(true, true);
+		return this;
+	}
+
+	public PacketSender sendInterfaceRemoval(boolean endDialogue, boolean closeInterface) {
+		close(endDialogue, closeInterface);
+		return this;
+	}
+
+	public void closeInterface() {
+		player.getSession().write(new PacketBuilder(219));
+	}
+
+	public PacketSender close(boolean endDialogue, boolean closeInterface) {
 		if (player.getStatus() == PlayerStatus.BANKING) {
 			if (player.isSearchingBank()) {
 				Bank.exitSearch(player, false);
@@ -575,14 +589,25 @@ public class PacketSender {
 		player.setStatus(PlayerStatus.NONE);
 		player.setEnteredAmountAction(null);
 		player.setEnteredSyntaxAction(null);
-		player.getDialogueManager().reset();
+		if (endDialogue) {
+			player.getDialogueManager().reset();
+		}
 		player.setShop(null);
 		player.setDestroyItem(-1);
 		player.setInterfaceId(-1);
 		player.setSearchingBank(false);
 		player.setTeleportInterfaceOpen(false);
 		player.getAppearance().setCanChangeAppearance(false);
-		player.getSession().write(new PacketBuilder(219));
+		if (closeInterface) {
+			closeInterface();
+		}
+		return this;
+	}
+
+	public PacketSender closeDialogue() {
+		PacketBuilder out = new PacketBuilder(118);
+		player.getSession().write(out);
+		player.getDialogueManager().reset();
 		return this;
 	}
 
