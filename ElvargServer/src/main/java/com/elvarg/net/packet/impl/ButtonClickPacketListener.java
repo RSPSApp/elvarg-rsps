@@ -8,7 +8,7 @@ import com.elvarg.game.content.combat.WeaponInterfaces;
 import com.elvarg.game.content.combat.magic.Autocasting;
 import com.elvarg.game.content.combat.magic.EffectSpells;
 import com.elvarg.game.content.minigames.MinigameHandler;
-import com.elvarg.game.content.presets.Presetables;
+import com.elvarg.game.content.presets.PresetManager;
 import com.elvarg.game.content.quests.QuestHandler;
 import com.elvarg.game.content.skill.skillable.impl.Smithing;
 import com.elvarg.game.content.sound.Music;
@@ -19,10 +19,6 @@ import com.elvarg.game.model.equipment.BonusManager;
 import com.elvarg.game.model.rights.PlayerRights;
 import com.elvarg.net.packet.Packet;
 import com.elvarg.net.packet.PacketExecutor;
-import org.apache.commons.lang.StringUtils;
-
-import java.util.Arrays;
-import java.util.Optional;
 
 /**
  * This packet listener manages a button that the player has clicked upon.
@@ -120,7 +116,7 @@ public class ButtonClickPacketListener implements PacketExecutor {
 		if (Smithing.handleButton(player, button)) {
 			return true;
 		}
-		if (Presetables.handleButton(player, button)) {
+		if (PresetManager.handleButton(player, button, -1)) {
 			return true;
 		}
 		if (QuestHandler.handleQuestButtonClick(player, button)) {
@@ -143,9 +139,9 @@ public class ButtonClickPacketListener implements PacketExecutor {
 			return;
 		}
 
-		if (player.getRights() == PlayerRights.DEVELOPER) {
-			player.getPacketSender().sendMessage("Button clicked: " + Integer.toString(button) + ".");
-		}
+        if (player.getRights() == PlayerRights.DEVELOPER) {
+            player.getPacketSender().sendMessage("Button clicked: " + Integer.toString(button) + ".");
+        }
 
 
 		if (handlers(player, button)) {
@@ -165,7 +161,7 @@ public class ButtonClickPacketListener implements PacketExecutor {
 			if (player.busy()) {
 				player.getPacketSender().sendInterfaceRemoval();
 			}
-			Presetables.open(player);
+			PresetManager.open(player);
 			break;
 
 		case OPEN_WORLD_MAP:
