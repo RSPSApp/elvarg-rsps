@@ -1,12 +1,6 @@
 package com.runescape.collection;
 
-import net.runelite.rs.api.RSNode;
-import net.runelite.rs.api.RSNodeDeque;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Iterator;
-
-public final class Deque implements RSNodeDeque {
+public final class Deque {
 
     private final Linkable head;
     private Linkable current;
@@ -88,36 +82,6 @@ public final class Deque implements RSNodeDeque {
         return node;
     }
 
-    @Override
-    public RSNode getCurrent() {
-        return null;
-    }
-
-    @Override
-    public RSNode getSentinel() {
-        return null;
-    }
-
-    @Override
-    public RSNode last() {
-        return null;
-    }
-
-    @Override
-    public RSNode previous() {
-        return null;
-    }
-
-    @Override
-    public void addFirst(RSNode val) {
-
-    }
-
-    @Override
-    public RSNode removeLast() {
-        return null;
-    }
-
     public void clear() {
         if (head.previous == head)
             return;
@@ -127,11 +91,5 @@ public final class Deque implements RSNodeDeque {
                 return;
             node.unlink();
         } while (true);
-    }
-
-    @NotNull
-    @Override
-    public Iterator iterator() {
-        return null;
     }
 }

@@ -9,9 +9,6 @@ import com.elvarg.game.content.minigames.impl.Barrows;
 import com.elvarg.game.content.skill.skillable.impl.Herblore;
 import com.elvarg.game.content.skill.skillable.impl.Prayer;
 import com.elvarg.game.content.skill.skillable.impl.Runecrafting;
-import com.elvarg.game.content.itemteleports.JewelleryDialogue;
-import com.elvarg.game.content.itemteleports.JewelleryTeleports;
-import com.elvarg.game.content.itemteleports.TabletTeleports;
 import com.elvarg.game.definition.ItemDefinition;
 import com.elvarg.game.entity.impl.npc.impl.Barricades;
 import com.elvarg.game.entity.impl.player.Player;
@@ -19,6 +16,7 @@ import com.elvarg.game.model.Animation;
 import com.elvarg.game.model.BarrowsSet;
 import com.elvarg.game.model.areas.impl.WildernessArea;
 import com.elvarg.game.model.teleportation.TeleportHandler;
+import com.elvarg.game.model.teleportation.TeleportTablets;
 import com.elvarg.game.model.teleportation.TeleportType;
 import com.elvarg.game.task.Task;
 import com.elvarg.game.task.TaskManager;
@@ -83,7 +81,7 @@ public class ItemActionPacketListener implements PacketExecutor {
 		}
 
 		// Teleport tablets..
-		if (TabletTeleports.handleOptions(player, itemId)) {
+		if (TeleportTablets.init(player, itemId)) {
 			return;
 		}
 
@@ -232,11 +230,6 @@ public class ItemActionPacketListener implements PacketExecutor {
 			return;
 		}
 		if (Runecrafting.handlePouch(player, itemId, 2)) {
-			return;
-		}
-
-		if (JewelleryTeleports.isJewellery(itemId)) {
-			player.getDialogueManager().start(new JewelleryDialogue(slot, true,JewelleryTeleports.getJewellery(itemId)));
 			return;
 		}
 

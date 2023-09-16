@@ -5,7 +5,6 @@ import com.elvarg.game.content.combat.CombatEquipment;
 import com.elvarg.game.content.combat.CombatFactory;
 import com.elvarg.game.content.combat.CombatType;
 import com.elvarg.game.content.combat.FightStyle;
-import com.elvarg.game.definition.NpcDefinition;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Skill;
@@ -62,7 +61,7 @@ public class AccuracyFormulasDpsCalc {
     private static int effectiveAttackLevel(Mobile entity) {
 
         if (entity.isNpc()) {
-            return entity.getAsNpc().getCurrentDefinition().getStats()[NpcDefinition.ATTACK_LEVEL] + 8;
+            return entity.getAsNpc().getCurrentDefinition().getStats()[0] + 8;
         }
 
         Player player = entity.getAsPlayer();
@@ -118,7 +117,7 @@ public class AccuracyFormulasDpsCalc {
 
         if (entity.isNpc()) {
             // NPC's don't currently have stab/slash/crush bonuses
-            attRoll *= entity.getAsNpc().getCurrentDefinition().getStats()[NpcDefinition.ATTACK_MELEE]  + 64;
+            attRoll *= 64;
             return attRoll;
         }
 
@@ -150,8 +149,9 @@ public class AccuracyFormulasDpsCalc {
     }
 
     private static int effectiveDefenseLevel(Mobile enemy) {
+
         if (enemy.isNpc()) {
-            return enemy.getAsNpc().getCurrentDefinition().getStats()[NpcDefinition.DEFENCE_LEVEL] + 9;
+            return enemy.getAsNpc().getCurrentDefinition().getStats()[2] + 9;
         }
 
         Player player = enemy.getAsPlayer();
@@ -250,7 +250,7 @@ public class AccuracyFormulasDpsCalc {
 
         if (entity.isNpc()) {
             // Prayer bonuses don't apply to NPCs (yet)
-            return entity.getAsNpc().getCurrentDefinition().getStats()[NpcDefinition.RANGED_LEVEL] + 8;
+            return entity.getAsNpc().getCurrentDefinition().getStats()[3] + 8;
         }
 
         Player player = entity.getAsPlayer();
@@ -306,7 +306,7 @@ public class AccuracyFormulasDpsCalc {
 
         if (entity.isNpc()) {
             // Prayer bonuses don't apply to NPCs (yet)
-            return entity.getAsNpc().getCurrentDefinition().getStats()[NpcDefinition.MAGIC_LEVEL] + 9;
+            return entity.getAsNpc().getCurrentDefinition().getStats()[4] + 9;
         }
 
         Player player = entity.getAsPlayer();

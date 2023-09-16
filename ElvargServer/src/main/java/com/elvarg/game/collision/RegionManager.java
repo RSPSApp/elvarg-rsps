@@ -884,9 +884,9 @@ public class RegionManager {
 
             // Attempt to create streams..
             byte[] oFileData = CompressionUtil.gunzip(
-                    FileUtil.readFile(GameConstants.CLIPPING_DIRECTORY + "maps/" + r.get().getObjectFile() + ".gz"));
+                    FileUtil.readFile(GameConstants.CLIPPING_DIRECTORY + "maps/" + r.get().getObjectFile() + ".dat"));
             byte[] gFileData = CompressionUtil.gunzip(
-                    FileUtil.readFile(GameConstants.CLIPPING_DIRECTORY + "maps/" + r.get().getTerrainFile() + ".gz"));
+                    FileUtil.readFile(GameConstants.CLIPPING_DIRECTORY + "maps/" + r.get().getTerrainFile() + ".dat"));
 
             // Don't allow ground file to be invalid..
             if (gFileData == null) {
@@ -902,14 +902,14 @@ public class RegionManager {
                 for (int tileX = 0; tileX < 64; tileX++) {
                     for (int tileY = 0; tileY < 64; tileY++) {
                         while (true) {
-                            int tileType = groundStream.readUShort();
+                            int tileType = groundStream.readUnsignedByte();
                             if (tileType == 0) {
                                 break;
                             } else if (tileType == 1) {
                                 groundStream.readUnsignedByte();
                                 break;
                             } else if (tileType <= 49) {
-                                groundStream.readUShort();
+                                groundStream.readUnsignedByte();
                             } else if (tileType <= 81) {
                                 heightMap[z][tileX][tileY] = (byte) (tileType - 49);
                             }

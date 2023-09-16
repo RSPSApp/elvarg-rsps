@@ -1,11 +1,11 @@
 package com.runescape.graphics;
 
 import com.runescape.Client;
-import com.runescape.engine.impl.MouseHandler;
 import com.runescape.Configuration;
 import com.runescape.graphics.sprite.Sprite;
 import com.runescape.graphics.widget.Widget;
 import com.runescape.draw.Rasterizer3D;
+import jdk.nashorn.internal.runtime.regexp.joni.Config;
 
 public class Slider {
 
@@ -29,46 +29,42 @@ public class Slider {
 
     public static void handleSlider(int mX, int mY) {
 
-        try {
-            int tabInterfaceId = Client.tabInterfaceIDs[Client.tabId];
+        int tabInterfaceId = Client.tabInterfaceIDs[Client.tabId];
 
-            if (tabInterfaceId != -1) {
+        if (tabInterfaceId != -1) {
 
-                if (tabInterfaceId == 42500) {
-                    tabInterfaceId = Widget.interfaceCache[42500].children[9];
-                } // Settings tab adjustment
-                Widget widget = Widget.interfaceCache[tabInterfaceId];
+            if (tabInterfaceId == 42500) {
+                tabInterfaceId = Widget.interfaceCache[42500].children[9];
+            } // Settings tab adjustment
+            Widget widget = Widget.interfaceCache[tabInterfaceId];
 
-                if (widget == null ||
-                        widget.children == null) {
-                    return;
-                }
-
-                for (int childId : widget.children) {
-                    Widget child = Widget.interfaceCache[childId];
-                    if (child == null || child.slider == null)
-                        continue;
-                    child.slider.handleClick(mX, mY, 0,0, child.contentType);
-                }
-                Client.tabAreaAltered = true;
+            if (widget == null ||
+                    widget.children == null) {
+                return;
             }
 
-            int interfaceId = Client.openInterfaceId;
-            if (interfaceId != -1) {
-                Widget widget = Widget.interfaceCache[interfaceId];
-                if (widget == null ||
-                        widget.children == null) {
-                    return;
-                }
-                for (int childId : widget.children) {
-                    Widget child = Widget.interfaceCache[childId];
-                    if (child == null || child.slider == null)
-                        continue;
-                    child.slider.handleClick(mX, mY, 4, 4, child.contentType);
-                }
+            for (int childId : widget.children) {
+                Widget child = Widget.interfaceCache[childId];
+                if (child == null || child.slider == null)
+                    continue;
+                child.slider.handleClick(mX, mY, Client.frameMode == Client.ScreenMode.FIXED ? 519 : 0, Client.frameMode == Client.ScreenMode.FIXED ? 168 : 0, child.contentType);
             }
-        }catch (Exception e) {
+            Client.tabAreaAltered = true;
+        }
 
+        int interfaceId = Client.openInterfaceId;
+        if (interfaceId != -1) {
+            Widget widget = Widget.interfaceCache[interfaceId];
+            if (widget == null ||
+                    widget.children == null) {
+                return;
+            }
+            for (int childId : widget.children) {
+                Widget child = Widget.interfaceCache[childId];
+                if (child == null || child.slider == null)
+                    continue;
+                child.slider.handleClick(mX, mY, 4, 4, child.contentType);
+            }
         }
     }
 
@@ -80,8 +76,8 @@ public class Slider {
     }
 
     public void handleClick(int mouseX, int mouseY, int offsetX, int offsetY, int contentType) {
-        int mX = MouseHandler.mouseX;
-        int mY = MouseHandler.mouseY;
+        int mX = Client.instance.mouseX;
+        int mY = Client.instance.mouseY;
         if (mX - offsetX >= x && mX - offsetX <= x + length
                 && mY - offsetY >= y + images[1].myHeight / 2 - images[0].myHeight / 2
                 && mY - offsetY <= y + images[1].myHeight / 2 + images[0].myHeight / 2) {

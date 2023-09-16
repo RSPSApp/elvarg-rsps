@@ -23,7 +23,6 @@ public class RegionChangePacketListener implements PacketExecutor {
             Barrows.brotherDespawn(player);
             player.getAggressionTolerance().start(NpcAggression.NPC_TOLERANCE_SECONDS);
             player.setAllowRegionChangePacket(false);
-            player.handleRegionChange();
         }
     }
 }

@@ -3,7 +3,7 @@ package com.runescape.graphics.widget;
 import com.runescape.Client;
 import com.runescape.Configuration;
 import com.runescape.cache.FileArchive;
-import com.runescape.cache.anim.SequenceDefinition;
+import com.runescape.cache.anim.Frame;
 import com.runescape.cache.def.ItemDefinition;
 import com.runescape.cache.def.NpcDefinition;
 import com.runescape.graphics.Dropdown;
@@ -3605,58 +3605,59 @@ public class Widget {
 		childY = new int[t];
 	}
 
-	private Model getModel(int model_type, int model_id) {
-		Model model = (Model) models.get((model_type << 16) + model_id);
+	private Model getModel(int type, int mobId) {
+		Model model = (Model) models.get((type << 16) + mobId);
 
 		if (model != null) {
 			return model;
 		}
 
-		if (model_type == 1) {
-			model = Model.getModel(model_id);
-			if(model != null)
-				model.light(64, 768, -50, -10, -50, true);
+		if (type == 1) {
+			model = Model.getModel(mobId);
 		}
 
-		if (model_type == 2) {
-			model = NpcDefinition.lookup(model_id).model();
-			if(model != null)
-				model.light(64, 768, -50, -10, -50, true);
+		if (type == 2) {
+			model = NpcDefinition.lookup(mobId).model();
 		}
 
-		if (model_type == 3) {
+		if (type == 3) {
 			model = Client.localPlayer.getHeadModel();
-			if(model != null)
-				model.light(64, 768, -50, -10, -50, true);
 		}
 
-		if (model_type == 4) {
-			model = ItemDefinition.lookup(model_id).getUnshadedModel(50);
-			if(model != null)
-				model.light(64 + ItemDefinition.lookup(model_id).ambient, 768 + ItemDefinition.lookup(model_id).contrast, -50, -10, -50, true);
+		if (type == 4) {
+			model = ItemDefinition.lookup(mobId).getUnshadedModel(50);
 		}
 
-		if (model_type == 5) {
+		if (type == 5) {
 			model = null;
 		}
 
 		if (model != null) {
-			models.put(model, (model_type << 16) + model_id);
+			models.put(model, (type << 16) + mobId);
 		}
 
 		return model;
 	}
 
-	public Model getAnimatedModel(SequenceDefinition seq, int primaryIndex, boolean active) {
+	public Model method209(int j, int k, boolean flag) {
 		Model model;
-		if (active)
+		if (flag)
 			model = getModel(anInt255, anInt256);
 		else
 			model = getModel(defaultMediaType, defaultMedia);
 		if (model == null)
 			return null;
-
-		return model;
+		if (k == -1 && j == -1 && model.triangleColours == null)
+			return model;
+		Model model_1 = new Model(true, Frame.noAnimationInProgress(k) & Frame.noAnimationInProgress(j), false, model);
+		if (k != -1 || j != -1)
+			model_1.skin();
+		if (k != -1)
+			model_1.applyTransform(k);
+		if (j != -1)
+			model_1.applyTransform(j);
+		model_1.light(64, 850, -30, -50, -30, true);
+		return model_1;
 	}
 	
 	public static void createTooltip(int id, int width, int height, GameFont[] font, String tooltip) {

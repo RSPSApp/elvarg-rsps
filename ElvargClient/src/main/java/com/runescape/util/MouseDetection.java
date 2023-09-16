@@ -1,7 +1,6 @@
 package com.runescape.util;
 
 import com.runescape.Client;
-import com.runescape.engine.impl.MouseHandler;
 
 public final class MouseDetection implements Runnable {
 
@@ -24,8 +23,8 @@ public final class MouseDetection implements Runnable {
         while (running) {
             synchronized (syncObject) {
                 if (coordsIndex < 500) {
-                    coordsX[coordsIndex] = MouseHandler.mouseX;
-                    coordsY[coordsIndex] = MouseHandler.mouseY;
+                    coordsX[coordsIndex] = clientInstance.mouseX;
+                    coordsY[coordsIndex] = clientInstance.mouseY;
                     coordsIndex++;
                 }
             }

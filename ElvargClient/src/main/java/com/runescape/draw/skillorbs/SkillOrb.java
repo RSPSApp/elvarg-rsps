@@ -1,7 +1,6 @@
 package com.runescape.draw.skillorbs;
 
 import com.runescape.Client;
-import com.runescape.engine.impl.MouseHandler;
 import com.runescape.graphics.sprite.Sprite;
 import com.runescape.draw.Rasterizer2D;
 import com.runescape.util.SecondsTimer;
@@ -183,8 +182,8 @@ public class SkillOrb {
 
         final int percentProgress = percentage();
         NumberFormat nf = NumberFormat.getInstance();
-        int mouse_Y = MouseHandler.mouseX;
-        int mouseY = MouseHandler.mouseY;
+        int mouse_Y = Client.instance.mouseX;
+        int mouseY = Client.instance.mouseY;
 
 		/* Draw box */
         Rasterizer2D.drawTransparentBox(mouse_Y + 1, mouseY + 6, 122, 83, 0x504a41, 180);
