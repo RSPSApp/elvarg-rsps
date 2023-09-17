@@ -103,6 +103,9 @@ public class PendingHit {
         for (HitDamage hit : hits) {
             hit.setDamage(damage);
         }
+        if (damage > 0) {
+            accurate = true;
+        }
         updateTotalDamage();
     }
 

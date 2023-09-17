@@ -4,6 +4,7 @@ import com.elvarg.game.content.combat.CombatFactory;
 import com.elvarg.game.content.combat.CombatSpecial;
 import com.elvarg.game.content.combat.hit.PendingHit;
 import com.elvarg.game.content.combat.method.impl.RangedCombatMethod;
+import com.elvarg.game.content.combat.ranged.RangedData;
 import com.elvarg.game.content.combat.ranged.RangedData.RangedWeapon;
 import com.elvarg.game.entity.impl.Mobile;
 import com.elvarg.game.entity.impl.player.Player;
@@ -18,7 +19,11 @@ public class ZaryteCrossbowCombatMethod extends RangedCombatMethod {
 
     @Override
     public PendingHit[] hits(Mobile character, Mobile target) {
-        return new PendingHit[] { new PendingHit(character, target, this, 2) };
+        final int distance = character.getLocation().getDistance(target.getLocation());
+        return new PendingHit[] { new PendingHit(character,
+                                                 target,
+                                                 this,
+                                                 RangedData.hitDelay(distance, RangedData.RangedWeaponType.CROSSBOW)) };
     }
 
     @Override
