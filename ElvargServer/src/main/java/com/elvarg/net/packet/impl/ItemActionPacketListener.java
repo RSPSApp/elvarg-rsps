@@ -57,6 +57,11 @@ public class ItemActionPacketListener implements PacketExecutor {
 			return;
 		}
 
+		if (itemId == ItemIdentifiers.CANNON_BASE) {
+			player.getDwarfCannon().setup();
+			return;
+		}
+
 		// Prayer
 		if (Prayer.buryBone(player, itemId)) {
 			return;

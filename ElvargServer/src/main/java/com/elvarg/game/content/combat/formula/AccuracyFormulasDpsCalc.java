@@ -41,6 +41,10 @@ public class AccuracyFormulasDpsCalc {
         else {
             return false;
         }
+        return rollAccuracy(attRoll, defRoll);
+    }
+
+    public static boolean rollAccuracy(int attRoll, int defRoll) {
         float hitChance = hitChance(attRoll, defRoll);
         return hitChance > srand.nextFloat();
     }
@@ -193,7 +197,7 @@ public class AccuracyFormulasDpsCalc {
         return (int) Math.floor(def);
     }
 
-    private static int defenseMeleeRoll(Mobile entity, Mobile enemy) {
+    public static int defenseMeleeRoll(Mobile entity, Mobile enemy) {
         int bonusType = (entity.isNpc() ? 3 /* Default case */ : entity.getAsPlayer().getFightType().getBonusType());
 
         return defenseMeleeRoll(enemy, bonusType);
@@ -348,8 +352,8 @@ public class AccuracyFormulasDpsCalc {
             int npcMagicDefence = 0; // always 0 right now
             return (9 + npcMagicLevel) * (npcMagicDefence + 64);
         }
-        int magicLevelPart = (int) Math.floor(effectiveMagicLevel(enemy, true) * 0.3);
-        int defLevelPart = (int) Math.floor(effectiveDefenseLevel(enemy) * 0.7);
+        int magicLevelPart = (int) Math.floor(effectiveMagicLevel(enemy, true) * 0.7);
+        int defLevelPart = (int) Math.floor(effectiveDefenseLevel(enemy) * 0.3);
 
         int defLevel = magicLevelPart + defLevelPart;
         int defBonus = enemy.getAsPlayer().getBonusManager().getDefenceBonus()[BonusManager.DEFENCE_MAGIC];
@@ -366,6 +370,9 @@ public class AccuracyFormulasDpsCalc {
 
         // If/when supported: multiply by 1.15 if wearing a slayer helm on task or killing undead monsters with an
         // imbued salve amulet.
+        if (entity.getCombat().getCastSpell() != null) {
+            attRoll = (int) Math.floor(attRoll * entity.getCombat().getCastSpell().getAccuracyMultiplier(entity));
+        }
 
         return attRoll;
     }
