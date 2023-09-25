@@ -12,7 +12,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.elvarg.game.GameConstants;
 import com.elvarg.game.collision.RegionManager;
+
 import com.elvarg.game.content.presets.PresetManager;
+import com.elvarg.game.content.cannon.DwarfCannon;
 import com.elvarg.game.content.sound.Sound;
 import com.elvarg.game.World;
 import com.elvarg.game.content.*;
@@ -326,12 +328,10 @@ public class Player extends Mobile {
 
 	@Override
 	public void heal(int amount) {
-		int level = skillManager.getMaxLevel(Skill.HITPOINTS);
-		if ((skillManager.getCurrentLevel(Skill.HITPOINTS) + amount) >= level) {
-			setHitpoints(level);
-		} else {
-			setHitpoints(skillManager.getCurrentLevel(Skill.HITPOINTS) + amount);
-		}
+		final int cap = Math.max(skillManager.getMaxLevel(Skill.HITPOINTS),
+		                         skillManager.getCurrentLevel(Skill.HITPOINTS));
+		final int healedHp = skillManager.getCurrentLevel(Skill.HITPOINTS) + amount;
+		setHitpoints(Math.min(healedHp, cap));
 	}
 
 	@Override
@@ -1144,6 +1144,13 @@ public class Player extends Mobile {
 	public Player setBank(int index, Bank bank) {
 		this.banks[index] = bank;
 		return this;
+	}
+
+	private DwarfCannon dwarfCannon;
+	public DwarfCannon getDwarfCannon() {
+		if (dwarfCannon == null)
+			dwarfCannon = new DwarfCannon(this);
+		return dwarfCannon;
 	}
 
 	public boolean isNewPlayer() {

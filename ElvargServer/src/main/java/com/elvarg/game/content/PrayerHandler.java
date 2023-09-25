@@ -2,6 +2,7 @@ package com.elvarg.game.content;
 
 import java.util.HashMap;
 
+import com.elvarg.game.GameConstants;
 import com.elvarg.game.content.Dueling.DuelRule;
 import com.elvarg.game.content.combat.CombatType;
 import com.elvarg.game.entity.impl.Mobile;
@@ -440,7 +441,7 @@ public class PrayerHandler {
                         continue;
                     double drainMinute = pd.drainRate;
                     double drainSeconds = drainMinute / 60;
-                    double drainTicks = (drainSeconds * 0.6);   
+                    double drainTicks = (drainSeconds * GameConstants.GAME_ENGINE_PROCESSING_CYCLE_RATE / 1000D);
                     drainPerTick += drainTicks;
                 }
 
@@ -471,7 +472,7 @@ public class PrayerHandler {
                         pointDrain = 0;
                     }
                 }
-                
+
                 player.setPrayerPointDrain(pointDrain);
 
             }
@@ -484,7 +485,7 @@ public class PrayerHandler {
             }
         });
     }
-    
+
     /**
      * Resets <code> prayers </code> with an exception for <code> prayerID </code>
      *
@@ -589,7 +590,7 @@ public class PrayerHandler {
          */
         private int configId;
         /**
-         * The rate of which the player's prayer points will be drained at 
+         * The rate of which the player's prayer points will be drained at
          * per minute.
          */
         private double drainRate;
