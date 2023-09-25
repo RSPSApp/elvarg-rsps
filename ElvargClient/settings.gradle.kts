@@ -3,3 +3,20 @@
  */
 
 rootProject.name = "Elvarg-Game-Client"
+
+dependencyResolutionManagement {
+    @Suppress("UnstableApiUsage")
+    repositories {
+        mavenCentral()
+        maven("https://repo.runelite.net")
+    }
+}
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven("https://jitpack.io")
+    }
+}
+
+include("game","runelite","api")

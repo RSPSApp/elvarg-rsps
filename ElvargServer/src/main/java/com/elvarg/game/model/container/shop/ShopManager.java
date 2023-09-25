@@ -4,6 +4,7 @@ import com.elvarg.game.World;
 import com.elvarg.game.definition.ItemDefinition;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.PlayerStatus;
+import com.elvarg.game.model.container.shop.currency.impl.BloodMoneyCurrency;
 import com.elvarg.game.task.TaskManager;
 import com.elvarg.game.task.impl.ShopRestockTask;
 import com.elvarg.util.ItemIdentifiers;
@@ -455,7 +456,7 @@ public class ShopManager extends ShopIdentifiers {
      */
     private static int getItemValue(Player player, ItemDefinition itemDef, int shopId) {
         if (shopId == PVP_SHOP) {
-            return itemDef.getBloodMoneyValue();
+            return BloodMoneyCurrency.getBloodMoneyValue(itemDef.getId());
         }
         return itemDef.getValue();
     }

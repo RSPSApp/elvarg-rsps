@@ -42,6 +42,8 @@ public abstract class Mobile extends Entity {
 	private Graphic graphic;
 	private Mobile following;
 
+	public boolean occupyingTiles;
+
 	private Map<Object, Object> attributes = Maps.newConcurrentMap();
 
 	public Object getAttribute(Object name) {
@@ -86,6 +88,10 @@ public abstract class Mobile extends Entity {
 	 */
 	private boolean registered;
 
+	public Player player;
+
+	public NPC npc;
+
 	/**
 	 * Constructs this character/entity
 	 *
@@ -93,6 +99,13 @@ public abstract class Mobile extends Entity {
 	 */
 	public Mobile(Location position) {
 		super(position);
+		if (this instanceof Player) {
+			player = (Player) this;
+			npc = null;
+		} else {
+			npc = (NPC) this;
+			player = null;
+		}
 	}
 
 	/**
@@ -305,10 +318,6 @@ public abstract class Mobile extends Entity {
 	public abstract int getHitpoints();
 
 	public abstract Mobile setHitpoints(int hitpoints);
-
-	public abstract int getBaseAttack(CombatType type);
-
-	public abstract int getBaseDefence(CombatType type);
 
 	public abstract int getBaseAttackSpeed();
 

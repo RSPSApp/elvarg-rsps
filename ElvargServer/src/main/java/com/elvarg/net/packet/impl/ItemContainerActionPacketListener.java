@@ -7,6 +7,8 @@ import com.elvarg.game.content.combat.CombatSpecial;
 import com.elvarg.game.content.combat.WeaponInterfaces;
 import com.elvarg.game.content.combat.magic.Autocasting;
 import com.elvarg.game.content.skill.skillable.impl.Smithing.EquipmentMaking;
+import com.elvarg.game.content.itemteleports.JewelleryDialogue;
+import com.elvarg.game.content.itemteleports.JewelleryTeleports;
 import com.elvarg.game.entity.impl.player.Player;
 import com.elvarg.game.model.Flag;
 import com.elvarg.game.model.Item;
@@ -20,8 +22,6 @@ import com.elvarg.game.model.equipment.BonusManager;
 import com.elvarg.net.packet.Packet;
 import com.elvarg.net.packet.PacketConstants;
 import com.elvarg.net.packet.PacketExecutor;
-
-import java.util.zip.DeflaterOutputStream;
 
 public class ItemContainerActionPacketListener implements PacketExecutor {
 
@@ -142,6 +142,11 @@ public class ItemContainerActionPacketListener implements PacketExecutor {
 
         if (interfaceId == 7423) {
             DepositBox.deposit(player, slot, id, 5);
+            return;
+        }
+
+        if (JewelleryTeleports.isJewellery(id)) {
+            player.getDialogueManager().start(new JewelleryDialogue(slot, false,JewelleryTeleports.getJewellery(id)));
             return;
         }
 
