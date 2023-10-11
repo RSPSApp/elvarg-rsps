@@ -5,7 +5,8 @@ import com.elvarg.game.GameConstants;
 import com.elvarg.net.NetworkBuilder;
 import com.elvarg.net.NetworkConstants;
 import com.elvarg.plugin.event.EventManager;
-import com.elvarg.plugin.event.ServerBootEvent;
+import com.elvarg.plugin.event.impl.ServerBootEvent;
+import com.elvarg.plugin.event.impl.ServerStartedEvent;
 import com.elvarg.util.ShutdownHook;
 import com.elvarg.util.flood.Flooder;
 
@@ -61,6 +62,7 @@ public class Server {
             EventManager.INSTANCE.postAndWait(new ServerBootEvent());
             new NetworkBuilder().initialize(NetworkConstants.GAME_PORT);
             logger.info(GameConstants.NAME + " is now online!");
+            EventManager.INSTANCE.post(new ServerStartedEvent());
         } catch (Exception e) {
             logger.log(Level.SEVERE, "An error occurred while binding the Bootstrap!", e);
 
