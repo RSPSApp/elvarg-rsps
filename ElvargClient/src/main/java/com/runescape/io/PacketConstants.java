@@ -96,6 +96,7 @@ public final class PacketConstants {
     public static final int SEND_ENTER_AMOUNT = 27;
     public static final int SEND_ENTER_NAME = 187;
     public static final int SEND_NON_WALKABLE_INTERFACE = 97;
+    public static final int SEND_CLOSE_DIALOGUE = 118;
     public static final int SEND_WALKABLE_CHATBOX_INTERFACE = 218;
     public static final int SEND_CONFIG_INT = 87;
     public static final int SEND_CONFIG_BYTE = 36;

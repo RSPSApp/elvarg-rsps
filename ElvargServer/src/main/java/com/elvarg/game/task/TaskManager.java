@@ -1,5 +1,6 @@
 package com.elvarg.game.task;
 
+import javax.swing.text.html.HTMLDocument;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,6 +36,21 @@ public final class TaskManager {
         } catch (Throwable e) {
             e.printStackTrace();
         }
+    }
+
+    public static void submit(int tickDelay, Runnable action) {
+        Task tickTask = new Task() {
+
+            int ticks = tickDelay;
+            @Override
+            protected void execute() {
+                if (--ticks <= 0) {
+                    action.run();
+                    stop();
+                }
+            }
+        };
+        submit(tickTask);
     }
 
     public static void submit(Task task) {
