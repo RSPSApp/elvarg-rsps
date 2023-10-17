@@ -865,6 +865,10 @@ public class RegionManager {
         return canMove(position.getX(), position.getY(), end.getX(), end.getY(), position.getZ(), size, size, privateArea);
     }
 
+    public static boolean canMove(Location start, Location end, int xLength, int yLength) {
+        return canMove(start.getX(), start.getY(), end.getX(), end.getY(), start.getZ(), xLength, yLength, null);
+    }
+
     /**
      * Attemps to load the map files related to this region...
      */
@@ -968,5 +972,9 @@ public class RegionManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static boolean hasLineOfSight(Location a, Location b, int xLength, int yLength) {
+        return canProjectileMove(a.getX(), a.getY(), b.getX(), b.getY(), a.getZ(), xLength, yLength, null);
     }
 }
