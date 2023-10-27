@@ -73,6 +73,7 @@ public class GameBuilder {
         tasks.add(new NpcDropDefinitionLoader());
         tasks.add(new NpcSpawnDefinitionLoader());
         tasks.add(new GroundItemDefinitionLoader());
+        tasks.add(new OSRSBoxNpcDefinitionLoader());
         tasks.add(MinigameHandler::init);
     //    tasks.add(new NPCSpawnDumper());        
         return tasks;
