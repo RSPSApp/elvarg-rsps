@@ -1,0 +1,43 @@
+[versions]
+fastutil = "8.2.1"
+slf4jApi = "1.7.36"
+kotlinLogging = "2.1.23"
+
+gson = "_"
+kotlinxSerializationCore = "_"
+kotlin = "1.8.10"
+caffeine = "3.1.1"
+nettyAll = "4.1.72.Final"
+
+[libraries]
+slf4j-api = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4jApi" }
+
+kotlin-logging = { group = "io.github.microutils", name = "kotlin-logging", version.ref = "kotlinLogging" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+kotlin-scripting = {group = "org.jetbrains.kotlin", name = "kotlin-scripting-common", version = "_"}
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin"}
+kotlin-script-runtime = { group = "org.jetbrains.kotlin", name = "kotlin-script-runtime", version.ref = "kotlin"}
+kotlinx-coroutines = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version = "_"}
+kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinxSerializationCore" }
+commons = { group = "commons-io", name = "commons-io", version = "_"}
+commons-lang = { group = "commons-lang", name = "commons-lang", version = "2.6"}
+classgraph = { group = "io.github.classgraph", name  = "classgraph", version = "_"}
+joda = { group = "joda-time", name = "joda-time", version = "2.11.0" }
+netty-all = { group = "io.netty", name = "netty-all", version.ref = "nettyAll" }
+
+guava = { group = "com.google.guava", name = "guava", version = "31.0.1-jre" }
+
+progress-bar = { group = "me.tongfei", name = "progressbar", version = "0.9.3" }
+inline-loggerr = { group = "com.michael-bull.kotlin-inline-logger", name = "kotlin-inline-logger", version = "1.0.4" }
+
+okhttp3 = { group = "com.squareup.okhttp3", name = "okhttp", version = "5.0.0-alpha.11" }
+
+password4J = { group = "com.password4j", name = "password4j", version = "1.6.0" }
+
+dynamodb = { group = "software.amazon.awssdk", name = "dynamodb", version = "2.17.237" }
+dynamodb-enhanced = { group = "software.amazon.awssdk", name = "dynamodb-enhanced", version = "2.17.237" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

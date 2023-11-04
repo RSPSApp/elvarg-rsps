@@ -1,5 +1,6 @@
 /target/
-/build/
+/game/build/
+/plugin/build/
 .gradle/
 .classpath
 .settings/org.eclipse.jdt.core.prefs
