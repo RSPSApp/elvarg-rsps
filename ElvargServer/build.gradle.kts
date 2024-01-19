@@ -23,9 +23,12 @@ allprojects {
     dependencies {
         with(lib) {
             implementation(gson)
+            implementation(commons)
+            implementation(commons.lang)
             implementation(guava)
             implementation(progress.bar)
             implementation(inline.loggerr)
+            implementation(slf4j.api)
             implementation(kotlin.logging)
             implementation(kotlinx.coroutines)
             implementation(kotlin.script.runtime)

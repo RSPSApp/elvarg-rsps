@@ -8,4 +8,5 @@
 .project
 /bin/
 *.class
-.idea
+.idea/
+ElvargClient/out/

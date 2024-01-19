@@ -41,6 +41,14 @@ public class Server {
      */
     private static Logger logger = Logger.getLogger(Server.class.getSimpleName());
 
+
+    /**
+     * The ProcessBuilder which manages the Websocket -> RS Socket proxy.
+     */
+    public static ProcessBuilder proxyProcessBuilder;
+
+    public static Process websocketProxyProcess;
+
     /**
      * The flag that determines if the server is currently being updated or not.
      */

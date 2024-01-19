@@ -60,5 +60,9 @@ public class NetworkConstants {
      */
     public static final int PACKET_PROCESS_LIMIT = 30;
 
+    /**
+     * Whether to enable the Websocket -> RS Socket proxy for local development of the webclient
+     */
+    public static final boolean ENABLE_WEBSOCKET_PROXY = true;
 
 }

@@ -10,10 +10,7 @@ application {
 val lib = rootProject.project.libs
 dependencies {
     with(lib) {
-        implementation(commons)
-        implementation(commons.lang)
         implementation(classgraph)
-        implementation(slf4j.api)
         implementation(okhttp3)
         implementation(password4J)
         implementation(dynamodb)
