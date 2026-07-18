@@ -36,6 +36,9 @@ public class Herblore extends ItemIdentifiers {
      * @return
      */
     public static boolean concatenate(Player player, Item itemUsed, Item usedOn) {
+        if (itemUsed == usedOn) {
+            return false;
+        }
         if (!(itemUsed.getDefinition().getName().contains("(")
                 && usedOn.getDefinition().getName().contains(")"))) {
             return false;
@@ -46,14 +49,14 @@ public class Herblore extends ItemIdentifiers {
                 int firstPotAmount = dose.get().getDoseForID(itemUsed.getId());
                 int secondPotAmount = dose.get().getDoseForID(usedOn.getId());
                 if (firstPotAmount + secondPotAmount <= 4) {
-                    player.getInventory().delete(itemUsed, 1);
-                    player.getInventory().delete(usedOn, 1);
+                    player.getInventory().delete(itemUsed.getId(), 1);
+                    player.getInventory().delete(usedOn.getId(), 1);
                     player.getInventory().add(dose.get().getIDForDose(firstPotAmount + secondPotAmount), 1);
                     player.getInventory().add(EMPTY_VIAL, 1);
                 } else {
                     int overflow = (firstPotAmount + secondPotAmount) - 4;
-                    player.getInventory().delete(itemUsed, 1);
-                    player.getInventory().delete(usedOn, 1);
+                    player.getInventory().delete(itemUsed.getId(), 1);
+                    player.getInventory().delete(usedOn.getId(), 1);
                     player.getInventory().add(dose.get().getIDForDose(4), 1);
                     player.getInventory().add(dose.get().getIDForDose(overflow), 1);
                 }
