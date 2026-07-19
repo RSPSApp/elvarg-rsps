@@ -402,6 +402,19 @@ public class ItemContainerActionPacketListener implements PacketExecutor {
     }
 
     private static void sixthAction(Player player, Packet packet) {
+        int interfaceId = packet.readInt();
+        int slot = packet.readShortA();
+        int id = packet.readShortA();
+
+        // Bank withdrawal (all-but-one)..
+        if (interfaceId >= Bank.CONTAINER_START && interfaceId < Bank.CONTAINER_START + Bank.TOTAL_BANK_TABS) {
+            int total = player.getBank(Bank.getTabForItem(player, id)).getAmount(id);
+            if (total <= 1) {
+                player.getPacketSender().sendMessage("You only have one of those in your bank.");
+                return;
+            }
+            Bank.withdraw(player, id, slot, total - 1, interfaceId - Bank.CONTAINER_START);
+        }
     }
 
     @Override

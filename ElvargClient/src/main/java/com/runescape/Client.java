@@ -2969,6 +2969,15 @@ public class Client extends GameApplet {
                                         // Menu actions, item options etc in interfaces
                                         // Hardcoding
                                         if (childInterface.actions != null) {
+                                            // Extended interface actions (e.g. bank Withdraw-All but one)
+                                            if (childInterface.actions.length > 6 && childInterface.actions[6] != null) {
+                                                menuActionText[menuActionRow] = childInterface.actions[6] + " @lre@" + itemDef.name;
+                                                menuActionTypes[menuActionRow] = 1213;
+                                                selectedMenuActions[menuActionRow] = itemDef.id;
+                                                firstMenuAction[menuActionRow] = k2;
+                                                secondMenuAction[menuActionRow] = childInterface.id;
+                                                menuActionRow++;
+                                            }
                                             for (int type =
                                                  4; type >= 0; type--) {
                                                 if (childInterface.actions[type] != null) {
@@ -6382,6 +6391,18 @@ public class Client extends GameApplet {
 
         if (action == 53) {
             packetSender.sendItemContainerOption5(button, first, clicked);
+            atInventoryLoopCycle = 0;
+            atInventoryInterface = button;
+            atInventoryIndex = first;
+            atInventoryInterfaceType = 2;
+            if (Widget.interfaceCache[button].parent == openInterfaceId)
+                atInventoryInterfaceType = 1;
+            if (Widget.interfaceCache[button].parent == backDialogueId)
+                atInventoryInterfaceType = 3;
+        }
+
+        if (action == 1213) {
+            packetSender.sendItemContainerOption6(button, first, clicked);
             atInventoryLoopCycle = 0;
             atInventoryInterface = button;
             atInventoryIndex = first;
