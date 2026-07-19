@@ -103,7 +103,7 @@ public class PacketSender {
 	public PacketSender sendCreationMenu(CreationMenu menu) {
 	    player.setCreationMenu(menu);
 	    sendString(31104, menu.getTitle());
-        PacketBuilder out = new PacketBuilder(167);
+        PacketBuilder out = new PacketBuilder(167, PacketType.VARIABLE);
         out.put(menu.getItems().size());
         for (int itemId : menu.getItems()) {
             out.putInt(itemId);

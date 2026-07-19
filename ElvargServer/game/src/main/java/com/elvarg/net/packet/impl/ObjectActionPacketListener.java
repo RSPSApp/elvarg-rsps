@@ -116,15 +116,6 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         case ANVIL:
             EquipmentMaking.openInterface(player);
             break;
-        case SPINNING_WHEEL:
-        case SPINNING_WHEEL_2:
-        case SPINNING_WHEEL_3:
-        case SPINNING_WHEEL_4:
-        case SPINNING_WHEEL_5:
-        case SPINNING_WHEEL_6:
-        case SPINNING_WHEEL_7:
-            Crafting.openSpinningMenu(player);
-            break;
         case ALTAR:
         case CHAOS_ALTAR_2:
             player.performAnimation(new Animation(645));
@@ -209,6 +200,15 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         switch (object.getId()) {
         case PORTAL_51:
             //DialogueManager.sendStatement(player, "Construction will be avaliable in the future.");
+            break;
+        case SPINNING_WHEEL:
+        case SPINNING_WHEEL_2:
+        case SPINNING_WHEEL_3:
+        case SPINNING_WHEEL_4:
+        case SPINNING_WHEEL_5:
+        case SPINNING_WHEEL_6:
+        case SPINNING_WHEEL_7:
+            Crafting.openSpinningMenu(player);
             break;
         case FURNACE_18:
             for (Bar bar : Bar.values()) {
