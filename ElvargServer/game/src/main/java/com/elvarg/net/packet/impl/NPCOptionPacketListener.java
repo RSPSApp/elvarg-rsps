@@ -130,7 +130,6 @@ public class NPCOptionPacketListener extends NpcIdentifiers implements PacketExe
                 case ARMOUR_SALESMAN:
                     ShopManager.open(player, ShopIdentifiers.RANGE_SHOP);
                     break;
-                case BANKER_2:
                 case TZHAAR_KET_ZUH:
                     player.getBank(player.getCurrentBankTab()).open();
                     break;
@@ -183,13 +182,6 @@ public class NPCOptionPacketListener extends NpcIdentifiers implements PacketExe
                 case NIEVE:
                     player.getDialogueManager().start(new NieveDialogue(), 2);
                     break;
-                case BANKER:
-                case BANKER_2:
-                case BANKER_3:
-                case BANKER_4:
-                case BANKER_5:
-                case BANKER_6:
-                case BANKER_7:
                 case TZHAAR_KET_ZUH:
                     player.getBank(player.getCurrentBankTab()).open();
                     break;

@@ -943,7 +943,7 @@ public class ObjectIdentifiers {
     public static final int SLICED_WEB = 1811;
     public static final int PORTAL = 1812;
     public static final int STONE_STAND = 1813;
-    public static final int LEVER_8 = 1814;
+    public static final int ARDOUGNE_LEVER = 1814;
     public static final int KBD_ENTRANCE_LEVER = 1816;
     public static final int KBD_EXIT_LEVER = 1817;
     public static final int BAY_WINDOW = 1852;
@@ -3188,8 +3188,8 @@ public class ObjectIdentifiers {
     public static final int DARK_HOLE = 5947;
     public static final int STEPPING_STONE_2 = 5948;
     public static final int STEPPING_STONE_3 = 5949;
-    public static final int LEVER_38 = 5959;
-    public static final int LEVER_39 = 5960;
+    public static final int MAGE_BANK_ENTRANCE_LEVER = 5959;
+    public static final int MAGE_BANK_EXIT_LEVER = 5960;
     public static final int CANNONBALL = 5964;
     public static final int GOLD_CANNONBALL = 5965;
     public static final int PASSAGE_2 = 5966;
@@ -5742,8 +5742,8 @@ public class ObjectIdentifiers {
     public static final int CANDLESTICK_HOLDER_2 = 9703;
     public static final int CHAIR_42 = 9704;
     public static final int CHAIR_43 = 9705;
-    public static final int LEVER_41 = 9706;
-    public static final int LEVER_42 = 9707;
+    public static final int MAGE_ARENA_ENTRANCE_LEVER = 9706;
+    public static final int MAGE_ARENA_EXIT_LEVER = 9707;
     public static final int GATE_91 = 9708;
     public static final int DOOR_225 = 9709;
     public static final int DOOR_226 = 9710;

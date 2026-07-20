@@ -102,6 +102,37 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         case KBD_EXIT_LEVER:
             TeleportHandler.teleport(player, new Location(3067, 10253), TeleportType.LEVER, false);
             break;
+        case MAGE_BANK_ENTRANCE_LEVER:
+            if (!player.getCombat().getTeleBlockTimer().finished()) {
+                player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
+                return;
+            }
+            TeleportHandler.teleport(player, new Location(2539, 4712), TeleportType.LEVER, false);
+            player.getPacketSender().sendMessage("You pull the lever and find yourself inside the Mage Bank.");
+            break;
+        case MAGE_BANK_EXIT_LEVER:
+            TeleportHandler.teleport(player, new Location(3090, 3956), TeleportType.LEVER, false);
+            break;
+        case MAGE_ARENA_ENTRANCE_LEVER:
+            if (!player.getCombat().getTeleBlockTimer().finished()) {
+                player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
+                return;
+            }
+            TeleportHandler.teleport(player, new Location(3105, 3951), TeleportType.LEVER, false);
+            break;
+        case MAGE_ARENA_EXIT_LEVER:
+            TeleportHandler.teleport(player, new Location(3105, 3956), TeleportType.LEVER, false);
+            break;
+        case ARDOUGNE_LEVER:
+            if (player.getLocation().getX() == 2561 && player.getLocation().getY() == 3311) {
+                TeleportHandler.teleport(player, new Location(3153, 3923), TeleportType.LEVER, true);
+                player.getPacketSender().sendMessage("You pull the lever and find yourself in the Wilderness.");
+            }
+            else {
+                TeleportHandler.teleport(player, new Location(2561, 3311, 0), TeleportType.LEVER, false);
+                player.getPacketSender().sendMessage("You pull the lever and find yourself in Ardougne.");
+            }
+            break;
         case FIGHT_CAVES_ENTRANCE:
             player.moveTo(FightCaves.ENTRANCE.clone());
             FightCaves.start(player);
