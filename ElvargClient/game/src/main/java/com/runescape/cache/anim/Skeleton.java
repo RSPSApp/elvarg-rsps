@@ -10,6 +10,12 @@ public final class Skeleton {
     public int[] transformationType;
     public int[][] skinList;
 
+    public Skeleton(int count, int[] transformationType, int[][] skinList) {
+        this.count = count;
+        this.transformationType = transformationType;
+        this.skinList = skinList;
+    }
+
     public Skeleton(Buffer data, int bufferSize) {
         int before_read = data.currentPosition;
         count = data.readUnsignedByte();

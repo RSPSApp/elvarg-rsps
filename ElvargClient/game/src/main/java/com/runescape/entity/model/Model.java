@@ -1135,9 +1135,7 @@ public class Model extends Renderable implements RSModel {
                 return;
             }
             Frames frameset = Frames.getFrames(frame >> 16);
-            if(frameset == null ) {
-                System.out.println("null frame " + frame + ", index " + frame_index + ", group: " + (frame >> 16) + " in anim " + seq.id);
-            } else {
+            if(frameset != null) {
                 animate2(frameset, frame_index);
             }
         }

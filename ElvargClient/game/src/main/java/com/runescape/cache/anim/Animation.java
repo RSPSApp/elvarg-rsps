@@ -110,6 +110,57 @@ public final class Animation {
         }
     }
 
+    public static void loadLegacy(Buffer stream, int groupId, int framegroupCount, Skeleton base, Animation[] out) {
+        try {
+            int[] indices = new int[500];
+            int[] x = new int[500];
+            int[] y = new int[500];
+            int[] z = new int[500];
+            for (int frame = 0; frame < framegroupCount; frame++) {
+                int frameId = stream.readUShort();
+                Animation animation = out[frameId] = new Animation();
+                animation.frameset_id = groupId;
+                animation.base = base;
+                int transformCount = stream.readUnsignedByte();
+                int used = 0;
+                int last = -1;
+                for (int index = 0; index < transformCount; index++) {
+                    int attribute = stream.readUnsignedByte();
+                    if (attribute == 0) continue;
+                    if (base.transformationType[index] != 0) {
+                        for (int previous = index - 1; previous > last; previous--) {
+                            if (base.transformationType[previous] == 0) {
+                                indices[used] = previous;
+                                x[used] = y[used] = z[used] = 0;
+                                used++;
+                                break;
+                            }
+                        }
+                    }
+                    indices[used] = index;
+                    int defaultValue = base.transformationType[index] == 3 ? 128 : 0;
+                    x[used] = (attribute & 1) != 0 ? stream.readShort2() : defaultValue;
+                    y[used] = (attribute & 2) != 0 ? stream.readShort2() : defaultValue;
+                    z[used] = (attribute & 4) != 0 ? stream.readShort2() : defaultValue;
+                    if (base.transformationType[index] == 5) animation.hasAlpha = true;
+                    last = index;
+                    used++;
+                }
+                animation.transformationCount = used;
+                animation.transformationIndices = new int[used];
+                animation.transformX = new int[used];
+                animation.transformY = new int[used];
+                animation.transformZ = new int[used];
+                System.arraycopy(indices, 0, animation.transformationIndices, 0, used);
+                System.arraycopy(x, 0, animation.transformX, 0, used);
+                System.arraycopy(y, 0, animation.transformY, 0, used);
+                System.arraycopy(z, 0, animation.transformZ, 0, used);
+            }
+        } catch (Exception exception) {
+            System.err.println("Error unpacking legacy anim frames: " + groupId);
+        }
+    }
+
     public static void clear() {
         Frames.frameset = null;
     }

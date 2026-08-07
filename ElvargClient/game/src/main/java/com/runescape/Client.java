@@ -14891,12 +14891,14 @@ public class Client extends GameEngine implements RSClient {
                         updateChatbox = true;
                 }
                 if (resource.dataType == 1 && resource.buffer != null) {
-                    int magic = (resource.buffer[1] & 0xff) + ((resource.buffer[0] & 0xff) << 8);
-                    boolean loadSkeletal = (magic == 420);
-                    if(loadSkeletal) {
-                        AnimKeyFrameSet.load(resource.ID, resource.buffer);
-                    } else if(magic == 710) {
+                    boolean loadedRegular = false;
+                    try {
                         Frames.loadAnimFrames(resource.ID, resource.buffer);
+                        loadedRegular = true;
+                    } catch (RuntimeException ignored) {
+                    }
+                    if (SequenceDefinition.usesSkeletalGroup(resource.ID) || !loadedRegular) {
+                        AnimKeyFrameSet.load(resource.ID, resource.buffer);
                     }
                 }
                 if (resource.dataType == 2 && resource.ID == nextSong && resource.buffer != null) {

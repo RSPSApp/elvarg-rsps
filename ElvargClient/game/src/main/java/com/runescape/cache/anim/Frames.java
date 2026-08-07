@@ -11,21 +11,25 @@ public class Frames {
     Frames(int fileid, byte[] fileData) {
         this.fileid = fileid;
         Buffer stream = new Buffer(fileData);
-        int version = stream.readUShort();
-
-        int baseSize = stream.readInt();
-        byte[] baseData = new byte[baseSize];
-        stream.readBytes(baseSize, 0, baseData);
-        Buffer baseBuffer = new Buffer(baseData);
-        Skeleton skeleton = new Skeleton(baseBuffer, baseSize);
-        int frameCount = stream.readUShort();
-        animations = new Animation[frameCount];
-
-        Animation.load(stream, fileid, frameCount, skeleton, animations);
-
-        if(frameset[fileid] == null) {
-            frameset[fileid] = this;
+        int baseCount = stream.readUShort();
+        int[] transformationType = new int[baseCount];
+        int[][] skinList = new int[baseCount][];
+        for (int index = 0; index < baseCount; index++) transformationType[index] = stream.readUShort();
+        for (int index = 0; index < baseCount; index++) skinList[index] = new int[stream.readUShort()];
+        for (int index = 0; index < baseCount; index++) {
+            for (int skin = 0; skin < skinList[index].length; skin++) skinList[index][skin] = stream.readUShort();
         }
+        int frameCount = stream.readUShort();
+        animations = new Animation[frameCount * 3];
+        Animation.loadLegacy(stream, fileid, frameCount, new Skeleton(baseCount, transformationType, skinList), animations);
+
+        for (Animation animation : animations) {
+            if (animation != null) {
+                frameset[fileid] = this;
+                return;
+            }
+        }
+        throw new IllegalArgumentException("No animation frames decoded for group " + fileid);
 
     }
 
@@ -50,7 +54,8 @@ public class Frames {
         }
     }
     public boolean hasTransparency(int frame_index) {
-        return this.animations[frame_index].hasAlpha;
+        return frame_index >= 0 && frame_index < animations.length && animations[frame_index] != null
+                && animations[frame_index].hasAlpha;
     }
 
 }

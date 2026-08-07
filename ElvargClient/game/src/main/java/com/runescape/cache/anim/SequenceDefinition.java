@@ -7,11 +7,14 @@ import com.runescape.io.Buffer;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public final class SequenceDefinition {
 
     public static SequenceDefinition[] sequenceDefinitions;
+    private static final Set<Integer> skeletalGroups = new HashSet<>();
     public int frameCount;
     public boolean replay = false;
     public int[] frames;
@@ -51,6 +54,7 @@ public final class SequenceDefinition {
     public static void init(FileArchive archive) {
         Buffer stream = new Buffer(archive.readFile("seq.dat"));
         int length = stream.readUShort();
+        skeletalGroups.clear();
         if (sequenceDefinitions == null)
             sequenceDefinitions = new SequenceDefinition[length];
         for (int j = 0; j < length; j++) {
@@ -129,6 +133,9 @@ public final class SequenceDefinition {
                 }
             } else if (opcode == 14) {
                 skeletalId = buffer.readInt();
+                if (skeletalId >= 0) {
+                    skeletalGroups.add(skeletalId >>> 16);
+                }
             } else if (opcode == 15) {
                 int count = buffer.readUShort();
                 this.skeletalSounds = new HashMap();
@@ -334,6 +341,10 @@ public final class SequenceDefinition {
 
     public boolean usingKeyframes() {
         return this.skeletalId >= 0;
+    }
+
+    public static boolean usesSkeletalGroup(int groupId) {
+        return skeletalGroups.contains(groupId);
     }
 
     public int getKeyframeDuration() {
