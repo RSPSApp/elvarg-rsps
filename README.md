@@ -1,3 +1,6 @@
+> [!WARNING]
+> This repository is deprecated and is no longer maintained. Its official successor is [RSPSApp/tsps](https://github.com/RSPSApp/tsps).
+
 # RSPSApp
 
 ## Vision
