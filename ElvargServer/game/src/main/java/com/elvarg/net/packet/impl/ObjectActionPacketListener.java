@@ -7,6 +7,7 @@ import com.elvarg.game.content.combat.CombatSpecial;
 import com.elvarg.game.content.minigames.MinigameHandler;
 import com.elvarg.game.content.minigames.impl.FightCaves;
 import com.elvarg.game.content.skill.SkillManager;
+import com.elvarg.game.content.skill.skillable.impl.Crafting;
 import com.elvarg.game.content.skill.skillable.impl.Smithing;
 import com.elvarg.game.content.skill.skillable.impl.Smithing.Bar;
 import com.elvarg.game.content.skill.skillable.impl.Smithing.EquipmentMaking;
@@ -199,6 +200,15 @@ public class ObjectActionPacketListener extends ObjectIdentifiers implements Pac
         switch (object.getId()) {
         case PORTAL_51:
             //DialogueManager.sendStatement(player, "Construction will be avaliable in the future.");
+            break;
+        case SPINNING_WHEEL:
+        case SPINNING_WHEEL_2:
+        case SPINNING_WHEEL_3:
+        case SPINNING_WHEEL_4:
+        case SPINNING_WHEEL_5:
+        case SPINNING_WHEEL_6:
+        case SPINNING_WHEEL_7:
+            Crafting.openSpinningMenu(player);
             break;
         case FURNACE_18:
             for (Bar bar : Bar.values()) {

@@ -44,6 +44,77 @@ public class Crafting extends ItemIdentifiers {
     }
 
     /**
+     * The {@link AnimationLoop} the player will perform
+     * whilst spinning on a spinning wheel.
+     */
+    private static final AnimationLoop SPIN_ANIMATION = new AnimationLoop(new Animation(894), 3);
+
+    /**
+     * Opens the spinning menu, letting the player choose
+     * what to spin on a spinning wheel.
+     *
+     * @param player
+     */
+    public static void openSpinningMenu(Player player) {
+        player.getPacketSender().sendCreationMenu(new CreationMenu("What would you like to spin?",
+                Arrays.asList(BALL_OF_WOOL, BOW_STRING, CROSSBOW_STRING, MAGIC_STRING), (itemId, amount) -> {
+            Spinnable spinnable = Spinnable.map.get(itemId);
+            if (spinnable != null) {
+                player.getSkillManager().startSkillable(new ItemCreationSkillable(
+                        Arrays.asList(new RequiredItem(spinnable.getRaw(), true)),
+                        spinnable.getProduct(), amount, Optional.of(SPIN_ANIMATION),
+                        spinnable.getLevel(), spinnable.getExp(), Skill.CRAFTING));
+            }
+        }));
+    }
+
+    /**
+     * Handles spinning on a spinning wheel.
+     */
+    public enum Spinnable {
+        S1(new Item(WOOL), new Item(BALL_OF_WOOL), 1, 3),
+        S2(new Item(FLAX), new Item(BOW_STRING), 10, 15),
+        S3(new Item(SINEW), new Item(CROSSBOW_STRING), 10, 15),
+        S4(new Item(MAGIC_ROOTS), new Item(MAGIC_STRING), 19, 30);
+
+        static Map<Integer, Spinnable> map = new HashMap<Integer, Spinnable>();
+
+        static {
+            for (Spinnable s : Spinnable.values()) {
+                map.put(s.getProduct().getId(), s);
+            }
+        }
+
+        private final Item raw;
+        private final Item product;
+        private final int level;
+        private final int exp;
+
+        Spinnable(Item raw, Item product, int level, int exp) {
+            this.raw = raw;
+            this.product = product;
+            this.level = level;
+            this.exp = exp;
+        }
+
+        public Item getRaw() {
+            return raw;
+        }
+
+        public Item getProduct() {
+            return product;
+        }
+
+        public int getLevel() {
+            return level;
+        }
+
+        public int getExp() {
+            return exp;
+        }
+    }
+
+    /**
      * Handles Gem crafting.
      *
      * @author Professor Oak
