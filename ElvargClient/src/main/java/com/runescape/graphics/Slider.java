@@ -5,7 +5,6 @@ import com.runescape.Configuration;
 import com.runescape.graphics.sprite.Sprite;
 import com.runescape.graphics.widget.Widget;
 import com.runescape.draw.Rasterizer3D;
-import jdk.nashorn.internal.runtime.regexp.joni.Config;
 
 public class Slider {
 
