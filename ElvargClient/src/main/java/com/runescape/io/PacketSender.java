@@ -227,6 +227,13 @@ public class PacketSender {
         buffer.writeLEShort(slot);
         buffer.writeLEShort(itemId);
     }
+
+    public void sendItemContainerOption6(int interfaceId, int slot, int itemId) {
+        buffer.writeOpcode(138);
+        buffer.writeInt(interfaceId);
+        buffer.writeShortA(slot);
+        buffer.writeShortA(itemId);
+    }
     
     public void sendItemContainerSlotSwap(int interfaceId, int dummy, int fromSlot, int toSlot) {
         buffer.writeOpcode(214);
