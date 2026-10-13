@@ -11,57 +11,62 @@ import com.elvarg.game.model.areas.AreaManager;
 import com.elvarg.game.model.areas.impl.WildernessArea;
 import com.elvarg.game.task.Task;
 import com.elvarg.game.task.TaskManager;
+import com.elvarg.game.model.dialogues.DialogueOptionsAction;
+import com.elvarg.game.model.dialogues.builders.DialogueBuilder;
+import com.elvarg.game.model.dialogues.entries.Dialogue;
+import com.elvarg.game.model.dialogues.entries.impl.OptionsDialogue;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class TeleportHandler {
 
 	/**
 	 * Teleports a player to the target location.
 	 *
-	 * @param player
-	 *            The player teleporting.
-	 * @param targetLocation
-	 *            The location to teleport to.
-	 * @param teleportType
-	 *            The type of teleport.
+	 * @param player         The player teleporting.
+	 * @param targetLocation The location to teleport to.
+	 * @param teleportType   The type of teleport.
 	 */
-	public static void teleport(Player player, Location targetLocation, TeleportType teleportType,
-			boolean wildernessWarning) {
+	public static void teleport(Player player, Location targetLocation, TeleportType teleportType, boolean wildernessWarning) {
 		if (wildernessWarning) {
-			StringBuilder warning = new StringBuilder();
 			Area area = AreaManager.get(targetLocation);
 			boolean wilderness = (area instanceof WildernessArea);
 			int wildernessLevel = WildernessArea.getLevel(targetLocation.getY());
 			if (wilderness) {
-				warning.append("Are you sure you want to teleport there? ");
-				if (wildernessLevel > 0) {
-					warning.append("It's in level @red@" + wildernessLevel + "@bla@ wilderness! ");
-					if (WildernessArea.multi(targetLocation.getX(), targetLocation.getY())) {
-						warning.append(
-								"Additionally, @red@it's a multi zone@bla@. Other players may attack you simultaneously.");
-					} else {
-						warning.append("Other players will be able to attack you.");
-					}
-				} else {
-					warning.append("Other players will be able to attack you.");
+				// check for multi-wilderness
+				boolean isMulti = WildernessArea.multi(targetLocation.getX(), targetLocation.getY());
+
+				// Short message that fits perfectly on a single line without wrapping issues
+				String warningText = "Teleport to lvl " + wildernessLevel + " wilderness? (Single Combat)";
+				if (isMulti) {
+					warningText = "Teleport to lvl " + wildernessLevel + " MULTI-wilderness? (DANGEROUS)";
 				}
-				/*player.setDialogueContinueAction(new Action() {
+				final String finalWarningText = warningText;
+				player.getDialogueManager().start(new DialogueBuilder() {
 					@Override
-					public void execute() {
-
-						//DialogueManager.start(player, 7);
-						player.setDialogueOptions(new DialogueOptions() {
-							@Override
-							public void handleOption(Player player, int option) {
-								player.getPacketSender().sendInterfaceRemoval();
-								if (option == 1) {
-									teleport(player, targetLocation, teleportType, false);
-								}
-							}
-						});
+					public Map<Integer, Dialogue> getDialogues() {
+						Map<Integer, Dialogue> dialogues = new HashMap<>();
+						dialogues.put(0, new OptionsDialogue(
+								0,
+								finalWarningText,
+								new LinkedHashMap<String, DialogueOptionsAction>() {{
+									put("Yes, teleport", p -> {
+										TeleportHandler.teleport(
+												p,
+												targetLocation,
+												teleportType,
+												false
+										);
+									});
+									put("No, cancel", p -> {
+										p.getPacketSender().sendInterfaceRemoval();
+									});
+								}}
+						));
+						return dialogues;
 					}
-
 				});
-				//DialogueManager.sendStatement(player, warning.toString());*/
 				return;
 			}
 		}
@@ -151,28 +156,28 @@ public class TeleportHandler {
 				return true;
 			}
 			switch (menuId) {
-			case 0: // Click to teleport
-				if (teleportButton == TeleportButton.HOME) {
-					if (TeleportHandler.checkReqs(player, GameConstants.DEFAULT_LOCATION)) {
-						TeleportHandler.teleport(player, GameConstants.DEFAULT_LOCATION,
-								player.getSpellbook().getTeleportType(), false);
-						player.getPreviousTeleports().put(teleportButton, GameConstants.DEFAULT_LOCATION);
+				case 0: // Click to teleport
+					if (teleportButton == TeleportButton.HOME) {
+						if (TeleportHandler.checkReqs(player, GameConstants.DEFAULT_LOCATION)) {
+							TeleportHandler.teleport(player, GameConstants.DEFAULT_LOCATION,
+									player.getSpellbook().getTeleportType(), false);
+							player.getPreviousTeleports().put(teleportButton, GameConstants.DEFAULT_LOCATION);
+						}
+						return true;
 					}
+					player.getPacketSender().sendTeleportInterface(teleportButton.menu);
 					return true;
-				}
-				player.getPacketSender().sendTeleportInterface(teleportButton.menu);
-				return true;
-			case 1: // Previous option on teleport
-				if (player.getPreviousTeleports().containsKey(teleportButton)) {
-					Location tele = player.getPreviousTeleports().get(teleportButton);
-					if (TeleportHandler.checkReqs(player, tele)) {
-						TeleportHandler.teleport(player, tele, player.getSpellbook().getTeleportType(), true);
+				case 1: // Previous option on teleport
+					if (player.getPreviousTeleports().containsKey(teleportButton)) {
+						Location tele = player.getPreviousTeleports().get(teleportButton);
+						if (TeleportHandler.checkReqs(player, tele)) {
+							TeleportHandler.teleport(player, tele, player.getSpellbook().getTeleportType(), true);
+						}
+					} else {
+						player.getPacketSender().sendMessage("Unable to find a previous teleport.");
 					}
-				} else {
-					player.getPacketSender().sendMessage("Unable to find a previous teleport.");
-				}
-				player.getPacketSender().sendInterfaceRemoval();
-				return true;
+					player.getPacketSender().sendInterfaceRemoval();
+					return true;
 			}
 		}
 		return false;
